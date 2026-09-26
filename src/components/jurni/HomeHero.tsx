@@ -11,7 +11,7 @@ function PhoneMock() {
   return (
     <figure className="mx-auto w-full max-w-[350px] lg:mx-0">
       <IPhoneFrame eager>
-        <div className="flex h-full flex-col bg-paper px-3.5 pb-5 pt-11">
+        <div className="flex h-full flex-col bg-paper px-3.5 pb-5 pt-[13%]">
           <div className="flex items-center gap-2.5 border-b border-hairline pb-2.5">
             <StakAvatar size={28} />
             <span className="font-display text-[16px] font-extrabold">Stak</span>

@@ -271,7 +271,7 @@ function DesktopThread() {
       <div>
         <div className="sticky top-[96px]">
           <IPhoneFrame>
-            <div className="flex h-full flex-col bg-paper px-3.5 pt-11">
+            <div className="flex h-full flex-col bg-paper px-3.5 pt-[13%]">
               <div className="flex items-center gap-2.5 border-b border-hairline pb-2.5">
                 <StakAvatar size={28} />
                 <span className="font-display text-[16px] font-extrabold">Stak</span>
