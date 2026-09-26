@@ -35,8 +35,8 @@ export function YourPage({ referralSlug }: { referralSlug?: string | undefined }
                   <span key={i} className="h-3 w-3 rounded-full bg-frame" />
                 ))}
               </div>
-              <div className="min-w-0 flex-1 rounded-full bg-paper px-3 py-1 text-[15px] text-muted">jurniglp.com/you</div>
-              <div className="flex items-center gap-2">
+              <div className="order-last min-w-0 basis-full rounded-full bg-paper px-3 py-1 text-[15px] text-muted sm:order-none sm:flex-1 sm:basis-auto">jurniglp.com/you</div>
+              <div className="ml-auto flex items-center gap-2">
                 <Wordmark className="h-4" />
                 <span className="text-[15px] font-bold">{practice}</span>
               </div>
