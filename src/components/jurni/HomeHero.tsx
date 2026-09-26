@@ -61,10 +61,16 @@ export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }
 
   useEffect(() => {
     const querySlug = new URLSearchParams(window.location.search).get("from") ?? undefined;
-    const practice = findPractice(referralSlug ?? querySlug);
+    const suppliedSlug = referralSlug ?? querySlug;
+    const practice = findPractice(suppliedSlug);
     if (practice) {
       rememberPractice(practice.slug);
       setEyebrow(`${practice.name} SENT YOU HERE.`);
+      return;
+    }
+
+    if (suppliedSlug) {
+      setEyebrow(DEFAULT_EYEBROW);
       return;
     }
 
@@ -76,7 +82,7 @@ export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }
     <section id="hero" className="content-column py-10 md:py-16 lg:flex lg:min-h-[calc(100svh-64px)] lg:items-center">
       <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,1.22fr)_minmax(300px,0.78fr)] lg:gap-12">
         <div>
-          <p className="label-over text-magenta">{eyebrow}</p>
+          <p className="label-over text-[14px] text-magenta">{eyebrow}</p>
           <h1 className="display-hero mt-4 max-w-[720px]">
             Your doctor handles the medication. Stak handles everything between visits.
           </h1>

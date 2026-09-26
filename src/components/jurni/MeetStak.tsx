@@ -13,7 +13,7 @@ function FeatureContent({
   return (
     <>
       <div>
-        <p className="label-over text-inherit">{number}</p>
+        <p className="label-over text-[14px] text-inherit">{number}</p>
         <h3 className="mt-5 font-display text-[30px] font-extrabold leading-[1.05]">{headline}</h3>
       </div>
       <p className="mt-8 text-[17px] leading-[1.5]">{children}</p>
@@ -23,7 +23,7 @@ function FeatureContent({
 
 export function MeetStak() {
   return (
-    <section id="meet-stak" className="section-y">
+    <section id="meet-stak" className="section-y [&_.label-over]:text-[14px]">
       <div className="content-column">
         <SectionLabel>MEET STAK</SectionLabel>
         <h2 className="display-section mt-4 max-w-[760px]">Stak is an AI. It will tell you that itself.</h2>
@@ -63,7 +63,7 @@ export function MeetStak() {
           </DarkCard>
           <WhiteCard className="min-h-0 md:col-span-2">
             <div>
-              <p className="label-over">WHAT STAK ISN&apos;T</p>
+              <p className="label-over text-[14px]">WHAT STAK ISN&apos;T</p>
               <p className="mt-5 max-w-[880px] text-[17px] leading-[1.5]">
                 Your doctor. It won&apos;t change your dose, diagnose anything, or tell you what to do about
                 a symptom that needs a clinician. When something does, it says so and points you back to
