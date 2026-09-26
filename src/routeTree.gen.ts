@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PracticesRouteImport } from './routes/practices'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -18,6 +19,11 @@ import { Route as TermsRouteImport } from './routes/terms'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SlugRoute = SlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -43,6 +49,7 @@ const TermsRoute = TermsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
   '/contact': typeof ContactRoute
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
   '/contact': typeof ContactRoute
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
   '/contact': typeof ContactRoute
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
@@ -65,14 +74,22 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/practices' | '/privacy' | '/terms'
+  fullPaths: '/' | '/$slug' | '/contact' | '/practices' | '/privacy' | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/practices' | '/privacy' | '/terms'
-  id: '__root__' | '/' | '/contact' | '/practices' | '/privacy' | '/terms'
+  to: '/' | '/$slug' | '/contact' | '/practices' | '/privacy' | '/terms'
+  id:
+    | '__root__'
+    | '/'
+    | '/$slug'
+    | '/contact'
+    | '/practices'
+    | '/privacy'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SlugRoute: typeof SlugRoute
   ContactRoute: typeof ContactRoute
   PracticesRoute: typeof PracticesRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -86,6 +103,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$slug': {
+      id: '/$slug'
+      path: '/$slug'
+      fullPath: '/$slug'
+      preLoaderRoute: typeof SlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -121,6 +145,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SlugRoute: SlugRoute,
   ContactRoute: ContactRoute,
   PracticesRoute: PracticesRoute,
   PrivacyRoute: PrivacyRoute,
