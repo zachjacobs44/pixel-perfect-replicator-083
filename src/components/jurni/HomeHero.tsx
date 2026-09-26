@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { findPractice, readRememberedPractice, rememberPractice } from "@/lib/referring-practices";
+import { IPhoneFrame } from "./IPhoneFrame";
 import { StakCTA } from "./StakCTA";
 import { StakAvatar } from "./Wordmark";
 
@@ -9,19 +10,18 @@ const DEFAULT_EYEBROW = "YOUR DOCTOR SENT YOU HERE.";
 function PhoneMock() {
   return (
     <figure className="mx-auto w-full max-w-[350px] lg:mx-0">
-      <div className="rounded-[38px] bg-ink p-[9px] shadow-dark">
-        <div className="min-h-[570px] overflow-hidden rounded-[30px] bg-paper px-4 pb-6 pt-3">
-          <div className="text-center text-[14px] font-semibold">9:41</div>
-          <div className="mt-2 flex items-center gap-3 border-b border-hairline pb-3">
-            <StakAvatar size={32} />
-            <span className="font-display text-[18px] font-extrabold">Stak</span>
+      <IPhoneFrame eager>
+        <div className="flex h-full flex-col bg-paper px-3.5 pb-5 pt-11">
+          <div className="flex items-center gap-2.5 border-b border-hairline pb-2.5">
+            <StakAvatar size={28} />
+            <span className="font-display text-[16px] font-extrabold">Stak</span>
           </div>
 
-          <div className="mt-5 flex flex-col gap-4">
+          <div className="mt-4 flex flex-col gap-3.5">
             <div className="message-arrive max-w-[92%]" style={{ animationDelay: "0ms" }}>
-              <StakAvatar size={20} />
+              <StakAvatar size={18} />
               <div
-                className="mt-1.5 rounded-[18px] rounded-bl-[6px] border-l-[3px] border-magenta p-3.5 text-[17px] leading-[1.35]"
+                className="mt-1.5 rounded-[16px] rounded-bl-[6px] border-l-[3px] border-magenta p-3 text-[15px] leading-[1.35]"
                 style={{ background: "var(--grad-white)", boxShadow: "var(--shadow-white)" }}
               >
                 Morning. Dose day, week 12, your first at the higher dose. Small meals today, nothing
@@ -30,16 +30,16 @@ function PhoneMock() {
             </div>
 
             <div
-              className="message-arrive ml-auto max-w-[84%] rounded-[18px] rounded-br-[6px] bg-frame p-3.5 text-[17px] leading-[1.35]"
+              className="message-arrive ml-auto max-w-[84%] rounded-[16px] rounded-br-[6px] bg-frame p-3 text-[15px] leading-[1.35]"
               style={{ animationDelay: "400ms" }}
             >
               ok so far. weird thing, walked past the office bagels and didn&apos;t want one
             </div>
 
             <div className="message-arrive max-w-[92%]" style={{ animationDelay: "800ms" }}>
-              <StakAvatar size={20} />
+              <StakAvatar size={18} />
               <div
-                className="mt-1.5 rounded-[18px] rounded-bl-[6px] border-l-[3px] border-magenta p-3.5 text-[17px] leading-[1.35]"
+                className="mt-1.5 rounded-[16px] rounded-bl-[6px] border-l-[3px] border-magenta p-3 text-[15px] leading-[1.35]"
                 style={{ background: "var(--grad-white)", boxShadow: "var(--shadow-white)" }}
               >
                 That&apos;s the food noise quieting down. Twelve weeks ago you told me those bagels were
@@ -48,7 +48,7 @@ function PhoneMock() {
             </div>
           </div>
         </div>
-      </div>
+      </IPhoneFrame>
       <figcaption className="mt-4 text-center text-[15px] text-muted">
         What a week with Stak looks like. The full conversation is below.
       </figcaption>
