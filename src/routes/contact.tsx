@@ -43,17 +43,38 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
 function Contact() {
   const send = useServerFn(sendContactMessage);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState(
+    "That didn’t send. Please email support@jurniglp.com.",
+  );
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
+
+    const values = {
+      name: form.name.trim(),
+      email: form.email.trim(),
+      message: form.message.trim(),
+    };
+    if (!values.name || !values.email.includes("@") || !values.message) {
+      setErrorMessage("Please add your name, a valid email address, and a message.");
+      setStatus("error");
+      return;
+    }
+
     setStatus("sending");
     try {
-      await send({ data: form });
-      setStatus("sent");
-      setForm({ name: "", email: "", message: "" });
+      const result = await send({ data: values });
+      if (result.ok) {
+        setStatus("sent");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setErrorMessage(result.error);
+        setStatus("error");
+      }
     } catch (error) {
       console.error(error);
+      setErrorMessage("That didn’t send. Please email support@jurniglp.com.");
       setStatus("error");
     }
   }
