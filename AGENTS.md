@@ -16,3 +16,4 @@
 - Header, Footer and the mobile sticky text bar are mounted once in `src/routes/__root.tsx`; page routes render only their own sections.
 - Client-callable server logic lives in `src/lib/*.functions.ts` (`contact.functions.ts`, `practices.functions.ts`) — keeps secrets like `PRACTICES_PASSWORD` and the email key server-side.
 - CTA analytics go through `src/lib/analytics.ts`; every Text/Call Stak tap fires `cta_text`/`cta_call` with a `section` property.
+- Referring-practice attribution is defined only in `src/lib/referring-practices.ts` and persists valid entries for 30 days — this keeps displayed practice names allowlisted and easy to maintain.

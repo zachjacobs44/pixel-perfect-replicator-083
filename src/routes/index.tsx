@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { HomeHero } from "@/components/jurni/HomeHero";
+import { MeetStak } from "@/components/jurni/MeetStak";
 import { SectionPlaceholder } from "@/components/jurni/SectionPlaceholder";
 import {
   ClosingCTA,
   PricingCTA,
-  StakCTA,
   ThreadCTA,
 } from "@/components/jurni/StakCTA";
 
@@ -13,6 +14,9 @@ const DESCRIPTION =
   "Text or call Stak, your GLP-1 support from Jurni GLP. Answers, check-ins, meals and workouts. No app. Two weeks free.";
 
 export const Route = createFileRoute("/")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    from: typeof search.from === "string" ? search.from : undefined,
+  }),
   head: () => ({
     meta: [
       { title: TITLE },
@@ -33,13 +37,15 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const { from } = Route.useSearch();
+  return <HomePage referralSlug={from} />;
+}
+
+export function HomePage({ referralSlug }: { referralSlug?: string }) {
   return (
     <>
-      <SectionPlaceholder label="Hero" id="hero">
-        <StakCTA section="hero" />
-      </SectionPlaceholder>
-
-      <SectionPlaceholder label="Meet Stak" id="meet-stak" />
+      <HomeHero referralSlug={referralSlug} />
+      <MeetStak />
 
       <SectionPlaceholder label="The Thread" id="the-thread">
         <ThreadCTA />
