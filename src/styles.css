@@ -1,144 +1,214 @@
 @import "tailwindcss" source(none);
 @source "../src";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * Jurni GLP design system.
+ * Tokens are copied from jurni-style-guide.html (source of truth).
+ * No colors outside this list may be used anywhere on the site.
  */
 
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  /* base */
+  --paper: #faf7f1;
+  --frame: #e9e3d5;
+  --ink: #141414;
+  --white: #ffffff;
+
+  /* brand */
+  --magenta: #e6007e;
+  --cyan: #00b5e2;
+  --yellow: #ffd100;
+  --text-cyan: #0092b8;
+
+  /* ink tints */
+  --muted: rgba(20, 20, 20, 0.55);
+  --muted-soft: rgba(20, 20, 20, 0.4);
+  --quiet: rgba(20, 20, 20, 0.12);
+  --hairline: rgba(20, 20, 20, 0.08);
+
+  /* card gradients */
+  --grad-magenta: linear-gradient(180deg, #f43ba0, #e6007e 55%, #cf0070);
+  --grad-cyan: linear-gradient(180deg, #33c9ec, #00b5e2 55%, #00a0cd);
+  --grad-yellow: linear-gradient(180deg, #ffdf4d, #ffd100 55%, #f0c200);
+  --grad-dark: linear-gradient(180deg, #2e2c29, #141414 60%);
+  --grad-white: linear-gradient(180deg, #ffffff, #fdfaf4);
+
+  /* colored shadows */
+  --shadow-magenta:
+    0 16px 30px -14px rgba(230, 0, 126, 0.55), inset 0 1.5px 0 rgba(255, 255, 255, 0.3);
+  --shadow-cyan: 0 16px 30px -14px rgba(0, 160, 205, 0.5), inset 0 1.5px 0 rgba(255, 255, 255, 0.35);
+  --shadow-yellow:
+    0 16px 30px -14px rgba(240, 194, 0, 0.5), inset 0 1.5px 0 rgba(255, 255, 255, 0.45);
+  --shadow-dark: 0 16px 30px -14px rgba(20, 20, 20, 0.6), inset 0 1.5px 0 rgba(255, 255, 255, 0.14);
+  --shadow-white: 0 12px 28px -14px rgba(20, 20, 20, 0.25);
+
+  /* type */
+  --font-display: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+
+  /* shape and motion */
+  --radius-card: 22px;
+  --radius-chip: 9px;
+  --radius-sheet: 24px;
+  --ease-spring: cubic-bezier(0.2, 1.4, 0.4, 1);
+  --ease-panel: cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+@theme inline {
+  --color-paper: var(--paper);
+  --color-frame: var(--frame);
+  --color-ink: var(--ink);
+  --color-white: var(--white);
+  --color-magenta: var(--magenta);
+  --color-cyan: var(--cyan);
+  --color-yellow: var(--yellow);
+  --color-text-cyan: var(--text-cyan);
+  --color-muted: var(--muted);
+  --color-muted-soft: var(--muted-soft);
+  --color-quiet: var(--quiet);
+  --color-hairline: var(--hairline);
+
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --color-border: var(--hairline);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
+  --radius-card: 22px;
+  --radius-chip: 9px;
+  --radius-sheet: 24px;
+
+  --ease-spring: var(--ease-spring);
 }
 
 @layer base {
   * {
-    border-color: var(--color-border);
+    box-sizing: border-box;
+    border-color: var(--hairline);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    margin: 0;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      font-size: 18px;
+    }
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+/* Headlines: Bricolage Grotesque 800, -0.03em, line-height .95 */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+@utility display-hero {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  font-size: 52px;
+  @media (min-width: 768px) {
+    font-size: 88px;
+  }
+}
+
+@utility display-section {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  font-size: 36px;
+  @media (min-width: 768px) {
+    font-size: 56px;
+  }
+}
+
+/* Section labels: Hanken 700, 12px, caps, .15em */
+@utility label-over {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Nothing below 14px anywhere on the site */
+@utility fine-print {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+@utility content-column {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  padding-inline: max(20px, env(safe-area-inset-left), env(safe-area-inset-right));
+}
+
+@utility section-y {
+  padding-block: 80px;
+  @media (min-width: 768px) {
+    padding-block: 140px;
+  }
+}
+
+@utility press-spring {
+  transition:
+    transform 200ms var(--ease-spring),
+    box-shadow 200ms var(--ease-spring);
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+@utility card-arrive {
+  animation: card-arrive 380ms var(--ease-spring) both;
+}
+
+@keyframes card-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

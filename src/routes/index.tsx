@@ -1,24 +1,54 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { SectionPlaceholder } from "@/components/jurni/SectionPlaceholder";
+import { StakCTA } from "@/components/jurni/StakCTA";
+
+const TITLE = "Jurni GLP — GLP-1 support by text and call.";
+const DESCRIPTION =
+  "Text or call Stak, your GLP-1 support from Jurni GLP. Answers, check-ins, meals and workouts. No app. Two weeks free.";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:url", content: "https://jurniglp.com/" },
+      { property: "og:image", content: "https://jurniglp.com/social-preview.png" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: "https://jurniglp.com/social-preview.png" },
+    ],
+    links: [{ rel: "canonical", href: "https://jurniglp.com/" }],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <SectionPlaceholder label="Hero" id="hero">
+        <StakCTA section="hero" />
+      </SectionPlaceholder>
+
+      <SectionPlaceholder label="Meet Stak" id="meet-stak" />
+
+      <SectionPlaceholder label="The Thread" id="the-thread">
+        <StakCTA section="thread" />
+      </SectionPlaceholder>
+
+      <SectionPlaceholder label="What Stak Does" id="what-stak-does" />
+
+      <SectionPlaceholder label="The Page" id="the-page" />
+
+      <SectionPlaceholder label="Pricing" id="pricing">
+        <StakCTA section="pricing" />
+      </SectionPlaceholder>
+
+      <SectionPlaceholder label="Questions" id="questions">
+        <StakCTA section="faq" />
+      </SectionPlaceholder>
+    </>
   );
 }
