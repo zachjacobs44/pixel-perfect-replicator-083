@@ -93,6 +93,11 @@ function Contact() {
               contact@jurniglp.com
             </a>
           </Row>
+          <Row label="Text or call">
+            <a href={STAK_TEL_HREF} className="underline">
+              {STAK_PHONE_DISPLAY}
+            </a>
+          </Row>
         </div>
 
         <form onSubmit={onSubmit} className="mt-12">
