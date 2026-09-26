@@ -1,0 +1,153 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useState } from "react";
+
+import { sendContactMessage } from "@/lib/contact.functions";
+import { STAK_PHONE_DISPLAY, STAK_TEL_HREF } from "@/components/jurni/StakCTA";
+
+const TITLE = "Contact Jurni GLP";
+const DESCRIPTION =
+  "Questions about the service, your subscription, or messages you've received. Email, text or call Jurni GLP.";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:url", content: "https://jurniglp.com/contact" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+    ],
+    links: [{ rel: "canonical", href: "https://jurniglp.com/contact" }],
+  }),
+  component: Contact,
+});
+
+const inputClass =
+  "mt-2 w-full rounded-[var(--radius-chip)] border bg-white px-4 py-3 text-[17px] md:text-[18px] outline-none focus:border-ink";
+
+function Row({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div
+      className="flex flex-col gap-1 border-b py-4 md:flex-row md:items-baseline md:gap-6"
+      style={{ borderColor: "var(--hairline)" }}
+    >
+      <div className="label-over md:w-[170px] md:shrink-0">{label}</div>
+      <div className="text-[17px] md:text-[18px]">{children}</div>
+    </div>
+  );
+}
+
+function Contact() {
+  const send = useServerFn(sendContactMessage);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  async function onSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    setStatus("sending");
+    try {
+      await send({ data: form });
+      setStatus("sent");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
+  }
+
+  return (
+    <section className="section-y">
+      <div className="content-column max-w-[760px]">
+        <h1 className="display-section">Contact Jurni GLP.</h1>
+        <p className="mt-4 text-[17px] md:text-[18px]">
+          Questions about the service, your subscription, or messages you&rsquo;ve received.
+        </p>
+
+        <div className="mt-10">
+          <Row label="Email">
+            <a href="mailto:support@jurniglp.com" className="underline">
+              support@jurniglp.com
+            </a>
+          </Row>
+          <Row label="Text or call">
+            <a href={STAK_TEL_HREF} className="underline">
+              {STAK_PHONE_DISPLAY}
+            </a>
+          </Row>
+          <Row label="Mail">
+            Jurni Health, Inc.
+            <br />
+            <span style={{ color: "var(--muted-soft)" }}>
+              Street address placeholder — to be provided.
+            </span>
+          </Row>
+        </div>
+
+        <form onSubmit={onSubmit} className="mt-12">
+          <label className="block">
+            <span className="label-over">Name</span>
+            <input
+              required
+              className={inputClass}
+              style={{ borderColor: "var(--hairline)" }}
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+            />
+          </label>
+
+          <label className="mt-6 block">
+            <span className="label-over">Email</span>
+            <input
+              required
+              type="email"
+              className={inputClass}
+              style={{ borderColor: "var(--hairline)" }}
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+            />
+          </label>
+
+          <label className="mt-6 block">
+            <span className="label-over">Message</span>
+            <textarea
+              required
+              rows={5}
+              className={inputClass}
+              style={{ borderColor: "var(--hairline)" }}
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+            />
+          </label>
+
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="press-spring mt-7 inline-flex h-[60px] items-center justify-center rounded-full px-8 font-display text-[20px] font-bold text-white disabled:opacity-70"
+            style={{ background: "var(--grad-magenta)", boxShadow: "var(--shadow-magenta)" }}
+          >
+            {status === "sending" ? "Sending…" : "Send"}
+          </button>
+
+          {status === "sent" ? (
+            <p className="mt-4 text-[17px] font-semibold" style={{ color: "var(--text-cyan)" }}>
+              Sent. We&rsquo;ll reply within one business day.
+            </p>
+          ) : null}
+          {status === "error" ? (
+            <p className="mt-4 text-[17px] font-semibold">
+              That didn&rsquo;t send. Please email support@jurniglp.com.
+            </p>
+          ) : null}
+        </form>
+
+        <p className="fine-print mt-8">
+          Message frequency varies. Message and data rates may apply. Reply STOP to end, HELP for
+          help.
+        </p>
+      </div>
+    </section>
+  );
+}
