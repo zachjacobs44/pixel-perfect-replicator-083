@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { YellowCard } from "@/components/jurni/Card";
 
-const TITLE = "Terms — Jurni GLP";
+const TITLE = "Terms | Jurni GLP";
 const DESCRIPTION = "The terms that apply when you use Jurni GLP support by text and call.";
 
 export const Route = createFileRoute("/terms")({

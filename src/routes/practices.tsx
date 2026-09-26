@@ -3,10 +3,10 @@ import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState } from "react";
 
 import { checkPracticesPassword } from "@/lib/practices.functions";
-import { SectionPlaceholder } from "@/components/jurni/SectionPlaceholder";
+import { PracticesContent } from "@/components/jurni/PracticesContent";
 import { Wordmark } from "@/components/jurni/Wordmark";
 
-const TITLE = "For practices — Jurni GLP";
+const TITLE = "For practices | Jurni GLP";
 const STORAGE_KEY = "jurni.practices.access";
 
 export const Route = createFileRoute("/practices")({
@@ -63,7 +63,7 @@ function Practices() {
   }
 
   if (unlocked) {
-    return <SectionPlaceholder label="For practices" />;
+    return <PracticesContent />;
   }
 
   return (

@@ -150,7 +150,7 @@
 @utility label-over {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -230,5 +230,69 @@
 
   .message-arrive {
     opacity: 1;
+  }
+}
+
+/* Medication marquee: slow, pauses on hover, static + wrapped under reduced motion */
+.med-track {
+  display: flex;
+  width: max-content;
+  animation: med-scroll 40s linear infinite;
+}
+.med-marquee:hover .med-track {
+  animation-play-state: paused;
+}
+.med-row {
+  display: flex;
+  flex-shrink: 0;
+}
+@keyframes med-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .med-track {
+    animation: none;
+    width: auto;
+  }
+  .med-row {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+  .med-row[aria-hidden="true"],
+  .med-tail {
+    display: none;
+  }
+}
+
+@media print {
+  @page {
+    size: 3.5in 2in;
+    margin: 0;
+  }
+  html,
+  body {
+    background: #faf7f1 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .card-face {
+    width: 3.5in !important;
+    height: 2in !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    break-after: page;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .card-face:last-child {
+    break-after: auto;
+  }
+  .card-sheet {
+    padding: 0 !important;
+    gap: 0 !important;
   }
 }

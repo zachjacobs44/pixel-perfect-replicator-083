@@ -1,12 +1,17 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
+
+import { findPractice } from "@/lib/referring-practices";
 
 import { HomePage } from "@/components/jurni/HomePage";
 
-const TITLE = "Jurni GLP — GLP-1 support by text and call.";
+const TITLE = "Jurni GLP | GLP-1 support by text and call.";
 const DESCRIPTION =
   "Text or call Stak, your GLP-1 support from Jurni GLP. Answers, check-ins, meals and workouts. No app. Two weeks free.";
 
 export const Route = createFileRoute("/$slug")({
+  beforeLoad: ({ params }) => {
+    if (!findPractice(params.slug)) throw notFound();
+  },
   head: () => ({
     meta: [
       { title: TITLE },

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { YellowCard } from "@/components/jurni/Card";
 
-const TITLE = "Privacy — Jurni GLP";
+const TITLE = "Privacy | Jurni GLP";
 const DESCRIPTION =
   "How Jurni GLP handles your information, including mobile phone numbers and SMS consent.";
 

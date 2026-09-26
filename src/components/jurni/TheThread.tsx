@@ -16,40 +16,40 @@ type Chapter = { label: string; line: string; messages: Msg[] };
 const CHAPTERS: Chapter[] = [
   {
     label: "A PHOTO, NOT A FOOD DIARY",
-    line: "Send a picture of the plate. Stak does the logging.",
+    line: "Send the plate. Stak does the math.",
     messages: [
       { from: "photo", caption: "dinner" },
       {
         from: "stak",
-        text: "Logged. Salmon, rice, green beans, about 38g of protein. That puts you at 94 for the day, against your 110. A Greek yogurt before bed closes it. If you're not hungry, don't force it.",
+        text: "Logged. Salmon, rice, green beans. About 38g of protein, which puts you at 94 for the day against your 110. A Greek yogurt before bed closes the gap. If you're not hungry, don't force it. The week matters more than the night.",
       },
     ],
   },
   {
     label: "A MENU LINK",
-    line: "Send the restaurant. Stak picks the plate.",
+    line: "Send the restaurant. Stak reads the menu for you.",
     messages: [
-      { from: "user", text: "dinner with my sister thursday, she picked cheesecake factory" },
+      { from: "user", text: "dinner thursday with my sister, she picked cheesecake factory" },
       { from: "user", text: "https://www.thecheesecakefactory.com/menu" },
       {
         from: "stak",
-        text: "Looked at the menu. Three that will sit well on the new dose and get you close to your protein: the grilled salmon, the chicken piccata, or the shrimp scampi if you want something lighter. Portions there are enormous. Ask for the box when you order, not after.",
+        text: "Read it. Three that will sit well on the new dose and get you near your protein: the grilled salmon, the chicken piccata, or the shrimp scampi if you want lighter. Portions there are built for two. Ask for the box when you order, not after.",
       },
     ],
   },
   {
     label: "A SIDE EFFECT",
-    line: "It logs the small stuff. It knows which stuff isn't small.",
+    line: "It logs the small things. It knows which things aren't small.",
     messages: [
       {
         from: "user",
-        text: "took my shot last night. stomach's been rough since and it's kind of spreading to my back",
+        text: "took my shot last night. stomach's been rough since and now it's kind of in my back",
       },
       {
         from: "stak",
-        text: "Logged for Tuesday. Stomach pain that moves to your back is one I don't talk anyone through. Call your prescriber's office now. If it gets worse before you reach them, go in. I've noted when it started so you can tell them exactly.",
+        text: "Logged for Tuesday. Stomach pain that moves into your back is not one I talk anyone through. Call your prescriber's office now. If it gets worse before you reach them, go in. I've noted when it started so you can tell them exactly.",
       },
-      { from: "user", text: "ok calling now" },
+      { from: "user", text: "ok calling" },
     ],
   },
   {
@@ -59,18 +59,18 @@ const CHAPTERS: Chapter[] = [
       { from: "user", text: "can you plan dinners and workouts for the rest of the week" },
       {
         from: "stak",
-        text: "Done. Four dinners built around the chicken and salmon you already like, each under 20 minutes, all above 35g of protein. The grocery list is on your Page. Two short lifts, Tuesday and Thursday, and a walk Saturday. I kept them short. You said week two at a new dose runs low on energy.",
+        text: "Done. Four dinners built around the chicken and salmon you already like, each under 20 minutes, each over 35g of protein. Grocery list is on your Page. Two short lifts, Tuesday and Thursday, and a long walk Saturday. I kept them short on purpose. You told me week two at a new dose runs low.",
       },
     ],
   },
   {
     label: "REMINDERS",
-    line: "It goes on your calendar, not on a list you'll lose.",
+    line: "On your calendar, not on a list you'll lose.",
     messages: [
       { from: "user", text: "remind me about the lifts" },
       {
         from: "stak",
-        text: "On your calendar, with a nudge an hour before. I also set a 12:30 lunch reminder. Lunch is the meal you skip.",
+        text: "On your calendar with a nudge an hour before. I also added a 12:30 lunch reminder. Lunch is the meal you skip, and skipping it is why 4pm gets ugly.",
       },
     ],
   },
@@ -81,28 +81,28 @@ const CHAPTERS: Chapter[] = [
       { from: "call", text: "Voice call · 4 min" },
       {
         from: "stak",
-        text: "Good talking just now. Recap: headaches are common in the first week at a new dose. Water through the day, and mention it to your practice Thursday if they're still around.",
+        text: "Good talking just now. The short version: headaches are common in the first week at a new dose. Water through the day, and mention it to your practice Thursday if they're still around.",
       },
     ],
   },
   {
     label: "ANY LANGUAGE",
-    line: "Same number, whichever language is easier that day.",
+    line: "Same number. Whichever language is easier that day.",
     messages: [
       { from: "user", text: "can i text you in spanish sometimes? easier when i'm at my mom's" },
       { from: "stak", text: "Claro. Mismo número, cuando quieras." },
     ],
   },
   {
-    label: "IT REACHES OUT FIRST",
-    line: "On the days that matter, you're not the one who has to remember.",
+    label: "IT TEXTS FIRST",
+    line: "The days that matter are the days you're least likely to remember.",
     messages: [
       {
         from: "stak",
-        text: "Your refill window opens today. Want me to text you Thursday night before the next one?",
+        text: "Refill window opens today. Want a text Thursday night before the next one?",
       },
       { from: "user", text: "yes pls" },
-      { from: "stak", text: "Done. Your Page is updated. Week 12, down 14 lbs." },
+      { from: "stak", text: "Set. Your Page is updated. Week 12, down 14 pounds. That flat week is behind you." },
     ],
   },
 ];
@@ -326,10 +326,9 @@ export function TheThread() {
     <section id="the-thread" className="section-y [&_.label-over]:text-[14px]">
       <div className="content-column">
         <SectionLabel>THE THREAD</SectionLabel>
-        <h2 className="display-section mt-4 max-w-[760px]">A week with Stak, in one thread.</h2>
+        <h2 className="display-section mt-4 max-w-[760px]">One week. One number.</h2>
         <p className="mt-6 max-w-[560px] text-[20px] leading-[1.5]">
-          Texts, a photo, a link, a phone call. Nothing to open, nothing to fill in. It picks up where the
-          conversation above left off.
+          A photo, a link, a phone call, a Tuesday that didn&apos;t go well. Everything below happened in one text thread, without an app.
         </p>
         <MobileThread />
         <DesktopThread />
