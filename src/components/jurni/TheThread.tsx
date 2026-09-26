@@ -269,12 +269,11 @@ function DesktopThread() {
     <div className="mt-16 hidden grid-cols-[350px_minmax(0,1fr)] gap-20 lg:grid">
       <div>
         <div className="sticky top-[96px]">
-          <div className="rounded-[38px] bg-ink p-[9px] shadow-dark">
-            <div className="flex h-[min(640px,calc(100svh-140px))] flex-col overflow-hidden rounded-[30px] bg-paper px-4 pt-3">
-              <div className="text-center text-[14px] font-semibold">9:41</div>
-              <div className="mt-2 flex items-center gap-3 border-b border-hairline pb-3">
-                <StakAvatar size={32} />
-                <span className="font-display text-[18px] font-extrabold">Stak</span>
+          <IPhoneFrame>
+            <div className="flex h-full flex-col bg-paper px-3.5 pt-11">
+              <div className="flex items-center gap-2.5 border-b border-hairline pb-2.5">
+                <StakAvatar size={28} />
+                <span className="font-display text-[16px] font-extrabold">Stak</span>
               </div>
               <div ref={screenRef} className="relative flex-1 overflow-hidden" aria-hidden="false">
                 <div className="flex flex-col gap-4 pb-6 pt-5">
@@ -291,7 +290,7 @@ function DesktopThread() {
                 </div>
               </div>
             </div>
-          </div>
+          </IPhoneFrame>
         </div>
       </div>
       <ol className="flex flex-col">
