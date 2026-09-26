@@ -56,11 +56,12 @@ function PhoneMock() {
   );
 }
 
-export function HomeHero({ referralSlug }: { referralSlug?: string }) {
+export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }) {
   const [eyebrow, setEyebrow] = useState(DEFAULT_EYEBROW);
 
   useEffect(() => {
-    const practice = findPractice(referralSlug);
+    const querySlug = new URLSearchParams(window.location.search).get("from") ?? undefined;
+    const practice = findPractice(referralSlug ?? querySlug);
     if (practice) {
       rememberPractice(practice.slug);
       setEyebrow(`${practice.name.toUpperCase()} SENT YOU HERE.`);

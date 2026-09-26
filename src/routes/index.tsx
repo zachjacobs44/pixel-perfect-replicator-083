@@ -14,9 +14,6 @@ const DESCRIPTION =
   "Text or call Stak, your GLP-1 support from Jurni GLP. Answers, check-ins, meals and workouts. No app. Two weeks free.";
 
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    from: typeof search.from === "string" ? search.from : undefined,
-  }),
   head: () => ({
     meta: [
       { title: TITLE },
@@ -37,11 +34,10 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { from } = Route.useSearch();
-  return <HomePage referralSlug={from} />;
+  return <HomePage />;
 }
 
-export function HomePage({ referralSlug }: { referralSlug?: string }) {
+export function HomePage({ referralSlug }: { referralSlug?: string | undefined }) {
   return (
     <>
       <HomeHero referralSlug={referralSlug} />
