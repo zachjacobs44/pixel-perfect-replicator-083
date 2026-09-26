@@ -15,14 +15,14 @@ const contactSchema = z.object({
   message: z.string().min(1).max(4000),
 });
 
-const TO_ADDRESS = "support@jurniglp.com";
+const TO_ADDRESS = "contact@jurniglp.com";
 
 export type ContactResult =
   | { ok: true; delivered: boolean }
   | { ok: false; error: string };
 
 /**
- * Delivers the contact form to support@jurniglp.com.
+ * Delivers the contact form to contact@jurniglp.com.
  * Uses the project's transactional email sender once an email domain is set up;
  * until then the submission is recorded in the server log so nothing is lost.
  */
@@ -39,7 +39,7 @@ export const sendContactMessage = createServerFn({ method: "POST" })
     const values = parsed.data;
 
     const apiKey = process.env["RESEND_API_KEY"];
-    const from = process.env["EMAIL_FROM"] ?? "Jurni GLP <support@jurniglp.com>";
+    const from = process.env["EMAIL_FROM"] ?? "Jurni GLP <contact@jurniglp.com>";
 
     const text = `New contact form message\n\nName: ${values.name}\nEmail: ${values.email}\n\n${values.message}`;
 
