@@ -91,6 +91,7 @@ function Contact() {
             <span className="label-over">Name</span>
             <input
               required
+              name="name"
               className={inputClass}
               style={{ borderColor: "var(--hairline)" }}
               value={form.name}
@@ -102,6 +103,7 @@ function Contact() {
             <span className="label-over">Email</span>
             <input
               required
+              name="email"
               type="email"
               className={inputClass}
               style={{ borderColor: "var(--hairline)" }}
@@ -114,6 +116,7 @@ function Contact() {
             <span className="label-over">Message</span>
             <textarea
               required
+              name="message"
               rows={5}
               className={inputClass}
               style={{ borderColor: "var(--hairline)" }}
