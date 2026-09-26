@@ -1,7 +1,8 @@
 import { HomeHero } from "./HomeHero";
 import { MeetStak } from "./MeetStak";
 import { SectionPlaceholder } from "./SectionPlaceholder";
-import { ClosingCTA, PricingCTA, ThreadCTA } from "./StakCTA";
+import { TheThread } from "./TheThread";
+import { ClosingCTA, PricingCTA } from "./StakCTA";
 
 export function HomePage({ referralSlug }: { referralSlug?: string | undefined }) {
   return (
@@ -9,9 +10,7 @@ export function HomePage({ referralSlug }: { referralSlug?: string | undefined }
       <HomeHero referralSlug={referralSlug} />
       <MeetStak />
 
-      <SectionPlaceholder label="The Thread" id="the-thread">
-        <ThreadCTA />
-      </SectionPlaceholder>
+      <TheThread />
 
       <SectionPlaceholder label="What Stak Does" id="what-stak-does" />
 

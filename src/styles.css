@@ -90,7 +90,7 @@
 
   html {
     -webkit-text-size-adjust: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body {
@@ -101,7 +101,7 @@
     font-weight: 400;
     font-size: 17px;
     line-height: 1.5;
-    overflow-x: hidden;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
   }
 

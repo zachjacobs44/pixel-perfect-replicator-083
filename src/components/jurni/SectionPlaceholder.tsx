@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 export function SectionLabel({ children }: { children: ReactNode }) {
-  return <div className="label-over">{children}</div>;
+  return <div className="label-over text-[14px]">{children}</div>;
 }
 
 export function SectionPlaceholder({
