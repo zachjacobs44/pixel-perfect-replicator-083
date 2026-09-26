@@ -75,7 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "viewport",
         content: "width=device-width, initial-scale=1, viewport-fit=cover",
       },
-      { title: "Jurni GLP — GLP-1 support by text and call." },
+      { title: "Jurni GLP | GLP-1 support by text and call." },
       {
         name: "description",
         content:

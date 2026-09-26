@@ -6,7 +6,7 @@ import { checkPracticesPassword } from "@/lib/practices.functions";
 import { PracticesContent } from "@/components/jurni/PracticesContent";
 import { Wordmark } from "@/components/jurni/Wordmark";
 
-const TITLE = "For practices — Jurni GLP";
+const TITLE = "For practices | Jurni GLP";
 const STORAGE_KEY = "jurni.practices.access";
 
 export const Route = createFileRoute("/practices")({
