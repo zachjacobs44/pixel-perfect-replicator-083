@@ -323,7 +323,7 @@ function DesktopThread() {
 
 export function TheThread() {
   return (
-    <section id="the-thread" className="section-y">
+    <section id="the-thread" className="section-y [&_.label-over]:text-[14px]">
       <div className="content-column">
         <SectionLabel>THE THREAD</SectionLabel>
         <h2 className="display-section mt-4 max-w-[760px]">A week with Stak, in one thread.</h2>
