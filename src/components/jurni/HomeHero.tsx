@@ -64,12 +64,12 @@ export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }
     const practice = findPractice(referralSlug ?? querySlug);
     if (practice) {
       rememberPractice(practice.slug);
-      setEyebrow(`${practice.name.toUpperCase()} SENT YOU HERE.`);
+      setEyebrow(`${practice.name} SENT YOU HERE.`);
       return;
     }
 
     const remembered = readRememberedPractice();
-    setEyebrow(remembered ? `${remembered.name.toUpperCase()} SENT YOU HERE.` : DEFAULT_EYEBROW);
+    setEyebrow(remembered ? `${remembered.name} SENT YOU HERE.` : DEFAULT_EYEBROW);
   }, [referralSlug]);
 
   return (

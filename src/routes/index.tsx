@@ -1,13 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { HomeHero } from "@/components/jurni/HomeHero";
-import { MeetStak } from "@/components/jurni/MeetStak";
-import { SectionPlaceholder } from "@/components/jurni/SectionPlaceholder";
-import {
-  ClosingCTA,
-  PricingCTA,
-  ThreadCTA,
-} from "@/components/jurni/StakCTA";
+import { HomePage } from "@/components/jurni/HomePage";
 
 const TITLE = "Jurni GLP — GLP-1 support by text and call.";
 const DESCRIPTION =
@@ -35,29 +28,4 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return <HomePage />;
-}
-
-export function HomePage({ referralSlug }: { referralSlug?: string | undefined }) {
-  return (
-    <>
-      <HomeHero referralSlug={referralSlug} />
-      <MeetStak />
-
-      <SectionPlaceholder label="The Thread" id="the-thread">
-        <ThreadCTA />
-      </SectionPlaceholder>
-
-      <SectionPlaceholder label="What Stak Does" id="what-stak-does" />
-
-      <SectionPlaceholder label="The Page" id="the-page" />
-
-      <SectionPlaceholder label="Pricing" id="pricing">
-        <PricingCTA />
-      </SectionPlaceholder>
-
-      <SectionPlaceholder label="Questions" id="questions" />
-
-      <ClosingCTA />
-    </>
-  );
 }

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { HomePage } from "./index";
+import { HomePage } from "@/components/jurni/HomePage";
 
 const TITLE = "Jurni GLP — GLP-1 support by text and call.";
 const DESCRIPTION =
