@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
+import { IPhoneFrame } from "./IPhoneFrame";
 import { SectionLabel } from "./SectionPlaceholder";
 import { ThreadCTA } from "./StakCTA";
 import { StakAvatar } from "./Wordmark";
