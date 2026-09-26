@@ -44,15 +44,22 @@ export function TextStakButton({
 export function CallStakButton({
   section,
   className,
+  tone = "ink",
 }: {
   section: CtaSection;
   className?: string;
+  tone?: "ink" | "cream";
 }) {
   return (
     <a
       href={STAK_TEL_HREF}
       onClick={() => trackCta("cta_call", section)}
-      className={cn(buttonBase, "border-2 border-ink text-ink", className)}
+      className={cn(
+        buttonBase,
+        "border-2",
+        tone === "cream" ? "border-paper text-paper" : "border-ink text-ink",
+        className,
+      )}
     >
       Call Stak
     </a>
@@ -97,5 +104,66 @@ export function StakCTA({ section, className }: { section: CtaSection; className
         <p className="fine-print mt-2 max-w-[160px]">Scan to text Stak from your phone.</p>
       </div>
     </div>
+  );
+}
+
+export function ThreadCTA() {
+  return (
+    <p className="font-display text-[30px] font-extrabold leading-[1.08]">
+      Anything on your mind.{" "}
+      <a
+        href={STAK_SMS_HREF}
+        onClick={() => trackCta("cta_text", "thread")}
+        className="press-spring inline-flex rounded-full bg-magenta px-4 py-2 text-paper"
+      >
+        Text Stak
+      </a>
+      .
+    </p>
+  );
+}
+
+export function PricingCTA() {
+  return (
+    <div>
+      <div className="flex flex-col gap-3 min-[420px]:flex-row">
+        <TextStakButton section="pricing" />
+        <CallStakButton section="pricing" />
+      </div>
+      <p className="mt-4 text-[16px] font-semibold">Two weeks free. No card to start. Stop anytime.</p>
+    </div>
+  );
+}
+
+export function ClosingCTA() {
+  return (
+    <section className="pb-20 md:pb-[140px]" aria-labelledby="closing-cta-title">
+      <div className="content-column">
+        <div
+          className="rounded-[var(--radius-card)] px-[22px] py-12 text-paper md:px-12 md:py-16"
+          style={{ background: "var(--grad-dark)", boxShadow: "var(--shadow-dark)" }}
+        >
+          <h2 id="closing-cta-title" className="display-section max-w-[780px]">
+            Your doctor gave you the number. This is the number.
+          </h2>
+          <div className="mt-9 flex flex-col gap-3 min-[420px]:flex-row">
+            <TextStakButton section="faq" />
+            <CallStakButton section="faq" tone="cream" />
+          </div>
+          <p className="mt-5 max-w-[720px] text-[14px] leading-[1.5] text-paper/60">
+            Two weeks free. No card, no account, no app. By texting or calling, you agree to receive
+            messages from Jurni GLP. Message frequency varies. Message and data rates may apply. Reply
+            STOP to end, HELP for help.{" "}
+            <Link to="/privacy" className="underline">
+              Privacy
+            </Link>{" "}
+            ·{" "}
+            <Link to="/terms" className="underline">
+              Terms
+            </Link>
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }

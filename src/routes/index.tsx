@@ -1,7 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { SectionPlaceholder } from "@/components/jurni/SectionPlaceholder";
-import { StakCTA } from "@/components/jurni/StakCTA";
+import {
+  ClosingCTA,
+  PricingCTA,
+  StakCTA,
+  ThreadCTA,
+} from "@/components/jurni/StakCTA";
 
 const TITLE = "Jurni GLP — GLP-1 support by text and call.";
 const DESCRIPTION =
@@ -35,7 +40,7 @@ function Home() {
       <SectionPlaceholder label="Meet Stak" id="meet-stak" />
 
       <SectionPlaceholder label="The Thread" id="the-thread">
-        <StakCTA section="thread" />
+        <ThreadCTA />
       </SectionPlaceholder>
 
       <SectionPlaceholder label="What Stak Does" id="what-stak-does" />
@@ -43,12 +48,12 @@ function Home() {
       <SectionPlaceholder label="The Page" id="the-page" />
 
       <SectionPlaceholder label="Pricing" id="pricing">
-        <StakCTA section="pricing" />
+        <PricingCTA />
       </SectionPlaceholder>
 
-      <SectionPlaceholder label="Questions" id="questions">
-        <StakCTA section="faq" />
-      </SectionPlaceholder>
+      <SectionPlaceholder label="Questions" id="questions" />
+
+      <ClosingCTA />
     </>
   );
 }
