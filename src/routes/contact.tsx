@@ -43,17 +43,38 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
 function Contact() {
   const send = useServerFn(sendContactMessage);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState(
+    "That didn’t send. Please email support@jurniglp.com.",
+  );
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
+
+    const values = {
+      name: form.name.trim(),
+      email: form.email.trim(),
+      message: form.message.trim(),
+    };
+    if (!values.name || !values.email.includes("@") || !values.message) {
+      setErrorMessage("Please add your name, a valid email address, and a message.");
+      setStatus("error");
+      return;
+    }
+
     setStatus("sending");
     try {
-      await send({ data: form });
-      setStatus("sent");
-      setForm({ name: "", email: "", message: "" });
+      const result = await send({ data: values });
+      if (result.ok) {
+        setStatus("sent");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setErrorMessage(result.error);
+        setStatus("error");
+      }
     } catch (error) {
       console.error(error);
+      setErrorMessage("That didn’t send. Please email support@jurniglp.com.");
       setStatus("error");
     }
   }
@@ -91,6 +112,7 @@ function Contact() {
             <span className="label-over">Name</span>
             <input
               required
+              name="name"
               className={inputClass}
               style={{ borderColor: "var(--hairline)" }}
               value={form.name}
@@ -102,6 +124,7 @@ function Contact() {
             <span className="label-over">Email</span>
             <input
               required
+              name="email"
               type="email"
               className={inputClass}
               style={{ borderColor: "var(--hairline)" }}
@@ -114,6 +137,7 @@ function Contact() {
             <span className="label-over">Message</span>
             <textarea
               required
+              name="message"
               rows={5}
               className={inputClass}
               style={{ borderColor: "var(--hairline)" }}
@@ -137,9 +161,7 @@ function Contact() {
             </p>
           ) : null}
           {status === "error" ? (
-            <p className="mt-4 text-[17px] font-semibold">
-              That didn&rsquo;t send. Please email support@jurniglp.com.
-            </p>
+            <p className="mt-4 text-[17px] font-semibold">{errorMessage}</p>
           ) : null}
         </form>
 
