@@ -27,8 +27,8 @@ export function IPhoneFrame({
         draggable={false}
       />
       <div
-        className="absolute overflow-hidden rounded-[6%]"
-        style={{ top: "5.4%", bottom: "7.8%", left: "12.6%", right: "12.6%" }}
+        className="absolute overflow-hidden rounded-[5%]"
+        style={{ top: "5.2%", bottom: "5.8%", left: "12%", right: "12%" }}
       >
         {children}
       </div>
