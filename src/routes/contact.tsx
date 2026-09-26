@@ -161,9 +161,7 @@ function Contact() {
             </p>
           ) : null}
           {status === "error" ? (
-            <p className="mt-4 text-[17px] font-semibold">
-              That didn&rsquo;t send. Please email support@jurniglp.com.
-            </p>
+            <p className="mt-4 text-[17px] font-semibold">{errorMessage}</p>
           ) : null}
         </form>
 
