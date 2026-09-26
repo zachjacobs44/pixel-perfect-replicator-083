@@ -40,7 +40,7 @@ function CardPage() {
         </button>
 
         <div className={face}>
-          <Wordmark className="h-4" />
+          <Wordmark className="h-4 self-start" />
           <div className="flex flex-1 items-center justify-center">
             <p className="text-center font-display text-[22px] font-extrabold leading-[0.95] tracking-[-0.03em]">
               Your provider gave you a number.
