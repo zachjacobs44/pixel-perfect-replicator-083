@@ -137,32 +137,31 @@ export function PricingCTA() {
 
 export function ClosingCTA() {
   return (
-    <section className="pb-20 md:pb-[140px]" aria-labelledby="closing-cta-title">
-      <div className="content-column">
-        <div
-          className="rounded-[var(--radius-card)] px-[22px] py-12 text-paper md:px-12 md:py-16"
-          style={{ background: "var(--grad-dark)", boxShadow: "var(--shadow-dark)" }}
-        >
-          <h2 id="closing-cta-title" className="display-section max-w-[780px]">
-            Your doctor gave you the number. This is the number.
-          </h2>
-          <div className="mt-9 flex flex-col gap-3 min-[420px]:flex-row">
-            <TextStakButton section="faq" />
-            <CallStakButton section="faq" tone="cream" />
-          </div>
-          <p className="mt-5 max-w-[720px] text-[14px] leading-[1.5] text-paper/60">
-            Two weeks free. No card, no account, no app. By texting or calling, you agree to receive
-            messages from Jurni GLP. Message frequency varies. Message and data rates may apply. Reply
-            STOP to end, HELP for help.{" "}
-            <Link to="/privacy" className="underline">
-              Privacy
-            </Link>{" "}
-            ·{" "}
-            <Link to="/terms" className="underline">
-              Terms
-            </Link>
-          </p>
+    <section
+      className="text-paper"
+      style={{ background: "var(--grad-dark)", boxShadow: "var(--shadow-dark)" }}
+      aria-labelledby="closing-cta-title"
+    >
+      <div className="content-column py-20 md:py-[140px]">
+        <h2 id="closing-cta-title" className="display-section max-w-[780px]">
+          Your doctor gave you the number. This is the number.
+        </h2>
+        <div className="mt-9 flex flex-col gap-3 min-[420px]:flex-row">
+          <TextStakButton section="faq" />
+          <CallStakButton section="faq" tone="cream" />
         </div>
+        <p className="mt-5 max-w-[720px] text-[14px] leading-[1.5] text-paper/60">
+          Two weeks free. No card, no account, no app. By texting or calling, you agree to receive
+          messages from Jurni GLP. Message frequency varies. Message and data rates may apply. Reply
+          STOP to end, HELP for help.{" "}
+          <Link to="/privacy" className="underline">
+            Privacy
+          </Link>{" "}
+          ·{" "}
+          <Link to="/terms" className="underline">
+            Terms
+          </Link>
+        </p>
       </div>
     </section>
   );
