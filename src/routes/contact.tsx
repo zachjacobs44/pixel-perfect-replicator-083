@@ -44,7 +44,7 @@ function Contact() {
   const send = useServerFn(sendContactMessage);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState(
-    "That didn’t send. Please email support@jurniglp.com.",
+    "That didn’t send. Please email contact@jurniglp.com.",
   );
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
@@ -74,7 +74,7 @@ function Contact() {
       }
     } catch (error) {
       console.error(error);
-      setErrorMessage("That didn’t send. Please email support@jurniglp.com.");
+      setErrorMessage("That didn’t send. Please email contact@jurniglp.com.");
       setStatus("error");
     }
   }
@@ -89,21 +89,9 @@ function Contact() {
 
         <div className="mt-10">
           <Row label="Email">
-            <a href="mailto:support@jurniglp.com" className="underline">
-              support@jurniglp.com
+            <a href="mailto:contact@jurniglp.com" className="underline">
+              contact@jurniglp.com
             </a>
-          </Row>
-          <Row label="Text or call">
-            <a href={STAK_TEL_HREF} className="underline">
-              {STAK_PHONE_DISPLAY}
-            </a>
-          </Row>
-          <Row label="Mail">
-            Jurni Health, Inc.
-            <br />
-            <span style={{ color: "var(--muted-soft)" }}>
-              Street address placeholder — to be provided.
-            </span>
           </Row>
         </div>
 
