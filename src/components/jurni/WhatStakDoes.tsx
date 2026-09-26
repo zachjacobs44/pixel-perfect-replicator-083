@@ -36,7 +36,7 @@ export function WhatStakDoes() {
         </p>
         <div className="mt-12 grid auto-rows-fr gap-5 md:grid-cols-2 lg:grid-cols-3">
           {JOBS.map(({ C, t, b }) => (
-            <C key={t} className={C === DarkCard ? "text-paper" : undefined}>
+            <C key={t} {...(C === DarkCard ? { className: "text-paper" } : {})}>
               <h3 className="font-display text-[26px] font-extrabold leading-[1.05]">{t}</h3>
               <p className="mt-6 text-[17px] leading-[1.5]">{b}</p>
             </C>
