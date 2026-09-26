@@ -5,7 +5,7 @@ import { IPhoneFrame } from "./IPhoneFrame";
 import { StakCTA } from "./StakCTA";
 import { StakAvatar } from "./Wordmark";
 
-const DEFAULT_EYEBROW = "YOUR DOCTOR SENT YOU HERE.";
+const DEFAULT_EYEBROW = "YOUR PROVIDER SENT YOU HERE.";
 
 function PhoneMock() {
   return (
@@ -24,8 +24,7 @@ function PhoneMock() {
                 className="mt-1.5 rounded-[16px] rounded-bl-[6px] border-l-[3px] border-magenta p-3 text-[15px] leading-[1.35]"
                 style={{ background: "var(--grad-white)", boxShadow: "var(--shadow-white)" }}
               >
-                Morning. Dose day, week 12, your first at the higher dose. Small meals today, nothing
-                greasy tonight.
+                Dose day. Week 12, first one at the higher dose. Small meals today. Nothing greasy tonight.
               </div>
             </div>
 
@@ -33,7 +32,7 @@ function PhoneMock() {
               className="message-arrive ml-auto max-w-[84%] rounded-[16px] rounded-br-[6px] bg-frame p-3 text-[15px] leading-[1.35]"
               style={{ animationDelay: "400ms" }}
             >
-              ok so far. weird thing, walked past the office bagels and didn&apos;t want one
+              walked past the office bagels this morning and didn&apos;t even want one. weird
             </div>
 
             <div className="message-arrive max-w-[92%]" style={{ animationDelay: "800ms" }}>
@@ -42,15 +41,14 @@ function PhoneMock() {
                 className="mt-1.5 rounded-[16px] rounded-bl-[6px] border-l-[3px] border-magenta p-3 text-[15px] leading-[1.35]"
                 style={{ background: "var(--grad-white)", boxShadow: "var(--shadow-white)" }}
               >
-                That&apos;s the food noise quieting down. Twelve weeks ago you told me those bagels were
-                the hardest part of your week.
+                That&apos;s the food noise going quiet. Twelve weeks ago you told me those bagels were the hardest part of your week. Remember that on a flat week.
               </div>
             </div>
           </div>
         </div>
       </IPhoneFrame>
       <figcaption className="mt-4 text-center text-[15px] text-muted">
-        What a week with Stak looks like. The full conversation is below.
+        Week 12 with Stak. The rest of the week is further down.
       </figcaption>
     </figure>
   );
@@ -84,12 +82,10 @@ export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }
         <div>
           <p className="label-over text-[14px] text-magenta">{eyebrow}</p>
           <h1 className="display-hero mt-4 max-w-[720px]">
-            Your doctor handles the medication. Stak handles everything between visits.
+            The medicine quiets the hunger. Stak handles everything else.
           </h1>
           <p className="mt-5 max-w-[34ch] text-[20px] leading-[1.42] md:text-[22px]">
-            Stak is a number you text or call, any hour, with whatever comes up on a GLP-1. Is this
-            normal. What do I eat tonight. Why does this week feel different from last week. It
-            answers, it remembers what you told it, and it checks in on the days that tend to be hard.
+            Is this normal. What do I eat tonight. Why did the scale stop. Text it, call it, send it a photo of your plate. It answers, it remembers, and on the hard days it texts first.
           </p>
           <StakCTA section="hero" className="mt-7" />
         </div>

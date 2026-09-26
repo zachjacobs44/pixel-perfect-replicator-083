@@ -8,6 +8,7 @@ export type CtaSection =
   | "thread"
   | "pricing"
   | "faq"
+  | "closing"
   | "footer"
   | "practices"
   | "404";

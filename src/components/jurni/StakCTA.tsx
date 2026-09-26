@@ -144,11 +144,11 @@ export function ClosingCTA() {
     >
       <div className="content-column py-20 md:py-[140px]">
         <h2 id="closing-cta-title" className="display-section max-w-[780px]">
-          Your doctor gave you the number. This is the number.
+          Your provider gave you the number. This is the number.
         </h2>
         <div className="mt-9 flex flex-col gap-3 min-[420px]:flex-row">
-          <TextStakButton section="faq" />
-          <CallStakButton section="faq" tone="cream" />
+          <TextStakButton section="closing" />
+          <CallStakButton section="closing" tone="cream" />
         </div>
         <p className="mt-5 max-w-[720px] text-[14px] leading-[1.5] text-paper/60">
           Two weeks free. No card, no account, no app. By texting or calling, you agree to receive

@@ -7,6 +7,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { useRouterState } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -22,7 +23,7 @@ function NotFoundComponent() {
     <section className="section-y">
       <div className="content-column">
         <Wordmark className="h-6" />
-        <h1 className="display-section mt-8">That page isn't here.</h1>
+        <h1 className="display-section mt-8">That page isn't here. Stak is.</h1>
         <StakCTA section="404" className="mt-10" />
       </div>
     </section>
@@ -125,9 +126,20 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const bare = pathname === "/card";
+
   useEffect(() => {
     initAnalytics();
   }, []);
+
+  if (bare) {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <Outlet />
+      </QueryClientProvider>
+    );
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
