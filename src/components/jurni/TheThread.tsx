@@ -138,7 +138,7 @@ function Message({ msg }: { msg: Msg }) {
   if (msg.from === "user") return <div className={userBubble}>{msg.text}</div>;
   if (msg.from === "photo") {
     return (
-      <div className={`${userBubble} p-2`}>
+      <div className={`${userBubble} w-[84%] p-2`}>
         <div
           className="flex aspect-[4/3] w-full items-center justify-center rounded-[12px] bg-paper text-[15px] text-muted"
           role="img"
