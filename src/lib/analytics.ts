@@ -11,6 +11,7 @@ export type CtaSection =
   | "closing"
   | "footer"
   | "practices"
+  | "your-page"
   | "404";
 
 export type CtaEventName = "cta_text" | "cta_call";

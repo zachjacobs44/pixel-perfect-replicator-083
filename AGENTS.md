@@ -20,3 +20,4 @@
 - Uploaded Stak artwork is served through asset pointers; legacy palette aliases resolve to the active semantic theme in `src/styles.css` to preserve existing page composition during rebranding.
 - Printed referral cards use scoped light theme tokens while screen pages use the active site theme, keeping QR codes scan-friendly and printed cards legible.
 - Official motion is sanitized into shared SVG artwork, rendered by StakMotion with unique SVG IDs, viewport-paused one-pass playback and static reduced-motion fallbacks; its styling remains in src/styles.css to avoid collisions and inaccessible hidden artwork.
+- The Your Page dashboard is an interactive presentation-only example with local tab state and shared official artwork; it never stores patient data or implies a connected patient account.

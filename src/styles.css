@@ -50,6 +50,7 @@
   --shadow-dark: inset 0 0 0 1px var(--hairline);
   --shadow-white: inset 0 0 0 1px var(--hairline);
   --shadow-phone: 0 28px 60px -20px var(--stak-bar);
+  --dashboard-bar: var(--stak-bar);
 
   /* type */
   --font-display: "Anybody", "Arial Narrow", sans-serif;
@@ -554,6 +555,20 @@
 .stak-motion .wave{animation:wave 1.8s linear infinite}
 
 .stak-motion svg { display: block; width: 100%; height: 100%; overflow: hidden; }
+.dashboard-art svg { display: block; width: 100%; height: 100%; }
+.dashboard-demo { font-size: 16px; line-height: 1.4; }
+.dashboard-body { min-height: 780px; }
+.dashboard-vertical-mark { writing-mode: vertical-rl; transform: rotate(180deg); }
+.dashboard-title { font-family: var(--font-display); font-weight: 800; font-stretch: 125%; text-transform: uppercase; font-size: 28px; line-height: 1.05; letter-spacing: 0; }
+.dashboard-number { margin-top: 12px; font-family: var(--font-display); font-size: 28px; font-weight: 800; line-height: 1.2; }
+.dashboard-stat { min-width: 0; border-radius: var(--radius-card); background: var(--stak-surface); padding: 12px; }
+.dashboard-stat > p:last-child { font-size: 14px; margin-top: 6px; }
+.dashboard-action { height: auto; min-height: 52px; max-width: 100%; white-space: normal; border-radius: var(--radius-chip); padding: 12px 20px; font-size: 17px; font-weight: 600; }
+.dashboard-tabs { background: var(--dashboard-bar); }
+.dashboard-tab { position: relative; }
+.dashboard-tab[aria-selected="true"] { font-weight: 700; }
+.dashboard-tab[aria-selected="true"]::after { content: ""; position: absolute; width: 22px; height: 3px; border-radius: var(--radius-chip); background: var(--stak-amber); bottom: 10px; }
+@media (min-width: 640px) { .dashboard-title { font-size: 32px; } .dashboard-demo { font-size: 17px; } .dashboard-stat { padding: 16px; } }
 .stak-motion-animated, .stak-motion-still { width: 100%; height: 100%; }
 .stak-motion-still { display: none; }
 .stak-motion .stak-motion-animated * { animation-play-state: paused; animation-iteration-count: 1; }
