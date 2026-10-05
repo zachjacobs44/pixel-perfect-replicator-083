@@ -17,3 +17,5 @@
 - Client-callable server logic lives in `src/lib/*.functions.ts` (`contact.functions.ts`, `practices.functions.ts`) — keeps secrets like `PRACTICES_PASSWORD` and the email key server-side.
 - CTA analytics go through `src/lib/analytics.ts`; every Text/Call Stak tap fires `cta_text`/`cta_call` with a `section` property.
 - Referring-practice attribution is defined only in `src/lib/referring-practices.ts` and persists valid entries for 30 days — this keeps displayed practice names allowlisted and easy to maintain.
+- Uploaded Stak artwork is served through asset pointers; legacy palette aliases resolve to the active semantic theme in `src/styles.css` to preserve existing page composition during rebranding.
+- Printed referral cards use scoped light theme tokens while screen pages use the active site theme, keeping QR codes scan-friendly and printed cards legible.
