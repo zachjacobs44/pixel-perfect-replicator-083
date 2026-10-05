@@ -19,3 +19,4 @@
 - Referring-practice attribution is defined only in `src/lib/referring-practices.ts` and persists valid entries for 30 days — this keeps displayed practice names allowlisted and easy to maintain.
 - Uploaded Stak artwork is served through asset pointers; legacy palette aliases resolve to the active semantic theme in `src/styles.css` to preserve existing page composition during rebranding.
 - Printed referral cards use scoped light theme tokens while screen pages use the active site theme, keeping QR codes scan-friendly and printed cards legible.
+- Official motion is sanitized into shared SVG artwork, rendered by StakMotion with unique SVG IDs, viewport-paused one-pass playback and static reduced-motion fallbacks; its styling remains in src/styles.css to avoid collisions and inaccessible hidden artwork.

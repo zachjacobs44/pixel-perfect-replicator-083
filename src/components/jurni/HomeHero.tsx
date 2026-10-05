@@ -13,7 +13,7 @@ function PhoneMock() {
       <IPhoneFrame eager>
         <div className="flex h-full flex-col bg-paper px-3.5 pb-5 pt-[18%]">
           <div className="flex items-center gap-2.5 border-b border-hairline pb-2.5">
-            <StakAvatar size={28} />
+            <StakAvatar size={28} animated />
             <span className="font-display text-[16px] font-extrabold">Stak</span>
           </div>
 
@@ -80,7 +80,7 @@ export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }
     <section id="hero" className="content-column py-10 md:py-14">
       <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(300px,0.7fr)] lg:gap-14">
         <div className="min-w-0">
-          <StakLockup className="mb-8 h-12 md:h-14" />
+          <StakLockup animated className="mb-8 h-12 md:h-14" />
           <p className="label-over text-[14px] text-magenta">{eyebrow}</p>
           <h1 className="display-hero mt-4 max-w-[720px]">
             The medicine quiets the hunger. Stak handles everything else.
