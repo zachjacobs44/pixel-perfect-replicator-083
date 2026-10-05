@@ -45,7 +45,7 @@ export function StakMotion({ scene, className, controls = false }: {
   }
 
   return (
-    <div ref={ref} className={cn("stak-motion relative", className)} data-playing={playing} data-scene={scene}>
+    <div ref={ref} className={cn("stak-motion relative", className)} data-playing={playing} data-done={done} data-scene={scene}>
       <div key={replay} className="stak-motion-animated" aria-hidden="true" dangerouslySetInnerHTML={{ __html: markup(STAK_MOTION_ARTWORK[scene].animated) }} />
       <div className="stak-motion-still" aria-hidden="true" dangerouslySetInnerHTML={{ __html: markup(STAK_MOTION_ARTWORK[scene].still).replaceAll(`${id}"`, `${id}-still"`).replaceAll(`${id})`, `${id}-still)`) }} />
       {controls && (

@@ -558,6 +558,8 @@
 .stak-motion-still { display: none; }
 .stak-motion .stak-motion-animated * { animation-play-state: paused; animation-iteration-count: 1; }
 .stak-motion[data-playing="true"] .stak-motion-animated * { animation-play-state: running; }
+.stak-motion[data-done="true"] .stak-motion-animated { display: none; }
+.stak-motion[data-done="true"] .stak-motion-still { display: block; }
 @media (prefers-reduced-motion: reduce) {
   .stak-motion-animated, .stak-motion-control { display: none; }
   .stak-motion-still { display: block; }
