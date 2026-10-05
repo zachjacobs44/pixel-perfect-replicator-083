@@ -10,4 +10,4 @@
 - [x] Apply selected immersive Stak identity across all existing pages without changing copy or behavior.
 - [x] Verify phone fitting, mobile/desktop layouts, referral attribution, FAQs, practices gate, and printing after redesign.
 - [x] Incorporate supplied Stak motion into existing brand marks and coaching illustrations; verify playback and reduced motion.
-- [ ] Update Your Page example to supplied dashboard layouts and icon artwork; verify tabs and sizing.
+- [x] Update Your Page example to supplied dashboard layouts and icon artwork; verify tabs and sizing.

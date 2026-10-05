@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { trackCta } from "@/lib/analytics";
 import { DashboardArtwork } from "./DashboardArtwork";
-import { StakAvatar } from "./Wordmark";
+import spineAsset from "@/assets/stak-lockup-spine.svg.asset.json";
 import { STAK_PHONE_DISPLAY, STAK_SMS_HREF } from "./StakCTA";
 
 const tabs = ["Today", "Meals", "Workouts", "Shots", "You"] as const;
@@ -25,9 +25,7 @@ export function DashboardDemo({ practice }: { practice: string }) {
       <div className="dashboard-body px-4 pb-6 pt-6 sm:px-6" role="tabpanel" id="dashboard-panel" aria-labelledby={`dashboard-tab-${tab}`} tabIndex={0}>
         <div className="flex min-h-16 items-center justify-between gap-4">
           <p className="max-w-[65%] text-[17px] font-semibold">{practice}</p>
-          <div className="flex shrink-0 items-center gap-1" aria-label="Stak">
-            <span className="dashboard-vertical-mark font-display text-[14px] font-extrabold">STAK</span><StakAvatar size={58} />
-          </div>
+          <img src={spineAsset.url} alt="Stak" className="h-16 w-20 shrink-0 object-contain" />
         </div>
 
         {tab === "Today" && <>
