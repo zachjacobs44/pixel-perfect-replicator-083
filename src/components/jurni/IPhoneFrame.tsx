@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import iphoneFrame from "@/assets/iphone-frame.png";
+import iphoneFrame from "@/assets/iphone-night-frame.png.asset.json";
 
 /**
  * Photorealistic iPhone frame with the chat UI overlaid on the screen area.
@@ -18,23 +18,23 @@ export function IPhoneFrame({
   return (
     <div className={`relative ${className}`}>
       <img
-        src={iphoneFrame}
+        src={iphoneFrame.url}
         alt=""
-        width={768}
-        height={1536}
+        width={664}
+        height={1372}
         loading={eager ? "eager" : "lazy"}
         className="block h-auto w-full select-none"
         draggable={false}
       />
-      {/* Measured screen glass in the source image: x 90–678, y 103–1402 (of 768x1536). */}
+      {/* Cropped glass: x 38–626, y 33–1332, of 664x1372. */}
       <div
         className="absolute overflow-hidden"
         style={{
-          top: "7%",
-          bottom: "9%",
-          left: "12.2%",
-          right: "12.2%",
-          borderRadius: "13% / 6%",
+          top: "2.5%",
+          bottom: "3%",
+          left: "5.8%",
+          right: "5.8%",
+          borderRadius: "15% / 7%",
         }}
       >
         {children}
@@ -42,8 +42,8 @@ export function IPhoneFrame({
       {/* Dynamic Island redrawn above the chat so the screen never covers it. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute rounded-full bg-ink"
-        style={{ left: "38%", width: "24%", top: "7.95%", height: "3.45%" }}
+        className="pointer-events-none absolute rounded-full bg-background"
+        style={{ left: "36%", width: "28%", top: "3.8%", height: "3.95%" }}
       />
     </div>
   );

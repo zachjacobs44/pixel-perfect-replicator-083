@@ -7,13 +7,13 @@ type CardProps = {
   className?: string;
 };
 
-const base = "flex flex-col justify-between p-[22px] rounded-[var(--radius-card)] min-h-[170px]";
+const base = "flex flex-col justify-between border border-hairline p-6 rounded-[var(--radius-card)] min-h-[170px] text-ink";
 
 export function MagentaCard({ children, className }: CardProps) {
   return (
     <div
-      className={cn(base, "text-white", className)}
-      style={{ background: "var(--grad-magenta)", boxShadow: "var(--shadow-magenta)" }}
+      className={cn(base, "bg-surface", className)}
+      style={{ boxShadow: "inset 3px 0 0 var(--magenta)" }}
     >
       {children}
     </div>
@@ -23,7 +23,7 @@ export function MagentaCard({ children, className }: CardProps) {
 export function CyanCard({ children, className }: CardProps) {
   return (
     <div
-      className={cn(base, "text-white", className)}
+      className={cn(base, className)}
       style={{ background: "var(--grad-cyan)", boxShadow: "var(--shadow-cyan)" }}
     >
       {children}
@@ -45,7 +45,7 @@ export function YellowCard({ children, className }: CardProps) {
 export function DarkCard({ children, className }: CardProps) {
   return (
     <div
-      className={cn(base, "text-white", className)}
+      className={cn(base, className)}
       style={{ background: "var(--grad-dark)", boxShadow: "var(--shadow-dark)" }}
     >
       {children}

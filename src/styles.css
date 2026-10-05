@@ -3,53 +3,62 @@
 
 /*
  * Jurni GLP design system.
- * Tokens are copied from jurni-style-guide.html (source of truth).
- * No colors outside this list may be used anywhere on the site.
+ * Active theme: official Stak night and amber brand kit.
+ * Legacy aliases keep the existing sections and copy intact.
  */
 
 :root {
   /* base */
-  --paper: #faf7f1;
-  --frame: #e9e3d5;
-  --ink: #141414;
-  --white: #ffffff;
+  color-scheme: dark;
+  --stak-ground: #0b1417;
+  --stak-surface: #13222a;
+  --stak-sheet: #1a2c35;
+  --stak-ink: #f3eee8;
+  --stak-slate: #a3b5bb;
+  --stak-amber: #f2a65a;
+  --stak-amber-light: #ffd49a;
+  --stak-bar: #060b0d;
+  --on-accent: var(--stak-ground);
+  --paper: var(--stak-ground);
+  --frame: var(--stak-sheet);
+  --ink: var(--stak-ink);
+  --white: var(--stak-surface);
 
   /* brand */
-  --magenta: #e6007e;
-  --cyan: #00b5e2;
-  --yellow: #ffd100;
-  --text-cyan: #0092b8;
+  --magenta: var(--stak-amber);
+  --cyan: var(--stak-slate);
+  --yellow: var(--stak-amber-light);
+  --text-cyan: var(--stak-amber-light);
 
   /* ink tints */
-  --muted: rgba(20, 20, 20, 0.55);
-  --muted-soft: rgba(20, 20, 20, 0.4);
-  --quiet: rgba(20, 20, 20, 0.12);
-  --hairline: rgba(20, 20, 20, 0.08);
+  --muted: var(--stak-slate);
+  --muted-soft: var(--stak-slate);
+  --quiet: rgba(243, 238, 232, 0.2);
+  --hairline: rgba(243, 238, 232, 0.12);
 
   /* card gradients */
-  --grad-magenta: linear-gradient(180deg, #f43ba0, #e6007e 55%, #cf0070);
-  --grad-cyan: linear-gradient(180deg, #33c9ec, #00b5e2 55%, #00a0cd);
-  --grad-yellow: linear-gradient(180deg, #ffdf4d, #ffd100 55%, #f0c200);
-  --grad-dark: linear-gradient(180deg, #2e2c29, #141414 60%);
-  --grad-white: linear-gradient(180deg, #ffffff, #fdfaf4);
+  --grad-magenta: var(--stak-amber);
+  --grad-cyan: var(--stak-sheet);
+  --grad-yellow: var(--stak-sheet);
+  --grad-dark: var(--stak-bar);
+  --grad-white: var(--stak-surface);
 
   /* colored shadows */
-  --shadow-magenta:
-    0 16px 30px -14px rgba(230, 0, 126, 0.55), inset 0 1.5px 0 rgba(255, 255, 255, 0.3);
-  --shadow-cyan: 0 16px 30px -14px rgba(0, 160, 205, 0.5), inset 0 1.5px 0 rgba(255, 255, 255, 0.35);
-  --shadow-yellow:
-    0 16px 30px -14px rgba(240, 194, 0, 0.5), inset 0 1.5px 0 rgba(255, 255, 255, 0.45);
-  --shadow-dark: 0 16px 30px -14px rgba(20, 20, 20, 0.6), inset 0 1.5px 0 rgba(255, 255, 255, 0.14);
-  --shadow-white: 0 12px 28px -14px rgba(20, 20, 20, 0.25);
+  --shadow-magenta: none;
+  --shadow-cyan: inset 0 0 0 1px var(--hairline);
+  --shadow-yellow: inset 3px 0 0 var(--stak-amber-light);
+  --shadow-dark: inset 0 0 0 1px var(--hairline);
+  --shadow-white: inset 0 0 0 1px var(--hairline);
+  --shadow-phone: 0 28px 60px -20px var(--stak-bar);
 
   /* type */
-  --font-display: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
-  --font-body: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --font-display: "Anybody", "Arial Narrow", sans-serif;
+  --font-body: "Geist", "Helvetica Neue", sans-serif;
 
   /* shape and motion */
-  --radius-card: 22px;
-  --radius-chip: 9px;
-  --radius-sheet: 24px;
+  --radius-card: 20px;
+  --radius-chip: 14px;
+  --radius-sheet: 26px;
   --ease-spring: cubic-bezier(0.2, 1.4, 0.4, 1);
   --ease-panel: cubic-bezier(0.2, 1, 0.3, 1);
 }
@@ -59,6 +68,12 @@
   --color-frame: var(--frame);
   --color-ink: var(--ink);
   --color-white: var(--white);
+  --color-primary: var(--stak-amber);
+  --color-primary-foreground: var(--on-accent);
+  --color-surface: var(--stak-surface);
+  --color-sheet: var(--stak-sheet);
+  --color-accent: var(--stak-amber-light);
+  --color-on-accent: var(--on-accent);
   --color-magenta: var(--magenta);
   --color-cyan: var(--cyan);
   --color-yellow: var(--yellow);
@@ -75,9 +90,9 @@
   --font-display: var(--font-display);
   --font-body: var(--font-body);
 
-  --radius-card: 22px;
-  --radius-chip: 9px;
-  --radius-sheet: 24px;
+  --radius-card: 20px;
+  --radius-chip: 14px;
+  --radius-sheet: 26px;
 
   --ease-spring: var(--ease-spring);
 }
@@ -114,35 +129,56 @@
   a {
     color: inherit;
   }
+
+  h1, h2, h3 {
+    overflow-wrap: break-word;
+  }
+
+  h1.font-display, h2.font-display, h3.font-display {
+    font-stretch: 125%;
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--stak-amber-light);
+    outline-offset: 4px;
+  }
 }
 
-/* Headlines: Bricolage Grotesque 800, -0.03em, line-height .95 */
+/* Expanded Anybody headings, fixed responsive sizes. */
 @utility display {
   font-family: var(--font-display);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
+  font-stretch: 125%;
+  text-transform: uppercase;
   line-height: 0.95;
 }
 
 @utility display-hero {
   font-family: var(--font-display);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
+  font-stretch: 125%;
+  text-transform: uppercase;
   line-height: 0.95;
-  font-size: 52px;
+  font-size: 40px;
   @media (min-width: 768px) {
-    font-size: 88px;
+    font-size: 64px;
   }
 }
 
 @utility display-section {
   font-family: var(--font-display);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
+  font-stretch: 125%;
+  text-transform: uppercase;
   line-height: 0.95;
-  font-size: 36px;
+  font-size: 32px;
   @media (min-width: 768px) {
-    font-size: 56px;
+    font-size: 48px;
   }
 }
 
@@ -152,7 +188,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 1.4;
-  letter-spacing: 0.15em;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -173,9 +209,9 @@
 }
 
 @utility section-y {
-  padding-block: 80px;
+  padding-block: 72px;
   @media (min-width: 768px) {
-    padding-block: 140px;
+    padding-block: 96px;
   }
 }
 
@@ -273,7 +309,7 @@
   }
   html,
   body {
-    background: #faf7f1 !important;
+    background: var(--stak-ink) !important;
   }
   .no-print {
     display: none !important;
