@@ -340,3 +340,229 @@
     gap: 0 !important;
   }
 }
+
+/* Official Stak motion, scoped to supplied artwork. */
+@keyframes bwA{0%,36%{opacity:1}46%,100%{opacity:0}}
+@keyframes bwB{0%,36%{opacity:0}46%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes bwC{0%,50%{stroke-dashoffset:1;opacity:1}56%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes bwF{0%,45%{stroke-dashoffset:1;opacity:1}49%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes bwO{0%,36%{stroke-dashoffset:1;opacity:1}46%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes bwR{0%,42%{stroke-dashoffset:1;opacity:1}47%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes bwS{0%,54%{opacity:0}58%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes bwall{0%{opacity:0}2%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes bwf0{0%,1%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}6%{transform:translateY(0)}7%{transform:translateY(2.5px)}8.2%,100%{transform:translateY(0)}}
+@keyframes bwf1{0%,8%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}13%{transform:translateY(0)}14%{transform:translateY(2.5px)}15.2%,100%{transform:translateY(0)}}
+@keyframes bwf2{0%,15%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}20%{transform:translateY(0)}21%{transform:translateY(2.5px)}22.2%,100%{transform:translateY(0)}}
+@keyframes bwf3{0%,22%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}27%{transform:translateY(0)}28%{transform:translateY(2.5px)}29.2%,100%{transform:translateY(0)}}
+@keyframes bwfl{0%,26.6%{opacity:0;transform:scale(.5)}28%{opacity:.85;transform:scale(1)}37%,100%{opacity:0;transform:scale(1.8)}}
+@keyframes mAtt{0%,8%{transform:rotate(0)}22%,78%{transform:rotate(5deg)}92%,100%{transform:rotate(0)}}
+@keyframes mAtt0{0%,8%{transform:translateY(0)}22%,78%{transform:translateY(-0.0px)}92%,100%{transform:translateY(0)}}
+@keyframes mAtt1{0%,8%{transform:translateY(0)}22%,78%{transform:translateY(-1.6px)}92%,100%{transform:translateY(0)}}
+@keyframes mAtt2{0%,8%{transform:translateY(0)}22%,78%{transform:translateY(-3.2px)}92%,100%{transform:translateY(0)}}
+@keyframes mAtt3{0%,8%{transform:translateY(0)}22%,78%{transform:translateY(-4.800000000000001px)}92%,100%{transform:translateY(0)}}
+@keyframes mCel0{0%,12%{transform:translateY(0)}17%{transform:translateY(-16px)}22%{transform:translateY(1.5px)}25%,100%{transform:translateY(0)}}
+@keyframes mCel1{0%,21%{transform:translateY(0)}26%{transform:translateY(-16px)}31%{transform:translateY(1.5px)}34%,100%{transform:translateY(0)}}
+@keyframes mCel2{0%,30%{transform:translateY(0)}35%{transform:translateY(-16px)}40%{transform:translateY(1.5px)}43%,100%{transform:translateY(0)}}
+@keyframes mCel3{0%,39%{transform:translateY(0)}44%{transform:translateY(-16px)}49%{transform:translateY(1.5px)}52%,100%{transform:translateY(0)}}
+@keyframes mCelG{0%,48%{opacity:0;transform:scale(.5)}52%{opacity:.85;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.8)}}
+@keyframes mNod3{0%,22%{transform:rotate(0)}30%{transform:rotate(-8deg) translateY(-3px)}38%{transform:rotate(2deg)}44%,100%{transform:rotate(0)}}
+@keyframes mRest0{0%,8%{transform:translateY(0)}11%{transform:translateY(-2px)}15%,100%{transform:translateY(0)}}
+@keyframes mRest1{0%,14%{transform:translateY(0)}17%{transform:translateY(-2px)}21%,100%{transform:translateY(0)}}
+@keyframes mRest2{0%,20%{transform:translateY(0)}23%{transform:translateY(-2px)}27%,100%{transform:translateY(0)}}
+@keyframes mRest3{0%,26%{transform:translateY(0)}29%{transform:translateY(-2px)}33%,100%{transform:translateY(0)}}
+@keyframes mWel0{0%,2%{transform:translateY(-150px);animation-timing-function:cubic-bezier(.55,0,1,.55)}10%{transform:translateY(0)}12%{transform:translateY(2.5px)}14%,90%{transform:translateY(0);opacity:1}97%,100%{opacity:0}}
+@keyframes mWel1{0%,14%{transform:translateY(-150px);animation-timing-function:cubic-bezier(.55,0,1,.55)}22%{transform:translateY(0)}24%{transform:translateY(2.5px)}26%,90%{transform:translateY(0);opacity:1}97%,100%{opacity:0}}
+@keyframes mWel2{0%,26%{transform:translateY(-150px);animation-timing-function:cubic-bezier(.55,0,1,.55)}34%{transform:translateY(0)}36%{transform:translateY(2.5px)}38%,90%{transform:translateY(0);opacity:1}97%,100%{opacity:0}}
+@keyframes mWel3{0%,38%{transform:translateY(-150px);animation-timing-function:cubic-bezier(.55,0,1,.55)}46%{transform:translateY(0)}48%{transform:translateY(2.5px)}50%,90%{transform:translateY(0);opacity:1}97%,100%{opacity:0}}
+@keyframes mWelG{0%,45%{opacity:0;transform:scale(.5)}48%{opacity:.85;transform:scale(1)}66%,100%{opacity:0;transform:scale(1.8)}}
+@keyframes moA{0%,36%{opacity:1}46%,100%{opacity:0}}
+@keyframes moB{0%,36%{opacity:0}46%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF0{0%,48.0%{opacity:0}49.0%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF1{0%,50.6%{opacity:0}51.6%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF10{0%,74.0%{opacity:0}75.0%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF11{0%,76.6%{opacity:0}77.6%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF12{0%,79.2%{opacity:0}80.2%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF13{0%,81.8%{opacity:0}82.8%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF2{0%,53.2%{opacity:0}54.2%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF3{0%,55.8%{opacity:0}56.8%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF4{0%,58.4%{opacity:0}59.4%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF5{0%,61.0%{opacity:0}62.0%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF6{0%,63.6%{opacity:0}64.6%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF7{0%,66.2%{opacity:0}67.2%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF8{0%,68.8%{opacity:0}69.8%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moF9{0%,71.4%{opacity:0}72.4%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moO{0%,36%{stroke-dashoffset:1;opacity:1}46%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes moR{0%,48%{opacity:0}52%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes moS{0%,44%{stroke-dashoffset:1;opacity:1}50%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes moall{0%{opacity:0}2%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes mof0{0%,1%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}6%{transform:translateY(0)}7%{transform:translateY(2.5px)}8.2%,100%{transform:translateY(0)}}
+@keyframes mof1{0%,8%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}13%{transform:translateY(0)}14%{transform:translateY(2.5px)}15.2%,100%{transform:translateY(0)}}
+@keyframes mof2{0%,15%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}20%{transform:translateY(0)}21%{transform:translateY(2.5px)}22.2%,100%{transform:translateY(0)}}
+@keyframes mof3{0%,22%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}27%{transform:translateY(0)}28%{transform:translateY(2.5px)}29.2%,100%{transform:translateY(0)}}
+@keyframes mofl{0%,26.6%{opacity:0;transform:scale(.5)}28%{opacity:.85;transform:scale(1)}37%,100%{opacity:0;transform:scale(1.8)}}
+@keyframes rvS{0%,31%{opacity:0;transform:translateY(8px)}37%,100%{opacity:1;transform:translateY(0)}}
+@keyframes rvall{0%{opacity:0}2%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes rvf0{0%,1%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}6%{transform:translateY(0)}7%{transform:translateY(2.5px)}8.2%,100%{transform:translateY(0)}}
+@keyframes rvf1{0%,8%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}13%{transform:translateY(0)}14%{transform:translateY(2.5px)}15.2%,100%{transform:translateY(0)}}
+@keyframes rvf2{0%,15%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}20%{transform:translateY(0)}21%{transform:translateY(2.5px)}22.2%,100%{transform:translateY(0)}}
+@keyframes rvf3{0%,22%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}27%{transform:translateY(0)}28%{transform:translateY(2.5px)}29.2%,100%{transform:translateY(0)}}
+@keyframes rvfl{0%,26.6%{opacity:0;transform:scale(.5)}28%{opacity:.85;transform:scale(1)}37%,100%{opacity:0;transform:scale(1.8)}}
+@keyframes shA{0%,36%{opacity:1}46%,100%{opacity:0}}
+@keyframes shB{0%,36%{opacity:0;transform:rotate(28deg)}39%{opacity:1}46%,88%{opacity:1;transform:rotate(90deg)}94%,100%{opacity:0;transform:rotate(90deg)}}
+@keyframes shC{0%,44%{stroke-dashoffset:1;opacity:1}48%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes shD{0%,42%{stroke-dashoffset:1;opacity:1}46%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes shK{0%,60%{stroke-dashoffset:1;opacity:1}66%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes shN{0%,47%{stroke-dashoffset:1;opacity:1}49%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes shO{0%,36%{stroke-dashoffset:1;opacity:1}45%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes shR{0%,45%{opacity:0}48%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes shT{0%,57%{transform:translateX(0)}58%{transform:translateX(3px)}59.5%,100%{transform:translateX(0)}}
+@keyframes shV{0%,41%{opacity:0}43%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes shW{0%,48%{opacity:0}50%,56%{opacity:1;fill:var(--stak-ground)}58%,88%{opacity:1;fill:var(--stak-amber)}94%,100%{opacity:0}}
+@keyframes shall{0%{opacity:0}2%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes shf0{0%,1%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}6%{transform:translateY(0)}7%{transform:translateY(2.5px)}8.2%,100%{transform:translateY(0)}}
+@keyframes shf1{0%,8%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}13%{transform:translateY(0)}14%{transform:translateY(2.5px)}15.2%,100%{transform:translateY(0)}}
+@keyframes shf2{0%,15%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}20%{transform:translateY(0)}21%{transform:translateY(2.5px)}22.2%,100%{transform:translateY(0)}}
+@keyframes shf3{0%,22%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}27%{transform:translateY(0)}28%{transform:translateY(2.5px)}29.2%,100%{transform:translateY(0)}}
+@keyframes shfl{0%,26.6%{opacity:0;transform:scale(.5)}28%{opacity:.85;transform:scale(1)}37%,100%{opacity:0;transform:scale(1.8)}}
+@keyframes stA{0%,36%{opacity:1}46%,100%{opacity:0}}
+@keyframes stB{0%,36%{opacity:0}46%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes stLift{0%,50%{transform:translateY(0)}56%{transform:translateY(-22px)}62%{transform:translateY(0)}68%{transform:translateY(-22px)}74%{transform:translateY(0)}80%{transform:translateY(-22px)}86%,100%{transform:translateY(0)}}
+@keyframes stO{0%,36%{stroke-dashoffset:1;opacity:1}46%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes stall{0%{opacity:0}2%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes steam{0%{transform:translateY(8px);opacity:0}40%{opacity:.9}100%{transform:translateY(-10px);opacity:0}}
+@keyframes stf0{0%,1%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}6%{transform:translateY(0)}7%{transform:translateY(2.5px)}8.2%,100%{transform:translateY(0)}}
+@keyframes stf1{0%,8%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}13%{transform:translateY(0)}14%{transform:translateY(2.5px)}15.2%,100%{transform:translateY(0)}}
+@keyframes stf2{0%,15%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}20%{transform:translateY(0)}21%{transform:translateY(2.5px)}22.2%,100%{transform:translateY(0)}}
+@keyframes stf3{0%,22%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}27%{transform:translateY(0)}28%{transform:translateY(2.5px)}29.2%,100%{transform:translateY(0)}}
+@keyframes stfl{0%,26.6%{opacity:0;transform:scale(.5)}28%{opacity:.85;transform:scale(1)}37%,100%{opacity:0;transform:scale(1.8)}}
+@keyframes waA{0%,36%{opacity:1}46%,100%{opacity:0}}
+@keyframes waB{0%,36%{opacity:0}46%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes waL{0%,44%{stroke-dashoffset:1;opacity:1}48%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes waO{0%,36%{stroke-dashoffset:1;opacity:1}46%,88%{stroke-dashoffset:0;opacity:1}94%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes waW{0%,46%{opacity:0}50%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes waall{0%{opacity:0}2%,88%{opacity:1}94%,100%{opacity:0}}
+@keyframes waf0{0%,1%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}6%{transform:translateY(0)}7%{transform:translateY(2.5px)}8.2%,100%{transform:translateY(0)}}
+@keyframes waf1{0%,8%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}13%{transform:translateY(0)}14%{transform:translateY(2.5px)}15.2%,100%{transform:translateY(0)}}
+@keyframes waf2{0%,15%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}20%{transform:translateY(0)}21%{transform:translateY(2.5px)}22.2%,100%{transform:translateY(0)}}
+@keyframes waf3{0%,22%{transform:translateY(-160px);animation-timing-function:cubic-bezier(.55,0,1,.55)}27%{transform:translateY(0)}28%{transform:translateY(2.5px)}29.2%,100%{transform:translateY(0)}}
+@keyframes wafl{0%,26.6%{opacity:0;transform:scale(.5)}28%{opacity:.85;transform:scale(1)}37%,100%{opacity:0;transform:scale(1.8)}}
+@keyframes wave{from{transform:translateX(0)}to{transform:translateX(-32px)}}
+.stak-motion .bwA{animation:bwA 10.0s infinite both;}
+.stak-motion .bwB{animation:bwB 10.0s infinite both;}
+.stak-motion .bwC{animation:bwC 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .bwF{animation:bwF 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .bwO{animation:bwO 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .bwR{animation:bwR 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .bwS{animation:bwS 10.0s infinite both;}
+.stak-motion .bwall{animation:bwall 10.0s infinite both;}
+.stak-motion .bwf0{animation:bwf0 10.0s infinite both;}
+.stak-motion .bwf1{animation:bwf1 10.0s infinite both;}
+.stak-motion .bwf2{animation:bwf2 10.0s infinite both;}
+.stak-motion .bwf3{animation:bwf3 10.0s infinite both;}
+.stak-motion .bwfl{animation:bwfl 10.0s infinite both;transform-box:fill-box;transform-origin:50% 50%}
+.stak-motion .mAtt{animation:mAtt 4s infinite both;transform-box:fill-box;transform-origin:100% 100%}
+.stak-motion .mAtt0{animation:mAtt0 4s infinite both;}
+.stak-motion .mAtt1{animation:mAtt1 4s infinite both;}
+.stak-motion .mAtt2{animation:mAtt2 4s infinite both;}
+.stak-motion .mAtt3{animation:mAtt3 4s infinite both;}
+.stak-motion .mCel0{animation:mCel0 3s infinite both;}
+.stak-motion .mCel1{animation:mCel1 3s infinite both;}
+.stak-motion .mCel2{animation:mCel2 3s infinite both;}
+.stak-motion .mCel3{animation:mCel3 3s infinite both;}
+.stak-motion .mCelG{animation:mCelG 3s infinite both;transform-box:fill-box;transform-origin:50% 50%}
+.stak-motion .mNod3{animation:mNod3 3.2s infinite both;transform-box:fill-box;transform-origin:15% 100%}
+.stak-motion .mRest0{animation:mRest0 4s infinite both;}
+.stak-motion .mRest1{animation:mRest1 4s infinite both;}
+.stak-motion .mRest2{animation:mRest2 4s infinite both;}
+.stak-motion .mRest3{animation:mRest3 4s infinite both;}
+.stak-motion .mWel0{animation:mWel0 4.5s infinite both;}
+.stak-motion .mWel1{animation:mWel1 4.5s infinite both;}
+.stak-motion .mWel2{animation:mWel2 4.5s infinite both;}
+.stak-motion .mWel3{animation:mWel3 4.5s infinite both;}
+.stak-motion .mWelG{animation:mWelG 4.5s infinite both;transform-box:fill-box;transform-origin:50% 50%}
+.stak-motion .moA{animation:moA 10.0s infinite both;}
+.stak-motion .moB{animation:moB 10.0s infinite both;}
+.stak-motion .moF0{animation:moF0 10.0s infinite both;}
+.stak-motion .moF1{animation:moF1 10.0s infinite both;}
+.stak-motion .moF10{animation:moF10 10.0s infinite both;}
+.stak-motion .moF11{animation:moF11 10.0s infinite both;}
+.stak-motion .moF12{animation:moF12 10.0s infinite both;}
+.stak-motion .moF13{animation:moF13 10.0s infinite both;}
+.stak-motion .moF2{animation:moF2 10.0s infinite both;}
+.stak-motion .moF3{animation:moF3 10.0s infinite both;}
+.stak-motion .moF4{animation:moF4 10.0s infinite both;}
+.stak-motion .moF5{animation:moF5 10.0s infinite both;}
+.stak-motion .moF6{animation:moF6 10.0s infinite both;}
+.stak-motion .moF7{animation:moF7 10.0s infinite both;}
+.stak-motion .moF8{animation:moF8 10.0s infinite both;}
+.stak-motion .moF9{animation:moF9 10.0s infinite both;}
+.stak-motion .moO{animation:moO 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .moR{animation:moR 10.0s infinite both;}
+.stak-motion .moS{animation:moS 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .moall{animation:moall 10.0s infinite both;}
+.stak-motion .mof0{animation:mof0 10.0s infinite both;}
+.stak-motion .mof1{animation:mof1 10.0s infinite both;}
+.stak-motion .mof2{animation:mof2 10.0s infinite both;}
+.stak-motion .mof3{animation:mof3 10.0s infinite both;}
+.stak-motion .mofl{animation:mofl 10.0s infinite both;transform-box:fill-box;transform-origin:50% 50%}
+.stak-motion .rvS{animation:rvS 10.0s infinite both;}
+.stak-motion .rvall{animation:rvall 10.0s infinite both;}
+.stak-motion .rvf0{animation:rvf0 10.0s infinite both;}
+.stak-motion .rvf1{animation:rvf1 10.0s infinite both;}
+.stak-motion .rvf2{animation:rvf2 10.0s infinite both;}
+.stak-motion .rvf3{animation:rvf3 10.0s infinite both;}
+.stak-motion .rvfl{animation:rvfl 10.0s infinite both;transform-box:fill-box;transform-origin:50% 50%}
+.stak-motion .shA{animation:shA 10.0s infinite both;}
+.stak-motion .shB{animation:shB 10.0s infinite both;transform-box:fill-box;transform-origin:50% 50%}
+.stak-motion .shC{animation:shC 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .shD{animation:shD 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .shK{animation:shK 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .shN{animation:shN 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .shO{animation:shO 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .shR{animation:shR 10.0s infinite both;}
+.stak-motion .shT{animation:shT 10.0s infinite both;}
+.stak-motion .shV{animation:shV 10.0s infinite both;}
+.stak-motion .shW{animation:shW 10.0s infinite both;}
+.stak-motion .shall{animation:shall 10.0s infinite both;}
+.stak-motion .shf0{animation:shf0 10.0s infinite both;}
+.stak-motion .shf1{animation:shf1 10.0s infinite both;}
+.stak-motion .shf2{animation:shf2 10.0s infinite both;}
+.stak-motion .shf3{animation:shf3 10.0s infinite both;}
+.stak-motion .shfl{animation:shfl 10.0s infinite both;transform-box:fill-box;transform-origin:50% 50%}
+.stak-motion .stA{animation:stA 10.0s infinite both;}
+.stak-motion .stB{animation:stB 10.0s infinite both;}
+.stak-motion .stLift{animation:stLift 10.0s infinite both;}
+.stak-motion .stO{animation:stO 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .stall{animation:stall 10.0s infinite both;}
+.stak-motion .steam{animation:steam 2.4s ease-in-out infinite}
+.stak-motion .stf0{animation:stf0 10.0s infinite both;}
+.stak-motion .stf1{animation:stf1 10.0s infinite both;}
+.stak-motion .stf2{animation:stf2 10.0s infinite both;}
+.stak-motion .stf3{animation:stf3 10.0s infinite both;}
+.stak-motion .stfl{animation:stfl 10.0s infinite both;transform-box:fill-box;transform-origin:50% 50%}
+.stak-motion .waA{animation:waA 10.0s infinite both;}
+.stak-motion .waB{animation:waB 10.0s infinite both;}
+.stak-motion .waL{animation:waL 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .waO{animation:waO 10.0s infinite both;stroke-dasharray:1}
+.stak-motion .waW{animation:waW 10.0s infinite both;}
+.stak-motion .waall{animation:waall 10.0s infinite both;}
+.stak-motion .waf0{animation:waf0 10.0s infinite both;}
+.stak-motion .waf1{animation:waf1 10.0s infinite both;}
+.stak-motion .waf2{animation:waf2 10.0s infinite both;}
+.stak-motion .waf3{animation:waf3 10.0s infinite both;}
+.stak-motion .wafl{animation:wafl 10.0s infinite both;transform-box:fill-box;transform-origin:50% 50%}
+.stak-motion .wave{animation:wave 1.8s linear infinite}
+
+.stak-motion svg { display: block; width: 100%; height: 100%; overflow: hidden; }
+.stak-motion-animated, .stak-motion-still { width: 100%; height: 100%; }
+.stak-motion-still { display: none; }
+.stak-motion .stak-motion-animated * { animation-play-state: paused; animation-iteration-count: 1; }
+.stak-motion[data-playing="true"] .stak-motion-animated * { animation-play-state: running; }
+@media (prefers-reduced-motion: reduce) {
+  .stak-motion-animated, .stak-motion-control { display: none; }
+  .stak-motion-still { display: block; }
+}
+@media print {
+  .stak-motion-animated, .stak-motion-control { display: none; }
+  .stak-motion-still { display: block; }
+}
