@@ -37,7 +37,7 @@ export function YourPage({ referralSlug }: { referralSlug?: string | undefined }
               </div>
               <div className="order-last min-w-0 basis-full rounded-full bg-paper px-3 py-1 text-[15px] text-muted sm:order-none sm:flex-1 sm:basis-auto">jurniglp.com/you</div>
               <div className="ml-auto flex items-center gap-2">
-                <StakAvatar size={24} />
+                <StakAvatar size={24} animated />
                 <span className="text-[15px] font-bold">{practice}</span>
               </div>
             </div>

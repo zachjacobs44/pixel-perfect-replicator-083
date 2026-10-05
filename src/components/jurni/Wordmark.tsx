@@ -6,6 +6,7 @@ import stakMark from "@/assets/stak-mark.svg.asset.json";
 import stakLockup from "@/assets/stak-lockup-wide.svg.asset.json";
 
 import { cn } from "@/lib/utils";
+import { StakMotion } from "./StakMotion";
 
 export function Wordmark({
   tone = "cream",
@@ -24,12 +25,18 @@ export function Wordmark({
   );
 }
 
-export function StakLockup({ className }: { className?: string }) {
+export function StakLockup({ className, animated = false }: { className?: string; animated?: boolean }) {
+  if (animated) return (
+    <div className={cn("flex h-12 w-fit items-center gap-2.5", className)} role="img" aria-label="Stak">
+      <StakMotion scene="welcome" className="h-full aspect-[170/195]" />
+      <span className="font-display text-[36px] font-extrabold leading-none">STAK</span>
+    </div>
+  );
   return <img src={stakLockup.url} alt="Stak" className={cn("block h-12 w-auto", className)} />;
 }
 
 /** Official striped Stak mark, always used as supplied. */
-export function StakAvatar({ size = 44 }: { size?: number }) {
+export function StakAvatar({ size = 44, animated = false }: { size?: number; animated?: boolean }) {
   return (
     <span
       className="inline-flex shrink-0 items-center justify-center"
@@ -38,13 +45,13 @@ export function StakAvatar({ size = 44 }: { size?: number }) {
         height: size,
       }}
     >
-      <img
+      {animated ? <span role="img" aria-label="Stak" className="h-full w-full"><StakMotion scene="rest" className="h-full w-full" /></span> : <img
         src={stakMark.url}
         alt="Stak"
         className="h-full w-full object-contain"
         loading="lazy"
         decoding="async"
-      />
+      />}
     </span>
   );
 }

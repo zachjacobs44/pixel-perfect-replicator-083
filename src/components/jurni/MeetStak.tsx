@@ -1,19 +1,25 @@
 import { CyanCard, DarkCard, MagentaCard, WhiteCard, YellowCard } from "./Card";
 import { SectionLabel } from "./SectionPlaceholder";
+import { StakMotion, type StakMotionScene } from "./StakMotion";
 
 function FeatureContent({
   number,
   headline,
   children,
+  scene,
 }: {
   number: string;
   headline: string;
   children: React.ReactNode;
+  scene: StakMotionScene;
 }) {
   return (
     <>
       <div>
-        <p className="label-over text-[14px] text-inherit">{number}</p>
+        <div className="flex items-center justify-between gap-4">
+          <p className="label-over text-[14px] text-inherit">{number}</p>
+          <StakMotion scene={scene} className="h-16 w-16" />
+        </div>
         <h3 className="mt-5 font-display text-[30px] font-extrabold leading-[1.05]">{headline}</h3>
       </div>
       <p className="mt-8 text-[17px] leading-[1.5]">{children}</p>
@@ -35,25 +41,25 @@ export function MeetStak() {
 
         <div className="mt-12 grid auto-rows-fr gap-5 md:grid-cols-2">
           <MagentaCard>
-            <FeatureContent number="01" headline="It answers at 2am.">
+            <FeatureContent number="01" headline="It answers at 2am." scene="rest">
               Questions don&apos;t keep office hours. Side effects, what to order, whether the scale sitting
               still means anything. Ask at the hour you&apos;re actually wondering.
             </FeatureContent>
           </MagentaCard>
           <CyanCard>
-            <FeatureContent number="02" headline="It remembers.">
+            <FeatureContent number="02" headline="It remembers." scene="attentive">
               The thing you said in week one. The thing you were embarrassed to say at all. You never
               start the conversation over.
             </FeatureContent>
           </CyanCard>
           <YellowCard>
-            <FeatureContent number="03" headline="It texts first.">
+            <FeatureContent number="03" headline="It texts first." scene="welcome">
               Dose days. Refill days. The flat weeks where most people quietly stop. On those days
               you&apos;re not the one who has to reach out.
             </FeatureContent>
           </YellowCard>
           <DarkCard className="text-ink">
-            <FeatureContent number="04" headline="It doesn't lecture.">
+            <FeatureContent number="04" headline="It doesn't lecture." scene="nod">
               Tell it you ate the whole thing. Tell it you skipped a dose. Go quiet for two weeks and come
               back. Nothing you say gets a lecture, and nothing you don&apos;t say gets held against you.
             </FeatureContent>
