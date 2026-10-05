@@ -302,6 +302,14 @@
   }
 }
 
+.print-theme {
+  color-scheme: light;
+  --paper: var(--stak-ink);
+  --ink: var(--stak-ground);
+  --muted: var(--stak-ground);
+  --hairline: rgba(11, 20, 23, 0.12);
+}
+
 @media print {
   @page {
     size: 3.5in 2in;
