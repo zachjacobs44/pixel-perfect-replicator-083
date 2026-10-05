@@ -24,7 +24,7 @@ export const Route = createFileRoute("/card")({
 });
 
 const face =
-  "card-face relative flex h-[2in] w-[3.5in] flex-col bg-paper p-[0.18in] text-ink border border-hairline";
+  "card-face print-theme relative flex h-[2in] w-[3.5in] flex-col bg-paper p-[0.18in] text-ink border border-hairline";
 
 function CardPage() {
   const practice = usePracticeName("Your practice", undefined, false);
@@ -40,9 +40,9 @@ function CardPage() {
         </button>
 
         <div className={face}>
-          <Wordmark className="h-4 self-start" />
+          <Wordmark tone="ink" className="h-4 self-start" />
           <div className="flex flex-1 items-center justify-center">
-            <p className="text-center font-display text-[22px] font-extrabold leading-[0.95] tracking-[-0.03em]">
+            <p className="text-center font-display text-[22px] font-extrabold leading-[0.95] tracking-normal">
               Your provider gave you a number.
             </p>
           </div>
@@ -56,7 +56,7 @@ function CardPage() {
             <p className="text-[14px]">Two weeks free. No app.</p>
             <p className="label-over text-[14px] text-ink">jurniglp.com</p>
           </div>
-          <QRCodeSVG value="sms:+15625544571" size={92} bgColor="#FAF7F1" fgColor="#141414" level="M" />
+          <QRCodeSVG value="sms:+15625544571" size={92} bgColor="var(--stak-ink)" fgColor="var(--stak-ground)" level="M" />
         </div>
       </div>
     </div>

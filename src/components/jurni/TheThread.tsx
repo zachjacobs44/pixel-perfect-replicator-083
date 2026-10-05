@@ -110,7 +110,7 @@ const CHAPTERS: Chapter[] = [
 const stakBubble =
   "mt-1.5 rounded-[18px] rounded-bl-[6px] border-l-[3px] border-magenta p-3.5 text-[17px] leading-[1.35]";
 const userBubble =
-  "ml-auto max-w-[84%] rounded-[18px] rounded-br-[6px] bg-frame p-3.5 text-[17px] leading-[1.35] break-words";
+  "ml-auto max-w-[84%] rounded-[18px] rounded-br-[6px] bg-primary p-3.5 text-primary-foreground text-[17px] leading-[1.35] break-words";
 
 function PhoneGlyph() {
   return (
@@ -153,7 +153,7 @@ function Message({ msg }: { msg: Msg }) {
   }
   return (
     <div
-      className="flex max-w-[84%] items-center gap-3 rounded-[18px] p-3.5"
+      className="flex max-w-[92%] items-center gap-3 rounded-[18px] p-3.5"
       style={{ background: "var(--grad-white)", boxShadow: "var(--shadow-white)" }}
     >
       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-frame text-ink">
@@ -271,7 +271,7 @@ function DesktopThread() {
       <div>
         <div className="sticky top-[96px]">
           <IPhoneFrame>
-            <div className="flex h-full flex-col bg-paper px-3.5 pt-[16%]">
+            <div className="flex h-full flex-col bg-paper px-3.5 pt-[18%]">
               <div className="flex items-center gap-2.5 border-b border-hairline pb-2.5">
                 <StakAvatar size={28} />
                 <span className="font-display text-[16px] font-extrabold">Stak</span>

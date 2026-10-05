@@ -52,7 +52,7 @@ export function MeetStak() {
               you&apos;re not the one who has to reach out.
             </FeatureContent>
           </YellowCard>
-          <DarkCard className="text-paper">
+          <DarkCard className="text-ink">
             <FeatureContent number="04" headline="It doesn't lecture.">
               Tell it you ate the whole thing. Tell it you skipped a dose. Go quiet for two weeks and come
               back. Nothing you say gets a lecture, and nothing you don&apos;t say gets held against you.

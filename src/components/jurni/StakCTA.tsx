@@ -11,7 +11,7 @@ export const STAK_SMS_HREF =
 export const STAK_TEL_HREF = "tel:+15625544571";
 
 const buttonBase =
-  "inline-flex h-[60px] items-center justify-center rounded-full px-8 font-display text-[20px] font-bold tracking-[-0.02em] press-spring";
+  "inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] px-8 font-body text-[18px] font-semibold press-spring";
 
 export function TextStakButton({
   section,
@@ -30,7 +30,7 @@ export function TextStakButton({
       onClick={() => trackCta("cta_text", section)}
       className={cn(
         buttonBase,
-        "text-white",
+        "text-primary-foreground",
         compact && "h-11 px-5 text-[16px]",
         className,
       )}
@@ -57,7 +57,7 @@ export function CallStakButton({
       className={cn(
         buttonBase,
         "border-2",
-        tone === "cream" ? "border-paper text-paper" : "border-ink text-ink",
+        tone === "cream" ? "border-ink text-ink" : "border-hairline bg-surface text-ink",
         className,
       )}
     >
@@ -91,13 +91,13 @@ export function StakCTA({ section, className }: { section: CtaSection; className
       <div className="hidden min-[900px]:block">
         <div
           className="flex h-[140px] w-[140px] items-center justify-center rounded-[var(--radius-chip)]"
-          style={{ background: "var(--paper)" }}
+          style={{ background: "var(--stak-ink)" }}
         >
           <QRCodeSVG
             value={STAK_SMS_HREF}
             size={132}
-            bgColor="#FAF7F1"
-            fgColor="#141414"
+            bgColor="var(--stak-ink)"
+            fgColor="var(--stak-ground)"
             level="M"
           />
         </div>
@@ -114,7 +114,7 @@ export function ThreadCTA() {
       <a
         href={STAK_SMS_HREF}
         onClick={() => trackCta("cta_text", "thread")}
-        className="press-spring inline-flex rounded-full bg-magenta px-4 py-2 text-paper"
+        className="press-spring inline-flex rounded-[var(--radius-chip)] bg-primary px-4 py-2 text-primary-foreground"
       >
         Text Stak
       </a>
@@ -138,7 +138,7 @@ export function PricingCTA() {
 export function ClosingCTA() {
   return (
     <section
-      className="text-paper"
+      className="text-ink"
       style={{ background: "var(--grad-dark)", boxShadow: "var(--shadow-dark)" }}
       aria-labelledby="closing-cta-title"
     >
@@ -150,7 +150,7 @@ export function ClosingCTA() {
           <TextStakButton section="closing" />
           <CallStakButton section="closing" tone="cream" />
         </div>
-        <p className="mt-5 max-w-[720px] text-[14px] leading-[1.5] text-paper/60">
+        <p className="mt-5 max-w-[720px] text-[14px] leading-[1.5] text-muted">
           Two weeks free. No card, no account, no app. By texting or calling, you agree to receive
           messages from Jurni GLP. Message frequency varies. Message and data rates may apply. Reply
           STOP to end, HELP for help.{" "}

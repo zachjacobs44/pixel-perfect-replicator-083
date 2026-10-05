@@ -1,5 +1,6 @@
 import { CyanCard, DarkCard, MagentaCard, WhiteCard, YellowCard } from "./Card";
 import { SectionLabel } from "./SectionPlaceholder";
+import shopDay from "@/assets/stak-shop-day.png.asset.json";
 
 const JOBS = [
   { C: MagentaCard, t: "The friend", b: "Vent about the plateau. Tell it your jeans fit. It's the one contact who never gets tired of hearing about it." },
@@ -36,7 +37,12 @@ export function WhatStakDoes() {
         </p>
         <div className="mt-12 grid auto-rows-fr gap-5 md:grid-cols-2 lg:grid-cols-3">
           {JOBS.map(({ C, t, b }) => (
-            <C key={t} {...(C === DarkCard ? { className: "text-paper" } : {})}>
+            <C key={t} {...(C === DarkCard ? { className: "text-ink" } : {})}>
+              {t === "The personal shopper" && (
+                <div className="mb-5 h-32 overflow-hidden rounded-[var(--radius-chip)]" aria-hidden="true">
+                  <img src={shopDay.url} alt="" loading="lazy" className="mx-auto -mt-6 w-[150px] max-w-none" />
+                </div>
+              )}
               <h3 className="font-display text-[26px] font-extrabold leading-[1.05]">{t}</h3>
               <p className="mt-6 text-[17px] leading-[1.5]">{b}</p>
             </C>

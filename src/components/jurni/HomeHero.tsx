@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { findPractice, readRememberedPractice, rememberPractice } from "@/lib/referring-practices";
 import { IPhoneFrame } from "./IPhoneFrame";
 import { StakCTA } from "./StakCTA";
-import { StakAvatar } from "./Wordmark";
+import { StakAvatar, StakLockup } from "./Wordmark";
 
 const DEFAULT_EYEBROW = "YOUR PROVIDER SENT YOU HERE.";
 
@@ -11,7 +11,7 @@ function PhoneMock() {
   return (
     <figure className="mx-auto w-full max-w-[350px] lg:mx-0">
       <IPhoneFrame eager>
-        <div className="flex h-full flex-col bg-paper px-3.5 pb-5 pt-[16%]">
+        <div className="flex h-full flex-col bg-paper px-3.5 pb-5 pt-[18%]">
           <div className="flex items-center gap-2.5 border-b border-hairline pb-2.5">
             <StakAvatar size={28} />
             <span className="font-display text-[16px] font-extrabold">Stak</span>
@@ -29,7 +29,7 @@ function PhoneMock() {
             </div>
 
             <div
-              className="message-arrive ml-auto max-w-[84%] rounded-[16px] rounded-br-[6px] bg-frame p-3 text-[15px] leading-[1.35]"
+              className="message-arrive ml-auto max-w-[84%] rounded-[16px] rounded-br-[6px] bg-primary p-3 text-[15px] leading-[1.35] text-primary-foreground"
               style={{ animationDelay: "400ms" }}
             >
               walked past the office bagels this morning and didn&apos;t even want one. weird
@@ -77,14 +77,15 @@ export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }
   }, [referralSlug]);
 
   return (
-    <section id="hero" className="content-column py-10 md:py-16 lg:flex lg:min-h-[calc(100svh-64px)] lg:items-center">
-      <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,1.22fr)_minmax(300px,0.78fr)] lg:gap-12">
-        <div>
+    <section id="hero" className="content-column py-10 md:py-14">
+      <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(300px,0.7fr)] lg:gap-14">
+        <div className="min-w-0">
+          <StakLockup className="mb-8 h-12 md:h-14" />
           <p className="label-over text-[14px] text-magenta">{eyebrow}</p>
           <h1 className="display-hero mt-4 max-w-[720px]">
             The medicine quiets the hunger. Stak handles everything else.
           </h1>
-          <p className="mt-5 max-w-[34ch] text-[20px] leading-[1.42] md:text-[22px]">
+          <p className="mt-6 max-w-[40ch] text-[18px] leading-[1.5] text-muted md:text-[20px]">
             Is this normal. What do I eat tonight. Why did the scale stop. Text it, call it, send it a photo of your plate. It answers, it remembers, and on the hard days it texts first.
           </p>
           <StakCTA section="hero" className="mt-7" />

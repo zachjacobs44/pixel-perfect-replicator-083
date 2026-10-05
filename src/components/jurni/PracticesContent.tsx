@@ -48,7 +48,7 @@ export function PracticesContent() {
           <MagentaCard><Benefit t="Fewer interruptions.">The is-this-normal calls go to Stak, not your front desk. The ones that need you come to you, with a timeline attached.</Benefit></MagentaCard>
           <CyanCard><Benefit t="Your name on it.">Patients experience it as your program. Co-branded Page, co-branded referral card, your practice link.</Benefit></CyanCard>
           <YellowCard><Benefit t="A patient who stays in touch.">Dose days, refill days, flat weeks. Stak keeps them engaged with the plan you wrote.</Benefit></YellowCard>
-          <DarkCard className="text-paper"><Benefit t="Nothing to set up.">No EHR integration. No patient data leaves your practice. No staff time beyond one 30-minute walkthrough.</Benefit></DarkCard>
+          <DarkCard className="text-ink"><Benefit t="Nothing to set up.">No EHR integration. No patient data leaves your practice. No staff time beyond one 30-minute walkthrough.</Benefit></DarkCard>
         </div>
 
         <div className="mt-5 grid gap-5 md:grid-cols-2">
@@ -81,7 +81,7 @@ export function PracticesContent() {
         </ol>
 
         <div className="mt-10 flex flex-col gap-3 min-[420px]:flex-row">
-          <a href="/card" target="_blank" rel="noopener" className="press-spring inline-flex h-[60px] items-center justify-center rounded-full px-8 font-display text-[20px] font-bold text-white" style={{ background: "var(--grad-magenta)", boxShadow: "var(--shadow-magenta)" }}>
+          <a href="/card" target="_blank" rel="noopener" className="press-spring inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] px-8 font-body text-[18px] font-semibold text-primary-foreground" style={{ background: "var(--grad-magenta)", boxShadow: "var(--shadow-magenta)" }}>
             Download the referral card
           </a>
           <a href="mailto:practices@jurniglp.com" className="press-spring inline-flex h-[60px] items-center justify-center rounded-full border-2 border-ink px-8 font-display text-[20px] font-bold text-ink">

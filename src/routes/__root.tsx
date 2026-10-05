@@ -5,6 +5,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { useRouterState } from "@tanstack/react-router";
@@ -30,7 +31,8 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error: caughtError, reset }: ErrorComponentProps) {
+  const error = caughtError instanceof Error ? caughtError : new Error(String(caughtError));
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -50,7 +52,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="press-spring inline-flex h-[60px] items-center justify-center rounded-full px-8 font-display text-[20px] font-bold text-white"
+            className="press-spring inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] px-8 font-body text-[18px] font-semibold text-primary-foreground"
             style={{ background: "var(--grad-magenta)", boxShadow: "var(--shadow-magenta)" }}
           >
             Try again
@@ -84,7 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Jurni GLP" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#FAF7F1" },
+      { name: "theme-color", content: "#0B1417" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -93,11 +95,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "preload",
         as: "style",
-        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Hanken+Grotesk:wght@400..800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100..125,400..900&family=Geist:wght@400;500;600;700&display=swap",
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Hanken+Grotesk:wght@400..800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100..125,400..900&family=Geist:wght@400;500;600;700&display=swap",
       },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
