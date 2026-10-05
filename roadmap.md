@@ -7,5 +7,5 @@
 - [x] Verify homepage at 390px and desktop widths.
 - [x] Master build spec: final homepage, practices, /card, 404.
 - [ ] Swap in salmon-dinner.jpg (waiting on upload).
-- [ ] Apply selected immersive Stak identity across all existing pages without changing copy or behavior.
-- [ ] Verify phone fitting, mobile/desktop layouts, referral attribution, FAQs, practices gate, and printing after redesign.
+- [x] Apply selected immersive Stak identity across all existing pages without changing copy or behavior.
+- [x] Verify phone fitting, mobile/desktop layouts, referral attribution, FAQs, practices gate, and printing after redesign.
