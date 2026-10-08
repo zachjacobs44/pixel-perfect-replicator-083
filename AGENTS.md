@@ -21,4 +21,4 @@
 - Printed referral cards use scoped light theme tokens while screen pages use the active site theme, keeping QR codes scan-friendly and printed cards legible.
 - Official motion is sanitized into shared SVG artwork, rendered by StakMotion with unique SVG IDs, viewport-paused one-pass playback and static reduced-motion fallbacks; its styling remains in src/styles.css to avoid collisions and inaccessible hidden artwork.
 - The Your Page dashboard is an interactive presentation-only example with local tab state and shared official artwork; it never stores patient data or implies a connected patient account.
-- Mobile Thread uses local chapter navigation without nested scrolling; desktop retains its scroll-synchronized phone and both share the same message data.
+- Mobile Thread uses the shared IPhoneFrame with compact, locally navigated chapters and no nested scrolling; desktop retains its scroll-synchronized phone and both share the same message data, keeping all conversations inside the same measured glass area.

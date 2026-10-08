@@ -12,3 +12,4 @@
 - [x] Incorporate supplied Stak motion into existing brand marks and coaching illustrations; verify playback and reduced motion.
 - [x] Update Your Page example to supplied dashboard layouts and icon artwork; verify tabs and sizing.
 - [x] Simplify mobile Thread into a browsable chapter conversation; verify navigation and preserved messages.
+- [x] House the mobile Thread in the photorealistic iPhone and verify all chapters fit and navigation works.

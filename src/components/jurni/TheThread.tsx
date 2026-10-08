@@ -132,13 +132,13 @@ function Message({ msg, compact = false }: { msg: Msg; compact?: boolean }) {
     return (
       <div className="max-w-[92%]">
         {!compact && <StakAvatar size={20} />}
-        <div className={stakBubble} style={{ background: "var(--grad-white)", boxShadow: "var(--shadow-white)" }}>
+        <div className={compact ? "mt-1.5 rounded-[16px] rounded-bl-[6px] border-l-[3px] border-magenta p-2.5 text-[15px] leading-[1.35]" : stakBubble} style={{ background: "var(--grad-white)", boxShadow: "var(--shadow-white)" }}>
           {msg.text}
         </div>
       </div>
     );
   }
-  if (msg.from === "user") return <div className={userBubble}>{msg.text}</div>;
+  if (msg.from === "user") return <div className={compact ? "ml-auto max-w-[84%] rounded-[16px] rounded-br-[6px] bg-primary p-2.5 text-primary-foreground text-[15px] leading-[1.35] break-words" : userBubble}>{msg.text}</div>;
   if (msg.from === "photo") {
     return (
       <div className={`${userBubble} w-[84%] p-2`}>
@@ -171,7 +171,7 @@ function Message({ msg, compact = false }: { msg: Msg; compact?: boolean }) {
 
 function Group({ chapter, compact = false }: { chapter: Chapter; compact?: boolean }) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className={`flex flex-col ${compact ? "gap-3" : "gap-4"}`}>
       {chapter.messages.map((m, i) => (
         <Message key={i} msg={m} compact={compact} />
       ))}
@@ -196,7 +196,7 @@ function MobileThread() {
       <div className="mt-5 min-h-[76px]" aria-live="polite" aria-atomic="true">
         <p className="text-[21px] font-semibold leading-[1.35]">{chapter.line}</p>
       </div>
-      <div className="min-h-[420px] border-y border-hairline py-5" onTouchStart={event => {
+      <div className="mx-auto w-full max-w-[350px]" onTouchStart={event => {
         const touch = event.touches[0];
         if (touch) touchStart.current = { x: touch.clientX, y: touch.clientY };
       }} onTouchEnd={event => {
@@ -208,10 +208,14 @@ function MobileThread() {
         const dy = touch.clientY - start.y;
         if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) move(dx < 0 ? 1 : -1);
       }}>
-        <div className="mb-5 flex items-center gap-3"><StakAvatar size={28} /><span className="text-[17px] font-semibold">Stak</span></div>
-        <div key={active}>
-          <Group chapter={chapter} compact />
-        </div>
+        <IPhoneFrame>
+          <div className="flex h-full flex-col bg-paper px-3 pb-4 pt-[18%]">
+            <div className="mb-4 flex shrink-0 items-center gap-2.5 border-b border-hairline pb-2.5"><StakAvatar size={28} /><span className="text-[17px] font-semibold">Stak</span></div>
+            <div key={active} data-mobile-conversation aria-live="polite">
+              <Group chapter={chapter} compact />
+            </div>
+          </div>
+        </IPhoneFrame>
       </div>
       <div className="mt-4 grid grid-cols-[48px_minmax(0,1fr)_48px] items-center gap-3">
         <Button variant="outline" size="icon" className="h-12 w-12" aria-label="Previous conversation" title="Previous conversation" disabled={active === 0} onClick={() => move(-1)}><ArrowLeft /></Button>
