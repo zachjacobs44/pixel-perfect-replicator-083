@@ -97,8 +97,8 @@ function Contact() {
               contact@jurniglp.com
             </a>
           </Row>
-          <Row label="Text or call">
-            <a href={STAK_TEL_HREF} className="underline">
+          <Row label="Text Stak">
+            <a href={STAK_SMS_HREF} className="underline">
               {STAK_PHONE_DISPLAY}
             </a>
           </Row>

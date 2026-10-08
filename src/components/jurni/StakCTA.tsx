@@ -41,43 +41,15 @@ export function TextStakButton({
   );
 }
 
-export function CallStakButton({
-  section,
-  className,
-  tone = "ink",
-}: {
-  section: CtaSection;
-  className?: string;
-  tone?: "ink" | "cream";
-}) {
-  return (
-    <a
-      href={STAK_TEL_HREF}
-      onClick={() => trackCta("cta_call", section)}
-      className={cn(
-        buttonBase,
-        "border-2",
-        tone === "cream" ? "border-ink text-ink" : "border-hairline bg-surface text-ink",
-        className,
-      )}
-    >
-      Call Stak
-    </a>
-  );
-}
-
 export function StakCTA({ section, className }: { section: CtaSection; className?: string }) {
   return (
     <div className={cn("flex flex-col gap-7 min-[900px]:flex-row min-[900px]:items-start", className)}>
       <div className="max-w-[560px]">
-        <div className="flex flex-col gap-3 min-[420px]:flex-row">
-          <TextStakButton section={section} />
-          <CallStakButton section={section} />
-        </div>
+        <TextStakButton section={section} />
         <p className="fine-print mt-4">
-          Two weeks free. No card, no account, no app. By texting or calling, you agree to receive
-          messages from Jurni GLP. Message frequency varies. Message and data rates may apply. Reply
-          STOP to end, HELP for help.{" "}
+          Two weeks free. No card, no account, no app. By texting, you agree to receive messages from
+          Jurni GLP. Message frequency varies. Message and data rates may apply. Reply STOP to end,
+          HELP for help.{" "}
           <Link to="/privacy" className="underline">
             Privacy
           </Link>{" "}
@@ -126,10 +98,7 @@ export function JourneyCTA() {
 export function PricingCTA() {
   return (
     <div>
-      <div className="flex flex-col gap-3 min-[420px]:flex-row">
-        <TextStakButton section="pricing" />
-        <CallStakButton section="pricing" />
-      </div>
+      <TextStakButton section="pricing" />
       <p className="mt-4 text-[16px] font-semibold">Two weeks free. No card to start. Stop anytime.</p>
     </div>
   );
@@ -146,14 +115,13 @@ export function ClosingCTA() {
         <h2 id="closing-cta-title" className="display-section max-w-[780px]">
           Everything you were going to Google at 2am. One number.
         </h2>
-        <div className="mt-9 flex flex-col gap-3 min-[420px]:flex-row">
+        <div className="mt-9">
           <TextStakButton section="closing" />
-          <CallStakButton section="closing" tone="cream" />
         </div>
         <p className="mt-5 max-w-[720px] text-[14px] leading-[1.5] text-muted">
-          Two weeks free. No card, no account, no app. By texting or calling, you agree to receive
-          messages from Jurni GLP. Message frequency varies. Message and data rates may apply. Reply
-          STOP to end, HELP for help.{" "}
+          Two weeks free. No card, no account, no app. By texting, you agree to receive messages from
+          Jurni GLP. Message frequency varies. Message and data rates may apply. Reply STOP to end,
+          HELP for help.{" "}
           <Link to="/privacy" className="underline">
             Privacy
           </Link>{" "}
