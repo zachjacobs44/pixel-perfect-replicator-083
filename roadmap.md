@@ -11,3 +11,4 @@
 - [x] Verify phone fitting, mobile/desktop layouts, referral attribution, FAQs, practices gate, and printing after redesign.
 - [x] Incorporate supplied Stak motion into existing brand marks and coaching illustrations; verify playback and reduced motion.
 - [x] Update Your Page example to supplied dashboard layouts and icon artwork; verify tabs and sizing.
+- [ ] Simplify mobile Thread into a browsable chapter conversation; verify navigation and preserved messages.

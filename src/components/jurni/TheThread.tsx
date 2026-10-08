@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 import { IPhoneFrame } from "./IPhoneFrame";
 import { SectionLabel } from "./SectionPlaceholder";
@@ -177,58 +179,47 @@ function Group({ chapter }: { chapter: Chapter }) {
   );
 }
 
-function FadeUp({ children }: { children: ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setShown(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setShown(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.15 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-  return (
-    <div
-      ref={ref}
-      style={{
-        opacity: shown ? 1 : 0,
-        transform: shown ? "none" : "translateY(16px)",
-        transition: "opacity 300ms var(--ease-spring, cubic-bezier(.2,1.4,.4,1)), transform 300ms cubic-bezier(.2,1.4,.4,1)",
-      }}
-    >
-      {children}
-    </div>
-  );
-}
-
 function MobileThread() {
+  const [active, setActive] = useState(0);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const chapter = CHAPTERS[active];
+  if (!chapter) return null;
+  const move = (direction: number) => setActive(current => Math.max(0, Math.min(CHAPTERS.length - 1, current + direction)));
   return (
-    <div className="mt-10 flex flex-col gap-10 lg:hidden">
-      {CHAPTERS.map((c) => (
-        <FadeUp key={c.label}>
-          <span
-            className="label-over inline-block px-2.5 py-1 text-[14px] text-ink"
-            style={{ background: "var(--grad-yellow)", borderRadius: "var(--radius-chip)" }}
-          >
-            {c.label}
-          </span>
-          <div className="mt-4">
-            <Group chapter={c} />
-          </div>
-        </FadeUp>
-      ))}
+    <div className="mt-8 lg:hidden" data-mobile-thread>
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
+        <select aria-label="Conversation chapter" value={active} onChange={event => setActive(Number(event.target.value))} className="h-12 min-w-0 w-full rounded-md border border-hairline bg-surface px-3 text-[14px] font-semibold text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+          {CHAPTERS.map((item, index) => <option key={item.label} value={index}>{item.label}</option>)}
+        </select>
+        <span className="shrink-0 text-[14px] tabular-nums text-muted">{active + 1} / {CHAPTERS.length}</span>
+      </div>
+      <div className="mt-5 min-h-[76px]" aria-live="polite" aria-atomic="true">
+        <p className="text-[21px] font-semibold leading-[1.35]">{chapter.line}</p>
+      </div>
+      <div className="min-h-[600px] border-y border-hairline py-5" onTouchStart={event => {
+        const touch = event.touches[0];
+        if (touch) touchStart.current = { x: touch.clientX, y: touch.clientY };
+      }} onTouchEnd={event => {
+        const touch = event.changedTouches[0];
+        const start = touchStart.current;
+        touchStart.current = null;
+        if (!touch || !start) return;
+        const dx = touch.clientX - start.x;
+        const dy = touch.clientY - start.y;
+        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) move(dx < 0 ? 1 : -1);
+      }}>
+        <div className="mb-5 flex items-center gap-3"><StakAvatar size={28} /><span className="text-[17px] font-semibold">Stak</span></div>
+        <div key={active} className="[&>div>div>div:first-child]:hidden [&>div>div]:max-w-full [&>div>div]:shadow-none">
+          <Group chapter={chapter} />
+        </div>
+      </div>
+      <div className="mt-4 grid grid-cols-[48px_minmax(0,1fr)_48px] items-center gap-3">
+        <Button variant="outline" size="icon" className="h-12 w-12" aria-label="Previous conversation" title="Previous conversation" disabled={active === 0} onClick={() => move(-1)}><ArrowLeft /></Button>
+        <div className="flex justify-center gap-1" aria-label="Conversation progress">
+          {CHAPTERS.map((item, index) => <Button key={item.label} variant="ghost" size="icon" className="h-11 w-6 min-w-0 px-0" aria-label={`Show ${item.label.toLowerCase()}`} aria-pressed={index === active} title={item.label} onClick={() => setActive(index)}><span className={`h-1.5 w-3 rounded-full ${index === active ? "bg-primary" : "bg-muted/40"}`} /></Button>)}
+        </div>
+        <Button variant="outline" size="icon" className="h-12 w-12" aria-label="Next conversation" title="Next conversation" disabled={active === CHAPTERS.length - 1} onClick={() => move(1)}><ArrowRight /></Button>
+      </div>
     </div>
   );
 }
