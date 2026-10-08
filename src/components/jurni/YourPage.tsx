@@ -169,7 +169,7 @@ export function YourPage() {
                   </p>
                   <img src={stakSpine.url} alt="Stak" className="h-10 w-auto" />
                 </div>
-                {tab === "Today" ? <TodayView /> : <YouView />}
+                {tab === "Today" ? <TodayView /> : tab === "Meals" ? <MealsView /> : tab === "Workouts" ? <WorkoutsView /> : tab === "Meds" ? <MedsView /> : <YouView />}
               </div>
               <nav aria-label="Example page tabs" className="flex shrink-0 justify-between border-t border-hairline bg-[var(--stak-bar)] px-3 pb-4 pt-2 text-[14px]">
                 {TABS.map((t) => {
