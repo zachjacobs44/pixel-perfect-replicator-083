@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 type CardProps = {
   children: ReactNode;
-  className?: string;
+  className?: string | undefined;
 };
 
 const base = "flex flex-col justify-between border border-hairline p-6 rounded-[var(--radius-card)] min-h-[170px] text-ink";

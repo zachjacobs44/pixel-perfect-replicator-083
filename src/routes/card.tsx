@@ -27,7 +27,7 @@ const face =
   "card-face print-theme relative flex h-[2in] w-[3.5in] flex-col bg-paper p-[0.18in] text-ink border border-hairline";
 
 function CardPage() {
-  const practice = usePracticeName("Your practice", undefined, false);
+  const practice = usePracticeName("", undefined, false);
   return (
     <div className="min-h-screen bg-paper">
       <div className="card-sheet flex flex-col items-center gap-8 px-4 py-10">

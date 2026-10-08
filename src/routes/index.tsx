@@ -4,7 +4,7 @@ import { HomePage } from "@/components/jurni/HomePage";
 
 const TITLE = "Jurni GLP | GLP-1 support by text and call.";
 const DESCRIPTION =
-  "Text or call Stak, your GLP-1 support from Jurni GLP. Answers, check-ins, meals and workouts. No app. Two weeks free.";
+  "Text or call Stak, your GLP-1 support from Jurni GLP. A plan, answers, check-ins, meals and workouts. No app. Two weeks free.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

@@ -4,12 +4,12 @@ import { useState, type ReactNode } from "react";
 import { SectionLabel } from "./SectionPlaceholder";
 
 const ITEMS: { q: string; a: ReactNode }[] = [
-  { q: "What do I say first?", a: "Anything. Most people open with the question they felt silly asking at the visit. That's what it's for. Or tap the button and it starts with \"I just started a GLP-1. What now?\"" },
-  { q: "Is Stak a real person?", a: "No. Stak is an AI, built for people on GLP-1s. It's there every hour of every day. When something needs a person, it points you to your practice." },
-  { q: "Is this my provider's program?", a: "Your provider chose Jurni GLP as the support offered alongside your prescription, and their name is on your Page. Jurni GLP is a separate service. It doesn't make medical decisions and never changes your treatment." },
+  { q: "What do I text it first?", a: "Anything. Most people open with the question they felt silly asking at their last visit. Or tap the button and it starts with \"I just started a GLP-1. What now?\"" },
+  { q: "What does Stak actually do day to day?", a: "It runs your plan. It tells you what to eat and when, how much to move, when to weigh in, and when your dose or refill is coming. It checks in on the hard days and adjusts the plan when your life or your dose changes. You ask it whatever comes up in between." },
+  { q: "Is Stak a real person?", a: "No. Stak is an AI, built for people on GLP-1s. It's there every hour of every day. When something needs a person, it tells you to call your practice." },
   { q: "Do I need to download anything?", a: "No. Stak lives in the messaging and phone apps already on your phone." },
   { q: "Which medications does it work with?", a: "Any GLP-1: Wegovy, Ozempic, Zepbound, Mounjaro, the Wegovy pill, Foundayo, and the rest. Injection or pill." },
-  { q: "Can I use it in Spanish?", a: "Yes. Text or call in whichever language is easier, and switch whenever you want." },
+  { q: "Does it speak my language?", a: "Yes. Text or call in whatever language you think in. Stak answers in the same one, and you can switch mid-conversation." },
   { q: "What if I stop taking my medication?", a: "Stak keeps showing up. Pausing or stopping is part of a lot of people's story, and it doesn't end the conversation." },
   {
     q: "Is what I tell it private?",
@@ -21,6 +21,7 @@ const ITEMS: { q: string; a: ReactNode }[] = [
     ),
   },
   { q: "How do I make it stop?", a: "Reply STOP to any message and they end immediately. Reply START if you change your mind." },
+  { q: "My provider gave me this number. Is this their program?", a: "Your provider chose Jurni GLP as support alongside your prescription, and their name is on your Page. Jurni GLP is a separate service. It doesn't make medical decisions and never changes your treatment." },
 ];
 
 function Chevron({ open }: { open: boolean }) {
