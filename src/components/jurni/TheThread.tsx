@@ -127,11 +127,11 @@ function PhoneGlyph() {
   );
 }
 
-function Message({ msg }: { msg: Msg }) {
+function Message({ msg, compact = false }: { msg: Msg; compact?: boolean }) {
   if (msg.from === "stak") {
     return (
       <div className="max-w-[92%]">
-        <StakAvatar size={20} />
+        {!compact && <StakAvatar size={20} />}
         <div className={stakBubble} style={{ background: "var(--grad-white)", boxShadow: "var(--shadow-white)" }}>
           {msg.text}
         </div>
@@ -169,11 +169,11 @@ function Message({ msg }: { msg: Msg }) {
   );
 }
 
-function Group({ chapter }: { chapter: Chapter }) {
+function Group({ chapter, compact = false }: { chapter: Chapter; compact?: boolean }) {
   return (
     <div className="flex flex-col gap-4">
       {chapter.messages.map((m, i) => (
-        <Message key={i} msg={m} />
+        <Message key={i} msg={m} compact={compact} />
       ))}
     </div>
   );
@@ -209,8 +209,8 @@ function MobileThread() {
         if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) move(dx < 0 ? 1 : -1);
       }}>
         <div className="mb-5 flex items-center gap-3"><StakAvatar size={28} /><span className="text-[17px] font-semibold">Stak</span></div>
-        <div key={active} className="[&>div>div>div:first-child]:hidden [&>div>div]:max-w-full [&>div>div]:shadow-none">
-          <Group chapter={chapter} />
+        <div key={active}>
+          <Group chapter={chapter} compact />
         </div>
       </div>
       <div className="mt-4 grid grid-cols-[48px_minmax(0,1fr)_48px] items-center gap-3">
