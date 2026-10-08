@@ -4,11 +4,11 @@ import { QRCodeSVG } from "qrcode.react";
 import { cn } from "@/lib/utils";
 import { trackCta, type CtaSection } from "@/lib/analytics";
 
-export const STAK_PHONE = "+15625544571";
-export const STAK_PHONE_DISPLAY = "(562) 554-4571";
+export const STAK_PHONE = "+13412227826";
+export const STAK_PHONE_DISPLAY = "(341) 222-7826";
 export const STAK_SMS_HREF =
-  "sms:+15625544571?&body=I%20just%20started%20a%20GLP-1.%20What%20now%3F";
-export const STAK_TEL_HREF = "tel:+15625544571";
+  "sms:+13412227826?&body=I%20just%20started%20a%20GLP-1.%20What%20now%3F";
+export const STAK_TEL_HREF = "tel:+13412227826";
 
 const buttonBase =
   "inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] px-8 font-body text-[18px] font-semibold press-spring";

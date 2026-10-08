@@ -21,7 +21,7 @@ export const ASK_PROMPTS = [
   "My jeans fit. Tell someone.",
 ];
 
-export const askHref = (text: string) => `sms:+15625544571?&body=${encodeURIComponent(text)}`;
+export const askHref = (text: string) => `sms:+13412227826?&body=${encodeURIComponent(text)}`;
 
 const MEDS = ["Wegovy", "Ozempic", "Zepbound", "Mounjaro", "Wegovy pill", "Foundayo", "Rybelsus", "Saxenda", "Victoza", "Trulicity"];
 
