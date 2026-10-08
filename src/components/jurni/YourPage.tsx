@@ -173,16 +173,14 @@ export function YourPage() {
               </div>
               <nav aria-label="Example page tabs" className="flex shrink-0 justify-between border-t border-hairline bg-[var(--stak-bar)] px-3 pb-4 pt-2 text-[14px]">
                 {TABS.map((t) => {
-                  const live = t === "Today" || t === "You";
                   const active = t === tab;
                   return (
                     <button
                       key={t}
                       type="button"
-                      disabled={!live}
                       aria-pressed={active}
-                      onClick={() => live && setTab(t)}
-                      className={`flex flex-col items-center gap-1 ${active ? "font-semibold text-[var(--stak-ink)]" : "text-muted"} ${live ? "cursor-pointer" : "cursor-default"}`}
+                      onClick={() => setTab(t)}
+                      className={`flex cursor-pointer flex-col items-center gap-1 ${active ? "font-semibold text-[var(--stak-ink)]" : "text-muted"}`}
                     >
                       {t}
                       <i aria-hidden="true" className={`h-0.5 w-5 rounded-full ${active ? "bg-[var(--stak-amber)]" : "bg-transparent"}`} />
@@ -192,7 +190,7 @@ export function YourPage() {
               </nav>
             </div>
           </IPhoneFrame>
-          <figcaption className="mt-4 text-center text-[15px] text-muted">An example page. Tap Today or You.</figcaption>
+          <figcaption className="mt-4 text-center text-[15px] text-muted">An example page. Tap any tab.</figcaption>
         </figure>
       </div>
     </section>
