@@ -1,87 +1,135 @@
+import { useState } from "react";
 import { SectionLabel } from "./SectionPlaceholder";
-import { StakBubble } from "./Bubbles";
-import { YellowCard } from "./Card";
-import { Wordmark } from "./Wordmark";
+import { IPhoneFrame } from "./IPhoneFrame";
+import { DashboardArtwork } from "./DashboardArtwork";
+import { STAK_PHONE_DISPLAY, STAK_SMS_HREF } from "./StakCTA";
+import { trackCta } from "@/lib/analytics";
+import stakSpine from "@/assets/stak-lockup-spine.svg.asset.json";
 
-function Tile({ label, value, children }: { label: string; value: string; children: React.ReactNode }) {
+type Tab = "Today" | "You";
+const TABS = ["Today", "Meals", "Workouts", "Shots", "You"] as const;
+
+function StatTile({ art, value, label }: { art: React.ReactNode; value: string; label: string }) {
   return (
-    <div className="flex flex-col gap-2 rounded-[16px] border border-hairline bg-surface p-4">
-      <span className="label-over text-[14px]">{label}</span>
-      <span className="font-display text-[20px] font-extrabold leading-tight">{value}</span>
-      <div className="mt-auto pt-2">{children}</div>
+    <div className="flex flex-col rounded-[14px] bg-surface p-2.5">
+      <div className="flex h-9 items-center">{art}</div>
+      <span className="mt-1.5 font-display text-[18px] font-extrabold leading-none">{value}</span>
+      <span className="mt-1 text-[14px] leading-tight text-muted">{label}</span>
     </div>
   );
 }
 
+function TodayView() {
+  return (
+    <>
+      <div className="flex justify-center py-2">
+        <DashboardArtwork scene="strength" className="h-20 w-32" />
+      </div>
+      <p className="text-[14px] text-muted">Wednesday 21 October</p>
+      <h3 className="font-display text-[22px] font-extrabold uppercase leading-none">Strength day</h3>
+      <p className="mt-1.5 text-[14px]">3 moves · 20 min · week 3 of 4</p>
+      <span className="mt-3 inline-block rounded-[12px] bg-amber px-4 py-2 text-[14px] font-semibold text-ground">See today's workout</span>
+      <div className="mt-3 grid grid-cols-3 gap-2">
+        <StatTile art={<DashboardArtwork scene="water" className="h-9 w-7" />} value="2" label="glasses today" />
+        <StatTile art={<span className="block h-8 w-8 rounded-full border-2 border-muted" />} value="28g" label="protein of 140g" />
+        <StatTile art={<DashboardArtwork scene="shot" className="h-9 w-12" />} value="Sun" label="shot day" />
+      </div>
+      <div className="mt-2 rounded-[14px] bg-surface p-3">
+        <div className="flex items-baseline justify-between">
+          <span className="text-[15px] font-semibold">This week with Stak</span>
+          <span className="font-display text-[14px] font-extrabold">week 3</span>
+        </div>
+        <div className="mt-2 grid grid-cols-3 gap-1.5 text-[14px] leading-tight">
+          <div><span className="font-semibold">Shot</span><br /><span className="text-muted">Sun, R thigh</span></div>
+          <div><span className="font-semibold">Eating</span><br /><span className="text-muted">Protein first</span></div>
+          <div><span className="font-semibold">Moving</span><br /><span className="text-muted">3 days</span></div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function Row({ left, right, chevron }: { left: string; right?: string; chevron?: boolean }) {
+  return (
+    <div className="flex items-center justify-between py-2 text-[15px]">
+      <span>{left}</span>
+      <span className="flex items-center gap-2">
+        {right ? <span className={chevron ? "font-display font-extrabold" : "text-muted"}>{right}</span> : null}
+        {chevron ? <span aria-hidden="true" className="text-muted">›</span> : null}
+      </span>
+    </div>
+  );
+}
+
+function YouView() {
+  return (
+    <>
+      <h3 className="mt-2 font-display text-[26px] font-extrabold uppercase leading-none">You</h3>
+      <p className="mt-2 text-[15px]">This week with Stak</p>
+      <p className="mt-2 text-[14px] leading-snug">No week closed yet. This one needs a meal on plan and a walk or a workout to close.</p>
+      <div className="mt-3 rounded-[14px] bg-surface px-3 py-2">
+        <p className="pt-1 text-[15px] font-semibold">Why</p>
+        <p className="mt-1 text-[16px] font-semibold leading-snug">"For my daughter's wedding in June."</p>
+        <p className="text-[14px] text-muted">You · Oct 3</p>
+        <div className="mt-2 border-t border-hairline"><Row left="Give Stak a rule" chevron /></div>
+      </div>
+      <div className="mt-2 rounded-[14px] bg-surface px-3"><Row left="Weight" right="212 lb" chevron /></div>
+      <div className="mt-2 rounded-[14px] bg-surface px-3">
+        <Row left="Stak" right={STAK_PHONE_DISPLAY} />
+        <div className="border-t border-hairline"><Row left="Text Stak" chevron /></div>
+      </div>
+    </>
+  );
+}
+
 export function YourPage() {
+  const [tab, setTab] = useState<Tab>("Today");
   return (
     <section id="the-page" className="section-y">
-      <div className="content-column">
-        <SectionLabel>YOUR PAGE</SectionLabel>
-        <h2 className="display-section mt-4 max-w-[800px]">Everything you told Stak, organized without you.</h2>
-        <p className="mt-6 max-w-[600px] text-[20px] leading-[1.5]">
-          Every text, photo and call becomes one private page. Your meals for the week, a shopping list you check off, your food log, your workouts, your shot log and side effects, and what Stak knows about you. Nothing to fill in, ever.
-        </p>
+      <div className="content-column grid items-center gap-12 lg:grid-cols-[1fr_360px]">
+        <div>
+          <SectionLabel>YOUR PAGE</SectionLabel>
+          <h2 className="display-section mt-4 max-w-[800px]">Everything you told Stak, organized without you.</h2>
+          <p className="mt-6 max-w-[600px] text-[20px] leading-[1.5]">
+            Every text, photo and call becomes one private page. Your meals for the week, a shopping list you check off, your food log, your workouts, your shot log and side effects, and what Stak knows about you. Nothing to fill in, ever.
+          </p>
+          <a href={STAK_SMS_HREF} onClick={() => trackCta("cta_text", "your-page")} className="mt-6 inline-block text-[17px] font-semibold text-amber underline underline-offset-4">Text Stak to get your page</a>
+        </div>
 
-        <figure className="mt-12">
-          <div className="overflow-hidden rounded-[var(--radius-card)] text-ink" style={{ background: "var(--grad-white)", boxShadow: "var(--shadow-white)" }}>
-            <div className="flex items-center gap-3 border-b border-hairline px-4 py-3">
-              <span aria-hidden="true" className="flex gap-1.5">
-                <i className="h-3 w-3 rounded-full bg-hairline" />
-                <i className="h-3 w-3 rounded-full bg-hairline" />
-                <i className="h-3 w-3 rounded-full bg-hairline" />
-              </span>
-              <span className="min-w-0 flex-1 truncate rounded-full bg-frame px-4 py-1.5 text-[14px] text-muted">jurniglp.com/you</span>
-            </div>
-            <div className="p-5 md:p-8">
-              <Wordmark className="h-5" />
-              <nav aria-hidden="true" className="label-over mt-5 flex flex-wrap gap-x-4 gap-y-2 text-[14px]">
-                <span className="border-b-2 border-magenta pb-1 text-ink">Today</span>
-                <span>Meals</span>
-                <span>Workouts</span>
-                <span>Shots</span>
-                <span>You</span>
-              </nav>
-              <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
-                <Tile label="Weight" value="down 14 lb">
-                  <svg viewBox="0 0 100 32" className="h-8 w-full" aria-hidden="true">
-                    <polyline points="0,4 16,8 32,10 48,15 64,18 80,24 100,28" fill="none" stroke="var(--cyan)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <span className="text-[14px] text-muted">May to Aug</span>
-                </Tile>
-                <Tile label="Protein target" value="hit 4 of 7 days">
-                  <div className="flex gap-1.5" aria-hidden="true">
-                    {Array.from({ length: 7 }, (_, i) => (
-                      <i key={i} className="h-3 w-3 rounded-full border-2 border-cyan" style={{ background: i < 4 ? "var(--cyan)" : "transparent" }} />
-                    ))}
-                  </div>
-                </Tile>
-                <Tile label="Next dose" value="Friday">
-                  <span className="inline-block rounded-full border border-hairline px-3 py-1 text-[14px] font-bold text-text-cyan">On track</span>
-                </Tile>
-                <Tile label="Shopping list" value="4 of 11 checked">
-                  <div className="flex flex-wrap gap-1.5" aria-hidden="true">
-                    {Array.from({ length: 11 }, (_, i) => (
-                      <svg key={i} viewBox="0 0 14 14" className="h-3.5 w-3.5">
-                        <rect x="1" y="1" width="12" height="12" rx="3" fill="none" stroke="var(--cyan)" strokeWidth="1.6" />
-                        {i < 4 ? <path d="M4 7.2l2 2 4-4.4" fill="none" stroke="var(--cyan)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /> : null}
-                      </svg>
-                    ))}
-                  </div>
-                </Tile>
-              </div>
-              <StakBubble className="mt-6">Week 12: walked past the office bagels without wanting one.</StakBubble>
-              <YellowCard className="mt-5 min-h-0">
-                <div>
-                  <span className="label-over text-[14px]">INSIGHT</span>
-                  <p className="mt-2 text-[17px] leading-[1.5]">
-                    You hit your protein goal 4 of 7 days this week. Aim for 6. Protein protects your muscle while the weight comes off.
+        <figure className="mx-auto w-full max-w-[340px]">
+          <IPhoneFrame>
+            <div className="flex h-full flex-col bg-ground text-ink">
+              <div className="min-h-0 flex-1 overflow-hidden px-4 pt-[16%]">
+                <div className="flex items-start justify-between">
+                  <p className="max-w-[70%] text-[14px] leading-snug text-muted">
+                    {tab === "Today" ? "Stak keeps your plan here." : ""}
                   </p>
+                  <img src={stakSpine.url} alt="Stak" className="h-10 w-auto" />
                 </div>
-              </YellowCard>
+                {tab === "Today" ? <TodayView /> : <YouView />}
+              </div>
+              <nav aria-label="Example page tabs" className="flex shrink-0 justify-between border-t border-hairline bg-bar px-3 pb-4 pt-2 text-[14px]">
+                {TABS.map((t) => {
+                  const live = t === "Today" || t === "You";
+                  const active = t === tab;
+                  return (
+                    <button
+                      key={t}
+                      type="button"
+                      disabled={!live}
+                      aria-pressed={active}
+                      onClick={() => live && setTab(t)}
+                      className={`flex flex-col items-center gap-1 ${active ? "font-semibold text-ink" : "text-muted"} ${live ? "cursor-pointer" : "cursor-default"}`}
+                    >
+                      {t}
+                      <i aria-hidden="true" className={`h-0.5 w-5 rounded-full ${active ? "bg-amber" : "bg-transparent"}`} />
+                    </button>
+                  );
+                })}
+              </nav>
             </div>
-          </div>
-          <figcaption className="mt-4 text-center text-[15px] text-muted">Built by your conversations. Updated after every one.</figcaption>
+          </IPhoneFrame>
+          <figcaption className="mt-4 text-center text-[15px] text-muted">An example page. Tap Today or You.</figcaption>
         </figure>
       </div>
     </section>
