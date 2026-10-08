@@ -1,3 +1,4 @@
+import { STAK_PHONE } from "./StakCTA";
 import { trackCta } from "@/lib/analytics";
 import { SectionLabel } from "./SectionPlaceholder";
 
@@ -21,7 +22,7 @@ export const ASK_PROMPTS = [
   "My jeans fit. Tell someone.",
 ];
 
-export const askHref = (text: string) => `sms:+13412227826?&body=${encodeURIComponent(text)}`;
+export const askHref = (text: string) => `sms:${STAK_PHONE}?&body=${encodeURIComponent(text)}`;
 
 const MEDS = ["Wegovy", "Ozempic", "Zepbound", "Mounjaro", "Wegovy pill", "Foundayo", "Rybelsus", "Saxenda", "Victoza", "Trulicity"];
 

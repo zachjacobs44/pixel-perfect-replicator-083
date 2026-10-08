@@ -52,11 +52,11 @@ function CardPage() {
         <div className={`${face} flex-row items-center justify-between gap-3`}>
           <div className="flex flex-col gap-1.5">
             <StakAvatar size={28} />
-            <p className="text-[16px] font-bold leading-[1.2]">Text or call Stak at (341) 222-7826</p>
+            <p className="text-[16px] font-bold leading-[1.2]">Text or call Stak at {STAK_PHONE_DISPLAY}</p>
             <p className="text-[14px]">Two weeks free. No app.</p>
             <p className="label-over text-[14px] text-ink">jurniglp.com</p>
           </div>
-          <QRCodeSVG value="sms:+13412227826" size={92} bgColor="var(--stak-ink)" fgColor="var(--stak-ground)" level="M" />
+          <QRCodeSVG value={`sms:${STAK_PHONE}`} size={92} bgColor="var(--stak-ink)" fgColor="var(--stak-ground)" level="M" />
         </div>
       </div>
     </div>
