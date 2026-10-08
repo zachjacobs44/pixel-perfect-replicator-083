@@ -98,7 +98,7 @@ export function YourPage() {
 
         <figure className="mx-auto w-full max-w-[340px]">
           <IPhoneFrame>
-            <div className="flex h-full flex-col bg-[var(--stak-ground)] text-[var(--stak-ink)]">
+            <div className="flex h-full flex-col" style={{ background: "var(--stak-ground)", color: "var(--stak-ink)" }}>
               <div className="min-h-0 flex-1 overflow-hidden px-4 pt-[16%]">
                 <div className="flex items-start justify-between">
                   <p className="max-w-[70%] text-[14px] leading-snug text-muted">
