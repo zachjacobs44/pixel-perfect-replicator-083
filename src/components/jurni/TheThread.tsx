@@ -143,7 +143,7 @@ function Message({ msg, compact = false }: { msg: Msg; compact?: boolean }) {
     return (
       <div className={`${userBubble} w-[84%] p-2`}>
         <div
-          className="flex aspect-[4/3] w-full items-center justify-center rounded-[12px] bg-paper text-[15px] text-muted"
+          className={`flex ${compact ? "aspect-[2/1]" : "aspect-[4/3]"} w-full items-center justify-center rounded-[12px] bg-paper text-[15px] text-muted`}
           role="img"
           aria-label="dinner photo"
         >
@@ -196,7 +196,7 @@ function MobileThread() {
       <div className="mt-5 min-h-[76px]" aria-live="polite" aria-atomic="true">
         <p className="text-[21px] font-semibold leading-[1.35]">{chapter.line}</p>
       </div>
-      <div className="min-h-[600px] border-y border-hairline py-5" onTouchStart={event => {
+      <div className="min-h-[420px] border-y border-hairline py-5" onTouchStart={event => {
         const touch = event.touches[0];
         if (touch) touchStart.current = { x: touch.clientX, y: touch.clientY };
       }} onTouchEnd={event => {
