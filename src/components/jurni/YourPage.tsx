@@ -6,8 +6,8 @@ import { STAK_PHONE_DISPLAY, STAK_SMS_HREF } from "./StakCTA";
 import { trackCta } from "@/lib/analytics";
 import stakSpine from "@/assets/stak-lockup-spine.svg.asset.json";
 
-type Tab = "Today" | "You";
-const TABS = ["Today", "Meals", "Workouts", "Shots", "You"] as const;
+type Tab = "Today" | "Meals" | "Workouts" | "Meds" | "You";
+const TABS = ["Today", "Meals", "Workouts", "Meds", "You"] as const;
 
 function StatTile({ art, value, label }: { art: React.ReactNode; value: string; label: string }) {
   return (
@@ -44,6 +44,69 @@ function TodayView() {
           <div><span className="font-semibold">Eating</span><br /><span className="text-muted">Protein first</span></div>
           <div><span className="font-semibold">Moving</span><br /><span className="text-muted">3 days</span></div>
         </div>
+      </div>
+    </>
+  );
+}
+
+function MealsView() {
+  return (
+    <>
+      <h3 className="font-display text-[22px] font-extrabold uppercase leading-none">Meals</h3>
+      <p className="mt-1 text-[14px] text-muted">Week of Oct 20 · protein first</p>
+      <div className="mt-2 rounded-[14px] bg-surface p-3">
+        <p className="text-[15px] font-semibold">Shopping list</p>
+        <div className="mt-2 space-y-1.5 text-[14px]">
+          <div className="flex items-center justify-between"><span>Greek yogurt</span><span className="text-muted">got it</span></div>
+          <div className="flex items-center justify-between"><span>Eggs</span><span className="text-muted">got it</span></div>
+          <div className="flex items-center justify-between"><span>Chicken thighs</span><span className="text-muted">still need</span></div>
+        </div>
+      </div>
+      <div className="mt-2 rounded-[14px] bg-surface p-3">
+        <p className="text-[15px] font-semibold">Yesterday's log</p>
+        <Row left="Breakfast" right="Yogurt + berries" />
+        <Row left="Lunch" right="Chicken wrap" />
+        <Row left="Dinner" right="Salmon, rice" />
+      </div>
+    </>
+  );
+}
+
+function WorkoutsView() {
+  return (
+    <>
+      <h3 className="font-display text-[22px] font-extrabold uppercase leading-none">Workouts</h3>
+      <p className="mt-1 text-[14px] text-muted">Week 3 of 4 · 3 days done</p>
+      <div className="mt-2 rounded-[14px] bg-surface p-3">
+        <Row left="Mon" right="Walked 25 min" />
+        <Row left="Wed" right="Strength · 20 min" chevron />
+        <Row left="Fri" right="Rest day" />
+      </div>
+      <div className="mt-2 rounded-[14px] bg-surface p-3">
+        <p className="text-[15px] font-semibold">Today's strength</p>
+        <p className="mt-1 text-[14px] text-muted">3 moves · about 20 min · no equipment</p>
+        <Row left="Goblet squat" right="3 × 10" />
+        <Row left="Wall push-up" right="3 × 12" />
+        <Row left="Dead bug" right="3 × 8" />
+      </div>
+    </>
+  );
+}
+
+function MedsView() {
+  return (
+    <>
+      <h3 className="font-display text-[22px] font-extrabold uppercase leading-none">Meds</h3>
+      <p className="mt-1 text-[14px] text-muted">Next dose · Sunday, 9 AM</p>
+      <div className="mt-2 rounded-[14px] bg-surface p-3">
+        <p className="text-[15px] font-semibold">Shot log</p>
+        <Row left="Oct 5" right="Sun · R thigh" />
+        <Row left="Sep 28" right="Sun · L thigh" />
+        <Row left="Sep 21" right="Sun · R thigh" />
+      </div>
+      <div className="mt-2 rounded-[14px] bg-surface p-3">
+        <p className="text-[15px] font-semibold">Side effects</p>
+        <p className="mt-1 text-[14px] leading-snug">Mild nausea the day after your last two doses. Stak is watching for changes.</p>
       </div>
     </>
   );
@@ -106,20 +169,18 @@ export function YourPage() {
                   </p>
                   <img src={stakSpine.url} alt="Stak" className="h-10 w-auto" />
                 </div>
-                {tab === "Today" ? <TodayView /> : <YouView />}
+                {tab === "Today" ? <TodayView /> : tab === "Meals" ? <MealsView /> : tab === "Workouts" ? <WorkoutsView /> : tab === "Meds" ? <MedsView /> : <YouView />}
               </div>
               <nav aria-label="Example page tabs" className="flex shrink-0 justify-between border-t border-hairline bg-[var(--stak-bar)] px-3 pb-4 pt-2 text-[14px]">
                 {TABS.map((t) => {
-                  const live = t === "Today" || t === "You";
                   const active = t === tab;
                   return (
                     <button
                       key={t}
                       type="button"
-                      disabled={!live}
                       aria-pressed={active}
-                      onClick={() => live && setTab(t)}
-                      className={`flex flex-col items-center gap-1 ${active ? "font-semibold text-[var(--stak-ink)]" : "text-muted"} ${live ? "cursor-pointer" : "cursor-default"}`}
+                      onClick={() => setTab(t)}
+                      className={`flex cursor-pointer flex-col items-center gap-1 ${active ? "font-semibold text-[var(--stak-ink)]" : "text-muted"}`}
                     >
                       {t}
                       <i aria-hidden="true" className={`h-0.5 w-5 rounded-full ${active ? "bg-[var(--stak-amber)]" : "bg-transparent"}`} />
@@ -129,7 +190,7 @@ export function YourPage() {
               </nav>
             </div>
           </IPhoneFrame>
-          <figcaption className="mt-4 text-center text-[15px] text-muted">An example page. Tap Today or You.</figcaption>
+          <figcaption className="mt-4 text-center text-[15px] text-muted">An example page. Tap any tab.</figcaption>
         </figure>
       </div>
     </section>
