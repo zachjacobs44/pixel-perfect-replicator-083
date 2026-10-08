@@ -3,7 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 
 import { sendContactMessage } from "@/lib/contact.functions";
-import { STAK_PHONE_DISPLAY, STAK_TEL_HREF } from "@/components/jurni/StakCTA";
+import { STAK_PHONE_DISPLAY, STAK_SMS_HREF } from "@/components/jurni/StakCTA";
 
 const TITLE = "Contact Jurni GLP";
 const DESCRIPTION =
@@ -97,8 +97,8 @@ function Contact() {
               contact@jurniglp.com
             </a>
           </Row>
-          <Row label="Text or call">
-            <a href={STAK_TEL_HREF} className="underline">
+          <Row label="Text Stak">
+            <a href={STAK_SMS_HREF} className="underline">
               {STAK_PHONE_DISPLAY}
             </a>
           </Row>
