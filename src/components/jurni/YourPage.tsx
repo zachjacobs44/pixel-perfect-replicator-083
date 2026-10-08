@@ -28,7 +28,7 @@ function TodayView() {
       <p className="text-[14px] text-muted">Wednesday 21 October</p>
       <h3 className="font-display text-[22px] font-extrabold uppercase leading-none">Strength day</h3>
       <p className="mt-1.5 text-[14px]">3 moves · 20 min · week 3 of 4</p>
-      <span className="mt-3 inline-block rounded-[12px] bg-amber px-4 py-2 text-[14px] font-semibold text-ground">See today's workout</span>
+      <span className="mt-3 inline-block rounded-[12px] bg-[var(--stak-amber)] px-4 py-2 text-[14px] font-semibold text-[var(--stak-ground)]">See today's workout</span>
       <div className="mt-3 grid grid-cols-3 gap-2">
         <StatTile art={<DashboardArtwork scene="water" className="h-9 w-7" />} value="2" label="glasses today" />
         <StatTile art={<span className="block h-8 w-8 rounded-full border-2 border-muted" />} value="28g" label="protein of 140g" />
@@ -93,12 +93,12 @@ export function YourPage() {
           <p className="mt-6 max-w-[600px] text-[20px] leading-[1.5]">
             Every text, photo and call becomes one private page. Your meals for the week, a shopping list you check off, your food log, your workouts, your shot log and side effects, and what Stak knows about you. Nothing to fill in, ever.
           </p>
-          <a href={STAK_SMS_HREF} onClick={() => trackCta("cta_text", "your-page")} className="mt-6 inline-block text-[17px] font-semibold text-amber underline underline-offset-4">Text Stak to get your page</a>
+          <a href={STAK_SMS_HREF} onClick={() => trackCta("cta_text", "your-page")} className="mt-6 inline-block text-[17px] font-semibold text-[var(--stak-amber)] underline underline-offset-4">Text Stak to get your page</a>
         </div>
 
         <figure className="mx-auto w-full max-w-[340px]">
           <IPhoneFrame>
-            <div className="flex h-full flex-col bg-ground text-ink">
+            <div className="flex h-full flex-col bg-[var(--stak-ground)] text-[var(--stak-ink)]">
               <div className="min-h-0 flex-1 overflow-hidden px-4 pt-[16%]">
                 <div className="flex items-start justify-between">
                   <p className="max-w-[70%] text-[14px] leading-snug text-muted">
@@ -108,7 +108,7 @@ export function YourPage() {
                 </div>
                 {tab === "Today" ? <TodayView /> : <YouView />}
               </div>
-              <nav aria-label="Example page tabs" className="flex shrink-0 justify-between border-t border-hairline bg-bar px-3 pb-4 pt-2 text-[14px]">
+              <nav aria-label="Example page tabs" className="flex shrink-0 justify-between border-t border-hairline bg-[var(--stak-bar)] px-3 pb-4 pt-2 text-[14px]">
                 {TABS.map((t) => {
                   const live = t === "Today" || t === "You";
                   const active = t === tab;
@@ -119,10 +119,10 @@ export function YourPage() {
                       disabled={!live}
                       aria-pressed={active}
                       onClick={() => live && setTab(t)}
-                      className={`flex flex-col items-center gap-1 ${active ? "font-semibold text-ink" : "text-muted"} ${live ? "cursor-pointer" : "cursor-default"}`}
+                      className={`flex flex-col items-center gap-1 ${active ? "font-semibold text-[var(--stak-ink)]" : "text-muted"} ${live ? "cursor-pointer" : "cursor-default"}`}
                     >
                       {t}
-                      <i aria-hidden="true" className={`h-0.5 w-5 rounded-full ${active ? "bg-amber" : "bg-transparent"}`} />
+                      <i aria-hidden="true" className={`h-0.5 w-5 rounded-full ${active ? "bg-[var(--stak-amber)]" : "bg-transparent"}`} />
                     </button>
                   );
                 })}
