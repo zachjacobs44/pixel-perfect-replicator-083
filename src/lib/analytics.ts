@@ -5,7 +5,8 @@
 
 export type CtaSection =
   | "hero"
-  | "thread"
+  | "journey"
+  | "ask"
   | "pricing"
   | "faq"
   | "closing"

@@ -7,7 +7,7 @@ export function Pricing() {
     <section id="pricing" className="section-y">
       <div className="content-column">
         <SectionLabel>WHAT IT COSTS</SectionLabel>
-        <h2 className="display-section mt-4 max-w-[800px]">Free for two weeks. Then less than a dollar a day.</h2>
+        <h2 className="display-section mt-4 max-w-[800px]">Two weeks free. Then $29.99 a month.</h2>
         <p className="mt-6 max-w-[600px] text-[20px] leading-[1.5]">
           No card to start. No account to make. Text Stak and it begins. After two weeks it sends you a
           link. $29.99 a month, or $300 a year if you&apos;d rather pay once. Stop whenever you want by

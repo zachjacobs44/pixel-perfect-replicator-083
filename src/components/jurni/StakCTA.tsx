@@ -107,13 +107,13 @@ export function StakCTA({ section, className }: { section: CtaSection; className
   );
 }
 
-export function ThreadCTA() {
+export function JourneyCTA() {
   return (
     <p className="font-display text-[30px] font-extrabold leading-[1.08]">
-      Anything on your mind.{" "}
+      Whatever stage you're in.{" "}
       <a
         href={STAK_SMS_HREF}
-        onClick={() => trackCta("cta_text", "thread")}
+        onClick={() => trackCta("cta_text", "journey")}
         className="press-spring inline-flex rounded-[var(--radius-chip)] bg-primary px-4 py-2 text-primary-foreground"
       >
         Text Stak
@@ -144,7 +144,7 @@ export function ClosingCTA() {
     >
       <div className="content-column py-20 md:py-[140px]">
         <h2 id="closing-cta-title" className="display-section max-w-[780px]">
-          Your provider gave you the number. This is the number.
+          Everything you were going to Google at 2am. One number.
         </h2>
         <div className="mt-9 flex flex-col gap-3 min-[420px]:flex-row">
           <TextStakButton section="closing" />

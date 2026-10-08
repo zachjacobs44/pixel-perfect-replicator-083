@@ -3,9 +3,7 @@ export type ReferringPractice = {
   name: string;
 };
 
-export const REFERRING_PRACTICES: ReferringPractice[] = [
-  { slug: "riverside", name: "Riverside Health" },
-];
+export const REFERRING_PRACTICES: ReferringPractice[] = [];
 
 const STORAGE_KEY = "jurni.referring-practice";
 const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;

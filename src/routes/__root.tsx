@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Text or call Stak, your GLP-1 support from Jurni GLP. Answers, check-ins, meals and workouts. No app. Two weeks free.",
+          "Text or call Stak, your GLP-1 support from Jurni GLP. A plan, answers, check-ins, meals and workouts. No app. Two weeks free.",
       },
       { property: "og:site_name", content: "Jurni GLP" },
       { property: "og:type", content: "website" },
