@@ -1,3 +1,4 @@
+import { STAK_PHONE, STAK_PHONE_DISPLAY } from "@/components/jurni/StakCTA";
 import { createFileRoute } from "@tanstack/react-router";
 import { QRCodeSVG } from "qrcode.react";
 
