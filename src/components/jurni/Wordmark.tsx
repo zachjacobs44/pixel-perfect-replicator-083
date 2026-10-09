@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { StakMotion } from "./StakMotion";
 
 export function Wordmark({
-  tone = "cream",
+  tone = "ink",
   className,
 }: {
   tone?: "ink" | "cream";
@@ -36,13 +36,14 @@ export function StakLockup({ className, animated = false }: { className?: string
 }
 
 /** Official striped Stak mark, always used as supplied. */
-export function StakAvatar({ size = 44, animated = false }: { size?: number; animated?: boolean }) {
+export function StakAvatar({ size = 44, animated = false, onPaper = false }: { size?: number; animated?: boolean; onPaper?: boolean }) {
   return (
     <span
       className="inline-flex shrink-0 items-center justify-center"
       style={{
         width: size,
         height: size,
+        ...(onPaper ? { background: "var(--stak-ground)", borderRadius: Math.round(size * 0.28), padding: Math.round(size * 0.18), boxShadow: "0 10px 24px -12px rgba(20,27,30,.45)" } : {}),
       }}
     >
       {animated ? <span role="img" aria-label="Stak" className="h-full w-full"><StakMotion scene="rest" className="h-full w-full" /></span> : <img

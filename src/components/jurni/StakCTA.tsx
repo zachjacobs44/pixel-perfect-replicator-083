@@ -69,7 +69,7 @@ export function StakCTA({ section, className }: { section: CtaSection; className
             value={STAK_SMS_HREF}
             size={132}
             bgColor="var(--stak-ink)"
-            fgColor="var(--stak-ground)"
+            fgColor="#141b1e"
             level="M"
           />
         </div>
@@ -86,7 +86,7 @@ export function JourneyCTA() {
       <a
         href={STAK_SMS_HREF}
         onClick={() => trackCta("cta_text", "journey")}
-        className="press-spring inline-flex rounded-[var(--radius-chip)] bg-primary px-4 py-2 text-primary-foreground"
+        className="press-spring inline-flex rounded-[var(--radius-chip)] px-4 py-2 text-primary-foreground" style={{ background: "var(--grad-button)", boxShadow: "var(--shadow-button)" }}
       >
         Text Stak
       </a>
@@ -107,8 +107,8 @@ export function PricingCTA() {
 export function ClosingCTA() {
   return (
     <section
-      className="relative isolate overflow-hidden text-ink"
-      style={{ background: "var(--stak-bar)" }}
+      className="night-screen relative isolate overflow-hidden"
+      style={{ background: "var(--stak-ground)" }}
       aria-labelledby="closing-cta-title"
     >
       <div className="content-column flex flex-col items-center py-24 text-center md:py-[160px]">

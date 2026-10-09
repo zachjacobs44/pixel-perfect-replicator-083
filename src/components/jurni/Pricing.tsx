@@ -8,18 +8,16 @@ export function Pricing() {
       <div className="content-column">
         <SectionLabel>WHAT IT COSTS</SectionLabel>
         <h2 className="display-section mt-4 max-w-[800px]">Two weeks free. Then $29.99 a month.</h2>
-        <p className="mt-6 max-w-[600px] text-[20px] leading-[1.5]">
-          No card to start. No account to make. Text Stak and it begins. After two weeks it sends you a
-          link. $29.99 a month, or $300 a year if you&apos;d rather pay once. Stop whenever you want by
-          replying STOP.
+        <p className="mt-6 max-w-[560px] text-[19px] leading-[1.5] text-muted">
+          No card to start. Text Stak and it begins. After two weeks it sends you a link. Stop any time by replying STOP.
         </p>
         <div className="mt-10 grid max-w-[600px] gap-5 sm:grid-cols-2">
           <WhiteCard className="min-h-0">
-            <p className="font-display text-[44px] font-extrabold leading-none text-[var(--stak-amber-light)]">$29.99</p>
+            <p className="font-display text-[44px] font-extrabold leading-none text-[var(--stak-amber-deep)]">$29.99</p>
             <p className="mt-3 text-[17px] text-muted">a month</p>
           </WhiteCard>
           <CyanCard className="min-h-0">
-            <p className="font-display text-[44px] font-extrabold leading-none text-[var(--stak-amber-light)]">$300</p>
+            <p className="font-display text-[44px] font-extrabold leading-none text-[var(--stak-amber-deep)]">$300</p>
             <p className="mt-3 text-[17px]">a year · two months free</p>
           </CyanCard>
         </div>
