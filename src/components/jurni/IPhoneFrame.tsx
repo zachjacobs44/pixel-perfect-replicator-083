@@ -42,8 +42,9 @@ export function IPhoneFrame({
       {/* Dynamic Island redrawn above the chat so the screen never covers it. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute rounded-full bg-background"
-        style={{ left: "36%", width: "28%", top: "3.8%", height: "3.95%" }}
+        className="pointer-events-none absolute rounded-full"
+        data-island
+        style={{ left: "36%", width: "28%", top: "3.8%", height: "3.95%", background: "#000" }}
       />
     </div>
   );

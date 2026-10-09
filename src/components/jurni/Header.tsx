@@ -15,7 +15,7 @@ export function Header() {
     >
       <div className="content-column flex h-16 items-center justify-between gap-4">
         <Link to="/" aria-label="Jurni GLP home" className="shrink-0">
-          <Wordmark className="h-5 md:h-6" />
+          <Wordmark tone="ink" className="h-5 md:h-6" />
         </Link>
         <div className="flex items-center gap-5">
           <Link

@@ -153,15 +153,15 @@ export function YourPage() {
         <div>
           <SectionLabel>YOUR PAGE</SectionLabel>
           <h2 className="display-section mt-4 max-w-[800px]">Everything you told Stak, organized without you.</h2>
-          <p className="mt-6 max-w-[600px] text-[20px] leading-[1.5]">
-            Every text, photo and call becomes one private page. Your meals for the week, a shopping list you check off, your food log, your workouts, your shot log and side effects, and what Stak knows about you. Nothing to fill in, ever.
+          <p className="mt-6 max-w-[520px] text-[19px] leading-[1.5] text-muted">
+            Every text, photo and call becomes one private page: meals, shopping list, workouts, shot log, and what Stak knows about you. Nothing to fill in, ever.
           </p>
           <a href={STAK_SMS_HREF} onClick={() => trackCta("cta_text", "your-page")} className="mt-6 inline-block text-[17px] font-semibold text-[var(--stak-amber)] underline underline-offset-4">Text Stak to get your page</a>
         </div>
 
         <figure className="phone-glow mx-auto w-full max-w-[340px]">
           <IPhoneFrame>
-            <div className="flex h-full flex-col" style={{ background: "var(--stak-ground)", color: "var(--stak-ink)" }}>
+            <div className="night-screen flex h-full flex-col">
               <div className="min-h-0 flex-1 overflow-hidden px-4 pt-[16%]">
                 <div className="flex items-start justify-between">
                   <p className="max-w-[70%] text-[14px] leading-snug text-muted">

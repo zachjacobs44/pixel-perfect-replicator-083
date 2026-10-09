@@ -9,7 +9,7 @@ function PhoneMock() {
   return (
     <div className="phone-glow mx-auto w-full max-w-[350px] lg:mx-0 lg:max-w-[380px]">
       <IPhoneFrame eager>
-        <div className="flex h-full flex-col bg-paper px-3.5 pb-5 pt-[18%]">
+        <div className="night-screen flex h-full flex-col px-3.5 pb-5 pt-[18%]">
           <div className="flex items-center gap-2.5 border-b border-hairline pb-2.5">
             <StakAvatar size={28} animated />
             <span className="font-display text-[16px] font-extrabold">Stak</span>
@@ -57,16 +57,16 @@ export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }
     <section id="hero" className="content-column pb-10 pt-8 md:pb-16 md:pt-12">
       <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(300px,0.7fr)] lg:gap-14">
         <div className="min-w-0">
-          <StakAvatar size={44} animated />
+          <StakAvatar size={56} animated onPaper />
           <p className="label-over mt-4 text-[14px] text-magenta">AN AI AGENT FOR PEOPLE ON A GLP-1.</p>
           <h1 className="display-hero mt-4 max-w-[720px]">
             The medicine quiets the hunger. Stak handles everything else.
           </h1>
-          <p className="mt-7 max-w-[40ch] text-[20px] leading-[1.45] md:text-[23px]">
-            Stak is an AI agent that lives at one phone number. It gives you a plan from your first message and walks you through it, week by week. Text it, call it, send it a photo or a link.
+          <p className="mt-7 max-w-[40ch] text-[20px] leading-[1.45] md:text-[22px]">
+            Stak is an AI agent at one phone number. It gives you a plan and walks you through it, week by week. Text it, call it, send it a photo or a link.
           </p>
-          <p className="mt-4 max-w-[40ch] text-[18px] leading-[1.5] text-muted md:text-[19px]">
-            It plans your meals, reads the menu, logs your shot, builds your workouts, and texts you on the days that matter. Two weeks free. No app, no card, no account.
+          <p className="mt-3 max-w-[40ch] text-[17px] leading-[1.5] text-muted">
+            Two weeks free. No app, no card, no account.
           </p>
           <StakCTA section="hero" className="mt-7" />
         </div>

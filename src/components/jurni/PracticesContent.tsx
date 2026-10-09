@@ -24,7 +24,7 @@ export function PracticesContent() {
         <h1 className="display-section mt-4">
           A turnkey GLP-1 support program for your practice. Your patients stay on it, and stay with you.
         </h1>
-        <p className="mt-6 text-[20px] leading-[1.5]">
+        <p className="mt-6 text-[19px] leading-[1.5] text-muted">
           Stak is Jurni GLP&apos;s AI agent. You introduce it at the prescription. From then on it supports your patient every day between visits, keeps them on the plan you wrote, carries your name, and brings them back to you. No software, no staff time, no cost to the practice.
         </p>
 
@@ -33,7 +33,7 @@ export function PracticesContent() {
           {steps.map(([n, t, b]) => (
             <WhiteCard key={n}>
               <div>
-                <p className="font-display text-[40px] font-extrabold leading-none text-magenta">{n}</p>
+                <p className="font-display text-[40px] font-extrabold leading-none text-[var(--stak-amber-deep)]">{n}</p>
                 <h2 className={`${title} mt-4`}>{t}</h2>
                 <p className={body}>{b}</p>
               </div>

@@ -8,8 +8,8 @@
  */
 
 :root {
-  /* base */
-  color-scheme: dark;
+  /* base: a light page; the Stak phone screens stay night (see --stak-*) */
+  color-scheme: light;
   --stak-ground: #0b1417;
   --stak-surface: #13222a;
   --stak-sheet: #1a2c35;
@@ -17,41 +17,41 @@
   --stak-slate: #a3b5bb;
   --stak-amber: #f2a65a;
   --stak-amber-light: #ffd49a;
+  --stak-amber-deep: #c9742b;
   --stak-bar: #060b0d;
-  --on-accent: var(--stak-ground);
-  --paper: var(--stak-ground);
-  --frame: var(--stak-sheet);
-  --ink: var(--stak-ink);
-  --white: var(--stak-surface);
+  --on-accent: #0b1417;
+
+  --paper: #fbf8f3;
+  --frame: #efe9df;
+  --ink: #141b1e;
+  --white: #ffffff;
 
   /* brand */
-  --magenta: var(--stak-amber);
-  --cyan: var(--stak-slate);
-  --yellow: var(--stak-amber-light);
-  --text-cyan: var(--stak-amber-light);
+  --magenta: var(--stak-amber-deep);
+  --cyan: #5b6b71;
+  --yellow: var(--stak-amber);
+  --text-cyan: var(--stak-amber-deep);
 
   /* ink tints */
-  --muted: var(--stak-slate);
-  --muted-soft: var(--stak-slate);
-  --quiet: rgba(243, 238, 232, 0.2);
-  --hairline: rgba(243, 238, 232, 0.12);
+  --muted: rgba(20, 27, 30, 0.6);
+  --muted-soft: rgba(20, 27, 30, 0.42);
+  --quiet: rgba(20, 27, 30, 0.08);
+  --hairline: rgba(20, 27, 30, 0.1);
 
-  /* card gradients */
-  --grad-magenta: var(--stak-surface);
-  --grad-cyan: var(--stak-surface);
-  --grad-yellow: var(--stak-surface);
-  --grad-dark: var(--stak-surface);
-  --grad-white: var(--stak-surface);
-
-  /* colored shadows */
-  --shadow-magenta: inset 0 0 0 1px var(--hairline);
-  --shadow-cyan: inset 0 0 0 1px var(--hairline);
-  --shadow-yellow: inset 0 0 0 1px var(--hairline);
-  --shadow-dark: inset 0 0 0 1px var(--hairline);
-  --shadow-white: inset 0 0 0 1px var(--hairline);
+  /* cards: one quiet white card on paper */
+  --grad-magenta: var(--white);
+  --grad-cyan: var(--white);
+  --grad-yellow: var(--white);
+  --grad-dark: var(--white);
+  --grad-white: var(--white);
+  --shadow-magenta: 0 1px 0 rgba(20,27,30,.04), 0 12px 30px -18px rgba(20,27,30,.25);
+  --shadow-cyan: var(--shadow-magenta);
+  --shadow-yellow: var(--shadow-magenta);
+  --shadow-dark: var(--shadow-magenta);
+  --shadow-white: var(--shadow-magenta);
   --grad-button: linear-gradient(180deg, var(--stak-amber-light), var(--stak-amber) 70%);
-  --shadow-button: 0 14px 30px -14px rgba(242,166,90,.7), inset 0 1px 0 rgba(255,255,255,.35);
-  --shadow-phone: 0 28px 60px -20px var(--stak-bar);
+  --shadow-button: 0 12px 26px -12px rgba(242,166,90,.75), inset 0 1px 0 rgba(255,255,255,.45);
+  --shadow-phone: 0 40px 80px -30px rgba(20,27,30,.45);
   --dashboard-bar: var(--stak-bar);
 
   /* type */
@@ -72,6 +72,8 @@
   --color-ink: var(--ink);
   --color-white: var(--white);
   --color-primary: var(--stak-amber);
+  --color-night: var(--stak-ground);
+  --color-night-ink: var(--stak-ink);
   --color-primary-foreground: var(--on-accent);
   --color-surface: var(--stak-surface);
   --color-sheet: var(--stak-sheet);
@@ -229,9 +231,25 @@
   inset: -18% -30%;
   z-index: -1;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(242, 166, 90, 0.34), rgba(242, 166, 90, 0.08) 55%, transparent 72%);
-  filter: blur(6px);
+  background: radial-gradient(closest-side, rgba(242, 166, 90, 0.45), rgba(242, 166, 90, 0.12) 55%, transparent 72%);
+  filter: blur(10px);
   pointer-events: none;
+}
+/* The Stak screen: night inside the phone, always. */
+@utility night-screen {
+  background: var(--stak-ground);
+  color: var(--stak-ink);
+  --paper: var(--stak-ground);
+  --frame: var(--stak-sheet);
+  --ink: var(--stak-ink);
+  --white: var(--stak-surface);
+  --muted: var(--stak-slate);
+  --hairline: rgba(243, 238, 232, 0.12);
+  --grad-white: var(--stak-surface);
+  --shadow-white: inset 0 0 0 1px rgba(243,238,232,.12);
+  --magenta: var(--stak-amber);
+  --text-cyan: var(--stak-amber-light);
+  color-scheme: dark;
 }
 @utility lead-copy {
   font-size: 22px;
@@ -329,7 +347,7 @@
 
 .print-theme {
   color-scheme: light;
-  --paper: var(--stak-ink);
+  --paper: #ffffff;
   --ink: var(--stak-ground);
   --muted: var(--stak-ground);
   --hairline: rgba(11, 20, 23, 0.12);

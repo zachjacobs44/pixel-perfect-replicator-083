@@ -78,14 +78,14 @@ function Stage({ stage }: { stage: (typeof STAGES)[number] }) {
         transition: "opacity 420ms var(--ease-spring), transform 420ms var(--ease-spring)",
       }}
     >
-      <span aria-hidden="true" className="absolute left-[-5px] top-2 hidden h-[11px] w-[11px] rounded-full bg-magenta md:block" />
+      <span aria-hidden="true" className="absolute left-[-5px] top-2 hidden h-[11px] w-[11px] rounded-full bg-[var(--stak-amber)] md:block" />
       <div>
-        <span className="label-over inline-block rounded-[var(--radius-chip)] px-3 py-1 text-[14px] max-md:bg-yellow max-md:text-paper md:p-0 md:text-ink">
+        <span className="label-over inline-block rounded-[var(--radius-chip)] px-3 py-1 text-[14px] max-md:bg-[var(--stak-amber)] max-md:text-[var(--stak-ground)] md:p-0 md:text-[var(--stak-amber-deep)]">
           {stage.label}
         </span>
-        <p className="mt-3 text-[18px] italic leading-[1.45]">{stage.line}</p>
+        <p className="mt-3 text-[18px] leading-[1.45] text-muted">{stage.line}</p>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="night-screen flex flex-col gap-3 rounded-[18px] p-4 shadow-[var(--shadow-white)]">
         {stage.msgs.map((m, i) => (m.s ? <StakBubble key={i}>{m.s}</StakBubble> : <UserBubble key={i} text={m.u!} />))}
       </div>
     </li>
@@ -100,8 +100,8 @@ export function Journey() {
         <h2 className="display-section mt-4 max-w-[900px]">
           Here&apos;s what the next six months look like. And how Stak walks you through each one.
         </h2>
-        <p className="mt-6 max-w-[600px] text-[20px] leading-[1.5]">
-          Every stage of a GLP-1 has a moment where people get stuck. Stak is built for those moments.
+        <p className="mt-6 max-w-[600px] text-[19px] leading-[1.5] text-muted">
+          Every stage has a moment where people get stuck. Stak is built for those moments.
         </p>
         <ol className="mt-12 flex flex-col gap-14 md:border-l md:border-hairline">
           {STAGES.map((s) => (
