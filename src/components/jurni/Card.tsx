@@ -12,8 +12,8 @@ const base = "flex flex-col justify-between border border-hairline p-6 rounded-[
 export function MagentaCard({ children, className }: CardProps) {
   return (
     <div
-      className={cn(base, "bg-surface", className)}
-      style={{ boxShadow: "inset 3px 0 0 var(--magenta)" }}
+      className={cn(base, className)}
+      style={{ background: "var(--grad-magenta)", boxShadow: "var(--shadow-magenta)" }}
     >
       {children}
     </div>

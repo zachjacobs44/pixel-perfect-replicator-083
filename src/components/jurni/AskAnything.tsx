@@ -12,13 +12,7 @@ export const ASK_PROMPTS = [
   "Log my shot. Left thigh. Tuesday night.",
   "Why hasn't the scale moved in two weeks?",
   "Summarize the last month for my appointment Thursday.",
-  "Reschedule today's workout. I'm wiped.",
-  "Which protein bars don't taste like chalk?",
-  "Remind me to eat lunch. I keep skipping it.",
   "Send me three reminders a day to log my meals.",
-  "Snacks I can keep in my desk.",
-  "What should I ask my prescriber about my next dose?",
-  "Here's a selfie. Be honest about how I look.",
   "My jeans fit. Tell someone.",
 ];
 
@@ -46,7 +40,7 @@ export function AskAnything() {
         <SectionLabel>ASK IT ANYTHING</SectionLabel>
         <h2 className="display-section mt-4 max-w-[860px]">It&apos;s an agent. Ask for what you need.</h2>
         <p className="mt-6 max-w-[600px] text-[20px] leading-[1.5]">A few things people ask it. Tap one to start, or type your own.</p>
-        <ul className="mt-10 grid gap-3 md:grid-cols-2">
+        <ul className="mx-auto mt-10 grid max-w-[900px] gap-3 md:grid-cols-2">
           {ASK_PROMPTS.map((p) => (
             <li key={p} className="flex md:justify-end even:md:justify-start">
               <a

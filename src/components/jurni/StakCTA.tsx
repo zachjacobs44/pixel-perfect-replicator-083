@@ -34,7 +34,7 @@ export function TextStakButton({
         compact && "h-11 px-5 text-[16px]",
         className,
       )}
-      style={{ background: "var(--grad-magenta)", boxShadow: "var(--shadow-magenta)" }}
+      style={{ background: "var(--grad-button)", boxShadow: "var(--shadow-button)" }}
     >
       {label}
     </a>
@@ -107,18 +107,18 @@ export function PricingCTA() {
 export function ClosingCTA() {
   return (
     <section
-      className="text-ink"
-      style={{ background: "var(--grad-dark)", boxShadow: "var(--shadow-dark)" }}
+      className="relative isolate overflow-hidden text-ink"
+      style={{ background: "var(--stak-bar)" }}
       aria-labelledby="closing-cta-title"
     >
-      <div className="content-column py-20 md:py-[140px]">
-        <h2 id="closing-cta-title" className="display-section max-w-[780px]">
+      <div className="content-column flex flex-col items-center py-24 text-center md:py-[160px]">
+        <h2 id="closing-cta-title" className="display-hero max-w-[820px]">
           Everything you were going to Google at 2am. One number.
         </h2>
-        <div className="mt-9">
+        <div className="mt-10">
           <TextStakButton section="closing" />
         </div>
-        <p className="mt-5 max-w-[720px] text-[14px] leading-[1.5] text-muted">
+        <p className="mt-6 max-w-[620px] text-[14px] leading-[1.5] text-muted">
           Two weeks free. No card, no account, no app. By texting, you agree to receive messages from
           Jurni GLP. Message frequency varies. Message and data rates may apply. Reply STOP to end,
           HELP for help.{" "}

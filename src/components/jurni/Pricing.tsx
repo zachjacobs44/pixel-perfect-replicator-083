@@ -15,11 +15,11 @@ export function Pricing() {
         </p>
         <div className="mt-10 grid max-w-[600px] gap-5 sm:grid-cols-2">
           <WhiteCard className="min-h-0">
-            <p className="font-display text-[40px] font-extrabold leading-none">$29.99</p>
+            <p className="font-display text-[44px] font-extrabold leading-none text-[var(--stak-amber-light)]">$29.99</p>
             <p className="mt-3 text-[17px] text-muted">a month</p>
           </WhiteCard>
           <CyanCard className="min-h-0">
-            <p className="font-display text-[40px] font-extrabold leading-none">$300</p>
+            <p className="font-display text-[44px] font-extrabold leading-none text-[var(--stak-amber-light)]">$300</p>
             <p className="mt-3 text-[17px]">a year · two months free</p>
           </CyanCard>
         </div>

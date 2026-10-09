@@ -25,23 +25,23 @@ function TodayView() {
       <div className="flex justify-center py-2">
         <DashboardArtwork scene="strength" className="h-20 w-32" />
       </div>
-      <p className="text-[14px] text-muted">Wednesday 21 October</p>
-      <h3 className="font-display text-[22px] font-extrabold uppercase leading-none">Strength day</h3>
-      <p className="mt-1.5 text-[14px]">3 moves · 20 min · week 3 of 4</p>
+      <p className="text-[14px] text-muted">Friday 17 October</p>
+      <h3 className="font-display text-[22px] font-extrabold leading-none">Shot day</h3>
+      <p className="mt-1.5 text-[14px]">Week 12 · down 14 lb · then a 20-minute lift</p>
       <span className="mt-3 inline-block rounded-[12px] bg-[var(--stak-amber)] px-4 py-2 text-[14px] font-semibold text-[var(--stak-ground)]">See today's workout</span>
       <div className="mt-3 grid grid-cols-3 gap-2">
-        <StatTile art={<DashboardArtwork scene="water" className="h-9 w-7" />} value="2" label="glasses today" />
-        <StatTile art={<span className="block h-8 w-8 rounded-full border-2 border-muted" />} value="28g" label="protein of 140g" />
-        <StatTile art={<DashboardArtwork scene="shot" className="h-9 w-12" />} value="Sun" label="shot day" />
+        <StatTile art={<DashboardArtwork scene="water" className="h-9 w-7" />} value="4 of 7" label="protein days" />
+        <StatTile art={<span className="block h-8 w-8 rounded-full border-2 border-muted" />} value="14 lb" label="down since May" />
+        <StatTile art={<DashboardArtwork scene="shot" className="h-9 w-12" />} value="Fri" label="shot day" />
       </div>
       <div className="mt-2 rounded-[14px] bg-surface p-3">
         <div className="flex items-baseline justify-between">
           <span className="text-[15px] font-semibold">This week with Stak</span>
-          <span className="font-display text-[14px] font-extrabold">week 3</span>
+          <span className="font-display text-[14px] font-extrabold">week 12</span>
         </div>
         <div className="mt-2 grid grid-cols-3 gap-1.5 text-[14px] leading-tight">
-          <div><span className="font-semibold">Shot</span><br /><span className="text-muted">Sun, R thigh</span></div>
-          <div><span className="font-semibold">Eating</span><br /><span className="text-muted">Protein first</span></div>
+          <div><span className="font-semibold">Shot</span><br /><span className="text-muted">Fri, L thigh</span></div>
+          <div><span className="font-semibold">Eating</span><br /><span className="text-muted">4 of 7 on protein</span></div>
           <div><span className="font-semibold">Moving</span><br /><span className="text-muted">3 days</span></div>
         </div>
       </div>
@@ -52,7 +52,7 @@ function TodayView() {
 function MealsView() {
   return (
     <>
-      <h3 className="font-display text-[22px] font-extrabold uppercase leading-none">Meals</h3>
+      <h3 className="font-display text-[22px] font-extrabold leading-none">Meals</h3>
       <p className="mt-1 text-[14px] text-muted">Week of Oct 20 · protein first</p>
       <div className="mt-2 rounded-[14px] bg-surface p-3">
         <p className="text-[15px] font-semibold">Shopping list</p>
@@ -75,8 +75,8 @@ function MealsView() {
 function WorkoutsView() {
   return (
     <>
-      <h3 className="font-display text-[22px] font-extrabold uppercase leading-none">Workouts</h3>
-      <p className="mt-1 text-[14px] text-muted">Week 3 of 4 · 3 days done</p>
+      <h3 className="font-display text-[22px] font-extrabold leading-none">Workouts</h3>
+      <p className="mt-1 text-[14px] text-muted">Week 12 · 3 days done</p>
       <div className="mt-2 rounded-[14px] bg-surface p-3">
         <Row left="Mon" right="Walked 25 min" />
         <Row left="Wed" right="Strength · 20 min" chevron />
@@ -96,13 +96,13 @@ function WorkoutsView() {
 function MedsView() {
   return (
     <>
-      <h3 className="font-display text-[22px] font-extrabold uppercase leading-none">Meds</h3>
-      <p className="mt-1 text-[14px] text-muted">Next dose · Sunday, 9 AM</p>
+      <h3 className="font-display text-[22px] font-extrabold leading-none">Meds</h3>
+      <p className="mt-1 text-[14px] text-muted">Next dose · Friday, 9 AM</p>
       <div className="mt-2 rounded-[14px] bg-surface p-3">
         <p className="text-[15px] font-semibold">Shot log</p>
-        <Row left="Oct 5" right="Sun · R thigh" />
-        <Row left="Sep 28" right="Sun · L thigh" />
-        <Row left="Sep 21" right="Sun · R thigh" />
+        <Row left="Oct 10" right="Fri · L thigh" />
+        <Row left="Oct 3" right="Fri · R thigh" />
+        <Row left="Sep 26" right="Fri · L thigh" />
       </div>
       <div className="mt-2 rounded-[14px] bg-surface p-3">
         <p className="text-[15px] font-semibold">Side effects</p>
@@ -127,7 +127,7 @@ function Row({ left, right, chevron }: { left: string; right?: string; chevron?:
 function YouView() {
   return (
     <>
-      <h3 className="mt-2 font-display text-[26px] font-extrabold uppercase leading-none">You</h3>
+      <h3 className="mt-2 font-display text-[26px] font-extrabold leading-none">You</h3>
       <p className="mt-2 text-[15px]">This week with Stak</p>
       <p className="mt-2 text-[14px] leading-snug">No week closed yet. This one needs a meal on plan and a walk or a workout to close.</p>
       <div className="mt-3 rounded-[14px] bg-surface px-3 py-2">
@@ -136,7 +136,7 @@ function YouView() {
         <p className="text-[14px] text-muted">You · Oct 3</p>
         <div className="mt-2 border-t border-hairline"><Row left="Give Stak a rule" chevron /></div>
       </div>
-      <div className="mt-2 rounded-[14px] bg-surface px-3"><Row left="Weight" right="212 lb" chevron /></div>
+      <div className="mt-2 rounded-[14px] bg-surface px-3"><Row left="Weight" right="212 lb · down 14" chevron /></div>
       <div className="mt-2 rounded-[14px] bg-surface px-3">
         <Row left="Stak" right={STAK_PHONE_DISPLAY} />
         <div className="border-t border-hairline"><Row left="Text Stak" chevron /></div>
@@ -159,13 +159,13 @@ export function YourPage() {
           <a href={STAK_SMS_HREF} onClick={() => trackCta("cta_text", "your-page")} className="mt-6 inline-block text-[17px] font-semibold text-[var(--stak-amber)] underline underline-offset-4">Text Stak to get your page</a>
         </div>
 
-        <figure className="mx-auto w-full max-w-[340px]">
+        <figure className="phone-glow mx-auto w-full max-w-[340px]">
           <IPhoneFrame>
             <div className="flex h-full flex-col" style={{ background: "var(--stak-ground)", color: "var(--stak-ink)" }}>
               <div className="min-h-0 flex-1 overflow-hidden px-4 pt-[16%]">
                 <div className="flex items-start justify-between">
                   <p className="max-w-[70%] text-[14px] leading-snug text-muted">
-                    {tab === "Today" ? "Stak keeps your plan here." : ""}
+                    {""}
                   </p>
                   <img src={stakSpine.url} alt="Stak" className="h-10 w-auto" />
                 </div>
