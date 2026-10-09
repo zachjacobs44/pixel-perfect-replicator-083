@@ -37,18 +37,20 @@
   --hairline: rgba(243, 238, 232, 0.12);
 
   /* card gradients */
-  --grad-magenta: var(--stak-amber);
-  --grad-cyan: var(--stak-sheet);
-  --grad-yellow: var(--stak-sheet);
-  --grad-dark: var(--stak-bar);
+  --grad-magenta: var(--stak-surface);
+  --grad-cyan: var(--stak-surface);
+  --grad-yellow: var(--stak-surface);
+  --grad-dark: var(--stak-surface);
   --grad-white: var(--stak-surface);
 
   /* colored shadows */
-  --shadow-magenta: none;
+  --shadow-magenta: inset 0 0 0 1px var(--hairline);
   --shadow-cyan: inset 0 0 0 1px var(--hairline);
-  --shadow-yellow: inset 3px 0 0 var(--stak-amber-light);
+  --shadow-yellow: inset 0 0 0 1px var(--hairline);
   --shadow-dark: inset 0 0 0 1px var(--hairline);
   --shadow-white: inset 0 0 0 1px var(--hairline);
+  --grad-button: linear-gradient(180deg, var(--stak-amber-light), var(--stak-amber) 70%);
+  --shadow-button: 0 14px 30px -14px rgba(242,166,90,.7), inset 0 1px 0 rgba(255,255,255,.35);
   --shadow-phone: 0 28px 60px -20px var(--stak-bar);
   --dashboard-bar: var(--stak-bar);
 
@@ -136,8 +138,8 @@
   }
 
   h1.font-display, h2.font-display, h3.font-display {
-    font-stretch: 125%;
-    text-transform: uppercase;
+    font-stretch: 112%;
+    text-transform: none;
     letter-spacing: 0;
   }
 
@@ -152,8 +154,8 @@
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: 0;
-  font-stretch: 125%;
-  text-transform: uppercase;
+  font-stretch: 112%;
+  text-transform: none;
   line-height: 0.95;
 }
 
@@ -161,12 +163,12 @@
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: 0;
-  font-stretch: 125%;
-  text-transform: uppercase;
+  font-stretch: 112%;
+  text-transform: none;
   line-height: 0.95;
-  font-size: 40px;
+  font-size: 44px;
   @media (min-width: 768px) {
-    font-size: 64px;
+    font-size: 68px;
   }
 }
 
@@ -174,12 +176,12 @@
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: 0;
-  font-stretch: 125%;
-  text-transform: uppercase;
+  font-stretch: 112%;
+  text-transform: none;
   line-height: 0.95;
-  font-size: 32px;
+  font-size: 34px;
   @media (min-width: 768px) {
-    font-size: 48px;
+    font-size: 52px;
   }
 }
 
@@ -210,10 +212,32 @@
 }
 
 @utility section-y {
-  padding-block: 72px;
+  padding-block: 88px;
   @media (min-width: 768px) {
-    padding-block: 96px;
+    padding-block: 140px;
   }
+}
+
+/* Stak is the light in the dark: one warm glow behind every phone. */
+@utility phone-glow {
+  position: relative;
+  isolation: isolate;
+}
+.phone-glow::before {
+  content: "";
+  position: absolute;
+  inset: -18% -30%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(242, 166, 90, 0.34), rgba(242, 166, 90, 0.08) 55%, transparent 72%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+@utility lead-copy {
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--ink);
+  @media (min-width: 768px) { font-size: 26px; }
 }
 
 @utility press-spring {

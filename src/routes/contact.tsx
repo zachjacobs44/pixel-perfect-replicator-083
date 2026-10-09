@@ -147,7 +147,7 @@ function Contact() {
             type="submit"
             disabled={status === "sending"}
             className="press-spring mt-7 inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] px-8 font-body text-[18px] font-semibold text-primary-foreground disabled:opacity-70"
-            style={{ background: "var(--grad-magenta)", boxShadow: "var(--shadow-magenta)" }}
+            style={{ background: "var(--grad-button)", boxShadow: "var(--shadow-button)" }}
           >
             {status === "sending" ? "Sending…" : "Send"}
           </button>

@@ -15,8 +15,11 @@ export function YouGetAPlan() {
       <div className="content-column">
         <SectionLabel>WHAT YOU GET</SectionLabel>
         <h2 className="display-section mt-4 max-w-[860px]">You don&apos;t just get answers. You get a plan.</h2>
-        <p className="mt-6 max-w-[640px] text-[20px] leading-[1.5]">
-          From your first message, Stak asks what medication you&apos;re on, what you&apos;re working toward, what you like to eat, and what you&apos;ve got to work out with. Then it sets you up: a daily protein target, a meal rhythm that works on a small appetite, movement that fits your energy, weigh-ins on a schedule, and a check-in on every day that tends to be hard. Then it adjusts. New dose, rough week, vacation, plateau. The plan moves with you, and Stak walks you through every step of it. It&apos;s the structure the medication was always supposed to come with.
+        <p className="lead-copy mt-7 max-w-[700px]">
+          From your first message, Stak asks what medication you&apos;re on, what you&apos;re working toward, what you like to eat, and what you&apos;ve got to work out with. Then it sets you up.
+        </p>
+        <p className="mt-5 max-w-[640px] text-[18px] leading-[1.55] text-muted">
+          A daily protein target, a meal rhythm that works on a small appetite, movement that fits your energy, weigh-ins on a schedule, and a check-in on every day that tends to be hard. Then it adjusts. New dose, rough week, vacation, plateau. The plan moves with you, and Stak walks you through every step of it. You don&apos;t manage Stak. You talk to it, and things get done.
         </p>
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {cards.map(({ C, t, b }) => (

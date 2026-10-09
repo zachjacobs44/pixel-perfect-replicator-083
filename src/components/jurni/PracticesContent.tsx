@@ -91,7 +91,7 @@ export function PracticesContent() {
             target="_blank"
             rel="noreferrer"
             className="press-spring inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] px-8 text-[18px] font-semibold text-primary-foreground"
-            style={{ background: "var(--grad-magenta)", boxShadow: "var(--shadow-magenta)" }}
+            style={{ background: "var(--grad-button)", boxShadow: "var(--shadow-button)" }}
           >
             Download the referral card
           </a>

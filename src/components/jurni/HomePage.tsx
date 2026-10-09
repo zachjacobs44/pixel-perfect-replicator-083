@@ -1,6 +1,6 @@
 import { AskAnything } from "./AskAnything";
 import { HomeHero } from "./HomeHero";
-import { HowYouTalk, KeepsWorking, WhatStakIsnt, YouGetAPlan } from "./HomeSections";
+import { HowYouTalk, WhatStakIsnt, YouGetAPlan } from "./HomeSections";
 import { Journey } from "./Journey";
 import { Pricing } from "./Pricing";
 import { Questions } from "./Questions";
@@ -16,7 +16,6 @@ export function HomePage({ referralSlug }: { referralSlug?: string | undefined }
       <HowYouTalk />
       <AskAnything />
       <YourPage />
-      <KeepsWorking />
       <WhatStakIsnt />
       <Pricing />
       <Questions />

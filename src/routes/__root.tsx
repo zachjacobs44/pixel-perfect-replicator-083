@@ -53,7 +53,7 @@ function ErrorComponent({ error: caughtError, reset }: ErrorComponentProps) {
               reset();
             }}
             className="press-spring inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] px-8 font-body text-[18px] font-semibold text-primary-foreground"
-            style={{ background: "var(--grad-magenta)", boxShadow: "var(--shadow-magenta)" }}
+            style={{ background: "var(--grad-button)", boxShadow: "var(--shadow-button)" }}
           >
             Try again
           </button>

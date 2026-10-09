@@ -61,10 +61,7 @@ const STAGES: { label: string; line: string; msgs: Msg[] }[] = [
       { u: "lower back is sore after the workout. what stretches should i do" },
       { s: "Three, twenty seconds each: knees to chest, a gentle twist each side, and child's pose. Go easy today." },
       { u: "had a brownie batter protein bar for breakfast" },
-      { s: "Logged, 20g of protein. How's the back feeling after those stretches?" },
-      { s: "Three months in. Down 22 pounds, protein on target most days, lifts twice a week since September. Here's next month: one more lift, a slightly higher protein target, and we start paying attention to how your clothes fit instead of only the scale. Want the week-one plan now?" },
-      { u: "yes" },
-      { s: "Sent. It's on your Page too." },
+      { s: "Logged, 20g of protein. How's the back feeling after those stretches? Three months in, by the way: down 22 pounds, lifts twice a week since September. Next month's plan is on your Page." },
     ],
   },
 ];
