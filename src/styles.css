@@ -110,6 +110,8 @@
 
   html {
     -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
     overflow-x: clip;
   }
 
@@ -137,6 +139,10 @@
 
   h1, h2, h3 {
     overflow-wrap: break-word;
+  }
+
+  section[id] {
+    scroll-margin-top: 80px;
   }
 
   h1.font-display, h2.font-display, h3.font-display {
