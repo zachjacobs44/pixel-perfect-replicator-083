@@ -6,6 +6,7 @@ import { SectionLabel } from "./SectionPlaceholder";
 const ITEMS: { q: string; a: ReactNode }[] = [
   { q: "What do I text it first?", a: "Anything. Most people open with the question they felt silly asking at their last visit. Or tap the button and it starts with \"I just started a GLP-1. What now?\"" },
   { q: "What does Stak actually do day to day?", a: "It runs your plan. It tells you what to eat and when, how much to move, when to weigh in, and when your dose or refill is coming. It checks in on the hard days and adjusts the plan when your life or your dose changes. You ask it whatever comes up in between." },
+  { q: "What about nausea, dose increases, and refills?", a: "Stak knows the weeks that tend to be rough. Around a dose step it lightens your dinners and checks in; if nausea lingers or you can't keep fluids down, it tells you to call your practice. It texts you before your refill window and, if you're traveling, moves your reminders to local time." },
   { q: "Is Stak a real person?", a: "No. Stak is an AI, built for people on GLP-1s. It's there every hour of every day. When something needs a person, it tells you to call your practice." },
   { q: "Do I need to download anything?", a: "No. Stak lives in the messaging and phone apps already on your phone." },
   { q: "Which medications does it work with?", a: "Any GLP-1: Wegovy, Ozempic, Zepbound, Mounjaro, the Wegovy pill, Foundayo, and the rest. Injection or pill." },

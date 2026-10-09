@@ -1,6 +1,7 @@
 import { WhiteCard } from "./Card";
 import { SectionLabel } from "./SectionPlaceholder";
 import { StakBubble, UserBubble } from "./Bubbles";
+import { Photo } from "./Photo";
 
 const cardTitle = "font-display text-[24px] font-extrabold leading-[1.05]";
 const cardBody = "mt-2.5 text-[16px] leading-[1.5] text-muted";
@@ -84,6 +85,26 @@ export function HowYouTalk() {
       <div className="content-column">
         <SectionLabel>HOW YOU TALK TO IT</SectionLabel>
         <h2 className="display-section mt-4 max-w-[760px]">Text it. Call it. Send it a photo or a link.</h2>
+        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3">
+          <div className="relative">
+            <Photo name="plate" alt="A dinner plate photographed from above" ratio="4 / 5" />
+            <div className="night-screen absolute bottom-3 left-3 right-3 rounded-[14px] px-3 py-2 text-[14px]">
+              <span style={{ color: "var(--stak-amber)" }}>Stak</span> Logged. About 38g of protein.
+            </div>
+          </div>
+          <div className="relative">
+            <Photo name="nightstand" alt="A phone on a nightstand at night" ratio="4 / 5" />
+            <div className="night-screen absolute bottom-3 left-3 right-3 rounded-[14px] px-3 py-2 text-[14px]">
+              <span style={{ color: "var(--stak-amber)" }}>Stak</span> Shot day tomorrow. I moved dinner lighter.
+            </div>
+          </div>
+          <div className="relative col-span-2 md:col-span-1">
+            <Photo name="dashboard" alt="A phone in a car at dusk" ratio="4 / 5" className="max-md:!aspect-[16/9]" />
+            <div className="night-screen absolute bottom-3 left-3 right-3 rounded-[14px] px-3 py-2 text-[14px]">
+              <span style={{ color: "var(--stak-amber)" }}>Stak</span> Good talking. Recap is in your texts.
+            </div>
+          </div>
+        </div>
         <div className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {items.map(({ t, b }) => (
             <div key={t} className="border-t pt-5" style={{ borderColor: "var(--hairline)" }}>
