@@ -57,7 +57,7 @@ function Stage({ stage }: { stage: (typeof STAGES)[number] }) {
   } as const;
   const thread = (
     <div className="night-screen flex flex-col gap-3 rounded-[18px] p-4 shadow-[var(--shadow-white)]">
-      {stage.msgs.map((m, i) => (m.s ? <StakBubble key={i}>{m.s}</StakBubble> : <UserBubble key={i} text={m.u!} />))}
+      {stage.msgs.map((m, i) => (m.s ? <StakBubble key={i}>{m.s}</StakBubble> : <UserBubble key={i} text={m.u ?? ""} />))}
     </div>
   );
   const label = (
@@ -78,7 +78,7 @@ function Stage({ stage }: { stage: (typeof STAGES)[number] }) {
             <span className="label-over text-[14px]" style={{ color: "var(--stak-amber)" }}>{stage.label}</span>
             <p className="display mt-3 text-[30px] md:text-[40px]">{stage.line}</p>
             <div className="mt-6 flex flex-col gap-3">
-              {stage.msgs.map((m, i) => (m.s ? <StakBubble key={i}>{m.s}</StakBubble> : <UserBubble key={i} text={m.u!} />))}
+              {stage.msgs.map((m, i) => (m.s ? <StakBubble key={i}>{m.s}</StakBubble> : <UserBubble key={i} text={m.u ?? ""} />))}
             </div>
           </div>
         </div>
