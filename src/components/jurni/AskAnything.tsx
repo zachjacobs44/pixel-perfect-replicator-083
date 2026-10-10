@@ -11,7 +11,7 @@ export const ASK_PROMPTS = [
   "Log my shot. Left thigh. Tuesday night.",
   "Why hasn't the scale moved in two weeks?",
   "Send me three reminders a day to log my meals.",
-  "My jeans fit. Tell someone.",
+  "How much protein should I be eating?",
 ];
 
 export const askHref = (text: string) => `sms:${STAK_PHONE}?&body=${encodeURIComponent(text)}`;
@@ -36,8 +36,8 @@ export function AskAnything() {
     <section id="ask" className="section-y">
       <div className="content-column">
         <SectionLabel>ASK IT ANYTHING</SectionLabel>
-        <h2 className="display-section mt-4 max-w-[860px]">It&apos;s an agent. Ask for what you need.</h2>
-        <p className="mt-6 max-w-[600px] text-[19px] leading-[1.5] text-muted">Tap one to start, or type your own. Nobody has ever asked it a stupid question.</p>
+        <h2 className="display-section mt-4 max-w-[860px]">Ask it for anything. It does the work.</h2>
+        <p className="mt-6 max-w-[600px] text-[19px] leading-[1.5] text-muted">Tap one to start, or type your own.</p>
         <ul className="mx-auto mt-10 grid max-w-[900px] gap-3 md:grid-cols-2">
           {ASK_PROMPTS.map((p) => (
             <li key={p} className="flex md:justify-end even:md:justify-start">

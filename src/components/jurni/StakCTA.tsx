@@ -113,7 +113,7 @@ export function ClosingCTA() {
     >
       <div className="content-column flex flex-col items-center py-24 text-center md:py-[160px]">
         <h2 id="closing-cta-title" className="display-hero max-w-[820px]">
-          The medicine quiets the hunger. Stak handles everything else.
+          Text Stak once. It takes it from there.
         </h2>
         <div className="mt-10">
           <TextStakButton section="closing" />

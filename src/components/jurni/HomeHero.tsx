@@ -60,10 +60,10 @@ export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }
           <StakAvatar size={56} animated onPaper />
           <p className="label-over mt-4 text-[14px] text-magenta">AN AI AGENT FOR PEOPLE ON A GLP-1.</p>
           <h1 className="display-hero mt-4 max-w-[720px]">
-            Everything you were going to Google at 2am. One number.
+            The medicine quiets the hunger. Stak handles everything else.
           </h1>
           <p className="mt-7 max-w-[40ch] text-[20px] leading-[1.45] md:text-[22px]">
-            Stak is an AI agent for people on a GLP-1. Text it, call it, send it a photo or a link. It answers, it plans your week, and on the hard days it texts you first.
+            Stak is an AI agent for people on a GLP-1. Text it or call it, any time. It builds your plan, answers your questions, tracks your progress, and checks in before the hard days.
           </p>
           <p className="mt-3 max-w-[40ch] text-[17px] leading-[1.5] text-muted">
             Two weeks free. No app, no card, no account.
