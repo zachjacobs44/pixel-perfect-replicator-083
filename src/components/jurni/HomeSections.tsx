@@ -41,7 +41,7 @@ export function YouGetAPlan() {
   const cards = [
     { t: "A plan from day one.", b: "Protein, meals, movement, check-ins. You never have to figure out what to do next." },
     { t: "Adjusted as you go.", b: "Dose changes, bad weeks, travel. Stak reworks the plan before you ask." },
-    { t: "Texted, not handed over.", b: "No PDF. Stak texts you the next step when it's time." },
+    { t: "Delivered by text.", b: "No app to open, no PDF to read. Stak texts you the next step when it's time." },
   ];
   return (
     <section id="plan" className="section-y">
@@ -99,9 +99,9 @@ export function HowYouTalk() {
             </div>
           </div>
           <div className="relative col-span-2 md:col-span-1">
-            <Photo name="dashboard" alt="A phone in a car at dusk" ratio="4 / 5" className="max-md:!aspect-[16/9]" />
+            <Photo name="counter" alt="A phone on a kitchen counter in morning light" ratio="4 / 5" className="max-md:!aspect-[16/9]" />
             <div className="night-screen absolute bottom-3 left-3 right-3 rounded-[14px] px-3 py-2 text-[14px]">
-              <span style={{ color: "var(--stak-amber)" }}>Stak</span> Good talking. Recap is in your texts.
+              <span style={{ color: "var(--stak-amber)" }}>Stak</span> Good call. The recap is in your texts.
             </div>
           </div>
         </div>

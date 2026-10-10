@@ -4,7 +4,7 @@ import { StakBubble, UserBubble, useInViewOnce } from "./Bubbles";
 import { Photo } from "./Photo";
 
 type Msg = { s?: string; u?: string };
-const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "dashboard" | "scale" | "sneakers"; feature?: boolean }[] = [
+const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "table" | "scale" | "sneakers"; feature?: boolean }[] = [
   {
     label: "THE FIRST WEEK",
     line: "You have a prescription, a pamphlet, and a lot of questions.",
@@ -16,7 +16,7 @@ const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "dashboard" | 
   {
     label: "REAL LIFE",
     line: "Birthdays, work dinners, your mother's cooking. The world doesn't know you're on this.",
-    photo: "dashboard",
+    photo: "table",
     msgs: [
       { u: "client dinner thursday, they picked the steakhouse. wedding in 3 weeks and my cholesterol's not great" },
       { u: "https://www.example-steakhouse.com/menu" },
@@ -105,7 +105,7 @@ export function Journey() {
       <div className="content-column">
         <SectionLabel>YOUR GLP-1 JOURNEY</SectionLabel>
         <h2 className="display-section mt-4 max-w-[900px]">
-          Here&apos;s what the next six months look like. And how Stak walks you through each one.
+          Here is what the next six months look like, and how Stak walks you through each stage.
         </h2>
         <p className="mt-6 max-w-[600px] text-[19px] leading-[1.5] text-muted">
           Every stage has a moment where people get stuck. Stak is built for those moments.

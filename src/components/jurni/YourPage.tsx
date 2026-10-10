@@ -152,7 +152,7 @@ export function YourPage() {
       <div className="content-column grid items-center gap-12 lg:grid-cols-[1fr_360px]">
         <div>
           <SectionLabel>YOUR PAGE</SectionLabel>
-          <h2 className="display-section mt-4 max-w-[800px]">Everything you told Stak, organized without you.</h2>
+          <h2 className="display-section mt-4 max-w-[800px]">Everything you tell Stak, organized for you.</h2>
           <p className="mt-6 max-w-[520px] text-[19px] leading-[1.5] text-muted">
             Every text, photo and call becomes one private page: meals, shopping list, workouts, shot log, and what Stak knows about you. Nothing to fill in, ever.
           </p>

@@ -10,7 +10,8 @@ export const PHOTOS = {
   fridge: "fridge",
   plate: "plate",
   nightstand: "nightstand",
-  dashboard: "dashboard",
+  table: "table",
+  counter: "counter",
   scale: "scale",
   sneakers: "sneakers",
 } as const;
