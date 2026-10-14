@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { SectionLabel } from "./SectionPlaceholder";
 import { IPhoneFrame } from "./IPhoneFrame";
-import { DashboardArtwork } from "./DashboardArtwork";
 import { STAK_PHONE_DISPLAY, STAK_SMS_HREF } from "./StakCTA";
 import { trackCta } from "@/lib/analytics";
 import stakSpine from "@/assets/stak-lockup-spine.svg.asset.json";
@@ -9,11 +8,10 @@ import stakSpine from "@/assets/stak-lockup-spine.svg.asset.json";
 type Tab = "Today" | "Meals" | "Workouts" | "Meds" | "You";
 const TABS = ["Today", "Meals", "Workouts", "Meds", "You"] as const;
 
-function StatTile({ art, value, label }: { art: React.ReactNode; value: string; label: string }) {
+function StatTile({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex flex-col rounded-[14px] bg-surface p-2.5">
-      <div className="flex h-9 items-center">{art}</div>
-      <span className="mt-1.5 font-display text-[18px] font-extrabold leading-none">{value}</span>
+    <div className="flex flex-col rounded-[14px] bg-surface p-3">
+      <span className="font-display text-[18px] font-extrabold leading-none">{value}</span>
       <span className="mt-1 text-[14px] leading-tight text-muted">{label}</span>
     </div>
   );
@@ -22,17 +20,15 @@ function StatTile({ art, value, label }: { art: React.ReactNode; value: string; 
 function TodayView() {
   return (
     <>
-      <div className="flex justify-center py-2">
-        <DashboardArtwork scene="strength" className="h-20 w-32" />
-      </div>
+      <div className="py-2" />
       <p className="text-[14px] text-muted">Friday 17 October</p>
       <h3 className="font-display text-[22px] font-extrabold leading-none">Shot day</h3>
       <p className="mt-1.5 text-[14px]">Week 12 · down 14 lb · then a 20-minute lift</p>
       <span className="mt-3 inline-block rounded-[12px] bg-[var(--stak-amber)] px-4 py-2 text-[14px] font-semibold text-[var(--stak-ground)]">See today's workout</span>
       <div className="mt-3 grid grid-cols-3 gap-2">
-        <StatTile art={<DashboardArtwork scene="water" className="h-9 w-7" />} value="4 of 7" label="protein days" />
-        <StatTile art={<span className="block h-8 w-8 rounded-full border-2 border-muted" />} value="14 lb" label="down since May" />
-        <StatTile art={<DashboardArtwork scene="shot" className="h-9 w-12" />} value="Fri" label="shot day" />
+        <StatTile value="4 of 7" label="protein days" />
+        <StatTile value="14 lb" label="down since May" />
+        <StatTile value="Fri" label="shot day" />
       </div>
       <div className="mt-2 rounded-[14px] bg-surface p-3">
         <div className="flex items-baseline justify-between">
@@ -164,9 +160,7 @@ export function YourPage() {
             <div className="night-screen flex h-full flex-col">
               <div className="min-h-0 flex-1 overflow-hidden px-4 pt-[16%]">
                 <div className="flex items-start justify-between">
-                  <p className="max-w-[70%] text-[14px] leading-snug text-muted">
-                    {""}
-                  </p>
+                  <p className="text-[14px] text-muted">Your Page</p>
                   <img src={stakSpine.url} alt="Stak" className="h-10 w-auto" />
                 </div>
                 {tab === "Today" ? <TodayView /> : tab === "Meals" ? <MealsView /> : tab === "Workouts" ? <WorkoutsView /> : tab === "Meds" ? <MedsView /> : <YouView />}

@@ -92,7 +92,7 @@ function Stage({ stage }: { stage: (typeof STAGES)[number] }) {
       <div>
         {label}
         <p className="mt-3 text-[18px] leading-[1.45] text-muted">{stage.line}</p>
-        {stage.photo ? <Photo name={stage.photo} alt="" ratio="4 / 3" className="mt-6 hidden max-w-[320px] md:block" /> : null}
+        {stage.photo ? <Photo name={stage.photo} alt="" ratio="4 / 5" className="mt-6 hidden md:block" /> : null}
       </div>
       {thread}
     </li>

@@ -8,6 +8,7 @@ import { TextStakButton } from "./StakCTA";
 const NAV = [
   { label: "What you get", hash: "plan" },
   { label: "Your journey", hash: "journey" },
+  { label: "How it works", hash: "how" },
   { label: "Your Page", hash: "the-page" },
   { label: "Pricing", hash: "pricing" },
   { label: "Questions", hash: "questions" },

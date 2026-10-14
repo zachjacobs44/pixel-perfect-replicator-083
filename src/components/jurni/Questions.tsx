@@ -43,7 +43,7 @@ export function Questions() {
     <section id="questions" className="section-y">
       <div className="content-column">
         <SectionLabel>QUESTIONS</SectionLabel>
-        <h2 className="display-section mt-4">Questions.</h2>
+        <h2 className="display-section mt-4">Common questions.</h2>
         <div className="mt-10 max-w-[820px] border-t border-hairline">
           {ITEMS.map((item, i) => {
             const isOpen = open === i;

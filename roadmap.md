@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Apply the exact How it works, navigation, journey and Your Page diff.
+- [x] Save eight unreferenced candidate photos and verify compilation.
+
 - [x] Implement practice attribution from section B.
 - [x] Build the exact hero from section C without changing CTA rhythm.
 - [x] Build Meet Stak from section D.
