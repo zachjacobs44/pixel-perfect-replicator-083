@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { checkPracticesPassword } from "@/lib/practices.functions";
 import { PracticesContent } from "@/components/jurni/PracticesContent";
 import { Wordmark } from "@/components/jurni/Wordmark";
+import { SITE_URL } from "@/lib/site";
 
 const TITLE = "For practices | Jurni GLP";
 const STORAGE_KEY = "jurni.practices.access";
@@ -18,12 +19,12 @@ export const Route = createFileRoute("/practices")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: "This page is for referring practices." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://jurniglp.com/practices" },
+      { property: "og:url", content: `${SITE_URL}/practices` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: "This page is for referring practices." },
     ],
-    links: [{ rel: "canonical", href: "https://jurniglp.com/practices" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/practices` }],
   }),
   component: Practices,
 });

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { YellowCard } from "@/components/jurni/Card";
+import { SITE_URL } from "@/lib/site";
 
 const TITLE = "Privacy | Jurni GLP";
 const DESCRIPTION =
@@ -14,12 +15,12 @@ export const Route = createFileRoute("/privacy")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://jurniglp.com/privacy" },
+      { property: "og:url", content: `${SITE_URL}/privacy` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
     ],
-    links: [{ rel: "canonical", href: "https://jurniglp.com/privacy" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/privacy` }],
   }),
   component: Privacy,
 });

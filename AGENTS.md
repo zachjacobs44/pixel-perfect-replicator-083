@@ -11,6 +11,7 @@
 
 ## Jurni GLP conventions
 
+- Site origin and social-preview URL are exported only from `src/lib/site.ts` — keeps route metadata aligned for a one-line domain switch.
 - Design tokens live only in `src/styles.css` (`:root` variables + `@theme inline` + `@utility` helpers) — so brand colors, type scale and motion stay in one place.
 - Shared brand UI lives in `src/components/jurni/` (Card, Wordmark, Header, Footer, StakCTA, StickyTextBar, SectionPlaceholder) — later passes compose pages from these by name.
 - Editorial photographs use the shared Photo component and its eager image glob — named generated images are discovered automatically with stable missing-image layout.

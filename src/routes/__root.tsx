@@ -19,7 +19,7 @@ import { StickyTextBar } from "../components/jurni/StickyTextBar";
 import { Wordmark } from "../components/jurni/Wordmark";
 import { StakCTA } from "../components/jurni/StakCTA";
 
-const SITE_URL = "https://pixel-perfect-replicator-083.lovable.app";
+import { SITE_URL } from "@/lib/site";
 
 function NotFoundComponent() {
   return (

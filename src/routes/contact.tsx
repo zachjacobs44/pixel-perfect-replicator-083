@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { sendContactMessage } from "@/lib/contact.functions";
 import { STAK_PHONE_DISPLAY, STAK_SMS_HREF } from "@/components/jurni/StakCTA";
+import { SITE_URL, SOCIAL_IMAGE } from "@/lib/site";
 
 const TITLE = "Contact Jurni GLP";
 const DESCRIPTION =
@@ -17,14 +18,14 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://jurniglp.com/contact" },
-      { property: "og:image", content: "https://jurniglp.com/social-preview.png" },
+      { property: "og:url", content: `${SITE_URL}/contact` },
+      { property: "og:image", content: SOCIAL_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
-      { name: "twitter:image", content: "https://jurniglp.com/social-preview.png" },
+      { name: "twitter:image", content: SOCIAL_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "https://jurniglp.com/contact" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/contact` }],
   }),
   component: Contact,
 });

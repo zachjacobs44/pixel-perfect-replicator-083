@@ -4,6 +4,7 @@ import { QRCodeSVG } from "qrcode.react";
 
 import { StakAvatar, Wordmark } from "@/components/jurni/Wordmark";
 import { usePracticeName } from "@/lib/use-practice-name";
+import { SITE_URL } from "@/lib/site";
 
 const TITLE = "Referral card | Jurni GLP";
 const DESC = "Printable Jurni GLP referral card for practices.";
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/card")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://jurniglp.com/card" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/card` }],
   }),
   component: CardPage,
 });

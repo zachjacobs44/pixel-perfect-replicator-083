@@ -3,6 +3,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { findPractice } from "@/lib/referring-practices";
 
 import { HomePage } from "@/components/jurni/HomePage";
+import { SITE_URL } from "@/lib/site";
 
 const TITLE = "Jurni GLP | GLP-1 support by text and call.";
 const DESCRIPTION =
@@ -12,7 +13,7 @@ export const Route = createFileRoute("/$slug")({
   beforeLoad: ({ params }) => {
     if (!findPractice(params.slug)) throw notFound();
   },
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/$slug")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "noindex, follow" },
     ],
-    links: [{ rel: "canonical", href: "https://jurniglp.com/" }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/${params.slug}` }],
   }),
   component: PracticeHome,
 });
