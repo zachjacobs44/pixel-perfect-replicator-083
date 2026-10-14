@@ -19,6 +19,8 @@ import { StickyTextBar } from "../components/jurni/StickyTextBar";
 import { Wordmark } from "../components/jurni/Wordmark";
 import { StakCTA } from "../components/jurni/StakCTA";
 
+const SITE_URL = "https://pixel-perfect-replicator-083.lovable.app";
+
 function NotFoundComponent() {
   return (
     <section className="section-y">
@@ -77,12 +79,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "viewport",
         content: "width=device-width, initial-scale=1, viewport-fit=cover",
       },
-      { title: "Jurni GLP | GLP-1 support by text and call." },
+      { title: "Jurni GLP | An AI agent for people on a GLP-1" },
       {
         name: "description",
         content:
-          "Text or call Stak, your GLP-1 support from Jurni GLP. A plan, answers, check-ins, meals and workouts. No app. Two weeks free.",
+          "Stak is an AI agent for people on a GLP-1. Text it or call it, any time. It builds your plan, answers your questions, tracks your progress, and checks in before the hard days. Two weeks free.",
       },
+      { property: "og:title", content: "Jurni GLP | The medicine quiets the hunger. Stak handles everything else." },
+      { property: "og:description", content: "Stak is an AI agent for people on a GLP-1. Text it or call it, any time. It builds your plan, answers your questions, tracks your progress, and checks in before the hard days. Two weeks free." },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Jurni GLP. The medicine quiets the hunger. Stak handles everything else." },
+      { property: "og:url", content: `${SITE_URL}/` },
+      { name: "twitter:title", content: "Jurni GLP | The medicine quiets the hunger. Stak handles everything else." },
+      { name: "twitter:description", content: "Stak is an AI agent for people on a GLP-1. Text it or call it, any time. Two weeks free." },
       { property: "og:site_name", content: "Jurni GLP" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
