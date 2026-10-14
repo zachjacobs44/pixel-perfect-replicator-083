@@ -1,7 +1,8 @@
 import { WhiteCard } from "./Card";
 import { SectionLabel } from "./SectionPlaceholder";
 import { StakBubble, UserBubble } from "./Bubbles";
-import { Photo } from "./Photo";
+import { ASK_PROMPTS, MedRow, askHref } from "./AskAnything";
+import { trackCta } from "@/lib/analytics";
 
 const cardTitle = "font-display text-[24px] font-extrabold leading-[1.05]";
 const cardBody = "mt-2.5 text-[16px] leading-[1.5] text-muted";
@@ -73,38 +74,21 @@ export function YouGetAPlan() {
 
 export function HowYouTalk() {
   const items = [
-    { t: "Text it.", b: "Full sentences, half sentences, one word." },
-    { t: "Call it.", b: "Talk it through. Stak texts you the recap." },
+    { t: "Text it.", b: "Full sentences, half sentences, one word. Any language." },
+    { t: "Call it.", b: "Talk it through out loud. Stak texts you the recap." },
     { t: "Send a photo.", b: "Your plate, a menu, a label. It reads it and logs it." },
     { t: "Send a link.", b: "The restaurant, the recipe. It tells you what to order or skip." },
-    { t: "Let it text you.", b: "Dose days, refill days, and the quiet weeks." },
-    { t: "Any language.", b: "Stak answers in the one you text in." },
+    { t: "Let it text you.", b: "Dose days, refill days, and the quiet weeks in between." },
+    { t: "Ask it to do things.", b: "Find a restaurant, plan the week, set reminders. It does the work." },
   ];
   return (
     <section id="how" className="section-y">
       <div className="content-column">
-        <SectionLabel>HOW YOU TALK TO IT</SectionLabel>
+        <SectionLabel>HOW IT WORKS</SectionLabel>
         <h2 className="display-section mt-4 max-w-[760px]">Text it. Call it. Send it a photo or a link.</h2>
-        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3">
-          <div className="relative">
-            <Photo name="plate" alt="A dinner plate photographed from above" ratio="4 / 5" />
-            <div className="night-screen absolute bottom-3 left-3 right-3 rounded-[14px] px-3 py-2 text-[14px]">
-              <span style={{ color: "var(--stak-amber)" }}>Stak</span> Logged. About 38g of protein.
-            </div>
-          </div>
-          <div className="relative">
-            <Photo name="nightstand" alt="A phone on a nightstand at night" ratio="4 / 5" />
-            <div className="night-screen absolute bottom-3 left-3 right-3 rounded-[14px] px-3 py-2 text-[14px]">
-              <span style={{ color: "var(--stak-amber)" }}>Stak</span> Shot day tomorrow. I moved dinner lighter.
-            </div>
-          </div>
-          <div className="relative col-span-2 md:col-span-1">
-            <Photo name="counter" alt="A phone on a kitchen counter in morning light" ratio="4 / 5" className="max-md:!aspect-[16/9]" />
-            <div className="night-screen absolute bottom-3 left-3 right-3 rounded-[14px] px-3 py-2 text-[14px]">
-              <span style={{ color: "var(--stak-amber)" }}>Stak</span> Good call. The recap is in your texts.
-            </div>
-          </div>
-        </div>
+        <p className="mt-6 max-w-[560px] text-[19px] leading-[1.5] text-muted">
+          Stak lives in your messages. There is no app to open and nothing to fill in.
+        </p>
         <div className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {items.map(({ t, b }) => (
             <div key={t} className="border-t pt-5" style={{ borderColor: "var(--hairline)" }}>
@@ -112,6 +96,27 @@ export function HowYouTalk() {
               <p className={cardBody}>{b}</p>
             </div>
           ))}
+        </div>
+        <p className="mt-14 text-[19px] font-semibold">Start with one of these, or type your own.</p>
+        <ul className="mt-5 flex flex-wrap gap-3">
+          {ASK_PROMPTS.map((p) => (
+            <li key={p}>
+              <a
+                href={askHref(p)}
+                onClick={() => trackCta("cta_text", "ask")}
+                className="block w-fit max-w-full rounded-[18px] rounded-br-[6px] bg-frame px-4 py-3 text-[16px] leading-[1.4] text-ink transition-transform duration-200 ease-[var(--ease-spring)] hover:-translate-y-0.5 focus-visible:-translate-y-0.5 active:scale-[0.97]"
+              >
+                {p}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-12 text-[17px] font-bold">Works with every GLP-1. Injection or pill.</p>
+        <div className="med-marquee mt-4 overflow-hidden" role="list" aria-label="Wegovy, Ozempic, Zepbound, Mounjaro, Wegovy pill, Foundayo, Rybelsus, Saxenda, Victoza, Trulicity">
+          <div className="med-track">
+            <MedRow />
+            <MedRow hidden />
+          </div>
         </div>
       </div>
     </section>
