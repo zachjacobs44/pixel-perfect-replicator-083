@@ -57,7 +57,7 @@ function Stage({ stage }: { stage: (typeof STAGES)[number] }) {
     transition: "opacity 420ms var(--ease-spring), transform 420ms var(--ease-spring)",
   } as const;
   const thread = (
-    <div className="night-screen flex flex-col gap-3 rounded-[18px] p-4 shadow-[var(--shadow-white)]">
+    <div className="night-screen flex flex-col gap-3 self-start rounded-[18px] p-4 shadow-[var(--shadow-white)] md:self-center">
       {stage.msgs.map((m, i) => (m.s ? <StakBubble key={i}>{m.s}</StakBubble> : <UserBubble key={i} text={m.u ?? ""} />))}
     </div>
   );
@@ -88,7 +88,7 @@ function Stage({ stage }: { stage: (typeof STAGES)[number] }) {
   }
 
   return (
-    <li ref={ref} className="relative grid gap-5 md:grid-cols-[2fr_3fr] md:gap-10 md:pl-10" style={reveal}>
+    <li ref={ref} className="relative grid gap-5 md:grid-cols-[2fr_3fr] md:items-center md:gap-10 md:pl-10" style={reveal}>
       <span aria-hidden="true" className="absolute left-[-5px] top-2 hidden h-[11px] w-[11px] rounded-full bg-[var(--stak-amber)] md:block" />
       <div>
         {label}
