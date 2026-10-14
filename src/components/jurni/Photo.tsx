@@ -8,12 +8,11 @@ const modules = import.meta.glob("@/assets/photos/*.{jpg,jpeg,png,webp}", { eage
 
 export const PHOTOS = {
   fridge: "fridge",
-  plate: "plate",
-  nightstand: "nightstand",
+  "fridge-wide": "fridge-wide",
+  bedside: "bedside",
   table: "table",
-  counter: "counter",
   scale: "scale",
-  sneakers: "sneakers",
+  evening: "evening",
 } as const;
 
 export type PhotoName = keyof typeof PHOTOS;

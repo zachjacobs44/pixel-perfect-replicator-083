@@ -4,10 +4,11 @@ import { StakBubble, UserBubble, useInViewOnce } from "./Bubbles";
 import { Photo } from "./Photo";
 
 type Msg = { s?: string; u?: string };
-const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "table" | "scale" | "sneakers"; feature?: boolean }[] = [
+const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "bedside" | "table" | "scale" | "evening"; feature?: boolean }[] = [
   {
     label: "THE FIRST WEEK",
     line: "You have a prescription, a pamphlet, and a lot of questions.",
+    photo: "bedside",
     msgs: [
       { u: "I just started a GLP-1. What now?" },
       { s: "Start with the one thing most people get wrong in week one: eat on a schedule, even when you're not hungry. Three small meals, protein first. I'll check in tonight. What did you have for lunch?" },
@@ -38,7 +39,7 @@ const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "table" | "sca
   {
     label: "MONTHS IN",
     line: "The weight is coming off. The job now is keeping your muscle, your habits, and your momentum.",
-    photo: "sneakers",
+    photo: "evening",
     msgs: [
       { u: "lower back is sore after the workout. what stretches should i do" },
       { s: "Three, twenty seconds each: knees to chest, a gentle twist each side, and child's pose. Go easy today." },
