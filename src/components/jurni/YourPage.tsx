@@ -27,7 +27,7 @@ function TodayView() {
       <span className="mt-3 inline-block rounded-[12px] bg-[var(--stak-amber)] px-4 py-2 text-[14px] font-semibold text-[var(--stak-ground)]">See today's workout</span>
       <div className="mt-3 grid grid-cols-3 gap-2">
         <StatTile value="4 of 7" label="protein days" />
-        <StatTile value="14 lb" label="down since May" />
+        <StatTile value="14 lb" label="down so far" />
         <StatTile value="Fri" label="shot day" />
       </div>
       <div className="mt-2 rounded-[14px] bg-surface p-3">
@@ -40,6 +40,10 @@ function TodayView() {
           <div><span className="font-semibold">Eating</span><br /><span className="text-muted">4 of 7 on protein</span></div>
           <div><span className="font-semibold">Moving</span><br /><span className="text-muted">3 days</span></div>
         </div>
+      </div>
+      <div className="mt-2 rounded-[14px] bg-surface p-3">
+        <p className="text-[15px] font-semibold">Tonight</p>
+        <p className="mt-1 text-[14px] leading-snug text-muted">Light dinner: salmon and greens. Lift at 6, 20 minutes. Stak texts you at 5:30.</p>
       </div>
     </>
   );
