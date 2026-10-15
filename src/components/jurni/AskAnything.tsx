@@ -18,11 +18,11 @@ const MEDS = ["Wegovy", "Ozempic", "Zepbound", "Mounjaro", "Wegovy pill", "Found
 
 export function MedRow({ hidden }: { hidden?: boolean }) {
   return (
-    <div className="med-row label-over text-[14px] text-ink" aria-hidden={hidden ? "true" : undefined}>
+    <div className="med-row font-display text-[30px] font-extrabold uppercase leading-none text-ink md:text-[48px]" aria-hidden={hidden ? "true" : undefined}>
       {MEDS.map((m, i) => (
         <span key={m} className="whitespace-nowrap">
           {m}
-          {i < MEDS.length - 1 || !hidden ? <span className={i === MEDS.length - 1 ? "med-tail" : ""}>&nbsp;·&nbsp;</span> : <span>&nbsp;·&nbsp;</span>}
+          {i < MEDS.length - 1 || !hidden ? <span className={`px-4 text-[var(--stak-amber)] md:px-6 ${i === MEDS.length - 1 ? "med-tail" : ""}`}>·</span> : <span className="px-4 text-[var(--stak-amber)] md:px-6">·</span>}
         </span>
       ))}
     </div>
