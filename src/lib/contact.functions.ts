@@ -1,54 +1,63 @@
 import { createServerFn } from "@tanstack/react-start";
-import { z } from "zod";
-
-/** Lenient input shape: anything unexpected is coerced here, then validated in
- * the handler so a bad submission returns a friendly result instead of throwing. */
-const rawSchema = z.object({
-  name: z.unknown().transform((v) => (typeof v === "string" ? v.trim() : "")),
-  email: z.unknown().transform((v) => (typeof v === "string" ? v.trim() : "")),
-  message: z.unknown().transform((v) => (typeof v === "string" ? v.trim() : "")),
-});
-
-const contactSchema = z.object({
-  name: z.string().min(1).max(120),
-  email: z.string().email().max(200),
-  message: z.string().min(1).max(4000),
-});
+import { getRequestHeader } from "@tanstack/react-start/server";
+import { contactSchema } from "@/lib/contact-schema";
 
 const TO_ADDRESS = "contact@jurniglp.com";
 
 export type ContactResult =
-  | { ok: true; delivered: boolean }
+  | { ok: true }
   | { ok: false; error: string };
 
 /**
- * Delivers the contact form to contact@jurniglp.com.
- * Uses the project's transactional email sender once an email domain is set up;
- * until then the submission is recorded in the server log so nothing is lost.
+ * Public, validated write-only intake. Consent records are private and saved
+ * before best-effort email; no submission content is logged.
  */
 export const sendContactMessage = createServerFn({ method: "POST" })
-  .inputValidator((data) => rawSchema.parse(data ?? {}))
+  .inputValidator((data: unknown) => data)
   .handler(async ({ data }): Promise<ContactResult> => {
     const parsed = contactSchema.safeParse(data);
     if (!parsed.success) {
       return {
         ok: false,
-        error: "Please add your name, a valid email address, and a message.",
+        error: parsed.error.issues[0]?.message ?? "Please check the form fields.",
       };
     }
     const values = parsed.data;
 
-    const apiKey = process.env["RESEND_API_KEY"];
-    const from = process.env["EMAIL_FROM"] ?? "Jurni GLP <contact@jurniglp.com>";
+    try {
+      // Only this validated insert is privileged. No public read or general CRUD.
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+      const ip = getRequestHeader("cf-connecting-ip")
+        ?? getRequestHeader("x-forwarded-for")?.split(",")[0]?.trim()
+        ?? getRequestHeader("x-real-ip");
+      const { error } = await supabaseAdmin.from("contact_submissions").insert({
+        name: values.name,
+        email: values.email,
+        phone_e164: values.phone,
+        message: values.message,
+        consent_service: values.consent_service,
+        consent_marketing: values.consent_marketing,
+        accept_terms: values.accept_terms,
+        consent_text_version: "2026-10-14",
+        user_agent: getRequestHeader("user-agent")?.slice(0, 2000) ?? null,
+        ip: ip?.slice(0, 200) ?? null,
+        source: "/contact",
+      });
+      if (error) throw new Error("Contact record insert failed");
+    } catch {
+      console.error("[contact] record insert failed");
+      return { ok: false, error: "That didn't send. Please email contact@jurniglp.com." };
+    }
 
-    const text = `New contact form message\n\nName: ${values.name}\nEmail: ${values.email}\n\n${values.message}`;
+    const apiKey = process.env["RESEND_API_KEY"];
+    const fromAddress = process.env["EMAIL_FROM"]?.match(/<([^>]+)>/)?.[1]
+      ?? process.env["EMAIL_FROM"] ?? "contact@jurniglp.com";
+    const from = `Jurni Health, Inc. <${fromAddress}>`;
+
+    const text = `Jurni Health, Inc. — New contact form message\n\nName: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\nService SMS consent: ${values.consent_service}\nMarketing SMS consent: ${values.consent_marketing}\nAccept terms: ${values.accept_terms}\nConsent text version: 2026-10-14\nSource: /contact\n\n${values.message}`;
 
     if (!apiKey) {
-      console.log("[contact] email sender not configured yet; submission:", {
-        to: TO_ADDRESS,
-        ...values,
-      });
-      return { ok: true, delivered: false };
+      return { ok: true };
     }
 
     try {
@@ -68,13 +77,13 @@ export const sendContactMessage = createServerFn({ method: "POST" })
       });
 
       if (!res.ok) {
-        console.error("[contact] email send failed", res.status, await res.text());
-        return { ok: true, delivered: false };
+        console.error("[contact] email send failed", res.status);
+        return { ok: true };
       }
-    } catch (error) {
-      console.error("[contact] email send threw", error);
-      return { ok: true, delivered: false };
+    } catch {
+      console.error("[contact] email send threw");
+      return { ok: true };
     }
 
-    return { ok: true, delivered: true };
+    return { ok: true };
   });
