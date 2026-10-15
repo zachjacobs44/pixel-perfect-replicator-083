@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Rebuild /contact with phone and separate SMS consents, save records before email, and verify validation, storage and mobile layout.
+- [x] Rebuild /contact with phone and separate SMS consents, save records before email, and verify validation, storage and mobile layout.
 
 - [x] Apply the exact How it works, navigation, journey and Your Page diff.
 - [x] Save eight unreferenced candidate photos and verify compilation.
