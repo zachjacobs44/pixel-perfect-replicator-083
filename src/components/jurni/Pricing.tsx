@@ -17,7 +17,7 @@ export function Pricing() {
             <p className="mt-3 text-[17px] text-muted">a month</p>
           </WhiteCard>
           <CyanCard className="min-h-0">
-            <p className="font-display text-[44px] font-extrabold leading-none text-[var(--stak-amber-deep)]">$300</p>
+            <p className="font-display text-[44px] font-extrabold leading-none text-[var(--stak-amber-deep)]">$299</p>
             <p className="mt-3 text-[17px]">a year · two months free</p>
           </CyanCard>
         </div>

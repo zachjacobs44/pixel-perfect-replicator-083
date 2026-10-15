@@ -111,8 +111,10 @@ export function HowYouTalk() {
             </li>
           ))}
         </ul>
-        <p className="mt-12 text-[17px] font-bold">Works with every GLP-1. Injection or pill.</p>
-        <div className="med-marquee mt-4 overflow-hidden" role="list" aria-label="Wegovy, Ozempic, Zepbound, Mounjaro, Wegovy pill, Foundayo, Rybelsus, Saxenda, Victoza, Trulicity">
+      </div>
+      <div className="mt-16 border-y py-8 md:mt-20 md:py-10" style={{ borderColor: "var(--hairline)" }}>
+        <p className="content-column text-[17px] font-semibold text-muted md:text-[19px]">Works with every GLP-1. Injection or pill.</p>
+        <div className="med-marquee mt-5 overflow-hidden md:mt-6" role="list" aria-label="Wegovy, Ozempic, Zepbound, Mounjaro, Wegovy pill, Foundayo, Rybelsus, Saxenda, Victoza, Trulicity">
           <div className="med-track">
             <MedRow />
             <MedRow hidden />
