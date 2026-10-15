@@ -1,14 +1,17 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useState } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 
 import { sendContactMessage } from "@/lib/contact.functions";
+import { contactSchema, SERVICE_CONSENT_TEXT, MARKETING_CONSENT_TEXT } from "@/lib/contact-schema";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { STAK_PHONE_DISPLAY, STAK_SMS_HREF } from "@/components/jurni/StakCTA";
 import { SITE_URL, SOCIAL_IMAGE } from "@/lib/site";
 
 const TITLE = "Contact Jurni GLP";
 const DESCRIPTION =
-  "Questions about the service, your subscription, or messages you've received. Email, text or call Jurni GLP.";
+  "Questions about Stak, your subscription, or a message you received. We reply within one business day.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -31,9 +34,9 @@ export const Route = createFileRoute("/contact")({
 });
 
 const inputClass =
-  "mt-2 w-full rounded-[var(--radius-chip)] border bg-white px-4 py-3 text-[17px] md:text-[18px] outline-none focus:border-ink";
+  "mt-2 w-full rounded-[var(--radius-chip)] border bg-[var(--white)] px-4 py-3 text-[17px] md:text-[18px] outline-none focus:border-ink";
 
-function Row({ label, children }: { label: string; children: React.ReactNode }) {
+function Row({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div
       className="flex flex-col gap-1 border-b py-4 md:flex-row md:items-baseline md:gap-6"
@@ -45,41 +48,39 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
   );
 }
 
+const emptyForm = { name: "", email: "", phone: "", message: "", consent_service: false, consent_marketing: false, accept_terms: false };
+
 function Contact() {
   const send = useServerFn(sendContactMessage);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState(
-    "That didn’t send. Please email contact@jurniglp.com.",
+    "That didn't send. Please email contact@jurniglp.com.",
   );
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState(emptyForm);
 
-  async function onSubmit(event: React.FormEvent) {
+  async function onSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const values = {
-      name: form.name.trim(),
-      email: form.email.trim(),
-      message: form.message.trim(),
-    };
-    if (!values.name || !values.email.includes("@") || !values.message) {
-      setErrorMessage("Please add your name, a valid email address, and a message.");
+    if (status === "sending") return;
+    const parsed = contactSchema.safeParse(form);
+    if (!parsed.success) {
+      setErrorMessage(parsed.error.issues[0]?.message ?? "Please check the form fields.");
       setStatus("error");
       return;
     }
 
     setStatus("sending");
     try {
-      const result = await send({ data: values });
+      const result = await send({ data: form });
       if (result.ok) {
         setStatus("sent");
-        setForm({ name: "", email: "", message: "" });
+        setForm(emptyForm);
       } else {
         setErrorMessage(result.error);
         setStatus("error");
       }
-    } catch (error) {
-      console.error(error);
-      setErrorMessage("That didn’t send. Please email contact@jurniglp.com.");
+    } catch {
+      setErrorMessage("That didn't send. Please email contact@jurniglp.com.");
       setStatus("error");
     }
   }
@@ -89,7 +90,7 @@ function Contact() {
       <div className="content-column max-w-[760px]">
         <h1 className="display-section">Contact Jurni GLP.</h1>
         <p className="mt-4 text-[17px] md:text-[18px]">
-          Questions about the service, your subscription, or messages you&rsquo;ve received.
+          Questions about Stak, your subscription, or a message you received. We reply within one business day.
         </p>
 
         <div className="mt-10">
@@ -105,12 +106,14 @@ function Contact() {
           </Row>
         </div>
 
-        <form onSubmit={onSubmit} className="mt-12">
+        <form onSubmit={onSubmit} noValidate className="mt-12">
           <label className="block">
             <span className="label-over">Name</span>
             <input
               required
               name="name"
+              autoComplete="name"
+              maxLength={120}
               className={inputClass}
               style={{ borderColor: "var(--hairline)" }}
               value={form.name}
@@ -124,10 +127,27 @@ function Contact() {
               required
               name="email"
               type="email"
+              autoComplete="email"
+              maxLength={200}
               className={inputClass}
               style={{ borderColor: "var(--hairline)" }}
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
+            />
+          </label>
+
+          <label className="mt-6 block">
+            <span className="label-over">Phone number</span>
+            <input
+              required
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              maxLength={40}
+              className={inputClass}
+              style={{ borderColor: "var(--hairline)" }}
+              value={form.phone}
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
             />
           </label>
 
@@ -137,6 +157,7 @@ function Contact() {
               required
               name="message"
               rows={5}
+              maxLength={4000}
               className={inputClass}
               style={{ borderColor: "var(--hairline)" }}
               value={form.message}
@@ -144,22 +165,37 @@ function Contact() {
             />
           </label>
 
-          <button
+          <div className="mt-7 space-y-6">
+            {([
+              ["consent_service", SERVICE_CONSENT_TEXT],
+              ["consent_marketing", MARKETING_CONSENT_TEXT],
+            ] as const).map(([name, text]) => (
+              <label key={name} htmlFor={name} className="flex cursor-pointer items-start gap-3 text-[17px] md:text-[18px]">
+                <Checkbox id={name} name={name} checked={form[name]} className="mt-1 h-5 w-5" onCheckedChange={(checked) => setForm({ ...form, [name]: checked === true })} />
+                <span className="min-w-0">{text}</span>
+              </label>
+            ))}
+            <label htmlFor="accept_terms" className="flex cursor-pointer items-start gap-3 text-[17px] md:text-[18px]">
+              <Checkbox id="accept_terms" name="accept_terms" required checked={form.accept_terms} className="mt-1 h-5 w-5" aria-describedby={status === "error" ? "contact-error" : undefined} onCheckedChange={(checked) => setForm({ ...form, accept_terms: checked === true })} />
+              <span className="min-w-0">I accept the <Link to="/privacy" className="underline">Privacy Policy</Link> and <Link to="/terms" className="underline">Terms of Service</Link>.</span>
+            </label>
+          </div>
+
+          <Button
             type="submit"
             disabled={status === "sending"}
-            className="press-spring mt-7 inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] px-8 font-body text-[18px] font-semibold text-primary-foreground disabled:opacity-70"
-            style={{ background: "var(--grad-button)", boxShadow: "var(--shadow-button)" }}
+            className="press-spring mt-7 inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] bg-[image:var(--grad-button)] px-8 font-body text-[18px] font-semibold text-primary-foreground shadow-[var(--shadow-button)] disabled:opacity-70"
           >
             {status === "sending" ? "Sending…" : "Send"}
-          </button>
+          </Button>
 
           {status === "sent" ? (
-            <p className="mt-4 text-[17px] font-semibold" style={{ color: "var(--text-cyan)" }}>
+            <p role="status" className="mt-4 text-[17px] font-semibold" style={{ color: "var(--text-cyan)" }}>
               Sent. We&rsquo;ll reply within one business day.
             </p>
           ) : null}
           {status === "error" ? (
-            <p className="mt-4 text-[17px] font-semibold">{errorMessage}</p>
+            <p id="contact-error" role="alert" className="mt-4 text-[17px] font-semibold">{errorMessage}</p>
           ) : null}
         </form>
 

@@ -17,6 +17,7 @@
 - Editorial photographs use the shared Photo component and its eager image glob — named generated images are discovered automatically with stable missing-image layout.
 - Header, Footer and the mobile sticky text bar are mounted once in `src/routes/__root.tsx`; page routes render only their own sections.
 - Client-callable server logic lives in `src/lib/*.functions.ts` (`contact.functions.ts`, `practices.functions.ts`) — keeps secrets like `PRACTICES_PASSWORD` and the email key server-side.
+- Contact intake shares client/server validation in `src/lib/contact-schema.ts` and inserts private consent records using the server-only privileged client before best-effort email — prevents client access to records and makes storage the success boundary.
 - CTA analytics go through `src/lib/analytics.ts`; every Text/Call Stak tap fires `cta_text`/`cta_call` with a `section` property.
 - Referring-practice attribution is defined only in `src/lib/referring-practices.ts` and persists valid entries for 30 days — this keeps displayed practice names allowlisted and easy to maintain.
 - Uploaded Stak artwork is served through asset pointers; legacy palette aliases resolve to the active semantic theme in `src/styles.css` to preserve existing page composition during rebranding.
