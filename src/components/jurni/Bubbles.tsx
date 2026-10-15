@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 import { StakAvatar } from "./Wordmark";
+import { photoSrc, type PhotoName } from "./Photo";
 
 export function StakBubble({ children, className, style }: { children: ReactNode; className?: string; style?: React.CSSProperties }) {
   return (
@@ -35,6 +36,26 @@ export function UserBubble({ text, className, style }: { text: string; className
       style={style}
     >
       {withUrls(text)}
+    </div>
+  );
+}
+
+/** A user bubble that carries the photo they sent, with the caption beneath it. */
+export function PhotoBubble({ photo, alt, text, className }: { photo: PhotoName; alt: string; text?: string; className?: string }) {
+  const src = photoSrc(photo);
+  return (
+    <div className={cn("ml-auto w-fit max-w-[88%] overflow-hidden rounded-[18px] rounded-br-[6px] bg-frame text-[17px] leading-[1.4] text-ink", className)}>
+      <div className="flex items-center gap-3 p-2 pr-3.5">
+        <span
+          className="block h-14 w-14 shrink-0 overflow-hidden rounded-[10px]"
+          style={{ background: "var(--stak-sheet)" }}
+          aria-hidden={src ? undefined : "true"}
+        >
+          {src ? <img src={src} alt={alt} loading="lazy" decoding="async" className="h-full w-full object-cover" /> : null}
+        </span>
+        <span className="text-[14px] text-muted">Photo</span>
+      </div>
+      {text ? <div className="px-3.5 pb-3.5 pt-0.5">{withUrls(text)}</div> : null}
     </div>
   );
 }

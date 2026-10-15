@@ -1,37 +1,39 @@
 import { JourneyCTA } from "./StakCTA";
 import { SectionLabel } from "./SectionPlaceholder";
-import { StakBubble, UserBubble, useInViewOnce } from "./Bubbles";
+import { PhotoBubble, StakBubble, UserBubble, useInViewOnce } from "./Bubbles";
 import { Photo } from "./Photo";
 
-type Msg = { s?: string; u?: string };
-const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "bedside" | "table" | "scale" | "evening"; feature?: boolean }[] = [
+type Msg = { s?: string; u?: string; p?: boolean };
+const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "bedside" | "table" | "scale" | "evening"; alt?: string; feature?: boolean }[] = [
   {
     label: "THE FIRST WEEK",
     line: "You have a prescription, a pamphlet, and a lot of questions.",
     photo: "bedside",
+    alt: "A pharmacy bag and a glass of water on a nightstand",
     msgs: [
-      { u: "I just started a GLP-1. What now?" },
-      { s: "Start with the one thing most people get wrong in week one: eat on a schedule, even when you're not hungry. Three small meals, protein first. I'll check in tonight. What did you have for lunch?" },
+      { p: true, u: "picked it up. kind of nervous" },
+      { s: "That's normal. Take the first dose on the day your provider told you, and keep it to the same day each week. I'll remind you the night before. Week one is simple: three small meals, protein first, water all day. Text me after the first dose and tell me how you feel." },
     ],
   },
   {
     label: "REAL LIFE",
     line: "Birthdays, work dinners, your mother's cooking. The world doesn't know you're on this.",
     photo: "table",
+    alt: "A restaurant table with the menu open",
     msgs: [
-      { u: "client dinner thursday, they picked the steakhouse. wedding in 3 weeks and my cholesterol's not great" },
-      { u: "https://www.example-steakhouse.com/menu" },
-      { s: "Read it. You like tuna tartare, so start there. Then the grilled branzino, not the ribeye, with the greens instead of the creamed spinach. Skip the bread basket and you're on plan for the wedding. If they order dessert, one bite is fine." },
+      { p: true, u: "client dinner. they picked the steakhouse. what do i order" },
+      { s: "I can read it from here. Start with the tuna tartare. Then the grilled branzino with the greens instead of the creamed spinach. Skip the bread basket. If they order dessert, one bite is fine. You're still on plan for the wedding." },
     ],
   },
   {
     label: "THE PLATEAU",
     line: "The scale stops. This is the week most people quit.",
     photo: "scale",
+    alt: "A bathroom scale on the floor",
     feature: true,
     msgs: [
-      { u: "scale hasn't moved in 2 weeks. kind of over it" },
-      { s: "Two flat weeks after 14 pounds down isn't a stall. It's your body catching up. Your protein's been on target 5 of 7 days and your waist is down an inch since August. The scale is the slowest number you have. Keep going. I'll show you the trend on your Page." },
+      { p: true, u: "same number as two weeks ago" },
+      { s: "Two flat weeks after 14 pounds down isn't a stall. It's your body catching up. Your protein has been on target 5 of 7 days and your waist is down an inch since August. The scale is the slowest number you have. Keep going. The trend is on your Page." },
       { u: "ok. still annoying" },
       { s: "It is. That's allowed. Tomorrow's lift is still on." },
     ],
@@ -40,11 +42,10 @@ const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "bedside" | "t
     label: "MONTHS IN",
     line: "The weight is coming off. The job now is keeping your muscle, your habits, and your momentum.",
     photo: "evening",
+    alt: "A dumbbell on the floor beside the kitchen table",
     msgs: [
-      { u: "lower back is sore after the workout. what stretches should i do" },
-      { s: "Three, twenty seconds each: knees to chest, a gentle twist each side, and child's pose. Go easy today." },
-      { u: "had a brownie batter protein bar for breakfast" },
-      { s: "Logged, 20g of protein. How's the back feeling after those stretches? Three months in, by the way: down 22 pounds, lifts twice a week since September. Next month's plan is on your Page." },
+      { p: true, u: "done. back held up fine" },
+      { s: "Logged. That's three lifts this week, two weeks running. Three months in: down 22 pounds, and you've kept every bit of muscle we can measure. Next month's plan is on your Page. It adds a fourth day if you want it." },
     ],
   },
 ];
@@ -58,7 +59,7 @@ function Stage({ stage }: { stage: (typeof STAGES)[number] }) {
   } as const;
   const thread = (
     <div className="night-screen flex flex-col gap-3 self-start rounded-[18px] p-4 shadow-[var(--shadow-white)] md:self-center">
-      {stage.msgs.map((m, i) => (m.s ? <StakBubble key={i}>{m.s}</StakBubble> : <UserBubble key={i} text={m.u ?? ""} />))}
+      {stage.msgs.map((m, i) => (m.s ? <StakBubble key={i}>{m.s}</StakBubble> : m.p && stage.photo ? <PhotoBubble key={i} photo={stage.photo} alt={stage.alt ?? ""} text={m.u ?? ""} /> : <UserBubble key={i} text={m.u ?? ""} />))}
     </div>
   );
   const label = (
@@ -79,7 +80,7 @@ function Stage({ stage }: { stage: (typeof STAGES)[number] }) {
             <span className="label-over text-[14px]" style={{ color: "var(--stak-amber)" }}>{stage.label}</span>
             <p className="display mt-3 text-[30px] md:text-[40px]">{stage.line}</p>
             <div className="mt-6 flex flex-col gap-3">
-              {stage.msgs.map((m, i) => (m.s ? <StakBubble key={i}>{m.s}</StakBubble> : <UserBubble key={i} text={m.u ?? ""} />))}
+              {stage.msgs.map((m, i) => (m.s ? <StakBubble key={i}>{m.s}</StakBubble> : m.p && stage.photo ? <PhotoBubble key={i} photo={stage.photo} alt={stage.alt ?? ""} text={m.u ?? ""} /> : <UserBubble key={i} text={m.u ?? ""} />))}
             </div>
           </div>
         </div>
@@ -93,7 +94,7 @@ function Stage({ stage }: { stage: (typeof STAGES)[number] }) {
       <div>
         {label}
         <p className="mt-3 text-[18px] leading-[1.45] text-muted">{stage.line}</p>
-        {stage.photo ? <Photo name={stage.photo} alt="" ratio="4 / 5" className="mt-6 hidden md:block" /> : null}
+        {stage.photo ? <Photo name={stage.photo} alt={stage.alt ?? ""} ratio="4 / 5" className="mt-6 hidden md:block" /> : null}
       </div>
       {thread}
     </li>
