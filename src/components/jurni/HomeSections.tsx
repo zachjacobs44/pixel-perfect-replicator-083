@@ -76,7 +76,7 @@ export function HowYouTalk() {
   const items = [
     { t: "Text it.", b: "Full sentences, half sentences, one word. Any language." },
     { t: "Call it.", b: "Talk it through out loud. Stak texts you the recap." },
-    { t: "Send a photo.", b: "Your plate, a menu, a label. It reads it and logs it." },
+    { t: "Send a photo.", b: "Your fridge, your plate, a menu, a label. It reads it and tells you what to do." },
     { t: "Send a link.", b: "The restaurant, the recipe. It tells you what to order or skip." },
     { t: "Let it text you.", b: "Dose days, refill days, and the quiet weeks in between." },
     { t: "Ask it to do things.", b: "Find a restaurant, plan the week, set reminders. It does the work." },

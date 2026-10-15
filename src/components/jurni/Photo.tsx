@@ -17,6 +17,10 @@ export const PHOTOS = {
 
 export type PhotoName = keyof typeof PHOTOS;
 
+export function photoSrc(name: PhotoName): string | undefined {
+  return find(name);
+}
+
 function find(name: PhotoName): string | undefined {
   const key = Object.keys(modules).find((k) => k.includes(`/photos/${name}.`));
   return key ? modules[key] : undefined;
