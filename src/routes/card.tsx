@@ -55,7 +55,7 @@ function CardPage() {
           <div className="flex flex-col gap-1.5">
             <StakAvatar size={28} />
             <p className="text-[16px] font-bold leading-[1.2]">Text Stak at {STAK_PHONE_DISPLAY}</p>
-            <p className="text-[14px]">Two weeks free. No app.</p>
+            <p className="text-[14px]">Two weeks free. No app needed.</p>
             <p className="label-over text-[14px] text-ink">jurniglp.com</p>
           </div>
           <QRCodeSVG value={`sms:${STAK_PHONE}`} size={92} bgColor="var(--stak-ink)" fgColor="var(--stak-ground)" level="M" />

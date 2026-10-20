@@ -87,7 +87,7 @@ export function HowYouTalk() {
         <SectionLabel>HOW IT WORKS</SectionLabel>
         <h2 className="display-section mt-4 max-w-[760px]">Text it. Call it. Send it a photo or a link.</h2>
         <p className="mt-6 max-w-[560px] text-[19px] leading-[1.5] text-muted">
-          Stak lives in your messages. There is no app to open and nothing to fill in.
+          Stak lives in your messages. No app needed, nothing to fill in.
         </p>
         <div className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {items.map(({ t, b }) => (

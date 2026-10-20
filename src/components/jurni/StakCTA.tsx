@@ -47,7 +47,7 @@ export function StakCTA({ section, className }: { section: CtaSection; className
       <div className="max-w-[560px]">
         <TextStakButton section={section} />
         <p className="fine-print mt-4">
-          Two weeks free. No card, no account, no app. By texting, you agree to receive messages from
+          Two weeks free. No card, no account, no app needed. By texting, you agree to receive messages from
           Jurni GLP. Message frequency varies. Message and data rates may apply. Reply STOP to end,
           HELP for help.{" "}
           <Link to="/privacy" className="underline">
@@ -119,7 +119,7 @@ export function ClosingCTA() {
           <TextStakButton section="closing" />
         </div>
         <p className="mt-6 max-w-[620px] text-[14px] leading-[1.5] text-muted">
-          Two weeks free. No card, no account, no app. By texting, you agree to receive messages from
+          Two weeks free. No card, no account, no app needed. By texting, you agree to receive messages from
           Jurni GLP. Message frequency varies. Message and data rates may apply. Reply STOP to end,
           HELP for help.{" "}
           <Link to="/privacy" className="underline">
