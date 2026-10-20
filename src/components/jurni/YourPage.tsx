@@ -3,7 +3,7 @@ import { SectionLabel } from "./SectionPlaceholder";
 import { IPhoneFrame } from "./IPhoneFrame";
 import { STAK_PHONE_DISPLAY, STAK_SMS_HREF } from "./StakCTA";
 import { trackCta } from "@/lib/analytics";
-import stakSpine from "@/assets/stak-lockup-spine.svg.asset.json";
+import { WordmarkText } from "./Wordmark";
 
 type Tab = "Today" | "Meals" | "Workouts" | "Meds" | "You";
 const TABS = ["Today", "Meals", "Workouts", "Meds", "You"] as const;
@@ -32,7 +32,7 @@ function TodayView() {
       </div>
       <div className="mt-2 rounded-[14px] bg-surface p-3">
         <div className="flex items-baseline justify-between">
-          <span className="text-[15px] font-semibold">This week with Stak</span>
+          <span className="text-[15px] font-semibold">This week</span>
           <span className="font-display text-[14px] font-extrabold">week 12</span>
         </div>
         <div className="mt-2 grid grid-cols-3 gap-1.5 text-[14px] leading-tight">
@@ -43,7 +43,7 @@ function TodayView() {
       </div>
       <div className="mt-2 rounded-[14px] bg-surface p-3">
         <p className="text-[15px] font-semibold">Tonight</p>
-        <p className="mt-1 text-[14px] leading-snug text-muted">Light dinner: salmon and greens. Lift at 6, 20 minutes. Stak texts you at 5:30.</p>
+        <p className="mt-1 text-[14px] leading-snug text-muted">Light dinner: salmon and greens. Lift at 6, 20 minutes. You get a text at 5:30.</p>
       </div>
     </>
   );
@@ -106,7 +106,7 @@ function MedsView() {
       </div>
       <div className="mt-2 rounded-[14px] bg-surface p-3">
         <p className="text-[15px] font-semibold">Side effects</p>
-        <p className="mt-1 text-[14px] leading-snug">Mild nausea the day after your last two doses. Stak is watching for changes.</p>
+        <p className="mt-1 text-[14px] leading-snug">Mild nausea the day after your last two doses. Watching for changes.</p>
       </div>
     </>
   );
@@ -128,18 +128,18 @@ function YouView() {
   return (
     <>
       <h3 className="mt-2 font-display text-[26px] font-extrabold leading-none">You</h3>
-      <p className="mt-2 text-[15px]">This week with Stak</p>
+      <p className="mt-2 text-[15px]">This week</p>
       <p className="mt-2 text-[14px] leading-snug">No week closed yet. This one needs a meal on plan and a walk or a workout to close.</p>
       <div className="mt-3 rounded-[14px] bg-surface px-3 py-2">
         <p className="pt-1 text-[15px] font-semibold">Why</p>
         <p className="mt-1 text-[16px] font-semibold leading-snug">"For my daughter's wedding in June."</p>
         <p className="text-[14px] text-muted">You · Oct 3</p>
-        <div className="mt-2 border-t border-hairline"><Row left="Give Stak a rule" chevron /></div>
+        <div className="mt-2 border-t border-hairline"><Row left="Set a rule" chevron /></div>
       </div>
       <div className="mt-2 rounded-[14px] bg-surface px-3"><Row left="Weight" right="212 lb · down 14" chevron /></div>
       <div className="mt-2 rounded-[14px] bg-surface px-3">
-        <Row left="Stak" right={STAK_PHONE_DISPLAY} />
-        <div className="border-t border-hairline"><Row left="Text Stak" chevron /></div>
+        <Row left="Jurni GLP" right={STAK_PHONE_DISPLAY} />
+        <div className="border-t border-hairline"><Row left="Text Jurni GLP" chevron /></div>
       </div>
     </>
   );
@@ -152,11 +152,11 @@ export function YourPage() {
       <div className="content-column grid items-center gap-12 lg:grid-cols-[1fr_360px]">
         <div>
           <SectionLabel>YOUR PAGE</SectionLabel>
-          <h2 className="display-section mt-4 max-w-[800px]">Everything you tell Stak, organized for you.</h2>
+          <h2 className="display-section mt-4 max-w-[800px]">Everything you tell Jurni GLP, organized for you.</h2>
           <p className="mt-6 max-w-[520px] text-[19px] leading-[1.5] text-muted">
-            Every text, photo and call becomes one private page: meals, shopping list, workouts, shot log, and what Stak knows about you. Nothing to fill in, ever.
+            Every text, photo and call becomes one private page: meals, shopping list, workouts, shot log, and what it knows about you. Nothing to fill in, ever.
           </p>
-          <a href={STAK_SMS_HREF} onClick={() => trackCta("cta_text", "your-page")} className="mt-6 inline-block text-[17px] font-semibold text-[var(--stak-amber)] underline underline-offset-4">Text Stak to get your page</a>
+          <a href={STAK_SMS_HREF} onClick={() => trackCta("cta_text", "your-page")} className="mt-6 inline-block text-[17px] font-semibold text-[var(--stak-amber)] underline underline-offset-4">Text Jurni GLP to get your page</a>
         </div>
 
         <figure className="phone-glow mx-auto w-full max-w-[340px]">
@@ -165,7 +165,7 @@ export function YourPage() {
               <div className="min-h-0 flex-1 overflow-hidden px-4 pt-[16%]">
                 <div className="flex items-start justify-between">
                   <p className="text-[14px] text-muted">Your Page</p>
-                  <img src={stakSpine.url} alt="Stak" className="h-10 w-auto" />
+                  <WordmarkText className="h-5" />
                 </div>
                 {tab === "Today" ? <TodayView /> : tab === "Meals" ? <MealsView /> : tab === "Workouts" ? <WorkoutsView /> : tab === "Meds" ? <MedsView /> : <YouView />}
               </div>

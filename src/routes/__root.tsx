@@ -26,7 +26,7 @@ function NotFoundComponent() {
     <section className="section-y">
       <div className="content-column">
         <Wordmark className="h-6" />
-        <h1 className="display-section mt-8">That page isn't here. Stak is.</h1>
+        <h1 className="display-section mt-8">That page isn't here. Jurni GLP is.</h1>
         <StakCTA section="404" className="mt-10" />
       </div>
     </section>

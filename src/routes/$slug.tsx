@@ -7,7 +7,7 @@ import { SITE_URL } from "@/lib/site";
 
 const TITLE = "Jurni GLP | GLP-1 support by text and call.";
 const DESCRIPTION =
-  "Text or call Stak, your GLP-1 support from Jurni GLP. Answers, check-ins, meals and workouts. No app needed. Two weeks free.";
+  "Text or call Jurni GLP, the AI agent for people on a GLP-1. Answers, check-ins, meals and workouts. No app needed. Two weeks free.";
 
 export const Route = createFileRoute("/$slug")({
   beforeLoad: ({ params }) => {

@@ -16,7 +16,7 @@ const buttonBase =
 export function TextStakButton({
   section,
   className,
-  label = "Text Stak",
+  label = "Text Jurni GLP",
   compact = false,
 }: {
   section: CtaSection;
@@ -73,7 +73,7 @@ export function StakCTA({ section, className }: { section: CtaSection; className
             level="M"
           />
         </div>
-        <p className="fine-print mt-2 max-w-[160px]">Scan to text Stak from your phone.</p>
+        <p className="fine-print mt-2 max-w-[160px]">Scan to text Jurni GLP from your phone.</p>
       </div>
     </div>
   );
@@ -88,7 +88,7 @@ export function JourneyCTA() {
         onClick={() => trackCta("cta_text", "journey")}
         className="press-spring inline-flex rounded-[var(--radius-chip)] px-4 py-2 text-primary-foreground" style={{ background: "var(--grad-button)", boxShadow: "var(--shadow-button)" }}
       >
-        Text Stak
+        Text Jurni GLP
       </a>
       .
     </p>
@@ -113,7 +113,7 @@ export function ClosingCTA() {
     >
       <div className="content-column flex flex-col items-center py-24 text-center md:py-[160px]">
         <h2 id="closing-cta-title" className="display-hero max-w-[820px]">
-          Text Stak once. It takes it from there.
+          Text Jurni GLP once. It takes it from there.
         </h2>
         <div className="mt-10">
           <TextStakButton section="closing" />

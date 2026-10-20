@@ -5,18 +5,18 @@ import { SectionLabel } from "./SectionPlaceholder";
 
 const ITEMS: { q: string; a: ReactNode }[] = [
   { q: "What do I text it first?", a: "Anything. Most people open with the question they felt silly asking at their last visit. Or tap the button and it starts with \"I just started a GLP-1. What now?\"" },
-  { q: "What does Stak actually do day to day?", a: "It runs your plan. It tells you what to eat and when, how much to move, when to weigh in, and when your dose or refill is coming. It checks in on the hard days and adjusts the plan when your life or your dose changes. You ask it whatever comes up in between." },
-  { q: "What about nausea, dose increases, and refills?", a: "Stak knows the weeks that tend to be rough. Around a dose step it lightens your dinners and checks in; if nausea lingers or you can't keep fluids down, it tells you to call your practice. It texts you before your refill window and, if you're traveling, moves your reminders to local time." },
-  { q: "Is Stak a real person?", a: "No. Stak is an AI, built for people on GLP-1s. It's there every hour of every day. When something needs a person, it tells you to call your practice." },
-  { q: "Do I need to download anything?", a: "No. Stak works in the messaging and phone apps already on your phone. If you want Stak to see your Apple Health data (weight, steps, workouts), there is an optional Jurni GLP app in the App Store that syncs it. Everything else works without it." },
+  { q: "What does Jurni GLP actually do day to day?", a: "It runs your plan. It tells you what to eat and when, how much to move, when to weigh in, and when your dose or refill is coming. It checks in on the hard days and adjusts the plan when your life or your dose changes. You ask it whatever comes up in between." },
+  { q: "What about nausea, dose increases, and refills?", a: "Jurni GLP knows the weeks that tend to be rough. Around a dose step it lightens your dinners and checks in; if nausea lingers or you can't keep fluids down, it tells you to call your practice. It texts you before your refill window and, if you're traveling, moves your reminders to local time." },
+  { q: "Am I texting a real person?", a: "No. Jurni GLP is an AI, built for people on GLP-1s. It's there every hour of every day. When something needs a person, it tells you to call your practice." },
+  { q: "Do I need to download anything?", a: "No. Jurni GLP works in the messaging and phone apps already on your phone. If you want it to see your Apple Health data (weight, steps, workouts), there is an optional Jurni GLP app in the App Store that syncs it. Everything else works without it." },
   { q: "Which medications does it work with?", a: "Any GLP-1: Wegovy, Ozempic, Zepbound, Mounjaro, the Wegovy pill, Foundayo, and the rest. Injection or pill." },
-  { q: "Does it speak my language?", a: "Yes. Text or call in whatever language you think in. Stak answers in the same one, and you can switch mid-conversation." },
-  { q: "What if I stop taking my medication?", a: "Stak keeps showing up. Pausing or stopping is part of a lot of people's story, and it doesn't end the conversation." },
+  { q: "Does it speak my language?", a: "Yes. Text or call in whatever language you think in. It answers in the same one, and you can switch mid-conversation." },
+  { q: "What if I stop taking my medication?", a: "Jurni GLP keeps showing up. Pausing or stopping is part of a lot of people's story, and it doesn't end the conversation." },
   {
     q: "Is what I tell it private?",
     a: (
       <>
-        It stays between you, Stak, and the Page only you can open. Your mobile number is never sold or shared for marketing. The details are in our{" "}
+        It stays between you, Jurni GLP, and the Page only you can open. Your mobile number is never sold or shared for marketing. The details are in our{" "}
         <Link to="/privacy" className="underline">Privacy Policy</Link>.
       </>
     ),
