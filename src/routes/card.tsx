@@ -54,7 +54,7 @@ function CardPage() {
         <div className={`${face} flex-row items-center justify-between gap-3`}>
           <div className="flex flex-col gap-1.5">
             <StakAvatar size={28} />
-            <p className="text-[16px] font-bold leading-[1.2]">Text Stak at {STAK_PHONE_DISPLAY}</p>
+            <p className="text-[16px] font-bold leading-[1.2]">Text Jurni GLP at {STAK_PHONE_DISPLAY}</p>
             <p className="text-[14px]">Two weeks free. No app needed.</p>
             <p className="label-over text-[14px] text-ink">jurniglp.com</p>
           </div>
