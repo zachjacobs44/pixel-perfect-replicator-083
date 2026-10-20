@@ -11,8 +11,8 @@ function PhoneMock() {
       <IPhoneFrame eager>
         <div className="night-screen flex h-full flex-col px-3.5 pb-5 pt-[18%]">
           <div className="flex items-center gap-2.5 border-b border-hairline pb-2.5">
-            <StakAvatar size={28} animated />
-            <span className="font-display text-[16px] font-extrabold">Stak</span>
+            <StakAvatar size={28} />
+            <span className="font-display text-[16px] font-extrabold">Jurni GLP</span>
           </div>
           <div className="mt-4 flex flex-col gap-3.5">
             <div className="message-arrive max-w-[92%]" style={{ animationDelay: "0ms" }}>
@@ -57,13 +57,13 @@ export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }
     <section id="hero" className="content-column pb-10 pt-8 md:pb-16 md:pt-12">
       <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(300px,0.7fr)] lg:gap-14">
         <div className="min-w-0">
-          <StakAvatar size={56} animated onPaper />
+          <StakAvatar size={56} onPaper />
           <p className="label-over mt-4 text-[14px] text-magenta">AN AI AGENT FOR PEOPLE ON A GLP-1.</p>
           <h1 className="display-hero mt-4 max-w-[720px]">
-            The medicine quiets the hunger. Stak handles everything else.
+            The medicine quiets the hunger. Jurni GLP handles everything else.
           </h1>
           <p className="mt-7 max-w-[40ch] text-[20px] leading-[1.45] md:text-[22px]">
-            Stak is an AI agent for people on a GLP-1. Text it or call it, any time. It builds your plan, answers your questions, tracks your progress, and checks in before the hard days.
+            Jurni GLP is an AI agent for people on a GLP-1. Text it or call it, any time. It builds your plan, answers your questions, tracks your progress, and checks in before the hard days.
           </p>
           <p className="mt-3 max-w-[40ch] text-[17px] leading-[1.5] text-muted">
             Two weeks free. No card, no account, no app needed.

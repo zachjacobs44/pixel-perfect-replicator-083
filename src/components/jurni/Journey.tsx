@@ -107,10 +107,10 @@ export function Journey() {
       <div className="content-column">
         <SectionLabel>YOUR GLP-1 JOURNEY</SectionLabel>
         <h2 className="display-section mt-4 max-w-[900px]">
-          Here is what the next six months look like, and how Stak walks you through each stage.
+          Here is what the next six months look like, and how Jurni GLP walks you through each stage.
         </h2>
         <p className="mt-6 max-w-[600px] text-[19px] leading-[1.5] text-muted">
-          Every stage has a moment where people get stuck. Stak is built for those moments.
+          Every stage has a moment where people get stuck. Jurni GLP is built for those moments.
         </p>
         <ol className="mt-12 flex flex-col gap-14 md:border-l md:border-hairline [&>li.night-screen]:md:ml-[-1px]">
           {STAGES.map((s) => (

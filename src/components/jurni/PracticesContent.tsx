@@ -7,13 +7,13 @@ const body = "mt-3 text-[17px] leading-[1.5]";
 export function PracticesContent() {
   const steps = [
     ["1", "The prescription.", "It happens in the conversation you're already having."],
-    ["2", "The speakerphone moment.", "At the end of the visit, the patient texts or calls Stak from their own phone. Thirty seconds."],
+    ["2", "The speakerphone moment.", "At the end of the visit, the patient texts or calls Jurni GLP from their own phone. Thirty seconds."],
     ["3", "Set up before the parking lot.", "Their Page exists before they reach the car, with your name on it."],
   ];
   const gets = [
-    { C: MagentaCard, t: "A patient who stays in touch.", b: "Dose days, refill days, flat weeks. Stak keeps them engaged with the plan you wrote, every day, between visits." },
-    { C: CyanCard, t: "Milestones that bring them back.", b: "When a patient hits a milestone, Stak can deliver an offer from your practice. Designed with your team, around your treatment menu." },
-    { C: YellowCard, t: "Fewer interruptions.", b: "The is-this-normal calls go to Stak. When something needs you, Stak tells the patient to call you, with the timing already noted." },
+    { C: MagentaCard, t: "A patient who stays in touch.", b: "Dose days, refill days, flat weeks. Jurni GLP keeps them engaged with the plan you wrote, every day, between visits." },
+    { C: CyanCard, t: "Milestones that bring them back.", b: "When a patient hits a milestone, Jurni GLP can deliver an offer from your practice. Designed with your team, around your treatment menu." },
+    { C: YellowCard, t: "Fewer interruptions.", b: "The is-this-normal calls go to Jurni GLP. When something needs you, it tells the patient to call you, with the timing already noted." },
     { C: DarkCard, t: "Your name on it.", b: "Co-branded Page. Patients experience it as part of your care." },
     { C: WhiteCard, t: "Nothing to set up.", b: "No EHR integration. No patient information leaves your practice. One 30-minute walkthrough." },
   ];
@@ -25,7 +25,7 @@ export function PracticesContent() {
           A turnkey GLP-1 support program for your practice. Your patients stay on it, and stay with you.
         </h1>
         <p className="mt-6 text-[19px] leading-[1.5] text-muted">
-          Stak is Jurni GLP&apos;s AI agent. You introduce it at the prescription. From then on it supports your patient every day between visits, keeps them on the plan you wrote, carries your name, and brings them back to you. No software, no staff time, no cost to the practice.
+          Jurni GLP is an AI agent for your GLP-1 patients. You introduce it at the prescription. From then on it supports your patient every day between visits, keeps them on the plan you wrote, carries your name, and brings them back to you. No software, no staff time, no cost to the practice.
         </p>
 
         <div className="mt-14"><SectionLabel>HOW THE INTRODUCTION WORKS</SectionLabel></div>
@@ -73,7 +73,7 @@ export function PracticesContent() {
         <YellowCard className="mt-4 min-h-0">
           <div>
             <SectionLabel>WHAT IT ISN&apos;T</SectionLabel>
-            <p className="mt-3 text-[18px] leading-[1.5]">Behavioral support only. Stak doesn&apos;t diagnose, prescribe, or change a dose, and it directs defined symptoms back to you.</p>
+            <p className="mt-3 text-[18px] leading-[1.5]">Behavioral support only. Jurni GLP doesn&apos;t diagnose, prescribe, or change a dose, and it directs defined symptoms back to you.</p>
           </div>
         </YellowCard>
 
@@ -82,7 +82,7 @@ export function PracticesContent() {
           <li>Tell us your GLP-1 patient count.</li>
           <li>A 30-minute walkthrough for your team.</li>
           <li>Your practice link and referral card arrive.</li>
-          <li>Introduce Stak at every GLP-1 prescription.</li>
+          <li>Introduce Jurni GLP at every GLP-1 prescription.</li>
         </ol>
 
         <div className="mt-10 flex flex-col gap-3 min-[420px]:flex-row">
