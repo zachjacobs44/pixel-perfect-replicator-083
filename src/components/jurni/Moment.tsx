@@ -4,7 +4,7 @@ import { PhotoBubble, StakBubble } from "./Bubbles";
 /* One photograph, one exchange. The moment the product exists for. */
 export function Moment() {
   return (
-    <section aria-label="A moment with Stak" className="content-column pb-6 pt-4 md:pb-10">
+    <section aria-label="A moment with Jurni GLP" className="content-column pb-6 pt-4 md:pb-10">
       <div className="relative">
         <Photo name="fridge-wide" alt="An open refrigerator at night" ratio="16 / 9" className="hidden md:block" priority />
         <Photo name="fridge" alt="An open refrigerator at night" ratio="4 / 5" className="md:hidden" priority />

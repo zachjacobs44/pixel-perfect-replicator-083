@@ -11,7 +11,7 @@ import { SITE_URL, SOCIAL_IMAGE } from "@/lib/site";
 
 const TITLE = "Contact Jurni GLP";
 const DESCRIPTION =
-  "Questions about Stak, your subscription, or a message you received. We reply within one business day.";
+  "Questions about Jurni GLP, your subscription, or a message you received. We reply within one business day.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -90,7 +90,7 @@ function Contact() {
       <div className="content-column max-w-[760px]">
         <h1 className="display-section">Contact Jurni GLP.</h1>
         <p className="mt-4 text-[17px] md:text-[18px]">
-          Questions about Stak, your subscription, or a message you received. We reply within one business day.
+          Questions about Jurni GLP, your subscription, or a message you received. We reply within one business day.
         </p>
 
         <div className="mt-10">
@@ -99,7 +99,7 @@ function Contact() {
               contact@jurniglp.com
             </a>
           </Row>
-          <Row label="Text Stak">
+          <Row label="Text us">
             <a href={STAK_SMS_HREF} className="underline">
               {STAK_PHONE_DISPLAY}
             </a>

@@ -1,13 +1,20 @@
-import wordmarkInk from "@/assets/jurni-wordmark-ink.svg";
-import wordmarkCream from "@/assets/jurni-wordmark-cream.svg";
-import markInk from "@/assets/jurni-mark-ink.svg";
-import markCream from "@/assets/jurni-mark-cream.svg";
-import stakMark from "@/assets/stak-mark.svg.asset.json";
-import stakLockup from "@/assets/stak-lockup-wide.svg.asset.json";
+import logoLight from "@/assets/brand/jurni-glp-logo-light.svg";
+import logoDark from "@/assets/brand/jurni-glp-logo-dark.svg";
+import wordmarkLight from "@/assets/brand/jurni-glp-wordmark-light.svg";
+import wordmarkDark from "@/assets/brand/jurni-glp-wordmark-dark.svg";
+import markLight from "@/assets/brand/jurni-glp-mark-light.svg";
+import markDark from "@/assets/brand/jurni-glp-mark-dark.svg";
+import markTile from "@/assets/brand/jurni-glp-mark-tile.svg";
 
 import { cn } from "@/lib/utils";
-import { StakMotion } from "./StakMotion";
 
+/**
+ * Jurni GLP brand assets, always used as supplied.
+ * tone "ink"  = for paper / light backgrounds
+ * tone "cream" = for night / dark backgrounds
+ */
+
+/** Full lockup: arch mark + JURNI GLP wordmark. Header, footer, print. */
 export function Wordmark({
   tone = "ink",
   className,
@@ -17,7 +24,7 @@ export function Wordmark({
 }) {
   return (
     <img
-      src={tone === "ink" ? wordmarkInk : wordmarkCream}
+      src={tone === "ink" ? logoLight : logoDark}
       alt="Jurni GLP"
       className={cn("block h-6 w-auto", className)}
       decoding="async"
@@ -25,36 +32,47 @@ export function Wordmark({
   );
 }
 
-export function StakLockup({ className, animated = false }: { className?: string; animated?: boolean }) {
-  if (animated) return (
-    <div className={cn("flex h-12 w-fit items-center gap-2.5", className)} role="img" aria-label="Stak">
-      <StakMotion scene="welcome" className="h-full aspect-[170/195]" />
-      <span className="font-display text-[36px] font-extrabold leading-none">STAK</span>
-    </div>
+/** Wordmark only (no arch). Used inside the phone header on Your Page. */
+export function WordmarkText({ tone = "cream", className }: { tone?: "ink" | "cream"; className?: string }) {
+  return (
+    <img
+      src={tone === "ink" ? wordmarkLight : wordmarkDark}
+      alt="Jurni GLP"
+      className={cn("block h-5 w-auto", className)}
+      decoding="async"
+    />
   );
-  return <img src={stakLockup.url} alt="Stak" className={cn("block h-12 w-auto", className)} />;
 }
 
-/** Official striped Stak mark, always used as supplied. */
-export function StakAvatar({ size = 44, animated = false, onPaper = false }: { size?: number; animated?: boolean; onPaper?: boolean }) {
-  return (
-    <span
-      className="inline-flex shrink-0 items-center justify-center"
-      style={{
-        width: size,
-        height: size,
-        ...(onPaper ? { background: "var(--stak-ground)", borderRadius: Math.round(size * 0.28), padding: Math.round(size * 0.18), boxShadow: "0 10px 24px -12px rgba(20,27,30,.45)" } : {}),
-      }}
-    >
-      {animated ? <span role="img" aria-label="Stak" className="h-full w-full"><StakMotion scene="rest" className="h-full w-full" /></span> : <img
-        src={stakMark.url}
-        alt="Stak"
-        className="h-full w-full object-contain"
-        loading="lazy"
+/** Kept for existing imports; renders the full lockup. */
+export function StakLockup({ className }: { className?: string; animated?: boolean }) {
+  return <Wordmark tone="cream" className={cn("h-12", className)} />;
+}
+
+/**
+ * The arch mark on its own. Used as the agent's avatar in every chat bubble.
+ * On night surfaces (default) the light-stripe version; onPaper renders the
+ * night tile so the mark reads on cream.
+ */
+export function StakAvatar({ size = 44, onPaper = false }: { size?: number; animated?: boolean; onPaper?: boolean }) {
+  if (onPaper) {
+    return (
+      <img
+        src={markTile}
+        alt="Jurni GLP"
+        width={size}
+        height={size}
+        className="inline-block shrink-0 object-contain"
+        style={{ width: size, height: size, borderRadius: Math.round(size * 0.28), boxShadow: "0 10px 24px -12px rgba(20,27,30,.45)" }}
         decoding="async"
-      />}
+      />
+    );
+  }
+  return (
+    <span className="inline-flex shrink-0 items-center justify-center" style={{ width: size, height: size }}>
+      <img src={markDark} alt="Jurni GLP" className="h-full w-full object-contain" loading="lazy" decoding="async" />
     </span>
   );
 }
 
-export { markInk, markCream, wordmarkInk, wordmarkCream };
+export { logoLight, logoDark, wordmarkLight, wordmarkDark, markLight, markDark, markTile };

@@ -27,7 +27,7 @@ export function StickyTextBar() {
     >
       <div className="content-column flex h-16 items-center justify-between gap-3">
         <span className="fine-print">Two weeks free.</span>
-        <TextStakButton section="footer" compact />
+        <TextStakButton section="footer" compact label="Text us" />
       </div>
     </div>
   );

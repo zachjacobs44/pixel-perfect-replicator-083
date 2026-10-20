@@ -14,7 +14,7 @@ const NAV = [
   { label: "Questions", hash: "questions" },
 ] as const;
 
-const linkClass = "text-[16px] font-semibold text-ink/80 transition-colors hover:text-ink";
+const linkClass = "whitespace-nowrap text-[15px] font-semibold text-ink/80 transition-colors hover:text-ink";
 
 function NavLinks({ onNavigate, className }: { onNavigate?: () => void; className?: string }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -66,15 +66,15 @@ export function Header() {
     >
       <div className="content-column flex h-16 items-center justify-between gap-6">
         <Link to="/" aria-label="Jurni GLP home" className="shrink-0" onClick={() => setOpen(false)}>
-          <Wordmark tone="ink" className="h-5 md:h-6" />
+          <Wordmark tone="ink" className="h-6 md:h-7" />
         </Link>
 
-        <nav aria-label="Site" className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Site" className="hidden items-center gap-6 lg:flex">
           <NavLinks />
         </nav>
 
         <div className="flex items-center gap-3">
-          <TextStakButton section="hero" compact />
+          <TextStakButton section="hero" compact label="Text us" />
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
