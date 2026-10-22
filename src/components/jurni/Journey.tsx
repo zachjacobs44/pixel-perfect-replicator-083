@@ -19,7 +19,7 @@ const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "bedside" | "t
     label: "REAL LIFE",
     line: "Birthdays, work dinners, your mother's cooking. The world doesn't know you're on this.",
     photo: "table",
-    alt: "A restaurant table with the menu open",
+    alt: "A hand holding a phone over a restaurant menu, taking a photo of it",
     msgs: [
       { p: true, u: "client dinner. they picked the steakhouse. what do i order" },
       { s: "I can read it from here. Start with the tuna tartare. Then the grilled branzino with the greens instead of the creamed spinach. Skip the bread basket. If they order dessert, one bite is fine. You're still on plan for the wedding." },
