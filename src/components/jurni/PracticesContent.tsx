@@ -160,6 +160,13 @@ const HERO: Record<Track, { h1: string; lead: string }> = {
   },
 };
 
+const DEAL: Record<Track, string> = {
+  aesthetic:
+    "Your GLP-1 patients get daily support under your name, on your protocol. You get a year-long thread to every one of them, with rewards from your practice delivered at each milestone. They pay $29.99 a month after two free weeks. You pay nothing, set up nothing, and can stop any time.",
+  clinical:
+    "Your GLP-1 patients get the support the trials had, free, under your name, on your protocol. Your practice becomes a named site in the study testing whether it works. You pay nothing, set up nothing, and say one sentence at the prescription.",
+};
+
 const MISSING = [
   "Two calls to the office. Voicemail both times.",
   "The patient had to remember it was time to increase. Nobody told him.",
@@ -370,7 +377,13 @@ export function PracticesContent() {
         <TrackPicker track={t} onPick={pick} />
 
         {t ? (
-          <>
+            <>
+            <NightCard className="mt-8 p-6 md:p-7">
+              <div>
+                <p className="text-[13px] font-semibold uppercase tracking-[.08em]" style={{ color: "var(--stak-amber)" }}>The deal, in one breath</p>
+                <p className="font-display mt-3 text-[22px] font-extrabold leading-[1.25] md:text-[26px]">{DEAL[t]}</p>
+              </div>
+            </NightCard>
             {/* The real exchange */}
             <Block label="WHAT GLP-1 CARE LOOKS LIKE BETWEEN VISITS">
               <h2 className="display-section mt-4 max-w-[800px]">A real exchange. A good practice. Read what else happened.</h2>
