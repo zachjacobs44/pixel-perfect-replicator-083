@@ -551,7 +551,7 @@ export function PracticesContent() {
               <ol className="mt-10 list-decimal space-y-3 pl-6 text-[18px] leading-[1.5]">
                 <li>Tell us roughly how many GLP-1 patients are in your active panel.</li>
                 <li>A 30-minute walkthrough for your team. We load your protocol{t === "aesthetic" ? " and set your milestones" : ""}.</li>
-                <li>Your practice link and referral cards arrive.</li>
+                <li>Your practice link and your printable kit arrive: cards, a flyer, and the messages to send your existing GLP-1 patients.</li>
                 <li>Say the sentence at the next GLP-1 prescription.</li>
               </ol>
               <div className="mt-10 flex flex-col gap-3 min-[420px]:flex-row">
@@ -568,7 +568,7 @@ export function PracticesContent() {
                   rel="noreferrer"
                   className="press-spring inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] border-2 border-ink px-8 text-[18px] font-semibold text-ink"
                 >
-                  See the referral card
+                  Open the practice kit
                 </a>
               </div>
               <p className="fine-print mt-6 text-muted">
