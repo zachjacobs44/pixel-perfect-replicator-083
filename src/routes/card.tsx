@@ -243,7 +243,7 @@ ${who}`;
             A wallet card for checkout, a flyer for the exam room or front desk, the sentence to say, and messages you can send to the GLP-1 patients you already have. Type your practice name once and it appears on all of it.
           </p>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
+          <div className="mt-8 flex max-w-[560px] flex-col gap-6">
             <label className="block">
               <span className="label-over">Your practice name, as patients know it</span>
               <input
@@ -255,9 +255,9 @@ ${who}`;
               />
             </label>
             <div>
-              <span className="label-over">This kit</span>
-              <p className="mt-2 inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-[14px] font-semibold" style={{ background: "#0B1417", color: "#F3EEE8" }}>
-                <span className="h-2 w-2 rounded-full" style={{ background: "var(--stak-amber)" }} />
+              <span className="label-over block">This kit</span>
+              <p className="mt-2 inline-flex max-w-full items-center gap-2 rounded-full px-4 py-2.5 text-[14px] font-semibold leading-[1.3]" style={{ background: "#0B1417", color: "#F3EEE8" }}>
+                <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: "var(--stak-amber)" }} />
                 {track === "clinical" ? "Medical practice · free for your patients" : "Aesthetic practice · $29.99 a month or $299 a year after two free weeks"}
               </p>
               <p className="mt-2 text-[13px] text-muted">
