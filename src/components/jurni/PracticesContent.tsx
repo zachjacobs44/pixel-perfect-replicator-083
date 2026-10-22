@@ -128,7 +128,7 @@ function TrackPicker({ track, onPick }: { track: Track | null; onPick: (t: Track
           <div>
             <p className={eyebrow}>I run an aesthetic practice</p>
             <h2 className={`${title} mt-3 text-[26px]`}>Plastic surgery, dermatology, medspa.</h2>
-            <p className={body}>Your patients pay for Jurni GLP. You don&apos;t. You get a year-long thread to every GLP-1 patient, with milestone rewards from your practice built in.</p>
+            <p className={body}>Your patients pay for Jurni GLP. You don&apos;t. You hand it to every patient who walks in on a GLP-1, whoever prescribed it, and get a year-long thread to each of them, with milestone rewards from your practice built in.</p>
           </div>
           <p className="mt-6 text-[16px] font-semibold text-[var(--stak-amber-deep)]">Read the aesthetic version &rarr;</p>
         </WhiteCard>
