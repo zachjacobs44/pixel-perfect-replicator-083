@@ -35,7 +35,7 @@ const TRACK_KEY = "jurni.practices.track";
 const SMS_LINK = `sms:${STAK_PHONE}`;
 
 function priceLine(track: Track, practice: string) {
-  return track === "clinical" ? `Free for patients of ${practice || "our practice"}.` : "Two weeks free, then $29.99 a month.";
+  return track === "clinical" ? `Free for patients of ${practice || "our practice"}.` : "Two weeks free, then $29.99 a month or $299 a year.";
 }
 
 /* ---------- printable pieces ---------- */
@@ -171,8 +171,12 @@ function KitPage() {
       const saved = localStorage.getItem(NAME_KEY);
       if (saved) setPractice(saved);
       else if (remembered) setPractice(remembered);
-      const t = localStorage.getItem(TRACK_KEY);
-      if (t === "aesthetic" || t === "clinical") setTrack(t);
+      const fromUrl = new URLSearchParams(window.location.search).get("track");
+      const t = fromUrl === "medical" ? "clinical" : fromUrl === "aesthetic" ? "aesthetic" : localStorage.getItem(TRACK_KEY);
+      if (t === "aesthetic" || t === "clinical") {
+        setTrack(t);
+        localStorage.setItem(TRACK_KEY, t);
+      }
     } catch {
       /* no storage */
     }
@@ -251,20 +255,14 @@ ${who}`;
               />
             </label>
             <div>
-              <span className="label-over">Your patients</span>
-              <div className="mt-2 inline-flex rounded-full border bg-white p-1 text-[14px] font-semibold" style={{ borderColor: "var(--hairline)" }}>
-                {(["aesthetic", "clinical"] as Track[]).map((t) => (
-                  <button
-                    key={t}
-                    type="button"
-                    onClick={() => setTrack(t)}
-                    className="rounded-full px-4 py-2"
-                    style={track === t ? { background: "#0B1417", color: "#F3EEE8" } : { color: "var(--text-muted)" }}
-                  >
-                    {t === "aesthetic" ? "Pay after two weeks" : "Get it free"}
-                  </button>
-                ))}
-              </div>
+              <span className="label-over">This kit</span>
+              <p className="mt-2 inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-[14px] font-semibold" style={{ background: "#0B1417", color: "#F3EEE8" }}>
+                <span className="h-2 w-2 rounded-full" style={{ background: "var(--stak-amber)" }} />
+                {track === "clinical" ? "Medical practice · free for your patients" : "Aesthetic practice · $29.99 a month or $299 a year after two free weeks"}
+              </p>
+              <p className="mt-2 text-[13px] text-muted">
+                Wrong kind of practice? <a className="underline" href="/practices">Go back and pick the other track.</a>
+              </p>
             </div>
           </div>
 

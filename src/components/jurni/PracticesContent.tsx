@@ -563,7 +563,7 @@ export function PracticesContent() {
                   Start the conversation
                 </a>
                 <a
-                  href="/card"
+                  href={`/card?track=${t === "aesthetic" ? "aesthetic" : "medical"}`}
                   target="_blank"
                   rel="noreferrer"
                   className="press-spring inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] border-2 border-ink px-8 text-[18px] font-semibold text-ink"
