@@ -88,10 +88,10 @@ function Flyer({ practice, track }: { practice: string; track: Track }) {
       <h1 className="font-display mt-[0.8in] text-[44px] font-extrabold leading-[1.0]">
         Starting a GLP-1?
         <br />
-        You don@AP@t have to figure it out alone.
+        You don&apos;t have to figure it out alone.
       </h1>
       <p className="mt-[0.35in] max-w-[6in] text-[16px] leading-[1.5]">
-        {who} gives every patient on a GLP-1 a support line you can text or call from your own phone, any hour. It has our plan for you. It answers the questions you@AP@d otherwise wait until your next visit to ask, reminds you on dose and refill days, and tells you when to call us.
+        {who} gives every patient on a GLP-1 a support line you can text or call from your own phone, any hour. It has our plan for you. It answers the questions you&apos;d otherwise wait until your next visit to ask, reminds you on dose and refill days, and tells you when to call us.
       </p>
       <div className="mt-[0.5in] flex items-center gap-[0.5in] rounded-[14px] border border-hairline p-[0.4in]">
         <div className="flex-1">
@@ -317,7 +317,7 @@ ${who}`;
               <Step n="1" t="Print the cards" b="Fifty to start. Keep them where prescriptions are handed over." />
               <Step n="2" t="Put up the flyer" b="Exam rooms and checkout. Patients scan it while they wait." />
               <Step n="3" t="Send the message" b="One text or email to every patient on a GLP-1, whoever prescribed it." />
-              <Step n="4" t="Say the sentence" b={<>At every GLP-1 prescription from now on. That@AP@s the whole workflow.</>} />
+              <Step n="4" t="Say the sentence" b={<>At every GLP-1 prescription from now on. That&apos;s the whole workflow.</>} />
             </div>
             <p className="mt-10 text-[15px] leading-[1.5] text-muted">
               Need something else, like a version in Spanish, your logo on the card, or a stack of printed cards mailed to you? Email <a className="underline" href="mailto:practices@jurniglp.com">practices@jurniglp.com</a>.
