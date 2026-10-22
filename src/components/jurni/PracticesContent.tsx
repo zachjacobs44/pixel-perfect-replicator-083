@@ -220,7 +220,7 @@ const PRACTICE_GETS: Record<Track, { t: string; b: string }[]> = {
   aesthetic: [
     { t: "Every GLP-1 patient, not just the ones you prescribe.", b: "Most of your patients on a GLP-1 got it somewhere else: a telehealth service, a primary care doctor, a compounder. They are still your patients. Hand every one of them Jurni GLP and every one of them is in a daily thread that carries your name and your rewards." },
     { t: "A year-long thread to every GLP-1 patient.", b: "Through the whole arc of visible change, your patient is in a daily conversation that carries your name. When skin, contouring, and injectables become the next conversation, you are already in the room." },
-    { t: "Milestone rewards, in your name, on the day they're earned.", b: "You choose the milestones and the rewards. Jurni GLP delivers them by text at the moment the patient feels it. Not a quarterly email. The day." },
+    { t: "Milestone rewards, in your name, on the day they're earned.", b: "Consistency, habits, or pounds: you choose the milestones and the rewards. Jurni GLP delivers them by text at the moment the patient feels it. Not a quarterly email. The day." },
     { t: "A GLP-1 program your competitors don't have.", b: "Support around the clock, under your name, for every patient you prescribe. The practice down the street is handing out a pamphlet." },
   ],
   clinical: [
@@ -281,35 +281,39 @@ const FAQ: Record<Track, { q: string; a: string }[]> = {
 
 function Milestones() {
   const steps = [
-    ["First 10 lb", "A complimentary skin consult, booked by text."],
-    ["Month 3", "A credit toward the treatment you choose."],
-    ["Halfway to goal", "A body-contouring consultation, scheduled from the thread."],
-    ["Goal weight", "The conversation about what comes next, with you."],
+    ["Week 4", "Four dose days on schedule. A skincare sample kit, picked up at the front desk.", "Consistency"],
+    ["Protein, 5 of 7", "A month of hitting the protein target most days. A credit toward a facial.", "Habit"],
+    ["First 10 lb", "A complimentary skin consultation, booked from the thread.", "Progress"],
+    ["Through the plateau", "Two flat weeks and they stayed on plan. A treatment add-on, your choice.", "Persistence"],
+    ["12 lifts", "Three months of strength work. A body-contouring consultation.", "Habit"],
+    ["Goal weight", "The conversation about what comes next, with you.", "Progress"],
   ];
   return (
     <Block label="THE MILESTONE STRUCTURE">
-      <h2 className="display-section mt-4 max-w-[800px]">Every milestone is a text from your practice, on the day it&apos;s earned.</h2>
+      <h2 className="display-section mt-4 max-w-[800px]">Every milestone is a text from your practice, on the day it&apos;s earned. Not only the number on the scale.</h2>
       <p className={lead}>
-        You choose the milestones and what each one unlocks. Jurni GLP watches the patient&apos;s progress and delivers the reward in your name at the moment they feel it. Timing is the whole point: a patient who just saw a number they&apos;ve waited months for is a different person from one reading a quarterly email.
+        Weight comes off on its own schedule. The behaviors that produce it happen every week: dose days taken on time, protein hit most days, a plateau survived, a lift done. Jurni GLP sees all of it, so your milestones can reward consistency and habits as much as pounds, and a reward lands early and often instead of twice a year. Each one is a reason to walk back through your door, and a patient who feels good about how they&apos;re showing up is a patient with a growing interest in the rest of your menu.
       </p>
       <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
         <div>
-          <p className={eyebrow}>An example sequence</p>
+          <p className={eyebrow}>An example ladder</p>
           <div className="mt-4 divide-y" style={{ borderColor: "var(--hairline)" }}>
-            {steps.map(([m, r]) => (
-              <div key={m} className="grid grid-cols-[140px_1fr] gap-4 py-4" style={{ borderColor: "var(--hairline)" }}>
-                <span className="font-display text-[18px] font-extrabold text-[var(--stak-amber-deep)]">{m}</span>
+            {steps.map(([m, r, k]) => (
+              <div key={m} className="grid grid-cols-[150px_1fr] gap-4 py-4" style={{ borderColor: "var(--hairline)" }}>
+                <div>
+                  <span className="font-display block text-[18px] font-extrabold leading-tight text-[var(--stak-amber-deep)]">{m}</span>
+                  <span className="text-[12px] font-semibold uppercase tracking-[.08em] text-muted">{k}</span>
+                </div>
                 <span className="text-[17px] leading-[1.5]">{r}</span>
               </div>
             ))}
           </div>
-          <p className={`mt-5 text-[16px] leading-[1.5] text-muted`}>Set once with your team, around your menu. Change it any time.</p>
+          <p className="mt-5 text-[16px] leading-[1.5] text-muted">Set once with your team, around your menu and your margins. Change it any time. Rewards can be anything a patient would come in for.</p>
         </div>
         <Screen header="Jurni GLP" sub="For patients of your practice">
-          <UserBubble text="187. first time under 190 since college" />
-          <StakBubble>That&apos;s ten pounds since you started, and your protein has been on target most of the month. Two things. Your practice set something aside for exactly this point: a complimentary skin consultation, because this is when it starts to matter. Want me to book it? And tonight, eat normally. You earned the number; you don&apos;t have to earn it twice.</StakBubble>
-          <UserBubble text="yes book it. thursday?" />
-          <StakBubble>Thursday at 4:15 with their team. It&apos;s on your Page. I&apos;ll remind you Wednesday night.</StakBubble>
+          <StakBubble>That&apos;s four weeks of protein on target five days or more. Most people don&apos;t get there in month one. Your practice set something aside for exactly this: a credit toward a facial, because the skin is about to start changing and they want to be the ones looking at it. Want me to book it?</StakBubble>
+          <UserBubble text="ha. ok yes. saturday morning?" />
+          <StakBubble>Saturday at 10 with their team. It&apos;s on your Page, and I&apos;ll remind you Friday night. Next one on the ladder is ten pounds. You&apos;re at seven.</StakBubble>
         </Screen>
       </div>
     </Block>
