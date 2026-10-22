@@ -183,9 +183,9 @@ export function PracticesContent() {
 
         <YellowCard className="mt-6 min-h-0">
           <div>
-            <SectionLabel>WHAT IT ISN'T</SectionLabel>
+            <SectionLabel>WHAT IT ISN&apos;T</SectionLabel>
             <p className="mt-3 text-[18px] leading-[1.5]">
-              Behavioral support only. Jurni GLP doesn't diagnose, prescribe, or change a dose. Titration and treatment decisions stay with you. It prompts the patient to raise the dose conversation with their prescriber, never more than that, and it directs defined symptoms back to your office. No patient information leaves your practice, and nothing it does requires your EHR.
+              Behavioral support only. Jurni GLP doesn&apos;t diagnose, prescribe, or change a dose. Titration and treatment decisions stay with you. It prompts the patient to raise the dose conversation with their prescriber, never more than that, and it directs defined symptoms back to your office. No patient information leaves your practice, and nothing it does requires your EHR.
             </p>
           </div>
         </YellowCard>
