@@ -13,7 +13,7 @@ export function Footer() {
       }}
     >
       <div className="content-column py-12">
-        <Wordmark tone="ink" className="h-7" />
+        <Wordmark tone="ink" className="h-9" />
 
         <nav className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-[17px]">
           <Link to="/privacy">Privacy</Link>
