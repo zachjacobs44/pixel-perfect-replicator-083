@@ -1,10 +1,11 @@
 import { HomeHero } from "./HomeHero";
-import { HowYouTalk, WhatStakIsnt, YouGetAPlan } from "./HomeSections";
+import { HowYouTalk } from "./HomeSections";
 import { Journey } from "./Journey";
 import { Pricing } from "./Pricing";
 import { Questions } from "./Questions";
 import { YourPage } from "./YourPage";
 import { ClosingCTA } from "./StakCTA";
+import { WhatStakIsnt } from "./HomeSections";
 
 export function HomePage({ referralSlug }: { referralSlug?: string | undefined }) {
   return (
@@ -12,8 +13,8 @@ export function HomePage({ referralSlug }: { referralSlug?: string | undefined }
       <HomeHero referralSlug={referralSlug} />
       <YouGetAPlan />
       <Journey />
-      <HowYouTalk />
       <YourPage />
+      <HowYouTalk />
       <WhatStakIsnt />
       <Pricing />
       <Questions />
