@@ -66,7 +66,7 @@ export function Header() {
     >
       <div className="content-column flex h-16 items-center justify-between gap-6">
         <Link to="/" aria-label="Jurni GLP home" className="shrink-0" onClick={() => setOpen(false)}>
-          <Wordmark tone="ink" className="h-6 md:h-7" />
+          <Wordmark tone="ink" className="h-7 md:h-9" />
         </Link>
 
         <nav aria-label="Site" className="hidden items-center gap-6 lg:flex">
