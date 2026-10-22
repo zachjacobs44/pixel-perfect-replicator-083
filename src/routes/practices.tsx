@@ -72,6 +72,7 @@ function Practices() {
       <div className="content-column max-w-[440px]">
         <Wordmark className="h-6" />
         <p className="mt-8 text-[17px] md:text-[18px]">This page is for referring practices.</p>
+        <p className="mt-2 text-[15px] text-muted">Enter the password you were given by your Jurni GLP contact.</p>
 
         <form onSubmit={onSubmit} className="mt-8">
           <label className="block">
