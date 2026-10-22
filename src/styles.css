@@ -359,34 +359,56 @@
   --hairline: rgba(11, 20, 23, 0.12);
 }
 
-@media print {
-  @page {
-    size: 3.5in 2in;
-    margin: 0;
+/* Practice kit (/card): two print surfaces, chosen by data-print on the page root. */
+.kit-print-only {
+  display: none;
+}
+.kit-card,
+.kit-flyer {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.kit-flyer-frame {
+  --flyer-scale: 1;
+  width: calc(8.5in * var(--flyer-scale));
+  height: calc(11in * var(--flyer-scale));
+  max-width: 100%;
+}
+.kit-flyer-preview {
+  width: 8.5in;
+  transform: scale(var(--flyer-scale));
+  transform-origin: top left;
+}
+@media (max-width: 900px) {
+  .kit-flyer-frame {
+    --flyer-scale: 0.42;
   }
+}
+@media print {
   html,
   body {
-    background: var(--stak-ink) !important;
+    background: #ffffff !important;
   }
   .no-print {
     display: none !important;
   }
-  .card-face {
-    width: 3.5in !important;
-    height: 2in !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-    border: 0 !important;
-    break-after: page;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  [data-print="card"] .kit-print-card,
+  [data-print="flyer"] .kit-print-flyer {
+    display: block;
   }
-  .card-face:last-child {
+  [data-print="card"] .kit-card {
+    margin: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    break-after: page;
+  }
+  [data-print="card"] .kit-card:last-child {
     break-after: auto;
   }
-  .card-sheet {
-    padding: 0 !important;
-    gap: 0 !important;
+  [data-print="flyer"] .kit-flyer {
+    margin: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
   }
 }
 
