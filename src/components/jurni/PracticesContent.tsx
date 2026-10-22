@@ -128,7 +128,7 @@ function TrackPicker({ track, onPick }: { track: Track | null; onPick: (t: Track
           <div>
             <p className={eyebrow}>I run an aesthetic practice</p>
             <h2 className={`${title} mt-3 text-[26px]`}>Plastic surgery, dermatology, medspa.</h2>
-            <p className={body}>Your patients pay for Jurni GLP. You don&apos;t. You get a year-long thread to every GLP-1 patient, with milestone rewards from your practice built in.</p>
+            <p className={body}>Your patients pay for Jurni GLP. You don&apos;t. You hand it to every patient who walks in on a GLP-1, whoever prescribed it, and get a year-long thread to each of them, with milestone rewards from your practice built in.</p>
           </div>
           <p className="mt-6 text-[16px] font-semibold text-[var(--stak-amber-deep)]">Read the aesthetic version &rarr;</p>
         </WhiteCard>
@@ -137,8 +137,8 @@ function TrackPicker({ track, onPick }: { track: Track | null; onPick: (t: Track
         <NightCard className="h-full min-h-0">
           <div>
             <p className="text-[13px] font-semibold uppercase tracking-[.08em]" style={{ color: "var(--stak-amber)" }}>I run a clinical practice</p>
-            <h2 className={`${title} mt-3 text-[26px]`}>Gastroenterology, endocrinology, cardiology, primary care.</h2>
-            <p className={body}>Your patients get Jurni GLP free, and so do you. Your practice becomes a site in the study testing whether an AI agent can deliver what the trials delivered.</p>
+            <h2 className={`${title} mt-3 text-[26px]`}>Gastroenterology, endocrinology, cardiology, obesity medicine, bariatrics, OB/GYN, primary care.</h2>
+            <p className={body}>Free for every GLP-1 patient in your practice, whoever prescribed it, and free for you. Your practice becomes a site in the study testing whether an AI agent can deliver what the trials delivered.</p>
           </div>
           <p className="mt-6 text-[16px] font-semibold" style={{ color: "var(--stak-amber)" }}>Read the clinical version &rarr;</p>
         </NightCard>
@@ -152,19 +152,24 @@ function TrackPicker({ track, onPick }: { track: Track | null; onPick: (t: Track
 const HERO: Record<Track, { h1: string; lead: string }> = {
   aesthetic: {
     h1: "Your GLP-1 patients, supported every day through a year of visible change. And brought back to you at every milestone.",
-    lead: "Jurni GLP is an AI agent your patients text or call from the phone they already have. It carries your protocol, keeps them on the medication, and texts them a reward from your practice at the moments that matter. Your patients pay for it. Your practice never does.",
+    lead: "Jurni GLP is an AI agent your patients text or call from the phone they already have. It carries your protocol, keeps them on the medication, and texts them a reward from your practice at the moments that matter. It is for every patient who comes through your door on a GLP-1, whether you prescribed it or not. Your patients pay for it. Your practice never does.",
   },
   clinical: {
     h1: "The support your GLP-1 patients would get inside a clinical trial. At no cost to them, and none to you.",
-    lead: "Jurni GLP is an AI agent your patients text or call from the phone they already have. It carries your protocol, checks in every day, and sends defined symptoms back to your office. Your patients get it free because they are the cohort in the study testing whether an agent can deliver what the trials delivered.",
+    lead: "Jurni GLP is an AI agent your patients text or call from the phone they already have. It carries your protocol, checks in every day, and sends defined symptoms back to your office. It is for every GLP-1 patient in your practice, whether you wrote the prescription or someone else did. They get it free because they are the cohort in the study testing whether an agent can deliver what the trials delivered.",
   },
 };
 
 const DEAL: Record<Track, string> = {
   aesthetic:
-    "Your GLP-1 patients get daily support under your name, on your protocol. You get a year-long thread to every one of them, with rewards from your practice delivered at each milestone. They pay $29.99 a month after two free weeks. You pay nothing, set up nothing, and can stop any time.",
+    "Every patient who walks in on a GLP-1, whoever prescribed it, gets daily support under your name, on your protocol. You get a year-long thread to each of them, with rewards from your practice delivered at every milestone, which is how they come back for the next procedure. They pay $29.99 a month after two free weeks. You pay nothing, set up nothing, and can stop any time.",
   clinical:
-    "Your GLP-1 patients get the support the trials had, free, under your name, on your protocol. Your practice becomes a named site in the study testing whether it works. You pay nothing, set up nothing, and say one sentence at the prescription.",
+    "Every GLP-1 patient in your practice, whoever prescribed it, gets the support the trials had, free, under your name, on your protocol. The is-this-normal calls stop landing on your staff. Your practice becomes a named site in the study testing whether it works. You pay nothing, set up nothing, and say one sentence to each patient.",
+};
+
+const WHO: Record<Track, string> = {
+  aesthetic: "Plastic surgery, dermatology, medspa, and any practice whose patients come back after the weight comes off.",
+  clinical: "Gastroenterology and hepatology, endocrinology, cardiology, obesity medicine, bariatric surgery, OB/GYN and fertility, sleep medicine, nephrology, orthopedics, primary care.",
 };
 
 const MISSING = [
@@ -213,11 +218,13 @@ const PRACTICE_GETS_SHARED = [
 
 const PRACTICE_GETS: Record<Track, { t: string; b: string }[]> = {
   aesthetic: [
+    { t: "Every GLP-1 patient, not just the ones you prescribe.", b: "Most of your patients on a GLP-1 got it somewhere else: a telehealth service, a primary care doctor, a compounder. They are still your patients. Hand every one of them Jurni GLP and every one of them is in a daily thread that carries your name and your rewards." },
     { t: "A year-long thread to every GLP-1 patient.", b: "Through the whole arc of visible change, your patient is in a daily conversation that carries your name. When skin, contouring, and injectables become the next conversation, you are already in the room." },
     { t: "Milestone rewards, in your name, on the day they're earned.", b: "You choose the milestones and the rewards. Jurni GLP delivers them by text at the moment the patient feels it. Not a quarterly email. The day." },
     { t: "A GLP-1 program your competitors don't have.", b: "Support around the clock, under your name, for every patient you prescribe. The practice down the street is handing out a pamphlet." },
   ],
   clinical: [
+    { t: "Every GLP-1 patient, not just the ones you prescribe.", b: "The patient whose PCP wrote the prescription still calls your office when the nausea hits. Put everyone on a GLP-1 in your panel on Jurni GLP, and the whole panel gets the same support, on your protocol, while your staff gets their hours back." },
     { t: "Patients who stay on it and reach the right dose.", b: "A daily thread keeps the patient on the plan you wrote through the weeks most people quit, and brings the dose conversation to you on your schedule." },
     { t: "A site in the study, with your name on the evidence.", b: "Named in resulting publications with your approval. A seat on the clinical advisory group. First access to your own panel's persistence data." },
     { t: "Shorter visits, better questions.", b: "The patient arrives with their log, their weight trend, and their questions already organized on their Page. The visit starts where it should." },
@@ -229,7 +236,7 @@ const MONEY: Record<Track, { h: string; b: string; commit: string[] }> = {
     h: "Your patients pay $29.99 a month. You pay nothing.",
     b: "Two weeks free, then $29.99 a month or $299 a year, billed to the patient directly. No revenue share, no invoice, no money between your practice and Jurni GLP. Your patients are buying a program that carries your name.",
     commit: [
-      "The sentence, at every GLP-1 prescription, and one text to your existing GLP-1 panel.",
+      "The sentence, to every patient on a GLP-1, new prescription or not, plus one text to your existing GLP-1 panel.",
       "One named champion, about twenty minutes a week.",
       "Your protocol and your milestone rewards, set with us once.",
       "A 20-minute review once a month.",
@@ -237,9 +244,9 @@ const MONEY: Record<Track, { h: string; b: string; commit: string[] }> = {
   },
   clinical: {
     h: "Your patients pay nothing. You pay nothing.",
-    b: "Your patients get Jurni GLP free for as long as they're on the medication, because they are the cohort in our persistence study. The practice pays in evidence, not dollars. No invoice, ever.",
+    b: "Your patients get Jurni GLP free for as long as they're on the medication, because they are the cohort in our persistence study. That includes patients prescribed elsewhere who are in your panel. The practice pays in evidence, not dollars. No invoice, ever.",
     commit: [
-      "The sentence, at every GLP-1 prescription.",
+      "The sentence, to every patient on a GLP-1, whether you prescribed it or not, plus one text to your existing GLP-1 panel.",
       "One clinician champion and one staff coordinator.",
       "The study's consent and refill-verification workflow, settled with you before anything starts. Under two hours of staff time a week at full enrollment.",
       "A 20-minute review once a month.",
@@ -248,6 +255,7 @@ const MONEY: Record<Track, { h: string; b: string; commit: string[] }> = {
 };
 
 const FAQ_SHARED = [
+  { q: "What if I didn't prescribe the GLP-1?", a: "Doesn't matter. If the patient is on one and they're in your practice, hand them Jurni GLP. It runs on your protocol for the parts you own (your visits, your labs, your rules for when to call) and on the manufacturer's titration guidance for the rest. Prescriber decisions stay with whoever wrote it." },
   { q: "Am I liable for what it tells my patients?", a: "It delivers your protocol and general behavioral support. It does not diagnose, prescribe, or change a dose, and it says so to the patient. Anything outside that, it sends back to your office. Our counsel has reviewed the boundaries; yours is welcome to." },
   { q: "What does my staff actually have to do?", a: "Say one sentence at the prescription. Hand over a card. Answer the office requests Jurni GLP forwards, which you would be fielding anyway, now with the timing already written down." },
   { q: "What happens at 2 a.m.?", a: "The patient texts, and gets an answer from your protocol. If what they describe is on your call-now list, it tells them to call your office or go to urgent care, in those words." },
@@ -382,6 +390,7 @@ export function PracticesContent() {
               <div>
                 <p className="text-[13px] font-semibold uppercase tracking-[.08em]" style={{ color: "var(--stak-amber)" }}>The deal, in one breath</p>
                 <p className="font-display mt-3 text-[22px] font-extrabold leading-[1.25] md:text-[26px]">{DEAL[t]}</p>
+                <p className="mt-4 text-[15px] leading-[1.5]" style={{ color: "var(--stak-slate)" }}>{WHO[t]}</p>
               </div>
             </NightCard>
             {/* The real exchange */}
