@@ -186,7 +186,7 @@ export function WhatStakIsnt() {
             </div>
             <div className="night-screen rounded-[16px] p-4">
               <UserBubble text="took my shot last night. stomach's been rough since and now it's kind of in my back" />
-              <StakBubble className="mt-3">Logged for Tuesday. Stomach pain that moves into your back is not one I talk anyone through. Call your prescriber&apos;s office now. I&apos;ve noted when it started so you can tell them exactly.</StakBubble>
+              <StakBubble className="mt-3">Logged for Tuesday. Stomach pain that moves into your back is something I won&apos;t guess at. Call your prescriber&apos;s office now. I&apos;ve noted when it started so you can tell them exactly.</StakBubble>
             </div>
           </div>
         </WhiteCard>
