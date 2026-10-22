@@ -1,6 +1,7 @@
 import { WhiteCard } from "./Card";
 import { SectionLabel } from "./SectionPlaceholder";
 import { StakBubble, UserBubble } from "./Bubbles";
+import { Moment } from "./Moment";
 import { ASK_PROMPTS, MedRow, askHref } from "./AskAnything";
 import { trackCta } from "@/lib/analytics";
 
@@ -138,6 +139,10 @@ export function HowYouTalk() {
             </div>
           ))}
         </div>
+        <p className="mt-14 text-[19px] font-semibold">Send it a photo of your fridge, for example.</p>
+        <div className="mt-5">
+          <Moment />
+        </div>
         <p className="mt-14 text-[19px] font-semibold">Start with one of these, or type your own.</p>
         <ul className="mt-5 flex flex-wrap gap-3">
           {ASK_PROMPTS.map((p) => (
@@ -181,7 +186,7 @@ export function WhatStakIsnt() {
             </div>
             <div className="night-screen rounded-[16px] p-4">
               <UserBubble text="took my shot last night. stomach's been rough since and now it's kind of in my back" />
-              <StakBubble className="mt-3">Logged for Tuesday. Stomach pain that moves into your back is not one I talk anyone through. Call your prescriber&apos;s office now. I&apos;ve noted when it started so you can tell them exactly.</StakBubble>
+              <StakBubble className="mt-3">Logged for Tuesday. Stomach pain that moves into your back is something I won&apos;t guess at. Call your prescriber&apos;s office now. I&apos;ve noted when it started so you can tell them exactly.</StakBubble>
             </div>
           </div>
         </WhiteCard>

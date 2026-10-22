@@ -14,29 +14,35 @@ function PhoneMock() {
             <StakAvatar size={28} />
             <span className="font-display text-[16px] font-extrabold">Jurni GLP</span>
           </div>
-          <div className="mt-4 flex flex-col gap-3.5">
-            <div className="message-arrive max-w-[92%]" style={{ animationDelay: "0ms" }}>
+          <div className="mt-4 flex flex-col gap-3">
+            <div
+              className="message-arrive ml-auto max-w-[84%] rounded-[16px] rounded-br-[6px] bg-frame p-3 text-[15px] leading-[1.35] text-ink"
+              style={{ animationDelay: "0ms" }}
+            >
+              picked up my first box. what now
+            </div>
+            <div className="message-arrive max-w-[92%]" style={{ animationDelay: "400ms" }}>
               <StakAvatar size={18} />
               <div
                 className="mt-1.5 rounded-[16px] rounded-bl-[6px] border-l-[3px] border-magenta p-3 text-[15px] leading-[1.35]"
                 style={{ background: "var(--grad-white)", boxShadow: "var(--shadow-white)" }}
               >
-                Dose day. Week 12, first one at the higher dose. Small meals today. Nothing greasy tonight.
+                First dose is Thursday, so tonight there&apos;s nothing to do. Tomorrow I&apos;ll text you a short grocery list for week one: small meals, protein first, water all day.
               </div>
             </div>
             <div
               className="message-arrive ml-auto max-w-[84%] rounded-[16px] rounded-br-[6px] bg-frame p-3 text-[15px] leading-[1.35] text-ink"
-              style={{ animationDelay: "400ms" }}
+              style={{ animationDelay: "800ms" }}
             >
-              walked past the office bagels this morning and didn&apos;t even want one. weird
+              will i feel sick
             </div>
-            <div className="message-arrive max-w-[92%]" style={{ animationDelay: "800ms" }}>
+            <div className="message-arrive max-w-[92%]" style={{ animationDelay: "1200ms" }}>
               <StakAvatar size={18} />
               <div
                 className="mt-1.5 rounded-[16px] rounded-bl-[6px] border-l-[3px] border-magenta p-3 text-[15px] leading-[1.35]"
                 style={{ background: "var(--grad-white)", boxShadow: "var(--shadow-white)" }}
               >
-                That&apos;s the food noise going quiet. Twelve weeks ago you told me those bagels were the hardest part of your week. Remember that on a flat week.
+                Some people do around day two or three, usually mild. I&apos;ll check in Friday morning. If it&apos;s more than that, I&apos;ll tell you when to call your provider.
               </div>
             </div>
           </div>
@@ -64,9 +70,6 @@ export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }
           </h1>
           <p className="mt-7 max-w-[40ch] text-[20px] leading-[1.45] md:text-[22px]">
             Jurni GLP is an AI agent for people on a GLP-1. Text it or call it, any time. It builds your plan, answers your questions, tracks your progress, and checks in before the hard days.
-          </p>
-          <p className="mt-3 max-w-[40ch] text-[17px] leading-[1.5] text-muted">
-            Two weeks free. No card, no account, no app needed.
           </p>
           <StakCTA section="hero" className="mt-7" />
         </div>

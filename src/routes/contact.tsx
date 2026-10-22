@@ -6,7 +6,6 @@ import { sendContactMessage } from "@/lib/contact.functions";
 import { contactSchema, SERVICE_CONSENT_TEXT, MARKETING_CONSENT_TEXT } from "@/lib/contact-schema";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { STAK_PHONE_DISPLAY, STAK_SMS_HREF } from "@/components/jurni/StakCTA";
 import { SITE_URL, SOCIAL_IMAGE } from "@/lib/site";
 
 const TITLE = "Contact Jurni GLP";
@@ -97,11 +96,6 @@ function Contact() {
           <Row label="Email">
             <a href="mailto:contact@jurniglp.com" className="underline">
               contact@jurniglp.com
-            </a>
-          </Row>
-          <Row label="Text us">
-            <a href={STAK_SMS_HREF} className="underline">
-              {STAK_PHONE_DISPLAY}
             </a>
           </Row>
         </div>
