@@ -206,6 +206,7 @@ const PATIENT_GETS = [
   { t: "Someone to ask at 9 p.m.", b: "Nausea, a missed dose, a restaurant menu, a flat week. Answered any hour, in any language, from your protocol. It reads photos of their fridge and their plate." },
   { t: "Check-ins before the hard days.", b: "It reaches out first on dose days, refill days, and the plateau weeks when most people quit. The patient never has to remember to ask." },
   { t: "A private Page with your name on it.", b: "Every text, call, and photo becomes one organized page: meals, workouts, shot log, labs due, what to ask at the next visit. Nothing to fill in. Your practice at the top." },
+  { t: "A progress summary to bring to you.", b: "Before a visit, or whenever they choose, Jurni GLP builds a one-page PDF: weight trend, dose history, side effects by week, protein and movement consistency, open questions. The patient decides to share it. Most do, because it makes the visit about them." },
   { t: "Dose steps on time.", b: "When your protocol says a dose check is due, it tells the patient and offers to send the request to your office with their recent notes. You decide." },
   { t: "A clear line to you.", b: "When something needs a clinician, it says so, tells them to call your office, and has the onset and timing written down so the call is short." },
 ];
@@ -213,6 +214,7 @@ const PATIENT_GETS = [
 const PRACTICE_GETS_SHARED = [
   { t: "Your protocol, delivered every day.", b: "Your titration schedule, your dietary guidance, your lab cadence, your rules for when to call, alongside the manufacturer's own guidance. Loaded once. The patient hears it from Jurni GLP, in your practice's name, at the moment it applies." },
   { t: "Fewer is-this-normal calls.", b: "Those go to Jurni GLP, with your protocol as the answer. Your front desk gets the calls that need a person, and gets them with the timing already noted." },
+  { t: "A progress summary before the visit.", b: "When the patient shares it, you walk in knowing exactly how they're doing: weight trend, dose history, side effects by week, how consistent they've been, what they want to ask. One page, built by Jurni GLP, shared by the patient. No portal, no login." },
   { t: "Nothing to set up. Nothing to pay.", b: "No EHR integration. No patient information leaves your practice. No software, no invoice, no staff time. One 30-minute walkthrough, then you give the patient a phone number. No money moves between Jurni GLP and a prescriber." },
 ];
 
@@ -227,7 +229,7 @@ const PRACTICE_GETS: Record<Track, { t: string; b: string }[]> = {
     { t: "Every GLP-1 patient, not just the ones you prescribe.", b: "The patient whose PCP wrote the prescription still calls your office when the nausea hits. Put everyone on a GLP-1 in your panel on Jurni GLP, and the whole panel gets the same support, on your protocol, while your staff gets their hours back." },
     { t: "Patients who stay on it and reach the right dose.", b: "A daily thread keeps the patient on the plan you wrote through the weeks most people quit, and brings the dose conversation to you on your schedule." },
     { t: "A site in the study, with your name on the evidence.", b: "Named in resulting publications with your approval. A seat on the clinical advisory group. First access to your own panel's persistence data." },
-    { t: "Shorter visits, better questions.", b: "The patient arrives with their log, their weight trend, and their questions already organized on their Page. The visit starts where it should." },
+    { t: "Shorter visits, better questions.", b: "The patient arrives with a one-page progress summary they chose to share: weight trend, dose history, side effects, consistency, questions. The visit starts where it should." },
   ],
 };
 
@@ -259,7 +261,7 @@ const FAQ_SHARED = [
   { q: "Am I liable for what it tells my patients?", a: "It delivers your protocol and general behavioral support. It does not diagnose, prescribe, or change a dose, and it says so to the patient. Anything outside that, it sends back to your office. Our counsel has reviewed the boundaries; yours is welcome to." },
   { q: "What does my staff actually have to do?", a: "Say one sentence at the prescription. Hand over a card. Answer the office requests Jurni GLP forwards, which you would be fielding anyway, now with the timing already written down." },
   { q: "What happens at 2 a.m.?", a: "The patient texts, and gets an answer from your protocol. If what they describe is on your call-now list, it tells them to call your office or go to urgent care, in those words." },
-  { q: "Does patient information leave my practice?", a: "No. Nothing connects to your EHR. The patient talks to Jurni GLP from their own phone and owns that relationship. We see nothing from your systems." },
+  { q: "Does patient information leave my practice?", a: "No. Nothing connects to your EHR. The patient talks to Jurni GLP from their own phone and owns that relationship. We see nothing from your systems, and you see what the patient chooses to share with you, which is usually their progress summary before a visit." },
   { q: "Do patients know it's an AI?", a: "Yes, from the first message. Most people prefer it for the 9 p.m. questions they would never call about, and it never pretends to be your staff." },
   { q: "What if a patient doesn't like it?", a: "They reply STOP and it ends. Nothing changes about their care with you." },
 ];
