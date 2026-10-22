@@ -107,7 +107,7 @@ export function Journey() {
       <div className="content-column">
         <SectionLabel>YOUR GLP-1 JOURNEY</SectionLabel>
         <h2 className="display-section mt-4 max-w-[900px]">
-          {"Here is how Jurni GLP walks you through each stage of your GLP-1 journey."}
+          {"Here is how Jurni\u00a0GLP walks you through each stage of your GLP-1 journey."}
         </h2>
         <p className="mt-6 max-w-[600px] text-[19px] leading-[1.5] text-muted">
           Every stage has a moment where people get stuck. Jurni GLP is built for those moments.
