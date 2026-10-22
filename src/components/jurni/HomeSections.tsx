@@ -7,32 +7,73 @@ import { trackCta } from "@/lib/analytics";
 const cardTitle = "font-display text-[24px] font-extrabold leading-[1.05]";
 const cardBody = "mt-2.5 text-[16px] leading-[1.5] text-muted";
 
-/* A small "plan card" that looks like a Jurni GLP artifact: the week at a glance. */
+/* The plan as the user actually receives it: today, big and legible, with the week behind it. */
 function PlanCard() {
-  const rows = [
-    ["Mon", "Chicken + rice bowl", "Walk 25 min"],
-    ["Tue", "Salmon, greens", "Lift · 20 min"],
-    ["Wed", "Leftovers", "Rest"],
-    ["Thu", "Turkey chili", "Lift · 20 min"],
-    ["Fri", "Shot day · light dinner", "Walk"],
+  const days = [
+    { d: "M", state: "done" },
+    { d: "T", state: "done" },
+    { d: "W", state: "done" },
+    { d: "T", state: "today" },
+    { d: "F", state: "next" },
+    { d: "S", state: "next" },
+    { d: "S", state: "next" },
+  ] as const;
+  const upcoming = [
+    ["Fri", "Shot day. Light dinner, early night."],
+    ["Sat", "Grocery run. Your list is ready, 11 items."],
+    ["Sun", "Walk 30 min. Cook the chicken for the week."],
   ];
+  const line = "rgba(243,238,232,.12)";
   return (
-    <div className="night-screen rounded-[var(--radius-card)] p-5 shadow-[var(--shadow-phone)]">
-      <div className="flex items-baseline justify-between">
-        <span className="font-display text-[18px] font-extrabold">Your week</span>
-        <span className="text-[13px]" style={{ color: "var(--stak-slate)" }}>week 12 · 110g protein</span>
+    <div className="night-screen rounded-[var(--radius-card)] p-6 shadow-[var(--shadow-phone)] md:p-7">
+      <div className="flex items-center justify-between">
+        <span className="text-[13px] font-semibold uppercase tracking-[.08em]" style={{ color: "var(--stak-slate)" }}>Your plan · Week 12</span>
+        <span className="text-[13px]" style={{ color: "var(--stak-slate)" }}>3 of 7 done</span>
       </div>
-      <div className="mt-3 divide-y" style={{ borderColor: "rgba(243,238,232,.12)" }}>
-        {rows.map(([d, m, w]) => (
-          <div key={d} className="grid grid-cols-[44px_1fr_auto] items-center gap-3 py-2.5 text-[14px]" style={{ borderColor: "rgba(243,238,232,.12)" }}>
-            <span className="font-semibold" style={{ color: "var(--stak-amber)" }}>{d}</span>
-            <span>{m}</span>
-            <span style={{ color: "var(--stak-slate)" }}>{w}</span>
+
+      <div className="mt-4 grid grid-cols-7 gap-1.5">
+        {days.map(({ d, state }, i) => (
+          <div
+            key={i}
+            className="flex h-9 items-center justify-center rounded-[10px] text-[13px] font-semibold"
+            style={
+              state === "today"
+                ? { background: "var(--stak-amber)", color: "#0B1417" }
+                : state === "done"
+                  ? { background: "rgba(242,166,90,.18)", color: "var(--stak-amber-light)" }
+                  : { border: `1px solid ${line}`, color: "var(--stak-slate)" }
+            }
+            aria-label={state === "today" ? "Today" : undefined}
+          >
+            {state === "done" ? "✓" : d}
           </div>
         ))}
       </div>
-      <div className="mt-3 inline-block rounded-[10px] px-3 py-1.5 text-[13px] font-semibold" style={{ background: "var(--stak-surface)", color: "var(--stak-amber-light)" }}>
-        Grocery list ready · 11 items
+
+      <div className="mt-6">
+        <span className="text-[13px] font-semibold uppercase tracking-[.08em]" style={{ color: "var(--stak-amber)" }}>Today · Thursday</span>
+        <p className="font-display mt-2 text-[34px] font-extrabold leading-[1.0] md:text-[40px]">
+          Lift, 20 min.
+          <br />
+          Turkey chili tonight.
+        </p>
+        <p className="mt-3 text-[16px] leading-[1.5]" style={{ color: "var(--stak-slate)" }}>
+          The back-friendly set. Chili is already in the fridge, 38g protein.
+        </p>
+      </div>
+
+      <div className="mt-6 divide-y border-t" style={{ borderColor: line }}>
+        {upcoming.map(([d, t]) => (
+          <div key={d} className="grid grid-cols-[44px_1fr] items-baseline gap-3 py-3 text-[15px]" style={{ borderColor: line }}>
+            <span className="font-semibold" style={{ color: "var(--stak-amber)" }}>{d}</span>
+            <span style={{ color: "var(--stak-cream, #F3EEE8)" }}>{t}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-5 flex items-center gap-3 rounded-[12px] px-3.5 py-3 text-[14px]" style={{ background: "var(--stak-surface)" }}>
+        <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: "var(--stak-amber)" }} />
+        <span style={{ color: "var(--stak-amber-light)" }}>Texted to you at 5:30, every day. Reply to change anything.</span>
       </div>
     </div>
   );
@@ -64,7 +105,7 @@ export function YouGetAPlan() {
             ))}
           </div>
         </div>
-        <div className="phone-glow mx-auto w-full max-w-[420px]">
+        <div className="phone-glow mx-auto w-full max-w-[460px]">
           <PlanCard />
         </div>
       </div>

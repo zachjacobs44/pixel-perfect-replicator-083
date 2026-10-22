@@ -42,7 +42,7 @@ const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "bedside" | "t
     label: "MONTHS IN",
     line: "The weight is coming off. The job now is keeping your muscle, your habits, and your momentum.",
     photo: "evening",
-    alt: "A dumbbell on the floor beside the kitchen table",
+    alt: "Dumbbells on a mat by the window after a home workout",
     msgs: [
       { p: true, u: "done. back held up fine" },
       { s: "Logged. That's three lifts this week, two weeks running. Three months in: down 22 pounds, and you've kept every bit of muscle we can measure. Next month's plan is on your Page. It adds a fourth day if you want it." },
@@ -107,7 +107,7 @@ export function Journey() {
       <div className="content-column">
         <SectionLabel>YOUR GLP-1 JOURNEY</SectionLabel>
         <h2 className="display-section mt-4 max-w-[900px]">
-          Here is what the next six months look like, and how Jurni GLP walks you through each stage.
+          {"Here is how Jurni GLP walks you through each stage of your GLP-1 journey."}
         </h2>
         <p className="mt-6 max-w-[600px] text-[19px] leading-[1.5] text-muted">
           Every stage has a moment where people get stuck. Jurni GLP is built for those moments.
