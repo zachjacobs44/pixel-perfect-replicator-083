@@ -12,8 +12,8 @@ export function HomePage({ referralSlug }: { referralSlug?: string | undefined }
       <HomeHero referralSlug={referralSlug} />
       <YouGetAPlan />
       <Journey />
-      <HowYouTalk />
       <YourPage />
+      <HowYouTalk />
       <WhatStakIsnt />
       <Pricing />
       <Questions />
