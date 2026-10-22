@@ -102,7 +102,7 @@ export function PracticesContent() {
             <PatientBubble text="Thanks!" />
           </Screen>
           <div>
-            <p className="text-[13px] font-semibold uppercase tracking-[.08em] text-[var(--stak-amber-deep)]">What didn't happen</p>
+            <p className="text-[13px] font-semibold uppercase tracking-[.08em] text-[var(--stak-amber-deep)]">What didn&apos;t happen</p>
             <ul className="mt-4 space-y-3 text-[17px] leading-[1.5]">
               {missing.map((m) => (
                 <li key={m} className="flex gap-3">
@@ -124,12 +124,12 @@ export function PracticesContent() {
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
             <Screen header="Jurni GLP" sub="For patients of your practice">
-              <StakBubble>Week 12 on 5 mg. Your practice's protocol has a dose check at this point: if the side effects have been manageable, they consider a step to 7.5. Want me to send the request to their office, with your last four weeks of notes?</StakBubble>
+              <StakBubble>Week 12 on 5 mg. Your practice&apos;s protocol has a dose check at this point: if the side effects have been manageable, they consider a step to 7.5. Want me to send the request to their office, with your last four weeks of notes?</StakBubble>
               <UserBubble text="yes. nausea was only bad the first two weeks" />
-              <StakBubble>Sent. I'll let you know when they answer.</StakBubble>
-              <StakBubble>Your office approved 7.5 and sent the prescription. Two things from their protocol before you start: they want bloodwork at this step, so I've put the lab order on your Page with the number to book. And the first 7.5 dose is usually the rough one. Smaller dinners for three days, water all day. I'll check in the morning after.</StakBubble>
+              <StakBubble>Sent. I&apos;ll let you know when they answer.</StakBubble>
+              <StakBubble>Your office approved 7.5 and sent the prescription. Two things from their protocol before you start: they want bloodwork at this step, so I&apos;ve put the lab order on your Page with the number to book. And the first 7.5 dose is usually the rough one. Smaller dinners for three days, water all day. I'll check in the morning after.</StakBubble>
               <UserBubble text="ok. thanks" />
-              <StakBubble>One more: your next dose check is week 8 on 7.5. I'll bring it up then. You don't have to remember.</StakBubble>
+              <StakBubble>One more: your next dose check is week 8 on 7.5. I'll bring it up then. You don&apos;t have to remember.</StakBubble>
             </Screen>
             <div>
               <p className="text-[13px] font-semibold uppercase tracking-[.08em] text-[var(--stak-amber-deep)]">What changed</p>
@@ -170,7 +170,7 @@ export function PracticesContent() {
         </Block>
 
         <Block label="HOW IT WORKS IN YOUR PRACTICE">
-          <h2 className="display-section mt-4 max-w-[760px]">One sentence in the exam room. That's the whole workflow.</h2>
+          <h2 className="display-section mt-4 max-w-[760px]">One sentence in the exam room. That&apos;s the whole workflow.</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
               ["1", "The prescription.", "You're already having the GLP-1 conversation. At the end of it, you say one sentence."],
@@ -190,7 +190,7 @@ export function PracticesContent() {
             <div>
               <p className="text-[13px] font-semibold uppercase tracking-[.08em]" style={{ color: "var(--stak-amber)" }}>The sentence</p>
               <p className="font-display mt-3 text-[26px] font-extrabold leading-[1.15] md:text-[30px]">
-                @LQ@Before you go, text this number. It's our GLP-1 support line. It has our plan for you, it answers questions any hour, and it'll tell you when to call us. It'll be ready by the time you're in the car.@RQ@
+                &ldquo;Before you go, text this number. It&apos;s our GLP-1 support line. It has our plan for you, it answers questions any hour, and it&apos;ll tell you when to call us. It&apos;ll be ready by the time you&apos;re in the car.&rdquo;
               </p>
             </div>
           </DarkCard>
@@ -216,16 +216,16 @@ export function PracticesContent() {
                 <p className="text-[13px] font-semibold uppercase tracking-[.08em]" style={{ color: "var(--stak-amber)" }}>Clinical practices</p>
                 <h3 className={`${title} mt-3 text-[28px]`}>Your patients pay nothing.</h3>
                 <p className="mt-4 text-[17px] leading-[1.5]">
-                  Gastroenterology, endocrinology, cardiology, primary care. Your patients get Jurni GLP free for as long as they're on the medication, because they are the cohort in our persistence study: the first randomized, refill-verified evaluation of daily support on GLP-1 persistence.
+                  Gastroenterology, endocrinology, cardiology, primary care. Your patients get Jurni GLP free for as long as they&apos;re on the medication, because they are the cohort in our persistence study: the first randomized, refill-verified evaluation of daily support on GLP-1 persistence.
                 </p>
                 <p className="mt-4 text-[17px] leading-[1.5]">
-                  Your practice is a study site. Named in the resulting publications with your approval, with a seat on the clinical advisory group and first access to your own panel's persistence data.
+                  Your practice is a study site. Named in the resulting publications with your approval, with a seat on the clinical advisory group and first access to your own panel&apos;s persistence data.
                 </p>
                 <p className="mt-5 text-[14px] font-semibold uppercase tracking-[.06em]" style={{ color: "var(--stak-slate)" }}>What you commit</p>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-[16px] leading-[1.5]">
                   <li>The sentence, at every GLP-1 prescription.</li>
                   <li>One clinician champion and one staff coordinator.</li>
-                  <li>The study's consent and refill-verification workflow, settled with you before anything starts.</li>
+                  <li>The study&apos;s consent and refill-verification workflow, settled with you before anything starts.</li>
                   <li>A 20-minute review once a month.</li>
                 </ul>
               </div>
@@ -265,16 +265,16 @@ export function PracticesContent() {
 
         <YellowCard className="mt-10 min-h-0">
           <div>
-            <SectionLabel>WHAT IT ISN'T</SectionLabel>
+            <SectionLabel>WHAT IT ISN&apos;T</SectionLabel>
             <p className="mt-3 text-[18px] leading-[1.5]">
-              Behavioral support only. Jurni GLP doesn't diagnose, prescribe, or change a dose. Titration and treatment decisions stay with you. It surfaces your protocol and asks; it never names a dose on its own. It directs defined symptoms back to your office. No patient information leaves your practice, and nothing it does requires your EHR.
+              Behavioral support only. Jurni GLP doesn&apos;t diagnose, prescribe, or change a dose. Titration and treatment decisions stay with you. It surfaces your protocol and asks; it never names a dose on its own. It directs defined symptoms back to your office. No patient information leaves your practice, and nothing it does requires your EHR.
             </p>
           </div>
         </YellowCard>
 
         <Block label="THE DECISION">
           <h2 className="display-section mt-4 max-w-[800px]">Your patients get the support the trials had. Your practice gets its name on it. It costs you nothing, needs no software, and ends the day you say so.</h2>
-          <p className={lead}>The question isn't whether to add it. It's why a GLP-1 patient would leave your office without it.</p>
+          <p className={lead}>The question isn&apos;t whether to add it. It&apos;s why a GLP-1 patient would leave your office without it.</p>
           <ol className="mt-10 list-decimal space-y-3 pl-6 text-[18px] leading-[1.5]">
             <li>Tell us roughly how many GLP-1 patients are in your active panel, and which track you are.</li>
             <li>A 30-minute walkthrough for your team. We load your protocol.</li>
@@ -299,7 +299,7 @@ export function PracticesContent() {
             </a>
           </div>
           <p className={`fine-print mt-6 ${muted}`}>
-            Jurni GLP is a service of Jurni Health, Inc. and is not associated with, endorsed by, or sponsored by Novo Nordisk or Eli Lilly. The exchange at the top of this page is reproduced with the patient's permission; the practice is not identified.
+            Jurni GLP is a service of Jurni Health, Inc. and is not associated with, endorsed by, or sponsored by Novo Nordisk or Eli Lilly. The exchange at the top of this page is reproduced with the patient&apos;s permission; the practice is not identified.
           </p>
         </Block>
       </div>
