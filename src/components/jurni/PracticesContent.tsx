@@ -115,7 +115,7 @@ function TrackPicker({ track, onPick }: { track: Track | null; onPick: (t: Track
             className="rounded-full px-4 py-2 transition-colors"
             style={track === t ? { background: "#0B1417", color: "#F3EEE8" } : { color: "var(--text-muted)" }}
           >
-            {t === "aesthetic" ? "Aesthetic practice" : "Clinical practice"}
+            {t === "aesthetic" ? "Aesthetic practice" : "Medical practice"}
           </button>
         ))}
       </div>
@@ -136,11 +136,11 @@ function TrackPicker({ track, onPick }: { track: Track | null; onPick: (t: Track
       <button type="button" onClick={() => onPick("clinical")} className="press-spring text-left">
         <NightCard className="h-full min-h-0">
           <div>
-            <p className="text-[13px] font-semibold uppercase tracking-[.08em]" style={{ color: "var(--stak-amber)" }}>I run a clinical practice</p>
+            <p className="text-[13px] font-semibold uppercase tracking-[.08em]" style={{ color: "var(--stak-amber)" }}>I run a medical practice</p>
             <h2 className={`${title} mt-3 text-[26px]`}>Gastroenterology, endocrinology, cardiology, obesity medicine, bariatrics, OB/GYN, primary care.</h2>
             <p className={body}>Free for every GLP-1 patient in your practice, whoever prescribed it, and free for you. Your practice becomes a site in the study testing whether an AI agent can deliver what the trials delivered.</p>
           </div>
-          <p className="mt-6 text-[16px] font-semibold" style={{ color: "var(--stak-amber)" }}>Read the clinical version &rarr;</p>
+          <p className="mt-6 text-[16px] font-semibold" style={{ color: "var(--stak-amber)" }}>Read the medical version &rarr;</p>
         </NightCard>
       </button>
     </div>
@@ -550,7 +550,7 @@ export function PracticesContent() {
               </ol>
               <div className="mt-10 flex flex-col gap-3 min-[420px]:flex-row">
                 <a
-                  href={`mailto:practices@jurniglp.com?subject=Jurni%20GLP%20for%20our%20practice&body=Practice%3A%20%0ATrack%3A%20${t}%0AGLP-1%20patients%20in%20active%20panel%20(roughly)%3A%20%0ABest%20person%20to%20talk%20to%3A%20`}
+                  href={`mailto:practices@jurniglp.com?subject=Jurni%20GLP%20for%20our%20practice&body=Practice%3A%20%0ATrack%3A%20${t === "aesthetic" ? "aesthetic" : "medical"}%0AGLP-1%20patients%20in%20active%20panel%20(roughly)%3A%20%0ABest%20person%20to%20talk%20to%3A%20`}
                   className="press-spring inline-flex h-[60px] items-center justify-center rounded-[var(--radius-chip)] px-8 text-[18px] font-semibold text-primary-foreground"
                   style={{ background: "var(--grad-button)", boxShadow: "var(--shadow-button)" }}
                 >
