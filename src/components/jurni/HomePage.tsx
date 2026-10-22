@@ -1,5 +1,4 @@
 import { HomeHero } from "./HomeHero";
-import { Moment } from "./Moment";
 import { HowYouTalk, WhatStakIsnt, YouGetAPlan } from "./HomeSections";
 import { Journey } from "./Journey";
 import { Pricing } from "./Pricing";
@@ -11,7 +10,6 @@ export function HomePage({ referralSlug }: { referralSlug?: string | undefined }
   return (
     <>
       <HomeHero referralSlug={referralSlug} />
-      <Moment />
       <YouGetAPlan />
       <Journey />
       <HowYouTalk />

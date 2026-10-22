@@ -4,7 +4,7 @@ import { PhotoBubble, StakBubble } from "./Bubbles";
 /* One photograph, one exchange. The moment the product exists for. */
 export function Moment() {
   return (
-    <section aria-label="A moment with Jurni GLP" className="content-column pb-6 pt-4 md:pb-10">
+    <figure aria-label="A photo of a fridge sent to Jurni GLP, and its reply" className="m-0">
       <div className="relative">
         <Photo name="fridge-wide" alt="An open refrigerator at night" ratio="16 / 9" className="hidden md:block" priority />
         <Photo name="fridge" alt="An open refrigerator at night" ratio="4 / 5" className="md:hidden" priority />
@@ -13,6 +13,6 @@ export function Moment() {
           <StakBubble>Eggs, spinach, feta, cherry tomatoes, olives, Greek yogurt. Make a two-egg scramble with the spinach and feta, tomatoes and olives on the side. About 30g of protein, and small enough that it goes down easy. Want me to turn the rest into a shopping list for the week?</StakBubble>
         </div>
       </div>
-    </section>
+    </figure>
   );
 }

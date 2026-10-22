@@ -1,6 +1,7 @@
 import { WhiteCard } from "./Card";
 import { SectionLabel } from "./SectionPlaceholder";
 import { StakBubble, UserBubble } from "./Bubbles";
+import { Moment } from "./Moment";
 import { ASK_PROMPTS, MedRow, askHref } from "./AskAnything";
 import { trackCta } from "@/lib/analytics";
 
@@ -137,6 +138,10 @@ export function HowYouTalk() {
               <p className={cardBody}>{b}</p>
             </div>
           ))}
+        </div>
+        <p className="mt-14 text-[19px] font-semibold">Send it a photo of your fridge, for example.</p>
+        <div className="mt-5">
+          <Moment />
         </div>
         <p className="mt-14 text-[19px] font-semibold">Start with one of these, or type your own.</p>
         <ul className="mt-5 flex flex-wrap gap-3">

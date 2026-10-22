@@ -9,7 +9,7 @@ export function Pricing() {
         <SectionLabel>WHAT IT COSTS</SectionLabel>
         <h2 className="display-section mt-4 max-w-[800px]">Two weeks free. Then $29.99 a month.</h2>
         <p className="mt-6 max-w-[560px] text-[19px] leading-[1.5] text-muted">
-          No card to start. Text Jurni GLP and it begins. After two weeks it sends you a link. Stop any time by replying STOP.
+          No card to start. Text Jurni GLP and it begins. After two weeks it texts you a link to subscribe. Stop any time by replying STOP.
         </p>
         <div className="mt-10 grid max-w-[600px] gap-5 sm:grid-cols-2">
           <WhiteCard className="min-h-0">

@@ -65,9 +65,6 @@ export function HomeHero({ referralSlug }: { referralSlug?: string | undefined }
           <p className="mt-7 max-w-[40ch] text-[20px] leading-[1.45] md:text-[22px]">
             Jurni GLP is an AI agent for people on a GLP-1. Text it or call it, any time. It builds your plan, answers your questions, tracks your progress, and checks in before the hard days.
           </p>
-          <p className="mt-3 max-w-[40ch] text-[17px] leading-[1.5] text-muted">
-            Two weeks free. No card, no account, no app needed.
-          </p>
           <StakCTA section="hero" className="mt-7" />
         </div>
         <PhoneMock />

@@ -21,7 +21,7 @@ function TodayView() {
   return (
     <>
       <div className="py-2" />
-      <p className="text-[14px] text-muted">Friday 17 October</p>
+      <p className="text-[14px] text-muted">Today</p>
       <h3 className="font-display text-[22px] font-extrabold leading-none">Shot day</h3>
       <p className="mt-1.5 text-[14px]">Week 12 · down 14 lb · then a 20-minute lift</p>
       <span className="mt-3 inline-block rounded-[12px] bg-[var(--stak-amber)] px-4 py-2 text-[14px] font-semibold text-[var(--stak-ground)]">See today's workout</span>

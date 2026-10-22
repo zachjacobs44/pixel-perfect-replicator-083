@@ -17,7 +17,7 @@ const STAGES: { label: string; line: string; msgs: Msg[]; photo?: "bedside" | "t
   },
   {
     label: "REAL LIFE",
-    line: "Birthdays, work dinners, your mother's cooking. The world doesn't know you're on this.",
+    line: "Birthdays, work dinners, your mother's cooking. No one else at the table is on this.",
     photo: "table",
     alt: "A hand holding a phone over a restaurant menu, taking a photo of it",
     msgs: [
