@@ -52,43 +52,34 @@ export const sendContactMessage = createServerFn({ method: "POST" })
       return { ok: false, error: "That didn't send. Please email contact@jurniglp.com." };
     }
 
-    const apiKey = process.env["RESEND_API_KEY"];
-    const fromAddress = process.env["EMAIL_FROM"]?.match(/<([^>]+)>/)?.[1]
-      ?? process.env["EMAIL_FROM"] ?? "contact@jurniglp.com";
-    const from = `Jurni Health, Inc. <${fromAddress}>`;
-
     const text = `Jurni Health, Inc. — New contact form message\n\nName: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\nService SMS consent: ${values.consent_service}\nMarketing SMS consent: ${values.consent_marketing}\nAccept terms: ${values.accept_terms}\nConsent text version: 2026-10-14\nSource: /contact\n\n${values.message}`;
 
-    if (!apiKey) {
-      return { ok: true };
-    }
-
-    const send = (fromHeader: string) =>
-      fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${apiKey}`, "content-type": "application/json" },
-        body: JSON.stringify({
-          from: fromHeader,
-          to: [TO_ADDRESS],
+    // Best-effort notice via Lovable Emails; the record above is the source of truth.
+    try {
+      const { sendLovableEmail } = await import("@lovable.dev/email-js");
+      const apiKey = process.env["LOVABLE_API_KEY"];
+      if (!apiKey) throw new Error("LOVABLE_API_KEY is not configured");
+      const escaped = text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+      await sendLovableEmail(
+        {
+          to: TO_ADDRESS,
+          from: FROM,
+          sender_domain: SENDER_DOMAIN,
           reply_to: values.email,
           subject: `Contact form — ${values.name}`,
           text,
-        }),
-      });
-
-    try {
-      let res = await send(from);
-      if (res.status === 403 && fromAddress !== "onboarding@resend.dev") {
-        // Domain not verified yet in Resend: fall back to Resend's shared sender so the notice still arrives.
-        console.error("[contact] sender domain not verified; retrying from onboarding@resend.dev");
-        res = await send("Jurni GLP <onboarding@resend.dev>");
-      }
-      if (!res.ok) {
-        console.error("[contact] email send failed", res.status);
-        return { ok: true };
-      }
-    } catch {
-      console.error("[contact] email send threw");
+          html: `<pre style="font-family: sans-serif; white-space: pre-wrap;">${escaped}</pre>`,
+          purpose: "transactional",
+          label: "contact-notification",
+          idempotency_key: crypto.randomUUID(),
+        },
+        { apiKey, sendUrl: process.env["LOVABLE_SEND_URL"] },
+      );
+    } catch (error) {
+      console.error("[contact] email send failed", error);
       return { ok: true };
     }
 
