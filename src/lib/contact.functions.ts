@@ -60,15 +60,12 @@ export const sendContactMessage = createServerFn({ method: "POST" })
       return { ok: true };
     }
 
-    try {
-      const res = await fetch("https://api.resend.com/emails", {
+    const send = (fromHeader: string) =>
+      fetch("https://api.resend.com/emails", {
         method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "content-type": "application/json",
-        },
+        headers: { Authorization: `Bearer ${apiKey}`, "content-type": "application/json" },
         body: JSON.stringify({
-          from,
+          from: fromHeader,
           to: [TO_ADDRESS],
           reply_to: values.email,
           subject: `Contact form — ${values.name}`,
@@ -76,6 +73,13 @@ export const sendContactMessage = createServerFn({ method: "POST" })
         }),
       });
 
+    try {
+      let res = await send(from);
+      if (res.status === 403 && fromAddress !== "onboarding@resend.dev") {
+        // Domain not verified yet in Resend: fall back to Resend's shared sender so the notice still arrives.
+        console.error("[contact] sender domain not verified; retrying from onboarding@resend.dev");
+        res = await send("Jurni GLP <onboarding@resend.dev>");
+      }
       if (!res.ok) {
         console.error("[contact] email send failed", res.status);
         return { ok: true };
