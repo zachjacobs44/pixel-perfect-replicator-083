@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 
 import { findPractice } from "@/lib/referring-practices";
 
@@ -9,8 +9,21 @@ const TITLE = "Jurni GLP | GLP-1 support by text and call.";
 const DESCRIPTION =
   "Text or call Jurni GLP, the AI agent for people on a GLP-1. Answers, check-ins, meals and workouts. No app needed. Two weeks free.";
 
+/* Addresses from the previous (Framer) site that Google may still list. Each lands somewhere real. */
+const LEGACY_REDIRECTS: Record<string, string> = {
+  faq: "/#questions",
+  "zepbound-tracker": "/",
+  "wegovy-tracker": "/",
+  "ozempic-tracker": "/",
+  "semaglutide-tracker": "/",
+  "mounjaro-tracker": "/",
+  "tirzepatide-tracker": "/",
+};
+
 export const Route = createFileRoute("/$slug")({
   beforeLoad: ({ params }) => {
+    const legacy = LEGACY_REDIRECTS[params.slug];
+    if (legacy) throw redirect({ href: legacy, statusCode: 301 });
     if (!findPractice(params.slug)) throw notFound();
   },
   head: ({ params }) => ({

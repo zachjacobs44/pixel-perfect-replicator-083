@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PracticesRouteImport } from './routes/practices'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as LegalPagesSlugRouteImport } from './routes/legal-pages.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +53,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LegalPagesSlugRoute = LegalPagesSlugRouteImport.update({
+  id: '/legal-pages/$slug',
+  path: '/legal-pages/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/legal-pages/$slug': typeof LegalPagesSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/legal-pages/$slug': typeof LegalPagesSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,14 +88,29 @@ export interface FileRoutesById {
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/legal-pages/$slug': typeof LegalPagesSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/$slug' | '/card' | '/contact' | '/practices' | '/privacy' | '/terms'
+    | '/'
+    | '/$slug'
+    | '/card'
+    | '/contact'
+    | '/practices'
+    | '/privacy'
+    | '/terms'
+    | '/legal-pages/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/$slug' | '/card' | '/contact' | '/practices' | '/privacy' | '/terms'
+    | '/'
+    | '/$slug'
+    | '/card'
+    | '/contact'
+    | '/practices'
+    | '/privacy'
+    | '/terms'
+    | '/legal-pages/$slug'
   id:
     | '__root__'
     | '/'
@@ -97,6 +120,7 @@ export interface FileRouteTypes {
     | '/practices'
     | '/privacy'
     | '/terms'
+    | '/legal-pages/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -107,6 +131,7 @@ export interface RootRouteChildren {
   PracticesRoute: typeof PracticesRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
+  LegalPagesSlugRoute: typeof LegalPagesSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -160,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legal-pages/$slug': {
+      id: '/legal-pages/$slug'
+      path: '/legal-pages/$slug'
+      fullPath: '/legal-pages/$slug'
+      preLoaderRoute: typeof LegalPagesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -171,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   PracticesRoute: PracticesRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
+  LegalPagesSlugRoute: LegalPagesSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
