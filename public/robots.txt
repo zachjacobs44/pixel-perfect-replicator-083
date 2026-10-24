@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /practices
+Disallow: /card
 
 Sitemap: https://jurniglp.com/sitemap.xml
