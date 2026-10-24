@@ -24,8 +24,9 @@ declare global {
   }
 }
 
+/* GA4 property "Jurni GLP" (property 521194380), stream jurniglp.com. Not a secret: it ships to every browser. */
 export const GA4_MEASUREMENT_ID: string =
-  (import.meta.env["VITE_GA4_MEASUREMENT_ID"] as string | undefined) ?? "";
+  (import.meta.env["VITE_GA4_MEASUREMENT_ID"] as string | undefined) ?? "G-HLYC1EVL4W";
 
 let gaLoaded = false;
 
