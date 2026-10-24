@@ -2,10 +2,10 @@ import { createServerFn } from "@tanstack/react-start";
 import { getRequestHeader } from "@tanstack/react-start/server";
 import { contactSchema } from "@/lib/contact-schema";
 
-// Where form notices are delivered. Until jurniglp.com is verified in Resend, the fallback
-// sender can only reach the Resend account owner, so this is Zach's inbox. Switch back to
-// contact@jurniglp.com once the domain is verified.
-const TO_ADDRESS = process.env["CONTACT_TO_ADDRESS"] ?? "zachary@jurniglp.com";
+// Where form notices are delivered.
+const TO_ADDRESS = "contact@jurniglp.com";
+const FROM = { name: "Jurni GLP", address: "noreply@notify.jurniglp.com" };
+const SENDER_DOMAIN = "notify.jurniglp.com";
 
 export type ContactResult =
   | { ok: true }
