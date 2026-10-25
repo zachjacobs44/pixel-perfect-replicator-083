@@ -13,9 +13,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as CardRouteImport } from './routes/card'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as MounjaroRouteImport } from './routes/mounjaro'
+import { Route as OzempicRouteImport } from './routes/ozempic'
 import { Route as PracticesRouteImport } from './routes/practices'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as WegovyRouteImport } from './routes/wegovy'
 import { Route as ZepboundRouteImport } from './routes/zepbound'
 import { Route as LegalPagesSlugRouteImport } from './routes/legal-pages.$slug'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
@@ -40,6 +43,16 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MounjaroRoute = MounjaroRouteImport.update({
+  id: '/mounjaro',
+  path: '/mounjaro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OzempicRoute = OzempicRouteImport.update({
+  id: '/ozempic',
+  path: '/ozempic',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PracticesRoute = PracticesRouteImport.update({
   id: '/practices',
   path: '/practices',
@@ -53,6 +66,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WegovyRoute = WegovyRouteImport.update({
+  id: '/wegovy',
+  path: '/wegovy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ZepboundRoute = ZepboundRouteImport.update({
@@ -77,9 +95,12 @@ export interface FileRoutesByFullPath {
   '/$slug': typeof SlugRoute
   '/card': typeof CardRoute
   '/contact': typeof ContactRoute
+  '/mounjaro': typeof MounjaroRoute
+  '/ozempic': typeof OzempicRoute
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/wegovy': typeof WegovyRoute
   '/zepbound': typeof ZepboundRoute
   '/legal-pages/$slug': typeof LegalPagesSlugRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -89,9 +110,12 @@ export interface FileRoutesByTo {
   '/$slug': typeof SlugRoute
   '/card': typeof CardRoute
   '/contact': typeof ContactRoute
+  '/mounjaro': typeof MounjaroRoute
+  '/ozempic': typeof OzempicRoute
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/wegovy': typeof WegovyRoute
   '/zepbound': typeof ZepboundRoute
   '/legal-pages/$slug': typeof LegalPagesSlugRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -102,9 +126,12 @@ export interface FileRoutesById {
   '/$slug': typeof SlugRoute
   '/card': typeof CardRoute
   '/contact': typeof ContactRoute
+  '/mounjaro': typeof MounjaroRoute
+  '/ozempic': typeof OzempicRoute
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/wegovy': typeof WegovyRoute
   '/zepbound': typeof ZepboundRoute
   '/legal-pages/$slug': typeof LegalPagesSlugRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
@@ -116,9 +143,12 @@ export interface FileRouteTypes {
     | '/$slug'
     | '/card'
     | '/contact'
+    | '/mounjaro'
+    | '/ozempic'
     | '/practices'
     | '/privacy'
     | '/terms'
+    | '/wegovy'
     | '/zepbound'
     | '/legal-pages/$slug'
     | '/lovable/email/transactional/preview'
@@ -128,9 +158,12 @@ export interface FileRouteTypes {
     | '/$slug'
     | '/card'
     | '/contact'
+    | '/mounjaro'
+    | '/ozempic'
     | '/practices'
     | '/privacy'
     | '/terms'
+    | '/wegovy'
     | '/zepbound'
     | '/legal-pages/$slug'
     | '/lovable/email/transactional/preview'
@@ -140,9 +173,12 @@ export interface FileRouteTypes {
     | '/$slug'
     | '/card'
     | '/contact'
+    | '/mounjaro'
+    | '/ozempic'
     | '/practices'
     | '/privacy'
     | '/terms'
+    | '/wegovy'
     | '/zepbound'
     | '/legal-pages/$slug'
     | '/lovable/email/transactional/preview'
@@ -153,9 +189,12 @@ export interface RootRouteChildren {
   SlugRoute: typeof SlugRoute
   CardRoute: typeof CardRoute
   ContactRoute: typeof ContactRoute
+  MounjaroRoute: typeof MounjaroRoute
+  OzempicRoute: typeof OzempicRoute
   PracticesRoute: typeof PracticesRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
+  WegovyRoute: typeof WegovyRoute
   ZepboundRoute: typeof ZepboundRoute
   LegalPagesSlugRoute: typeof LegalPagesSlugRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
@@ -191,6 +230,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mounjaro': {
+      id: '/mounjaro'
+      path: '/mounjaro'
+      fullPath: '/mounjaro'
+      preLoaderRoute: typeof MounjaroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ozempic': {
+      id: '/ozempic'
+      path: '/ozempic'
+      fullPath: '/ozempic'
+      preLoaderRoute: typeof OzempicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/practices': {
       id: '/practices'
       path: '/practices'
@@ -210,6 +263,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wegovy': {
+      id: '/wegovy'
+      path: '/wegovy'
+      fullPath: '/wegovy'
+      preLoaderRoute: typeof WegovyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/zepbound': {
@@ -241,9 +301,12 @@ const rootRouteChildren: RootRouteChildren = {
   SlugRoute: SlugRoute,
   CardRoute: CardRoute,
   ContactRoute: ContactRoute,
+  MounjaroRoute: MounjaroRoute,
+  OzempicRoute: OzempicRoute,
   PracticesRoute: PracticesRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
+  WegovyRoute: WegovyRoute,
   ZepboundRoute: ZepboundRoute,
   LegalPagesSlugRoute: LegalPagesSlugRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,

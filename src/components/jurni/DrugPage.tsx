@@ -88,6 +88,7 @@ function How({ d }: { d: DrugContent }) {
 
 function Ladder({ d }: { d: DrugContent }) {
   const n = d.ladder.steps.length;
+  const hasMaint = d.ladder.steps.some((s) => s.tag === "maintenance");
   return (
     <section className="section-y">
       <div className="content-column">
@@ -120,9 +121,11 @@ function Ladder({ d }: { d: DrugContent }) {
             })}
           </ol>
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[14px] text-muted">
-            <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="inline-block h-3 w-5 rounded-[4px]" style={{ background: "var(--grad-button)" }} />Maintenance doses</span>
+            {hasMaint ? (
+              <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="inline-block h-3 w-5 rounded-[4px]" style={{ background: "var(--grad-button)" }} />Maintenance doses</span>
+            ) : null}
             <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="inline-block h-3 w-5 rounded-[4px] bg-white" style={{ border: "2px dashed var(--stak-amber)" }} />Starting dose only</span>
-            <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="inline-block h-3 w-5 rounded-[4px] bg-white" style={{ border: "1px solid var(--hairline)" }} />Steps in between</span>
+            <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="inline-block h-3 w-5 rounded-[4px] bg-white" style={{ border: "1px solid var(--hairline)" }} />{hasMaint ? "Steps in between" : "Steps your prescriber may use"}</span>
           </div>
         </div>
         <p className="fine-print mt-3 max-w-[720px]">{d.ladder.note}</p>

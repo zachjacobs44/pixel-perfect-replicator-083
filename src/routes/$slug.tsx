@@ -13,10 +13,10 @@ const DESCRIPTION =
 const LEGACY_REDIRECTS: Record<string, string> = {
   faq: "/#questions",
   "zepbound-tracker": "/zepbound",
-  "wegovy-tracker": "/",
-  "ozempic-tracker": "/",
-  "semaglutide-tracker": "/",
-  "mounjaro-tracker": "/",
+  "wegovy-tracker": "/wegovy",
+  "ozempic-tracker": "/ozempic",
+  "semaglutide-tracker": "/wegovy",
+  "mounjaro-tracker": "/mounjaro",
   "tirzepatide-tracker": "/zepbound",
 };
 

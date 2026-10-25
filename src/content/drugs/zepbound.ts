@@ -16,7 +16,7 @@ export const zepbound: DrugContent = {
 
   hero: {
     label: "JURNI GLP FOR PEOPLE ON ZEPBOUND",
-    headline: "Zepbound quiets the hunger. The weeks still happen.",
+    headline: "On Zepbound? Here is what the next twenty weeks actually look like.",
     sub: "A shot once a week, a dose ladder that climbs for months, and two or three days after each step that nobody warns you about. Jurni GLP texts you through all of it, and knows the Zepbound label better than most of the internet.",
     convo: [
       { from: "user", text: "went up to 5 today. feel kinda off" },
