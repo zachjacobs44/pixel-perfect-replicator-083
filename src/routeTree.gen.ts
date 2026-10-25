@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as PracticesRouteImport } from './routes/practices'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ZepboundRouteImport } from './routes/zepbound'
 import { Route as LegalPagesSlugRouteImport } from './routes/legal-pages.$slug'
 import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
@@ -54,6 +55,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ZepboundRoute = ZepboundRouteImport.update({
+  id: '/zepbound',
+  path: '/zepbound',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LegalPagesSlugRoute = LegalPagesSlugRouteImport.update({
   id: '/legal-pages/$slug',
   path: '/legal-pages/$slug',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/zepbound': typeof ZepboundRoute
   '/legal-pages/$slug': typeof LegalPagesSlugRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/zepbound': typeof ZepboundRoute
   '/legal-pages/$slug': typeof LegalPagesSlugRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/practices': typeof PracticesRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/zepbound': typeof ZepboundRoute
   '/legal-pages/$slug': typeof LegalPagesSlugRoute
   '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/practices'
     | '/privacy'
     | '/terms'
+    | '/zepbound'
     | '/legal-pages/$slug'
     | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/practices'
     | '/privacy'
     | '/terms'
+    | '/zepbound'
     | '/legal-pages/$slug'
     | '/lovable/email/transactional/preview'
   id:
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/practices'
     | '/privacy'
     | '/terms'
+    | '/zepbound'
     | '/legal-pages/$slug'
     | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   PracticesRoute: typeof PracticesRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
+  ZepboundRoute: typeof ZepboundRoute
   LegalPagesSlugRoute: typeof LegalPagesSlugRoute
   LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
@@ -199,6 +212,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/zepbound': {
+      id: '/zepbound'
+      path: '/zepbound'
+      fullPath: '/zepbound'
+      preLoaderRoute: typeof ZepboundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/legal-pages/$slug': {
       id: '/legal-pages/$slug'
       path: '/legal-pages/$slug'
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   PracticesRoute: PracticesRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
+  ZepboundRoute: ZepboundRoute,
   LegalPagesSlugRoute: LegalPagesSlugRoute,
   LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }

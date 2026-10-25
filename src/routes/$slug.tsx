@@ -12,12 +12,12 @@ const DESCRIPTION =
 /* Addresses from the previous (Framer) site that Google may still list. Each lands somewhere real. */
 const LEGACY_REDIRECTS: Record<string, string> = {
   faq: "/#questions",
-  "zepbound-tracker": "/",
+  "zepbound-tracker": "/zepbound",
   "wegovy-tracker": "/",
   "ozempic-tracker": "/",
   "semaglutide-tracker": "/",
   "mounjaro-tracker": "/",
-  "tirzepatide-tracker": "/",
+  "tirzepatide-tracker": "/zepbound",
 };
 
 export const Route = createFileRoute("/$slug")({

@@ -13,6 +13,7 @@ export type CtaSection =
   | "footer"
   | "practices"
   | "your-page"
+  | "drug"
   | "404";
 
 export type CtaEventName = "cta_text" | "cta_call";
