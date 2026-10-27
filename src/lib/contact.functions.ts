@@ -3,7 +3,7 @@ import { getRequestHeader } from "@tanstack/react-start/server";
 import { contactSchema } from "@/lib/contact-schema";
 
 // Where form notices are delivered.
-const TO_ADDRESS = "contact@jurniglp.com";
+const TO_ADDRESSES = ["zachary@jurniglp.com", "contact@jurniglp.com"];
 const FROM = { name: "Jurni GLP", address: "noreply@notify.jurniglp.com" };
 const SENDER_DOMAIN = "notify.jurniglp.com";
 
@@ -63,24 +63,29 @@ export const sendContactMessage = createServerFn({ method: "POST" })
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;");
-      await sendLovableEmail(
-        {
-          to: TO_ADDRESS,
-          from: FROM,
-          sender_domain: SENDER_DOMAIN,
-          reply_to: values.email,
-          subject: `Contact form — ${values.name}`,
-          text,
-          html: `<pre style="font-family: sans-serif; white-space: pre-wrap;">${escaped}</pre>`,
-          purpose: "transactional",
-          label: "contact-notification",
-          idempotency_key: crypto.randomUUID(),
-        },
-        { apiKey, sendUrl: process.env["LOVABLE_SEND_URL"] },
-      );
+      for (const to of TO_ADDRESSES) {
+        try {
+          await sendLovableEmail(
+            {
+              to,
+              from: FROM,
+              sender_domain: SENDER_DOMAIN,
+              reply_to: values.email,
+              subject: `Contact form — ${values.name}`,
+              text,
+              html: `<pre style="font-family: sans-serif; white-space: pre-wrap;">${escaped}</pre>`,
+              purpose: "transactional",
+              label: "contact-notification",
+              idempotency_key: crypto.randomUUID(),
+            },
+            { apiKey, sendUrl: process.env["LOVABLE_SEND_URL"] },
+          );
+        } catch (error) {
+          console.error("[contact] email send failed", to, error);
+        }
+      }
     } catch (error) {
       console.error("[contact] email send failed", error);
-      return { ok: true };
     }
 
     return { ok: true };
