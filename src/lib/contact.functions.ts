@@ -6,6 +6,8 @@ import { contactSchema } from "@/lib/contact-schema";
 const TO_ADDRESSES = ["zachary@jurniglp.com", "contact@jurniglp.com"];
 const FROM = { name: "Jurni GLP", address: "noreply@notify.jurniglp.com" };
 const SENDER_DOMAIN = "notify.jurniglp.com";
+// Resend's shared sender only delivers to the Resend account owner, which is Zach.
+const FALLBACK_TO = "zachary@jurniglp.com";
 
 export type ContactResult =
   | { ok: true }
@@ -54,15 +56,17 @@ export const sendContactMessage = createServerFn({ method: "POST" })
 
     const text = `Jurni Health, Inc. — New contact form message\n\nName: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\nService SMS consent: ${values.consent_service}\nMarketing SMS consent: ${values.consent_marketing}\nAccept terms: ${values.accept_terms}\nConsent text version: 2026-10-14\nSource: /contact\n\n${values.message}`;
 
-    // Best-effort notice via Lovable Emails; the record above is the source of truth.
+    const subject = `Contact form — ${values.name}`;
+    const escaped = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const html = `<pre style="font-family: sans-serif; white-space: pre-wrap;">${escaped}</pre>`;
+
+    // Best-effort notice. The record above is the source of truth; nothing below can fail the submission.
+    // 1) Lovable Emails from the branded sender (notify.jurniglp.com), to every address.
+    let delivered = 0;
     try {
       const { sendLovableEmail } = await import("@lovable.dev/email-js");
       const apiKey = process.env["LOVABLE_API_KEY"];
       if (!apiKey) throw new Error("LOVABLE_API_KEY is not configured");
-      const escaped = text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
       for (const to of TO_ADDRESSES) {
         try {
           await sendLovableEmail(
@@ -71,21 +75,44 @@ export const sendContactMessage = createServerFn({ method: "POST" })
               from: FROM,
               sender_domain: SENDER_DOMAIN,
               reply_to: values.email,
-              subject: `Contact form — ${values.name}`,
+              subject,
               text,
-              html: `<pre style="font-family: sans-serif; white-space: pre-wrap;">${escaped}</pre>`,
+              html,
               purpose: "transactional",
               label: "contact-notification",
               idempotency_key: crypto.randomUUID(),
             },
             { apiKey, sendUrl: process.env["LOVABLE_SEND_URL"] },
           );
+          delivered += 1;
         } catch (error) {
-          console.error("[contact] email send failed", to, error);
+          console.error("[contact] lovable email send failed", to, error);
         }
       }
     } catch (error) {
-      console.error("[contact] email send failed", error);
+      console.error("[contact] lovable email unavailable", error);
+    }
+
+    // 2) Fallback while the branded sender is unverified: Resend's shared sender, which can only reach
+    //    the Resend account owner's address. Remove once notify.jurniglp.com verifies.
+    const resendKey = process.env["RESEND_API_KEY"];
+    if (delivered === 0 && resendKey) {
+      try {
+        const res = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: { Authorization: `Bearer ${resendKey}`, "content-type": "application/json" },
+          body: JSON.stringify({
+            from: "Jurni GLP <onboarding@resend.dev>",
+            to: [FALLBACK_TO],
+            reply_to: values.email,
+            subject,
+            text,
+          }),
+        });
+        if (!res.ok) console.error("[contact] resend fallback failed", res.status, await res.text());
+      } catch (error) {
+        console.error("[contact] resend fallback threw", error);
+      }
     }
 
     return { ok: true };
