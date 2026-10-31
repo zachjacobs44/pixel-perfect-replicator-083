@@ -103,7 +103,7 @@ const SECTIONS: Section[] = [
     h: "Apple Health",
     blocks: [
       {
-        p: "If you connect the Jurni iPhone app to Apple Health, we read only the kinds of data you choose to share, such as weight, sleep, steps, workouts, food and symptoms. The app only reads; it never writes to or changes anything in Apple Health. We use this data only to coach you. We send the readings Jurni needs to our AI providers so they can write his replies, and for no other purpose. We never sell Apple Health data, never use it for advertising or marketing, never share it with data brokers, and never use it to train AI models, ours or anyone else’s. You can stop sharing at any time in the app or in the Health app.",
+        p: "If you connect the Jurni iPhone app to Apple Health, we read only the kinds of data you choose to share, such as weight, sleep, steps, workouts, food and symptoms. The app only reads; it never writes to or changes anything in Apple Health. We use this data only to coach you. We send the readings Jurni needs to our AI providers so they can write its replies, and for no other purpose. We never sell Apple Health data, never use it for advertising or marketing, never share it with data brokers, and never use it to train AI models, ours or anyone else’s. You can stop sharing at any time in the app or in the Health app.",
       },
     ],
   },
