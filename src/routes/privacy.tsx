@@ -24,7 +24,7 @@ export const Route = createFileRoute("/privacy")({
   component: Privacy,
 });
 
-const LAST_UPDATED = "October 23, 2026";
+const LAST_UPDATED = "October 31, 2026";
 
 /* Policy text, verbatim from counsel. Each section is a heading plus paragraphs ("p"), sub-headed paragraphs ("lead" + "p"), or bullet lists ("ul"). */
 
@@ -46,7 +46,7 @@ const SECTIONS: Section[] = [
           "Contact details: your mobile phone number, and your name and email address if you provide them.",
           "Health and wellness information you share with the assistant: the GLP-1 medication you take, your dose and dose changes, injection dates, side effects, weight, measurements, food and drink, exercise, sleep, mood, goals, and anything else you tell it about your health.",
           "Content you send: text messages, photos (for example, of meals, menus, or progress photos), links, and documents.",
-          "Voice: recordings and transcripts of your calls with the assistant.",
+          "Voice: transcripts of your calls with the assistant. Calls are not recorded; what you say is converted to text as you speak so the assistant can respond.",
           "Your provider: the name of the practice or provider that referred you, if you tell us.",
           "Payment information: handled by our payment processor. We receive your subscription status and the last four digits of your card, never your full card number.",
           "Support messages: anything you send to contact@jurniglp.com.",
@@ -55,9 +55,9 @@ const SECTIONS: Section[] = [
       { lead: "Information we create.", p: "The assistant’s notes, summaries, plans, and the personal web page it builds from your conversations." },
       {
         lead: "Information collected automatically.",
-        p: "When you use the website or your personal page: IP address, device and browser type, pages viewed, time spent, and referring link. We use cookies and similar technologies for this (see Section 7). Message delivery data from our telephony provider, such as whether a text was delivered.",
+        p: "When you use the website or your personal page: IP address, device and browser type, pages viewed, time spent, and referring link. We use cookies and similar technologies for this (see Section 8). Message delivery data from our telephony provider, such as whether a text was delivered.",
       },
-      { p: "We do not collect precise geolocation, and we do not access your contacts, camera, or health apps unless you send us something or connect them yourself." },
+      { p: "We do not collect precise geolocation, and we do not access your contacts, camera, or health apps unless you send us something or connect them yourself (see Section 4 for Apple Health)." },
     ],
   },
   {
@@ -68,7 +68,7 @@ const SECTIONS: Section[] = [
         ul: [
           "To provide the Service: respond to you, remember your history, build and update your plans and personal page, send reminders and check-ins, and personalize the assistant to you.",
           "To run your account: manage your trial, subscription, billing, and support.",
-          "To improve the Service: understand how people use the assistant, fix problems, train and evaluate our own systems, and develop new features. Where we can, we do this with de-identified or aggregated data.",
+          "To improve the Service: understand how people use the assistant, fix problems, train and evaluate our own systems (except data from Apple Health, which is never used for training), and develop new features. Where we can, we do this with de-identified or aggregated data.",
           "For safety: detect misuse, protect users, and respond to situations that may involve risk to you or others.",
           "For research: study whether the Service helps people, using de-identified or aggregated data. We only use identifiable data for research with your separate written consent.",
           "To communicate with you about the Service, and, if you have consented, to send promotional messages.",
@@ -94,12 +94,21 @@ const SECTIONS: Section[] = [
       },
       {
         lead: "Calls.",
-        p: "Calls with the assistant may be recorded and are transcribed into text so the assistant can respond and remember what you discussed. You are told this at the start of each call. Recordings and transcripts are kept with your conversation history and used to provide and improve the Service.",
+        p: "We do not record calls. When you call the assistant, your speech is converted to text as you speak so the assistant can respond and remember what you discussed; no audio is stored. Transcripts are kept with your conversation history and used to provide and improve the Service.",
       },
     ],
   },
   {
     n: "4",
+    h: "Apple Health",
+    blocks: [
+      {
+        p: "If you connect the Jurni iPhone app to Apple Health, we read only the kinds of data you choose to share, such as weight, sleep, steps, workouts, food and symptoms. The app only reads; it never writes to or changes anything in Apple Health. We use this data only to coach you. We send the readings Jurni needs to our AI providers so they can write his replies, and for no other purpose. We never sell Apple Health data, never use it for advertising or marketing, never share it with data brokers, and never use it to train AI models, ours or anyone else’s. You can stop sharing at any time in the app or in the Health app.",
+      },
+    ],
+  },
+  {
+    n: "5",
     h: "How we share information",
     blocks: [
       { p: "We do not sell your personal information, and we do not share it for targeted advertising. We share information only in these cases:" },
@@ -117,7 +126,7 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    n: "5",
+    n: "6",
     h: "Health information and HIPAA",
     blocks: [
       {
@@ -126,7 +135,7 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    n: "6",
+    n: "7",
     h: "Security",
     blocks: [
       {
@@ -135,7 +144,7 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    n: "7",
+    n: "8",
     h: "Cookies and analytics",
     blocks: [
       {
@@ -144,16 +153,16 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    n: "8",
+    n: "9",
     h: "How long we keep information",
     blocks: [
       {
-        p: "We keep your information for as long as you have an account, so the assistant can remember your history. Call recordings and transcripts are kept with your conversation history. After you close your account, or after 24 months of inactivity, we delete or de-identify your personal information within 90 days, except where we need to keep it to comply with law, resolve disputes, enforce our agreements, or maintain security. Backups are purged on a rolling schedule. Information you asked us to send to your provider stays with your provider under their own policies.",
+        p: "We keep your information for as long as you have an account, so the assistant can remember your history. Call transcripts are kept with your conversation history. If you delete your account, we erase your data 7 days after you ask (see Section 10). After 24 months of inactivity, we delete or de-identify your personal information within 90 days, except where we need to keep it to comply with law, resolve disputes, enforce our agreements, or maintain security. Backups are purged on a rolling schedule. Information you asked us to send to your provider stays with your provider under their own policies.",
       },
     ],
   },
   {
-    n: "9",
+    n: "10",
     h: "Your rights and choices",
     blocks: [
       { p: "You can:" },
@@ -161,9 +170,9 @@ const SECTIONS: Section[] = [
         ul: [
           "Access the information we hold about you, including your conversation history and personal page.",
           "Correct inaccurate information by telling the assistant or emailing us.",
-          "Delete your account and information by texting DELETE to Jurni GLP or emailing contact@jurniglp.com. We will confirm your identity and complete deletion within 45 days.",
+          "Delete your account and information in the Jurni iPhone app, by texting DELETE to Jurni GLP, or by emailing contact@jurniglp.com. We erase your data 7 days after you ask, and you can change your mind during those 7 days.",
           "Export your data in a portable format on request.",
-          "Opt out of text messages by replying STOP, of promotional messages by replying STOP to any promotional message or emailing us, and of call recording and transcription by using text instead of calls.",
+          "Opt out of text messages by replying STOP, of promotional messages by replying STOP to any promotional message or emailing us, and of call transcription by using text instead of calls.",
           "Withdraw consent at any time; it does not affect processing that already happened.",
         ],
       },
@@ -173,16 +182,16 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    n: "10",
+    n: "11",
     h: "California residents",
     blocks: [
       {
-        p: "If you live in California, the California Consumer Privacy Act (CCPA) gives you additional rights. In the last 12 months we have collected the categories of personal information listed in Section 1, including identifiers, commercial information, internet activity, audio recordings and call transcripts, and health information (which is sensitive personal information under California law). We use these categories for the purposes in Section 2 and share them with the categories of recipients in Section 4. We do not sell personal information and do not share it for cross-context behavioral advertising, and we have not done so in the past 12 months. We use your sensitive personal information only to provide the Service you asked for, and you may direct us to limit its use. You have the right to know, delete, correct, and port your information, and the right not to be discriminated against. California’s Confidentiality of Medical Information Act also applies to certain health information we hold. To make a request, email contact@jurniglp.com with “California request” in the subject line, or text Jurni GLP. We may ask for information to verify your identity.",
+        p: "If you live in California, the California Consumer Privacy Act (CCPA) gives you additional rights. In the last 12 months we have collected the categories of personal information listed in Section 1, including identifiers, commercial information, internet activity, call transcripts, and health information (which is sensitive personal information under California law). We use these categories for the purposes in Section 2 and share them with the categories of recipients in Section 5. We do not sell personal information and do not share it for cross-context behavioral advertising, and we have not done so in the past 12 months. We use your sensitive personal information only to provide the Service you asked for, and you may direct us to limit its use. You have the right to know, delete, correct, and port your information, and the right not to be discriminated against. California’s Confidentiality of Medical Information Act also applies to certain health information we hold. To make a request, email contact@jurniglp.com with “California request” in the subject line, or text Jurni GLP. We may ask for information to verify your identity.",
       },
     ],
   },
   {
-    n: "11",
+    n: "12",
     h: "Other U.S. state privacy laws",
     blocks: [
       {
@@ -191,7 +200,7 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    n: "12",
+    n: "13",
     h: "Children",
     blocks: [
       {
@@ -200,12 +209,12 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    n: "13",
+    n: "14",
     h: "Where information is processed",
     blocks: [{ p: "We are based in the United States and process information there. The Service is intended for people in the United States." }],
   },
   {
-    n: "14",
+    n: "15",
     h: "Changes to this policy",
     blocks: [
       {
@@ -214,7 +223,7 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    n: "15",
+    n: "16",
     h: "Contact us",
     blocks: [{ lead: "Jurni Health, Inc. (d/b/a Jurni GLP)", p: "Email: contact@jurniglp.com" }],
   },
