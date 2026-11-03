@@ -24,7 +24,7 @@ export const Route = createFileRoute("/privacy")({
   component: Privacy,
 });
 
-const LAST_UPDATED = "October 31, 2026";
+const LAST_UPDATED = "November 2, 2026";
 
 /* Policy text, verbatim from counsel. Each section is a heading plus paragraphs ("p"), sub-headed paragraphs ("lead" + "p"), or bullet lists ("ul"). */
 
@@ -70,7 +70,7 @@ const SECTIONS: Section[] = [
           "To run your account: manage your trial, subscription, billing, and support.",
           "To improve the Service: understand how people use the assistant, fix problems, train and evaluate our own systems (except data from Apple Health, which is never used for training), and develop new features. Where we can, we do this with de-identified or aggregated data.",
           "For safety: detect misuse, protect users, and respond to situations that may involve risk to you or others.",
-          "For research: study whether the Service helps people, using de-identified or aggregated data. We only use identifiable data for research with your separate written consent.",
+          "For research: study whether the Service helps people, using de-identified or aggregated data. We only use identifiable data for research with your separate written consent. Apple Health data is never used for research.",
           "To communicate with you about the Service, and, if you have consented, to send promotional messages.",
           "To comply with law and enforce our Terms.",
         ],
@@ -103,7 +103,7 @@ const SECTIONS: Section[] = [
     h: "Apple Health",
     blocks: [
       {
-        p: "If you connect the Jurni iPhone app to Apple Health, we read only the kinds of data you choose to share, such as weight, sleep, steps, workouts, food and symptoms. The app only reads; it never writes to or changes anything in Apple Health. We use this data only to coach you. We send the readings Jurni needs to our AI providers so they can write its replies, and for no other purpose. We never sell Apple Health data, never use it for advertising or marketing, never share it with data brokers, and never use it to train AI models, ours or anyone else’s. You can stop sharing at any time in the app or in the Health app.",
+        p: "If you connect the Jurni iPhone app to Apple Health, we read only the kinds of data you choose to share, such as weight, sleep, steps, workouts, food and symptoms. The app only reads; it never writes to or changes anything in Apple Health. We use this data only to coach you and to test and improve how Jurni coaches. We send the readings Jurni needs to our AI providers so they can write its replies and run those tests, and for no other purpose. We never sell Apple Health data, never use it for advertising or marketing, never share it with data brokers, and never use it to train AI models, ours or anyone else’s. You can stop sharing at any time in the app or in the Health app.",
       },
     ],
   },
@@ -122,7 +122,7 @@ const SECTIONS: Section[] = [
           "With your consent. Any other sharing we ask you about and you agree to.",
         ],
       },
-      { p: "We may share de-identified or aggregated information, which cannot reasonably be used to identify you, for any purpose, including research and publication." },
+      { p: "We may share de-identified or aggregated information, which cannot reasonably be used to identify you, for any purpose, including research and publication. This never includes Apple Health data." },
     ],
   },
   {
@@ -157,7 +157,7 @@ const SECTIONS: Section[] = [
     h: "How long we keep information",
     blocks: [
       {
-        p: "We keep your information for as long as you have an account, so the assistant can remember your history. Call transcripts are kept with your conversation history. If you delete your account, we erase your data 7 days after you ask (see Section 10). After 24 months of inactivity, we delete or de-identify your personal information within 90 days, except where we need to keep it to comply with law, resolve disputes, enforce our agreements, or maintain security. Backups are purged on a rolling schedule. Information you asked us to send to your provider stays with your provider under their own policies.",
+        p: "We keep your information for as long as you have an account, so the assistant can remember your history. Call transcripts are kept with your conversation history. If you delete your account in the app, we erase your data 7 days after you ask. Requests by text or email are completed within 30 days (see Section 10). After 24 months of inactivity, we delete or de-identify your personal information within 90 days, except where we need to keep it to comply with law, resolve disputes, enforce our agreements, or maintain security. Backups are purged on a rolling schedule. Information you asked us to send to your provider stays with your provider under their own policies.",
       },
     ],
   },
@@ -170,7 +170,7 @@ const SECTIONS: Section[] = [
         ul: [
           "Access the information we hold about you, including your conversation history and personal page.",
           "Correct inaccurate information by telling the assistant or emailing us.",
-          "Delete your account and information in the Jurni iPhone app, by texting DELETE to Jurni GLP, or by emailing contact@jurniglp.com. We erase your data 7 days after you ask, and you can change your mind during those 7 days.",
+          "Delete your account and information in the Jurni iPhone app. We erase your data 7 days after you ask, and you can change your mind during those 7 days by signing back in to the app. You can also ask us to delete your account by texting DELETE to Jurni GLP or emailing contact@jurniglp.com, and we erase your data within 30 days of a request made that way.",
           "Export your data in a portable format on request.",
           "Opt out of text messages by replying STOP, of promotional messages by replying STOP to any promotional message or emailing us, and of call transcription by using text instead of calls.",
           "Withdraw consent at any time; it does not affect processing that already happened.",
