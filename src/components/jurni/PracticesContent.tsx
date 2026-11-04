@@ -541,9 +541,9 @@ export function PracticesContent() {
               </>
             ) : (
               <>
-                <Block label="THE PATIENT YOU'RE ALREADY LOSING">
-                  <h2 className="display-section mt-4 max-w-[820px]">They got their GLP-1 online. They&apos;re still your patient. For a year, nobody treated them like one.</h2>
-                  <p className={lead}>An illustrative story, built from what aesthetic practices tell us. They mentioned the medication to your injector in passing. Over the next year their face, their skin, and their body changed, and your practice wasn&apos;t in the conversation.</p>
+                <Block label="THE OPPORTUNITY IN YOUR CHAIR">
+                  <h2 className="display-section mt-4 max-w-[840px]">Every GLP-1 patient in your chair, whether you prescribed it or a telehealth service did, is a patient nobody is supporting. You can be the practice that does.</h2>
+                  <p className={lead}>No one is offering these patients daily support, and no one is rewarding them for showing up. The practice that does gets the consult, the procedure, and the one after that. An illustrative story, built from what aesthetic practices tell us: a patient mentions their GLP-1 to your injector in passing.</p>
                   <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
                     <Screen header="Your practice" sub="Front desk · over the following months">
                       <PatientBubble text="Just so you know I started Zepbound in August, from one of those online places" />
@@ -556,7 +556,7 @@ export function PracticesContent() {
                       <p className={eyebrow}>What didn&apos;t happen</p>
                       <Dots items={MISSING.aesthetic} />
                       <p className="mt-6 text-[17px] leading-[1.5] text-muted">
-                        They&apos;re still your patient. The drug is changing their face, their skin, and their body in under a year, and the only practice that could help with any of it heard about the medication once, in passing.
+                        The medication is changing their face, their skin, and their body. Every one of those changes is something your practice treats. With daily support and rewards from your practice in their phone, you are the one they ask, and the one they book with.
                       </p>
                     </div>
                   </div>
