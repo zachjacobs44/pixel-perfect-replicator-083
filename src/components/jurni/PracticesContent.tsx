@@ -186,10 +186,10 @@ const MISSING: Record<Track, string[]> = {
   ],
   aesthetic: [
     "Nobody at the practice followed up on the GLP-1 after that visit. It wasn't theirs to manage.",
-    "By month three her face had changed, and she had no one to ask whether that was normal.",
-    "At the plateau she nearly stopped the medication. Nobody knew.",
-    "She missed the next appointment. The front desk never learned why.",
-    "When she finally asked about her face, it was at a different practice.",
+    "By month three their face had changed, and they had no one to ask whether that was normal.",
+    "At the plateau they nearly stopped the medication. Nobody knew.",
+    "They missed the next appointment. The front desk never learned why.",
+    "When they finally asked about their face, it was at a different practice.",
   ],
 };
 
@@ -203,11 +203,11 @@ const CHANGED: Record<Track, string[]> = {
   "The decision stayed yours. Jurni GLP never named a dose. It surfaced your protocol and asked.",
   ],
   aesthetic: [
-    "The question about her face came to you, not to a search engine or the practice down the street.",
-    "She heard, from a thread with your name on it, that this is exactly what your consult is for.",
-    "The booking link was in her hand before the worry turned into a decision to go elsewhere.",
-    "Her milestone credit arrived the same day, from your practice, for showing up to her own program.",
-    "Jurni GLP didn't assess her face and didn't touch her dose. It knew what you offer and when to say so.",
+    "The question about their face came to you, not to a search engine or the practice down the street.",
+    "They heard, from a thread with your name on it, that this is exactly what your consult is for.",
+    "The booking link was in their hand before the worry turned into a decision to go elsewhere.",
+    "Their milestone credit arrived the same day, from your practice, for showing up to their own program.",
+    "Jurni GLP didn't assess their face and didn't touch their dose. It knew what you offer and when to say so.",
   ],
 };
 
@@ -224,8 +224,8 @@ const GAP: Record<Track, Stat[]> = {
 
 const GAP_HEAD: Record<Track, { h2: string; lead: string }> = {
   aesthetic: {
-    h2: "The weight comes off in a year. The face, the skin, and the body it leaves behind are years of procedures. They go to the practice in her phone.",
-    lead: "Fifty pounds, a hundred pounds: that is a different face, loose skin, a body that needs contouring, and a patient who finally wants all of it. One in three patients is off the medication within a year, and the one who quits at month four never arrives at that work. Keeping her on it, and keeping your name in the thread, is how it comes to you.",
+    h2: "The weight comes off in a year. The face, the skin, and the body it leaves behind are years of procedures. They go to the practice in your patient's phone.",
+    lead: "Fifty pounds, a hundred pounds: that is a different face, loose skin, a body that needs contouring, and a patient who finally wants all of it. One in three patients is off the medication within a year, and the one who quits at month four never arrives at that work. Keeping them on it, and keeping your name in the thread, is how it comes to you.",
   },
   clinical: {
     h2: "Trial patients lost 20.9%. Real-world patients are losing 3.6% to 11.9%.",
@@ -490,8 +490,8 @@ export function PracticesContent() {
             ) : (
               <>
                 <Block label="THE PATIENT YOU'RE ALREADY LOSING">
-                  <h2 className="display-section mt-4 max-w-[820px]">She got her GLP-1 online. She&apos;s still your patient. For a year, nobody treated her like one.</h2>
-                  <p className={lead}>An illustrative story, built from what aesthetic practices tell us. She mentioned the medication to your injector in passing. Over the next year her face, her skin, and her body changed, and your practice wasn&apos;t in the conversation.</p>
+                  <h2 className="display-section mt-4 max-w-[820px]">They got their GLP-1 online. They&apos;re still your patient. For a year, nobody treated them like one.</h2>
+                  <p className={lead}>An illustrative story, built from what aesthetic practices tell us. They mentioned the medication to your injector in passing. Over the next year their face, their skin, and their body changed, and your practice wasn&apos;t in the conversation.</p>
                   <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
                     <Screen header="Your practice" sub="Front desk · over the following months">
                       <PatientBubble text="Just so you know I started Zepbound in August, from one of those online places" />
@@ -504,14 +504,14 @@ export function PracticesContent() {
                       <p className={eyebrow}>What didn&apos;t happen</p>
                       <Dots items={MISSING.aesthetic} />
                       <p className="mt-6 text-[17px] leading-[1.5] text-muted">
-                        She&apos;s still your patient. The drug is changing her face, her skin, and her body in under a year, and the only practice that could help with any of it heard about the medication once, in passing.
+                        They&apos;re still your patient. The drug is changing their face, their skin, and their body in under a year, and the only practice that could help with any of it heard about the medication once, in passing.
                       </p>
                     </div>
                   </div>
                 </Block>
 
                 <Block label="THE SAME YEAR, WITH JURNI GLP CARRYING YOUR NAME">
-                  <h2 className="display-section mt-4 max-w-[800px]">Same patient. Same practice. Now your name is in her phone every day.</h2>
+                  <h2 className="display-section mt-4 max-w-[800px]">Same patient. Same practice. Now your name is in their phone every day.</h2>
                   <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
                     <Screen header="Jurni GLP" sub="For patients of your practice">
                       <UserBubble text="is it normal that my face looks kind of hollow now? im down 22 lb" />
