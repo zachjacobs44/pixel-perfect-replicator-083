@@ -183,7 +183,7 @@ function TrackPicker({ track, onPick }: { track: Track | null; onPick: (t: Track
         <WhiteCard className="h-full min-h-0 transition-shadow hover:shadow-[var(--shadow-phone)]">
           <div>
             <p className={eyebrow}>I run an aesthetic practice</p>
-            <h2 className={`${title} mt-3 text-[26px]`}>Plastic surgery, dermatology, medspa. The GLP-1 patients you prescribed, and the ones who got it somewhere else.</h2>
+            <h2 className={`${title} mt-3 text-[26px]`}>Plastic surgery, medspa, dermatology. The GLP-1 patients you prescribed, and the ones who got it somewhere else.</h2>
             <p className={body}>Your patients pay for Jurni GLP. You don&apos;t. You hand it to every patient on a GLP-1 and get a daily thread to each of them for as long as their body is changing, with rewards from your practice built in.</p>
           </div>
           <p className="mt-6 text-[16px] font-semibold text-[var(--stak-amber-deep)]">Read the aesthetic version &rarr;</p>
@@ -227,7 +227,7 @@ const DEAL: Record<Track, string> = {
 };
 
 const WHO: Record<Track, string> = {
-  aesthetic: "Plastic surgery, dermatology, medspa, and any practice whose patients come back for what the weight loss leaves behind. The GLP-1 patients you prescribed, and the ones who got it online.",
+  aesthetic: "Plastic surgery, medspa, dermatology, and any practice whose patients come back for what the weight loss leaves behind. The GLP-1 patients you prescribed, and the ones who got it online.",
   clinical: "Gastroenterology and hepatology, endocrinology, cardiology, obesity medicine, medical weight loss, bariatric surgery, OB/GYN and fertility, sleep medicine, nephrology, orthopedics, primary care.",
 };
 
