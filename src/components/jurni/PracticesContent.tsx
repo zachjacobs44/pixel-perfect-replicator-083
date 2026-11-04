@@ -127,8 +127,8 @@ function TrackPicker({ track, onPick }: { track: Track | null; onPick: (t: Track
         <WhiteCard className="h-full min-h-0 transition-shadow hover:shadow-[var(--shadow-phone)]">
           <div>
             <p className={eyebrow}>I run an aesthetic practice</p>
-            <h2 className={`${title} mt-3 text-[26px]`}>Plastic surgery, dermatology, medspa. Whether or not you prescribe.</h2>
-            <p className={body}>Your patients pay for Jurni GLP. You don&apos;t. You hand it to every patient who walks in on a GLP-1, whoever prescribed it, and get a year-long thread to each of them, with milestone rewards from your practice built in.</p>
+            <h2 className={`${title} mt-3 text-[26px]`}>Plastic surgery, dermatology, medspa. The GLP-1 patients you prescribed, and the ones who got it somewhere else.</h2>
+            <p className={body}>Your patients pay for Jurni GLP. You don&apos;t. You hand it to every patient on a GLP-1 and get a daily thread to each of them for as long as their body is changing, with rewards from your practice built in.</p>
           </div>
           <p className="mt-6 text-[16px] font-semibold text-[var(--stak-amber-deep)]">Read the aesthetic version &rarr;</p>
         </WhiteCard>
@@ -154,8 +154,8 @@ const BOOKING_URL: string | null = null;
 
 const HERO: Record<Track, { h1: string; lead: string }> = {
   aesthetic: {
-    h1: "Every GLP-1 patient who walks in is a year of visible change. Be the practice in their phone every day of it.",
-    lead: "Jurni GLP is an AI agent your patients text or call from the phone they already have. It carries your guidance, keeps them on the medication, answers the 9 p.m. questions, and texts them a reward from your practice at the moments that matter. It is for every patient who comes through your door on a GLP-1, whoever prescribed it. Your patients pay for it. Your practice never does.",
+    h1: "A GLP-1 patient is embarking on years of visible change. Be the practice in their phone every day of it.",
+    lead: "Jurni GLP is an AI agent your patients text or call from the phone they already have. It carries your guidance, keeps them on the medication, answers the 9 p.m. questions, and rewards the habits that keep them coming back to you. For every patient on a GLP-1: the ones you prescribed and the ones who got it somewhere else. Your patients pay for it. Your practice never does.",
   },
   clinical: {
     h1: "GLP-1 patients who stay on it, stay with you, and stop calling to ask if it's normal. At no cost to them, and none to you.",
@@ -165,13 +165,13 @@ const HERO: Record<Track, { h1: string; lead: string }> = {
 
 const DEAL: Record<Track, string> = {
   aesthetic:
-    "Every patient who walks in on a GLP-1, whoever prescribed it, gets daily support under your name, with your guidance. You get a year-long thread to each of them, with rewards from your practice delivered at every milestone, which is how they come back to you for what comes next instead of booking it somewhere else. They pay $29.99 a month after two free weeks, if they choose to. You pay nothing, sell nothing, set up nothing, and can stop any time.",
+    "Your GLP-1 patients get daily support under your name. Their healthy habits earn rewards from your practice, and every reward is a reason to walk back in. You get a daily thread to each of them for as long as their body is changing, which is years, not a visit. They pay $29.99 a month after two free weeks. You pay nothing, sell nothing, and can stop any time.",
   clinical:
     "Every GLP-1 patient in your practice, whoever prescribed it, gets daily support under your name, on your protocol. They stay on it, the refill stays yours, and the is-this-normal calls stop landing on your staff. It's free to them and free to you, because your practice becomes a named site in the study testing whether it works. You set up nothing and say one sentence to each patient.",
 };
 
 const WHO: Record<Track, string> = {
-  aesthetic: "Plastic surgery, dermatology, medspa, and any practice whose patients come back after the weight comes off.",
+  aesthetic: "Plastic surgery, dermatology, medspa, and any practice whose patients come back for what the weight loss leaves behind. The GLP-1 patients you prescribed, and the ones who got it online.",
   clinical: "Gastroenterology and hepatology, endocrinology, cardiology, obesity medicine, medical weight loss, bariatric surgery, OB/GYN and fertility, sleep medicine, nephrology, orthopedics, primary care.",
 };
 
@@ -219,17 +219,13 @@ const GAP: Record<Track, Stat[]> = {
     { n: "Every 4 weeks", t: "is what trial patients got that yours don't.", b: "STEP-1 participants had individual lifestyle counseling every four weeks for 68 weeks. Real-world patients get a prescription and a pamphlet.", s: "Wilding et al., NEJM 2021" },
     { n: "26 to 54%", t: "higher odds of staying on it with structured support.", b: "Engagement with structured support is associated with substantially higher odds of GLP-1 persistence. The drug works. Staying on it is the part patients do alone.", s: "Devaraj et al., 2025" },
   ],
-  aesthetic: [
-    { n: "1 in 3", t: "are off the medication within a year.", b: "More than a third of patients who start a weight-loss GLP-1 have stopped by month twelve. The one who quits at month four never gets to the face, skin, and body questions your practice answers.", s: "Prime Therapeutics, Q1 2024 initiators" },
-    { n: "26 to 54%", t: "higher odds of staying on it with daily support.", b: "Structured support is associated with substantially higher odds of staying on the medication. The patient who stays on it is the patient who shows up for what comes next.", s: "Devaraj et al., 2025" },
-    { n: "Every day", t: "she's deciding who to ask.", b: "A hollow face, loose skin, a body she doesn't recognize yet. Those questions come up at 9 p.m., for a year, and they go to whoever is in her phone. Right now that is a search engine and a telehealth chat." },
-  ],
+  aesthetic: [],
 };
 
 const GAP_HEAD: Record<Track, { h2: string; lead: string }> = {
   aesthetic: {
-    h2: "A GLP-1 patient is a year of face, skin, and body change. The practice in her phone every day is the one that gets the consult.",
-    lead: "Whoever prescribed it, she is your patient for everything that follows the weight loss. Keeping her on the medication, and keeping your name in the thread, is the whole point.",
+    h2: "The weight comes off in a year. The face, the skin, and the body it leaves behind are years of procedures. They go to the practice in her phone.",
+    lead: "Fifty pounds, a hundred pounds: that is a different face, loose skin, a body that needs contouring, and a patient who finally wants all of it. One in three patients is off the medication within a year, and the one who quits at month four never arrives at that work. Keeping her on it, and keeping your name in the thread, is how it comes to you.",
   },
   clinical: {
     h2: "Trial patients lost 20.9%. Real-world patients are losing 3.6% to 11.9%.",
@@ -264,10 +260,8 @@ const PRACTICE_GETS_SHARED = [
 
 const PRACTICE_GETS: Record<Track, { t: string; b: string }[]> = {
   aesthetic: [
-    { t: "Every GLP-1 patient, not just the ones you prescribe.", b: "Most of your patients on a GLP-1 got it somewhere else: a telehealth service, a primary care doctor, a compounder. They are still your patients. Hand every one of them Jurni GLP and every one of them is in a daily thread that carries your name and your rewards." },
-    { t: "A year-long thread to every GLP-1 patient.", b: "Through the whole arc of visible change, your patient is in a daily conversation that carries your name. When skin, contouring, and injectables become the next conversation, you are already in the room." },
-    { t: "Milestone rewards, in your name, on the day they're earned.", b: "Consistency, habits, or pounds: you choose the milestones and the rewards. Jurni GLP delivers them by text at the moment the patient feels it. Not a quarterly email. The day." },
-    { t: "A GLP-1 program your competitors don't have.", b: "Support around the clock, under your name, for every GLP-1 patient who walks in. The practice down the street is handing out a pamphlet." },
+    { t: "Every GLP-1 patient, not just the ones you prescribe.", b: "Some of your GLP-1 patients got it from you. Most got it somewhere else: a telehealth service, a primary care doctor, a compounder. They are all your patients. Hand every one of them Jurni GLP and every one is in a daily thread that carries your name and your rewards." },
+    { t: "A daily thread for years, not a visit.", b: "Through the whole arc of visible change, your patient is in a daily conversation that carries your name. When skin, contouring, and injectables become the next conversation, you are already in the room." },
   ],
   clinical: [
     { t: "Patients who stay on it, stay with you, and reach the right dose.", b: "A daily thread keeps the patient on the plan you wrote through the weeks most people quit, and tells them when it's time to call you about the next step. The refill stays yours." },
@@ -336,10 +330,10 @@ function Milestones() {
     ["Goal weight", "The conversation about what comes next, with you.", "Progress"],
   ];
   return (
-    <Block label="THE MILESTONE STRUCTURE">
-      <h2 className="display-section mt-4 max-w-[800px]">Every milestone is a text from your practice, on the day it&apos;s earned. Not only the number on the scale.</h2>
+    <Block label="HOW THEY COME BACK">
+      <h2 className="display-section mt-4 max-w-[840px]">Healthy habits earn rewards. The rewards come from your practice. The visit, the consult, and the procedure that follow come to you.</h2>
       <p className={lead}>
-        Weight comes off on its own schedule. The behaviors that produce it happen every week: dose days taken on time, protein hit most days, a plateau survived, a lift done. Jurni GLP sees all of it, so your milestones can reward consistency and habits as much as pounds, and a reward lands early and often instead of twice a year. Each one is a reason to walk back through your door, and a patient who feels good about how they&apos;re showing up is a patient with a growing interest in the rest of your menu.
+        Jurni GLP sees every dose day taken on time, every week protein was hit, every plateau survived. You decide which of those earn a reward and what it is: a credit, a consult, an add-on. It lands by text the day it&apos;s earned, in your name, with your booking link. Every reward is a reason to walk back in, and a patient who feels good about how they&apos;re showing up asks about procedures they were never going to ask about.
       </p>
       <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
         <div>
@@ -444,6 +438,10 @@ export function PracticesContent() {
                 <p className="mt-4 text-[15px] leading-[1.5]" style={{ color: "var(--stak-slate)" }}>{WHO[t]}</p>
               </div>
             </NightCard>
+
+            {/* Aesthetic: the rewards engine comes first */}
+            {t === "aesthetic" ? <Milestones /> : null}
+
             {/* The exchange */}
             {t === "clinical" ? (
               <>
@@ -491,9 +489,9 @@ export function PracticesContent() {
               </>
             ) : (
               <>
-                <Block label="WHAT A GLP-1 PATIENT LOOKS LIKE FROM YOUR CHAIR">
-                  <h2 className="display-section mt-4 max-w-[800px]">She mentioned it at a Botox visit. Then nothing, for a year.</h2>
-                  <p className={lead}>An illustrative story, built from what aesthetic practices tell us. A telehealth service prescribed the GLP-1. She told your injector about it in passing. You never heard about it again.</p>
+                <Block label="THE PATIENT YOU'RE ALREADY LOSING">
+                  <h2 className="display-section mt-4 max-w-[820px]">She got her GLP-1 online. She&apos;s still your patient. For a year, nobody treated her like one.</h2>
+                  <p className={lead}>An illustrative story, built from what aesthetic practices tell us. She mentioned the medication to your injector in passing. Over the next year her face, her skin, and her body changed, and your practice wasn&apos;t in the conversation.</p>
                   <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
                     <Screen header="Your practice" sub="Front desk · over the following months">
                       <PatientBubble text="Just so you know I started Zepbound in August, from one of those online places" />
@@ -513,7 +511,7 @@ export function PracticesContent() {
                 </Block>
 
                 <Block label="THE SAME YEAR, WITH JURNI GLP CARRYING YOUR NAME">
-                  <h2 className="display-section mt-4 max-w-[800px]">Same patient. Same practice. Same prescription from somewhere else. Nobody added to your workload.</h2>
+                  <h2 className="display-section mt-4 max-w-[800px]">Same patient. Same practice. Now your name is in her phone every day.</h2>
                   <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
                     <Screen header="Jurni GLP" sub="For patients of your practice">
                       <UserBubble text="is it normal that my face looks kind of hollow now? im down 22 lb" />
@@ -534,7 +532,7 @@ export function PracticesContent() {
             <Block label="WHY IT MATTERS">
               <h2 className="display-section mt-4 max-w-[800px]">{GAP_HEAD[t].h2}</h2>
               <p className={lead}>{GAP_HEAD[t].lead}</p>
-              <div className="mt-8 grid gap-4 md:grid-cols-3">
+              <div className={`mt-8 grid gap-4 md:grid-cols-3 ${GAP[t].length ? "" : "hidden"}`}>
                 {GAP[t].map((g) => (
                   <WhiteCard key={g.n}>
                     <div>
@@ -548,8 +546,8 @@ export function PracticesContent() {
               </div>
             </Block>
 
-            {/* Track-specific feature */}
-            {t === "aesthetic" ? <Milestones /> : <Study />}
+            {/* Medical: the study */}
+            {t === "clinical" ? <Study /> : null}
 
             {/* What the patient gets */}
             <Block label="WHAT YOUR PATIENT GETS">
@@ -557,7 +555,13 @@ export function PracticesContent() {
                 {t === "aesthetic" ? "Daily support on the phone they already have, with your name at the top." : "The program the trials wrapped around the drug, on the phone they already have."}
               </h2>
               <p className={lead}>Built from your {t === "aesthetic" ? "guidance" : "protocol"} and the manufacturer&apos;s dosing information, then personalized to the patient: what they eat, how they move, what their week looks like, what language they think in. No app. No account. Nothing to fill in.</p>
-              <Cards items={[...PATIENT_GETS.slice(0, 5), PATIENT_GETS_TRACK[t], ...PATIENT_GETS.slice(5)]} />
+              <Cards
+                items={
+                  t === "aesthetic"
+                    ? [...PATIENT_GETS.slice(0, 3), PATIENT_GETS_TRACK.aesthetic]
+                    : [...PATIENT_GETS.slice(0, 5), PATIENT_GETS_TRACK.clinical, ...PATIENT_GETS.slice(5)]
+                }
+              />
             </Block>
 
             {/* How it works */}
@@ -599,7 +603,13 @@ export function PracticesContent() {
 
             {/* What the practice gets */}
             <Block label="WHAT YOUR PRACTICE GETS">
-              <Cards items={[...PRACTICE_GETS[t], PROTOCOL_CARD[t], ...PRACTICE_GETS_SHARED]} />
+              <Cards
+                items={
+                  t === "aesthetic"
+                    ? [...PRACTICE_GETS.aesthetic, PROTOCOL_CARD.aesthetic, ...PRACTICE_GETS_SHARED.slice(2)]
+                    : [...PRACTICE_GETS.clinical, PROTOCOL_CARD.clinical, ...PRACTICE_GETS_SHARED]
+                }
+              />
             </Block>
 
             {/* Money + commitment */}
@@ -626,7 +636,13 @@ export function PracticesContent() {
 
             {/* FAQ */}
             <Block label="QUESTIONS PHYSICIANS ASK">
-              <Faq items={[...FAQ[t], ...FAQ_SHARED]} />
+              <Faq
+                items={
+                  t === "aesthetic"
+                    ? [...FAQ.aesthetic.filter((_, i) => i !== 1 && i !== 3), ...FAQ_SHARED.filter((_, i) => [0, 1, 2, 4].includes(i))]
+                    : [...FAQ.clinical, ...FAQ_SHARED]
+                }
+              />
             </Block>
 
             <YellowCard className="mt-10 min-h-0">
@@ -644,7 +660,7 @@ export function PracticesContent() {
             <Block label="THE DECISION">
               <h2 className="display-section mt-4 max-w-[820px]">
                 {t === "aesthetic"
-                  ? "Your GLP-1 patients get daily support with your name on it. Your practice gets a year-long thread to every one of them, and a reason for each to walk back in. It costs you nothing and ends the day you say so."
+                  ? "Your GLP-1 patients get daily support with your name on it. Your practice gets a thread to every one of them for years, and a reason for each to walk back in. It costs you nothing and ends the day you say so."
                   : "Your patients stay on the medication and stay with you. Your practice gets its name on the evidence. It costs you nothing and ends the day you say so."}
               </h2>
               <p className={lead}>The question isn&apos;t whether to add it. It&apos;s why a GLP-1 patient would leave your office without it.</p>
