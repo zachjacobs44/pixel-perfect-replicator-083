@@ -88,15 +88,71 @@ function Cards({ items, cols = 2 }: { items: { t: string; b: string }[]; cols?: 
   );
 }
 
+/* Accordion: only the questions show until one is tapped. */
 function Faq({ items }: { items: { q: string; a: string }[] }) {
+  const [open, setOpen] = useState<string | null>(null);
   return (
     <div className="mt-5 divide-y" style={{ borderColor: "var(--hairline)" }}>
-      {items.map(({ q, a }) => (
-        <div key={q} className="grid gap-2 py-6 md:grid-cols-[300px_1fr] md:gap-8" style={{ borderColor: "var(--hairline)" }}>
-          <h3 className="font-display text-[20px] font-extrabold leading-[1.15]">{q}</h3>
-          <p className="text-[17px] leading-[1.5]">{a}</p>
+      {items.map(({ q, a }) => {
+        const on = open === q;
+        return (
+          <div key={q} style={{ borderColor: "var(--hairline)" }}>
+            <button
+              type="button"
+              aria-expanded={on}
+              onClick={() => setOpen(on ? null : q)}
+              className="flex w-full items-start justify-between gap-5 py-5 text-left"
+            >
+              <h3 className="font-display text-[19px] font-extrabold leading-[1.2] md:text-[20px]">{q}</h3>
+              <span aria-hidden className="mt-0.5 shrink-0 font-display text-[26px] leading-none text-[var(--stak-amber-deep)]">{on ? "−" : "+"}</span>
+            </button>
+            {on ? <p className="max-w-[720px] pb-6 text-[17px] leading-[1.5]">{a}</p> : null}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/* A folded section: label, one-line title and a teaser; the body opens on tap. */
+function Fold({ label, title, teaser, children }: { label: string; title: string; teaser?: string; children: ReactNode }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="mt-8 border-t md:mt-10" style={{ borderColor: "var(--hairline)" }}>
+      <button type="button" aria-expanded={open} onClick={() => setOpen((o) => !o)} className="flex w-full items-start justify-between gap-6 py-7 text-left">
+        <div>
+          <SectionLabel>{label}</SectionLabel>
+          <p className="font-display mt-2 max-w-[760px] text-[24px] font-extrabold leading-[1.15] md:text-[28px]">{title}</p>
+          {teaser ? <p className="mt-2 max-w-[680px] text-[16px] leading-[1.5] text-muted">{teaser}</p> : null}
         </div>
-      ))}
+        <span aria-hidden className="mt-2 shrink-0 font-display text-[34px] leading-none text-[var(--stak-amber-deep)]">{open ? "−" : "+"}</span>
+      </button>
+      {open ? <div className="pb-8">{children}</div> : null}
+    </div>
+  );
+}
+
+/* Floating walkthrough button once the reader is past the hero. */
+function StickyCta({ href }: { href: string }) {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const on = () => setShow(window.scrollY > 700);
+    on();
+    window.addEventListener("scroll", on, { passive: true });
+    return () => window.removeEventListener("scroll", on);
+  }, []);
+  if (!show) return null;
+  return (
+    <div className="fixed right-6 bottom-6 z-40 hidden md:block">
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className="press-spring inline-flex h-[56px] items-center justify-center rounded-[var(--radius-chip)] px-7 text-[17px] font-semibold text-primary-foreground"
+        style={{ background: "var(--grad-button)", boxShadow: "var(--shadow-button)" }}
+      >
+        Book the 30-minute walkthrough
+      </a>
     </div>
   );
 }
@@ -368,23 +424,19 @@ function Study() {
       <p className={lead}>
         Every Phase 3 GLP-1 trial paired the drug with structured lifestyle support: a counselor on a schedule, a calorie target, an activity target, a dose schedule. Real-world patients get none of it. Jurni GLP delivers that program by text and call. The study measures whether it moves the number that matters.
       </p>
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
-        {[
-          { t: "What it measures.", b: "Persistence on the medication, verified against pharmacy refills, not self-report. Weight trajectory and dose progression alongside it." },
-          { t: "How it runs.", b: "Randomized. Patients who are not assigned to Jurni GLP at enrollment receive usual care for six months, then get it at no cost. Consent at enrollment, IRB-approved before anyone is counted." },
-          { t: "What your practice gets.", b: "Study-site status in the first randomized, refill-verified evaluation of daily AI support for GLP-1 patients. Named in resulting publications with your approval. A seat on the clinical advisory group. Your own panel's data first." },
-        ].map(({ t, b }) => (
-          <WhiteCard key={t} className="min-h-0">
-            <div>
-              <h3 className={title}>{t}</h3>
-              <p className={body}>{b}</p>
-            </div>
-          </WhiteCard>
-        ))}
-      </div>
-      <p className={`mt-6 max-w-[760px] text-[16px] leading-[1.5] text-muted`}>
-        Until the readout, we make no claims about persistence beyond what the published literature supports. The study exists because a physician in an academically adjacent practice deserves evidence, not a sales deck.
-      </p>
+      <Fold label="IN DETAIL" title="What it measures, how it runs, what your practice gets." teaser="Refill-verified persistence. Randomized, IRB-approved. Your name on the evidence.">
+        <Cards
+          cols={3}
+          items={[
+            { t: "What it measures.", b: "Persistence on the medication, verified against pharmacy refills, not self-report. Weight trajectory and dose progression alongside it." },
+            { t: "How it runs.", b: "Randomized. Patients who are not assigned to Jurni GLP at enrollment receive usual care for six months, then get it at no cost. Consent at enrollment, IRB-approved before anyone is counted." },
+            { t: "What your practice gets.", b: "Study-site status in the first randomized, refill-verified evaluation of daily AI support for GLP-1 patients. Named in resulting publications with your approval. A seat on the clinical advisory group. Your own panel's data first." },
+          ]}
+        />
+        <p className={`mt-6 max-w-[760px] text-[16px] leading-[1.5] text-muted`}>
+          Until the readout, we make no claims about persistence beyond what the published literature supports. The study exists because a physician in an academically adjacent practice deserves evidence, not a sales deck.
+        </p>
+      </Fold>
     </Block>
   );
 }
@@ -549,21 +601,6 @@ export function PracticesContent() {
             {/* Medical: the study */}
             {t === "clinical" ? <Study /> : null}
 
-            {/* What the patient gets */}
-            <Block label="WHAT YOUR PATIENT GETS">
-              <h2 className="display-section mt-4 max-w-[760px]">
-                {t === "aesthetic" ? "Daily support on the phone they already have, with your name at the top." : "The program the trials wrapped around the drug, on the phone they already have."}
-              </h2>
-              <p className={lead}>Built from your {t === "aesthetic" ? "guidance" : "protocol"} and the manufacturer&apos;s dosing information, then personalized to the patient: what they eat, how they move, what their week looks like, what language they think in. No app. No account. Nothing to fill in.</p>
-              <Cards
-                items={
-                  t === "aesthetic"
-                    ? [...PATIENT_GETS.slice(0, 3), PATIENT_GETS_TRACK.aesthetic]
-                    : [...PATIENT_GETS.slice(0, 5), PATIENT_GETS_TRACK.clinical, ...PATIENT_GETS.slice(5)]
-                }
-              />
-            </Block>
-
             {/* How it works */}
             <Block label="HOW IT WORKS IN YOUR PRACTICE">
               <h2 className="display-section mt-4 max-w-[760px]">One sentence in the exam room. That&apos;s the whole workflow.</h2>
@@ -601,16 +638,36 @@ export function PracticesContent() {
               </NightCard>
             </Block>
 
-            {/* What the practice gets */}
-            <Block label="WHAT YOUR PRACTICE GETS">
-              <Cards
-                items={
-                  t === "aesthetic"
-                    ? [...PRACTICE_GETS.aesthetic, PROTOCOL_CARD.aesthetic, ...PRACTICE_GETS_SHARED.slice(2)]
-                    : [...PRACTICE_GETS.clinical, PROTOCOL_CARD.clinical, ...PRACTICE_GETS_SHARED]
-                }
-              />
-            </Block>
+            {/* Folded detail: patient, practice */}
+            <div className="mt-16 md:mt-24">
+              <Fold
+                label="WHAT YOUR PATIENT GETS"
+                title={t === "aesthetic" ? "Daily support on the phone they already have, with your name at the top." : "The program the trials wrapped around the drug, on the phone they already have."}
+                teaser="A plan from day one, someone to ask at 9 p.m., check-ins before the hard days. No app, no account."
+              >
+                <p className="max-w-[680px] text-[17px] leading-[1.5] text-muted">Built from your {t === "aesthetic" ? "guidance" : "protocol"} and the manufacturer&apos;s dosing information, then personalized to the patient: what they eat, how they move, what their week looks like, what language they think in. No app. No account. Nothing to fill in.</p>
+                <Cards
+                  items={
+                    t === "aesthetic"
+                      ? [...PATIENT_GETS.slice(0, 3), PATIENT_GETS_TRACK.aesthetic]
+                      : [...PATIENT_GETS.slice(0, 3), PATIENT_GETS_TRACK.clinical, ...PATIENT_GETS.slice(5)]
+                  }
+                />
+              </Fold>
+              <Fold
+                label="WHAT YOUR PRACTICE GETS"
+                title={t === "aesthetic" ? "Every GLP-1 patient in a daily thread that carries your name, for years." : "Patients who stay on it and stay with you. Your name on the evidence."}
+                teaser={t === "aesthetic" ? "Your guidance delivered every day. Nothing to set up, nothing to pay." : "Your protocol delivered every day. A progress summary before the visit. Nothing to set up, nothing to pay."}
+              >
+                <Cards
+                  items={
+                    t === "aesthetic"
+                      ? [...PRACTICE_GETS.aesthetic, PROTOCOL_CARD.aesthetic, ...PRACTICE_GETS_SHARED.slice(2)]
+                      : [...PRACTICE_GETS.clinical.filter((_, i) => i !== 2), PROTOCOL_CARD.clinical, ...PRACTICE_GETS_SHARED.slice(1)]
+                  }
+                />
+              </Fold>
+            </div>
 
             {/* Money + commitment */}
             <Block label={t === "aesthetic" ? "WHO PAYS" : "WHO PAYS. NOBODY."}>
@@ -635,15 +692,17 @@ export function PracticesContent() {
             </Block>
 
             {/* FAQ */}
-            <Block label="QUESTIONS PHYSICIANS ASK">
-              <Faq
-                items={
-                  t === "aesthetic"
-                    ? [...FAQ.aesthetic.filter((_, i) => i !== 1 && i !== 3), ...FAQ_SHARED.filter((_, i) => [0, 1, 2, 4].includes(i))]
-                    : [...FAQ.clinical, ...FAQ_SHARED]
-                }
-              />
-            </Block>
+            <div className="mt-10 md:mt-14">
+              <Fold label="QUESTIONS PHYSICIANS ASK" title="Liability, staff time, patient data, and what happens at 2 a.m." teaser="Six questions, short answers.">
+                <Faq
+                  items={
+                    t === "aesthetic"
+                      ? [...FAQ.aesthetic.filter((_, i) => i !== 1 && i !== 3), ...FAQ_SHARED.filter((_, i) => [0, 1, 2, 4].includes(i))]
+                      : [...FAQ.clinical.slice(0, 2), ...FAQ_SHARED.filter((_, i) => [0, 1, 3, 4].includes(i))]
+                  }
+                />
+              </Fold>
+            </div>
 
             <YellowCard className="mt-10 min-h-0">
               <div>
@@ -698,6 +757,7 @@ export function PracticesContent() {
           </>
         ) : null}
       </div>
+      {t ? <StickyCta href={BOOKING_URL ?? "mailto:practices@jurniglp.com"} /> : null}
     </section>
   );
 }
