@@ -551,7 +551,7 @@ export function PracticesContent() {
               <>
                 <Block label="THE ARC OF A GLP-1 PATIENT">
                   <h2 className="display-section mt-4 max-w-[840px]">They start a GLP-1. The weight comes off. Then they want everything on your menu, and most of them don&apos;t know what&apos;s on it.</h2>
-                  <p className={lead}>Whether you prescribed it or a telehealth service did, every GLP-1 patient is at the start of this arc. The practice that walks them through it, every day, with rewards along the way, is the practice that gets every procedure on it. Illustrative, built from what aesthetic practices tell us.</p>
+                  <p className={lead}>Whether you prescribed it or a telehealth service did, every GLP-1 patient is at the start of this arc. The practice that walks them through it, every day, with rewards along the way, is the practice that gets every procedure on it. This arc is a real one. It&apos;s happening across the country, and inside your patient population right now.</p>
                   <div className="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-start">
                     <div className="divide-y" style={{ borderColor: "var(--hairline)" }}>
                       {ARC.map(([when, what, b]) => (
@@ -750,7 +750,7 @@ export function PracticesContent() {
                 </a>
               </div>
               <p className="fine-print mt-6 text-muted">
-                Jurni GLP is a service of Jurni Health, Inc. and is not associated with, endorsed by, or sponsored by Novo Nordisk or Eli Lilly. {t === "clinical" ? "The exchange near the top of this page is reproduced with the patient\u2019s permission; the practice is not identified." : "The patient arc near the top of this page is illustrative."}
+                Jurni GLP is a service of Jurni Health, Inc. and is not associated with, endorsed by, or sponsored by Novo Nordisk or Eli Lilly. {t === "clinical" ? "The exchange near the top of this page is reproduced with the patient\u2019s permission; the practice is not identified." : "The patient arc near the top of this page is a composite; details are not from any single patient."}
               </p>
             </Block>
           </>
