@@ -150,7 +150,7 @@ function TrackPicker({ track, onPick }: { track: Track | null; onPick: (t: Track
 /* ---------- copy ---------- */
 
 /* Set this to your scheduling link (Calendly, Cal.com, etc.). Until it's set, the button falls back to email. */
-const BOOKING_URL: string | null = null;
+const BOOKING_URL: string | null = "https://calendly.com/zachary-jurniglp";
 
 const HERO: Record<Track, { h1: string; lead: string }> = {
   aesthetic: {
