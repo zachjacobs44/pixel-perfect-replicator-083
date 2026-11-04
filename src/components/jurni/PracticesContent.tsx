@@ -259,13 +259,21 @@ const CHANGED: Record<Track, string[]> = {
   "The decision stayed yours. Jurni GLP never named a dose. It surfaced your protocol and asked.",
   ],
   aesthetic: [
-    "The question about their face came to you, not to a search engine or the practice down the street.",
-    "They heard, from a thread with your name on it, that this is exactly what your consult is for.",
-    "The booking link was in their hand before the worry turned into a decision to go elsewhere.",
-    "Their milestone credit arrived the same day, from your practice, for showing up to their own program.",
-    "Jurni GLP didn't assess their face and didn't touch their dose. It knew what you offer and when to say so.",
+    "Your name was in their phone every day of the weight loss, not once at a Botox visit.",
+    "Every question about a changing face or body went to a thread that knows your menu.",
+    "Every milestone was a reward from your practice, redeemed in your office.",
+    "They learned what you offer one procedure at a time, exactly when each one became relevant.",
+    "Jurni GLP never assessed a face and never touched a dose. It knew what you offer and when to say so.",
   ],
 };
+
+const ARC: [string, string, string][] = [
+  ["Month 1", "Starts the GLP-1.", "In your practice or from a telehealth service. Either way they text Jurni GLP before they leave your office, and your practice is in their phone every day from here."],
+  ["Month 3", "Twenty pounds down. The face is changing.", "They ask Jurni GLP if the hollowness is normal. It says this is exactly what your consult is for and sends your booking link. First visit back: Botox, filler."],
+  ["Month 8", "Forty-five pounds down. The skin is catching up.", "A milestone credit from your practice lands by text. They come in to use it and learn, for the first time, that you do body contouring."],
+  ["Month 14", "Near goal weight.", "Loose skin on the face, the abdomen, the arms. The facelift and tummy tuck conversation happens with you, because you have been in the thread the whole way."],
+  ["Year 2", "The body they always wanted it on.", "The rhinoplasty or the augmentation they have thought about for years, finally, with the practice that got them here."],
+];
 
 type Stat = { n: string; t: string; b: string; s?: string };
 
@@ -332,10 +340,10 @@ const MONEY: Record<Track, { h: string; b: string; commit: string[] }> = {
     h: "Your patients pay $29.99 a month. You pay nothing.",
     b: "Two weeks free, then $29.99 a month or $299 a year, billed to the patient directly, if they choose to continue. You never sell it, never collect it, and never hear about it. No revenue share, no invoice, no money between your practice and Jurni GLP. A patient who doesn't subscribe is still your patient; nothing about their care with you changes.",
     commit: [
-      "The sentence, to every patient on a GLP-1, new prescription or not, plus one text to your existing GLP-1 panel.",
-      "One named champion, about twenty minutes a week.",
-      "Your protocol and your milestone rewards, set with us once.",
-      "A 20-minute review once a month.",
+      "One sentence to every GLP-1 patient, the ones you prescribe and the ones who got it elsewhere. One text to your existing GLP-1 list.",
+      "One champion in the practice. About twenty minutes a week.",
+      "Your guidance and your rewards, set with us once in a 30-minute walkthrough.",
+      "A 20-minute review once a month. That is the entire commitment.",
     ],
   },
   clinical: {
@@ -541,38 +549,29 @@ export function PracticesContent() {
               </>
             ) : (
               <>
-                <Block label="THE OPPORTUNITY IN YOUR CHAIR">
-                  <h2 className="display-section mt-4 max-w-[840px]">Every GLP-1 patient in your chair, whether you prescribed it or a telehealth service did, is a patient nobody is supporting. You can be the practice that does.</h2>
-                  <p className={lead}>No one is offering these patients daily support, and no one is rewarding them for showing up. The practice that does gets the consult, the procedure, and the one after that. An illustrative story, built from what aesthetic practices tell us: a patient mentions their GLP-1 to your injector in passing.</p>
-                  <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
-                    <Screen header="Your practice" sub="Front desk · over the following months">
-                      <PatientBubble text="Just so you know I started Zepbound in August, from one of those online places" />
-                      <OfficeBubble>Oh nice! Good luck with it. See you in three months for your next Botox.</OfficeBubble>
-                      <OfficeBubble>Hi! Just confirming your appointment Thursday at 2.</OfficeBubble>
-                      <PatientBubble text="So sorry, need to reschedule. Will call" />
-                      <OfficeBubble>No problem, let us know!</OfficeBubble>
-                    </Screen>
-                    <div>
-                      <p className={eyebrow}>What didn&apos;t happen</p>
-                      <Dots items={MISSING.aesthetic} />
-                      <p className="mt-6 text-[17px] leading-[1.5] text-muted">
-                        The medication is changing their face, their skin, and their body. Every one of those changes is something your practice treats. With daily support and rewards from your practice in their phone, you are the one they ask, and the one they book with.
-                      </p>
+                <Block label="THE ARC OF A GLP-1 PATIENT">
+                  <h2 className="display-section mt-4 max-w-[840px]">They start a GLP-1. The weight comes off. Then they want everything on your menu, and most of them don&apos;t know what&apos;s on it.</h2>
+                  <p className={lead}>Whether you prescribed it or a telehealth service did, every GLP-1 patient is at the start of this arc. The practice that walks them through it, every day, with rewards along the way, is the practice that gets every procedure on it. Illustrative, built from what aesthetic practices tell us.</p>
+                  <div className="mt-10 grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-start">
+                    <div className="divide-y" style={{ borderColor: "var(--hairline)" }}>
+                      {ARC.map(([when, what, b]) => (
+                        <div key={when} className="grid grid-cols-[110px_1fr] gap-4 py-4 md:grid-cols-[130px_1fr]" style={{ borderColor: "var(--hairline)" }}>
+                          <span className="font-display block text-[18px] font-extrabold leading-tight text-[var(--stak-amber-deep)]">{when}</span>
+                          <div>
+                            <p className="font-display text-[19px] font-extrabold leading-[1.2]">{what}</p>
+                            <p className="mt-1.5 text-[16px] leading-[1.5]">{b}</p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  </div>
-                </Block>
-
-                <Block label="THE SAME YEAR, WITH JURNI GLP CARRYING YOUR NAME">
-                  <h2 className="display-section mt-4 max-w-[800px]">Same patient. Same practice. Now your name is in their phone every day.</h2>
-                  <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
-                    <Screen header="Jurni GLP" sub="For patients of your practice">
-                      <UserBubble text="is it normal that my face looks kind of hollow now? im down 22 lb" />
-                      <StakBubble>I can&apos;t assess your face, and I won&apos;t guess. What I can tell you: changes in the face with fast weight loss are common, and your practice covers exactly this in a consultation. That&apos;s what they&apos;re for. Here&apos;s their booking link.</StakBubble>
-                      <UserBubble text="ok. booked for tuesday" />
-                      <StakBubble>Good. One more thing: 22 pounds passed your second milestone. Your practice set a credit aside for it, and it&apos;s on your Page now. Mention it Tuesday. Your dose and your prescription stay with the people who wrote it; I only help you show up to your own program.</StakBubble>
-                    </Screen>
                     <div>
-                      <p className={eyebrow}>What changed</p>
+                      <Screen header="Jurni GLP" sub="For patients of your practice · month 3">
+                        <UserBubble text="is it normal that my face looks kind of hollow now? im down 22 lb" />
+                        <StakBubble>I can&apos;t assess your face, and I won&apos;t guess. What I can tell you: changes in the face with fast weight loss are common, and your practice covers exactly this in a consultation. That&apos;s what they&apos;re for. Here&apos;s their booking link.</StakBubble>
+                        <UserBubble text="ok. booked for tuesday" />
+                        <StakBubble>Good. One more thing: 22 pounds passed your second milestone. Your practice set a credit aside for it, and it&apos;s on your Page now. Mention it Tuesday.</StakBubble>
+                      </Screen>
+                      <p className={`${eyebrow} mt-8`}>Why it all comes to you</p>
                       <Dots items={CHANGED.aesthetic} />
                     </div>
                   </div>
@@ -751,7 +750,7 @@ export function PracticesContent() {
                 </a>
               </div>
               <p className="fine-print mt-6 text-muted">
-                Jurni GLP is a service of Jurni Health, Inc. and is not associated with, endorsed by, or sponsored by Novo Nordisk or Eli Lilly. {t === "clinical" ? "The exchange near the top of this page is reproduced with the patient\u2019s permission; the practice is not identified." : "The patient story near the top of this page is illustrative."}
+                Jurni GLP is a service of Jurni Health, Inc. and is not associated with, endorsed by, or sponsored by Novo Nordisk or Eli Lilly. {t === "clinical" ? "The exchange near the top of this page is reproduced with the patient\u2019s permission; the practice is not identified." : "The patient arc near the top of this page is illustrative."}
               </p>
             </Block>
           </>
