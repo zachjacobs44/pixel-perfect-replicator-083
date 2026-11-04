@@ -127,7 +127,7 @@ function TrackPicker({ track, onPick }: { track: Track | null; onPick: (t: Track
         <WhiteCard className="h-full min-h-0 transition-shadow hover:shadow-[var(--shadow-phone)]">
           <div>
             <p className={eyebrow}>I run an aesthetic practice</p>
-            <h2 className={`${title} mt-3 text-[26px]`}>Plastic surgery, dermatology, medspa.</h2>
+            <h2 className={`${title} mt-3 text-[26px]`}>Plastic surgery, dermatology, medspa. Whether or not you prescribe.</h2>
             <p className={body}>Your patients pay for Jurni GLP. You don&apos;t. You hand it to every patient who walks in on a GLP-1, whoever prescribed it, and get a year-long thread to each of them, with milestone rewards from your practice built in.</p>
           </div>
           <p className="mt-6 text-[16px] font-semibold text-[var(--stak-amber-deep)]">Read the aesthetic version &rarr;</p>
@@ -137,7 +137,7 @@ function TrackPicker({ track, onPick }: { track: Track | null; onPick: (t: Track
         <NightCard className="h-full min-h-0">
           <div>
             <p className="text-[13px] font-semibold uppercase tracking-[.08em]" style={{ color: "var(--stak-amber)" }}>I run a medical practice</p>
-            <h2 className={`${title} mt-3 text-[26px]`}>Gastroenterology, endocrinology, cardiology, obesity medicine, bariatrics, OB/GYN, primary care.</h2>
+            <h2 className={`${title} mt-3 text-[26px]`}>Gastroenterology, endocrinology, cardiology, obesity medicine, medical weight loss, bariatrics, OB/GYN, primary care.</h2>
             <p className={body}>Free for every GLP-1 patient in your practice, whoever prescribed it, and free for you. Your practice becomes a site in the study testing whether an AI agent can deliver what the trials delivered.</p>
           </div>
           <p className="mt-6 text-[16px] font-semibold" style={{ color: "var(--stak-amber)" }}>Read the medical version &rarr;</p>
@@ -156,7 +156,7 @@ const HERO: Record<Track, { h1: string; lead: string }> = {
   },
   clinical: {
     h1: "The support your GLP-1 patients would get inside a clinical trial. At no cost to them, and none to you.",
-    lead: "Jurni GLP is an AI agent your patients text or call from the phone they already have. It carries your protocol, checks in every day, and sends defined symptoms back to your office. It is for every GLP-1 patient in your practice, whether you wrote the prescription or someone else did. They get it free because they are the cohort in the study testing whether an agent can deliver what the trials delivered.",
+    lead: "Jurni GLP is an AI agent your patients text or call from the phone they already have. It carries your protocol, checks in every day, and tells the patient when it's time to call your office. It is for every GLP-1 patient in your practice, whether you wrote the prescription or someone else did. They get it free because they are the cohort in the study testing whether an agent can deliver what the trials delivered.",
   },
 };
 
@@ -169,26 +169,44 @@ const DEAL: Record<Track, string> = {
 
 const WHO: Record<Track, string> = {
   aesthetic: "Plastic surgery, dermatology, medspa, and any practice whose patients come back after the weight comes off.",
-  clinical: "Gastroenterology and hepatology, endocrinology, cardiology, obesity medicine, bariatric surgery, OB/GYN and fertility, sleep medicine, nephrology, orthopedics, primary care.",
+  clinical: "Gastroenterology and hepatology, endocrinology, cardiology, obesity medicine, medical weight loss, bariatric surgery, OB/GYN and fertility, sleep medicine, nephrology, orthopedics, primary care.",
 };
 
-const MISSING = [
+const MISSING: Record<Track, string[]> = {
+  clinical: [
   "Two calls to the office. Voicemail both times.",
   "The patient had to remember it was time to increase. Nobody told him.",
   "No visit. No conversation with the prescriber.",
   "No bloodwork ordered to see how he's responding.",
   "Nothing about what the higher dose might feel like in week one.",
   "No check-in afterward. The next contact is whenever he calls again.",
-];
+  ],
+  aesthetic: [
+    "Nobody at the practice followed up on the GLP-1 after that visit. It wasn't theirs to manage.",
+    "By month three her face had changed, and she had no one to ask whether that was normal.",
+    "At the plateau she nearly stopped the medication. Nobody knew.",
+    "She missed the next appointment. The front desk never learned why.",
+    "When she finally asked about her face, it was at a different practice.",
+  ],
+};
 
-const CHANGED = [
+const CHANGED: Record<Track, string[]> = {
+  clinical: [
   "The dose check happened on your schedule, not when the patient remembered.",
-  "Your office got one request, with the context already written, instead of two voicemails.",
-  "The labs you want at this step got ordered because your protocol says so.",
+  "Your office got one message from the patient with the last four weeks already written down, instead of two voicemails.",
+  "The labs you want at this step were on the patient's list because your protocol says so.",
   "The patient knew what the first week on 7.5 would feel like before it started.",
   "Someone checked in the morning after.",
   "The decision stayed yours. Jurni GLP never named a dose. It surfaced your protocol and asked.",
-];
+  ],
+  aesthetic: [
+    "The question about her face came to you, not to a search engine or the practice down the street.",
+    "She heard, from a thread with your name on it, that this is exactly what your consult is for.",
+    "The booking link was in her hand before the worry turned into a decision to go elsewhere.",
+    "Her milestone credit arrived the same day, from your practice, for showing up to her own program.",
+    "Jurni GLP didn't assess her face and didn't touch her dose. It knew what you offer and when to say so.",
+  ],
+};
 
 const GAP = [
   { n: "1 in 3", t: "are off the medication within a year.", b: "Even in the best-persisting cohort measured to date, more than a third of patients who start a weight-loss GLP-1 have stopped by month twelve.", s: "Prime Therapeutics, Q1 2024 initiators" },
@@ -201,18 +219,26 @@ const GAP_LINE: Record<Track, string> = {
   clinical: "The difference between the trial and your panel is the program around the drug, and that program never left the trial.",
 };
 
+const PATIENT_GETS_TRACK: Record<Track, { t: string; b: string }> = {
+  clinical: { t: "Dose steps on time.", b: "When your protocol says a dose check is due, it tells the patient, writes up their recent weeks so the ask is short, and gives them your office number. The request comes from the patient. The decision stays with you." },
+  aesthetic: { t: "Rewards from your practice.", b: "When they hit a milestone you set, consistency, a habit, or a number, the reward arrives by text the same day, in your name, with the booking link to come in and use it." },
+};
+
 const PATIENT_GETS = [
   { t: "A plan from day one.", b: "Protein, meals, movement, dose days, refill days. Built from your protocol and the manufacturer's titration guidance, adjusted to the patient, delivered by text when each step is due." },
   { t: "Someone to ask at 9 p.m.", b: "Nausea, a missed dose, a restaurant menu, a flat week. Answered any hour, in any language, from your protocol. It reads photos of their fridge and their plate." },
   { t: "Check-ins before the hard days.", b: "It reaches out first on dose days, refill days, and the plateau weeks when most people quit. The patient never has to remember to ask." },
   { t: "A private Page with your name on it.", b: "Every text, call, and photo becomes one organized page: meals, workouts, shot log, labs due, what to ask at the next visit. Nothing to fill in. Your practice at the top." },
   { t: "A progress summary to bring to you.", b: "Before a visit, or whenever they choose, Jurni GLP builds a one-page PDF: weight trend, dose history, side effects by week, protein and movement consistency, open questions. The patient decides to share it. Most do, because it makes the visit about them." },
-  { t: "Dose steps on time.", b: "When your protocol says a dose check is due, it tells the patient and offers to send the request to your office with their recent notes. You decide." },
   { t: "A clear line to you.", b: "When something needs a clinician, it says so, tells them to call your office, and has the onset and timing written down so the call is short." },
 ];
 
+const PROTOCOL_CARD: Record<Track, { t: string; b: string }> = {
+  clinical: { t: "Your protocol, delivered every day.", b: "Your titration schedule, your dietary guidance, your lab cadence, your rules for when to call, alongside the manufacturer's own guidance. Loaded once. The patient hears it from Jurni GLP, in your practice's name, at the moment it applies." },
+  aesthetic: { t: "Your guidance, delivered every day.", b: "Your skincare guidance, your procedure prep and recovery rules, your advice on when to come in, in your practice's name, at the moment it applies. Dosing follows the manufacturer's guidance and whoever prescribed it. Loaded once." },
+};
+
 const PRACTICE_GETS_SHARED = [
-  { t: "Your protocol, delivered every day.", b: "Your titration schedule, your dietary guidance, your lab cadence, your rules for when to call, alongside the manufacturer's own guidance. Loaded once. The patient hears it from Jurni GLP, in your practice's name, at the moment it applies." },
   { t: "Fewer is-this-normal calls.", b: "Those go to Jurni GLP, with your protocol as the answer. Your front desk gets the calls that need a person, and gets them with the timing already noted." },
   { t: "A progress summary before the visit.", b: "When the patient shares it, you walk in knowing exactly how they're doing: weight trend, dose history, side effects by week, how consistent they've been, what they want to ask. One page, built by Jurni GLP, shared by the patient. No portal, no login." },
   { t: "Nothing to set up. Nothing to pay.", b: "No EHR integration. No patient information leaves your practice. No software, no invoice, no staff time. One 30-minute walkthrough, then you give the patient a phone number. No money moves between Jurni GLP and a prescriber." },
@@ -223,11 +249,11 @@ const PRACTICE_GETS: Record<Track, { t: string; b: string }[]> = {
     { t: "Every GLP-1 patient, not just the ones you prescribe.", b: "Most of your patients on a GLP-1 got it somewhere else: a telehealth service, a primary care doctor, a compounder. They are still your patients. Hand every one of them Jurni GLP and every one of them is in a daily thread that carries your name and your rewards." },
     { t: "A year-long thread to every GLP-1 patient.", b: "Through the whole arc of visible change, your patient is in a daily conversation that carries your name. When skin, contouring, and injectables become the next conversation, you are already in the room." },
     { t: "Milestone rewards, in your name, on the day they're earned.", b: "Consistency, habits, or pounds: you choose the milestones and the rewards. Jurni GLP delivers them by text at the moment the patient feels it. Not a quarterly email. The day." },
-    { t: "A GLP-1 program your competitors don't have.", b: "Support around the clock, under your name, for every patient you prescribe. The practice down the street is handing out a pamphlet." },
+    { t: "A GLP-1 program your competitors don't have.", b: "Support around the clock, under your name, for every GLP-1 patient who walks in. The practice down the street is handing out a pamphlet." },
   ],
   clinical: [
     { t: "Every GLP-1 patient, not just the ones you prescribe.", b: "The patient whose PCP wrote the prescription still calls your office when the nausea hits. Put everyone on a GLP-1 in your panel on Jurni GLP, and the whole panel gets the same support, on your protocol, while your staff gets their hours back." },
-    { t: "Patients who stay on it and reach the right dose.", b: "A daily thread keeps the patient on the plan you wrote through the weeks most people quit, and brings the dose conversation to you on your schedule." },
+    { t: "Patients who stay on it, stay with you, and reach the right dose.", b: "A daily thread keeps the patient on the plan you wrote through the weeks most people quit, and tells them when it's time to call you about the next step. The refill stays yours." },
     { t: "A site in the study, with your name on the evidence.", b: "Named in resulting publications with your approval. A seat on the clinical advisory group. First access to your own panel's persistence data." },
     { t: "Shorter visits, better questions.", b: "The patient arrives with a one-page progress summary they chose to share: weight trend, dose history, side effects, consistency, questions. The visit starts where it should." },
   ],
@@ -258,8 +284,8 @@ const MONEY: Record<Track, { h: string; b: string; commit: string[] }> = {
 
 const FAQ_SHARED = [
   { q: "What if I didn't prescribe the GLP-1?", a: "Doesn't matter. If the patient is on one and they're in your practice, hand them Jurni GLP. It runs on your protocol for the parts you own (your visits, your labs, your rules for when to call) and on the manufacturer's titration guidance for the rest. Prescriber decisions stay with whoever wrote it." },
-  { q: "Am I liable for what it tells my patients?", a: "It delivers your protocol and general behavioral support. It does not diagnose, prescribe, or change a dose, and it says so to the patient. Anything outside that, it sends back to your office. Our counsel has reviewed the boundaries; yours is welcome to." },
-  { q: "What does my staff actually have to do?", a: "Say one sentence at the prescription. Hand over a card. Answer the office requests Jurni GLP forwards, which you would be fielding anyway, now with the timing already written down." },
+  { q: "Am I liable for what it tells my patients?", a: "It delivers your protocol and general behavioral support. It does not diagnose, prescribe, or change a dose, and it says so to the patient. Anything outside that, it tells the patient to call your office. Our counsel has reviewed the boundaries; yours is welcome to." },
+  { q: "What does my staff actually have to do?", a: "Say one sentence. Hand over a card. Take the calls Jurni GLP tells patients to make, which now arrive with the timing and history already written down." },
   { q: "What happens at 2 a.m.?", a: "The patient texts, and gets an answer from your protocol. If what they describe is on your call-now list, it tells them to call your office or go to urgent care, in those words." },
   { q: "Does patient information leave my practice?", a: "No. Nothing connects to your EHR. The patient talks to Jurni GLP from their own phone and owns that relationship. We see nothing from your systems, and you see what the patient chooses to share with you, which is usually their progress summary before a visit." },
   { q: "Do patients know it's an AI?", a: "Yes, from the first message. Most people prefer it for the 9 p.m. questions they would never call about, and it never pretends to be your staff." },
@@ -285,7 +311,7 @@ function Milestones() {
   const steps = [
     ["Week 4", "Four dose days on schedule. A skincare sample kit, picked up at the front desk.", "Consistency"],
     ["Protein, 5 of 7", "A month of hitting the protein target most days. A credit toward a facial.", "Habit"],
-    ["First 10 lb", "A complimentary skin consultation, booked from the thread.", "Progress"],
+    ["First 10 lb", "A complimentary skin consultation, booked with your practice.", "Progress"],
     ["Through the plateau", "Two flat weeks and they stayed on plan. A treatment add-on, your choice.", "Persistence"],
     ["12 lifts", "Three months of strength work. A body-contouring consultation.", "Habit"],
     ["Goal weight", "The conversation about what comes next, with you.", "Progress"],
@@ -313,9 +339,9 @@ function Milestones() {
           <p className="mt-5 text-[16px] leading-[1.5] text-muted">Set once with your team, around your menu and your margins. Change it any time. Rewards can be anything a patient would come in for.</p>
         </div>
         <Screen header="Jurni GLP" sub="For patients of your practice">
-          <StakBubble>That&apos;s four weeks of protein on target five days or more. Most people don&apos;t get there in month one. Your practice set something aside for exactly this: a credit toward a facial, because the skin is about to start changing and they want to be the ones looking at it. Want me to book it?</StakBubble>
-          <UserBubble text="ha. ok yes. saturday morning?" />
-          <StakBubble>Saturday at 10 with their team. It&apos;s on your Page, and I&apos;ll remind you Friday night. Next one on the ladder is ten pounds. You&apos;re at seven.</StakBubble>
+          <StakBubble>That&apos;s four weeks of protein on target five days or more. Most people don&apos;t get there in month one. Your practice set something aside for exactly this: a credit toward a facial, because the skin is about to start changing and they want to be the ones looking at it. Here&apos;s their booking link.</StakBubble>
+          <UserBubble text="ha. ok. booked saturday at 10" />
+          <StakBubble>It&apos;s on your Page, and I&apos;ll remind you Friday night. Next one on the ladder is ten pounds. You&apos;re at seven.</StakBubble>
         </Screen>
       </div>
     </Block>
@@ -399,49 +425,91 @@ export function PracticesContent() {
                 <p className="mt-4 text-[15px] leading-[1.5]" style={{ color: "var(--stak-slate)" }}>{WHO[t]}</p>
               </div>
             </NightCard>
-            {/* The real exchange */}
-            <Block label="WHAT GLP-1 CARE LOOKS LIKE BETWEEN VISITS">
-              <h2 className="display-section mt-4 max-w-[800px]">A real exchange. A good practice. Read what else happened.</h2>
-              <p className={lead}>October 2026, between a GLP-1 patient and the specialty practice that prescribes him. The practice did exactly what was asked, promptly.</p>
-              <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
-                <Screen header="The practice" sub="Text message · SMS · Tuesday">
-                  <OfficeBubble>Thank you for calling! Sorry we missed your call. Please text us at this number or leave a voicemail and we will contact you as soon as we can! Reply STOP to unsubscribe.</OfficeBubble>
-                  <PatientBubble text="Calling to increase my zepbound dose and refill prescription" />
-                  <OfficeBubble>Ok we will create an encounter today and the dr will work on it.</OfficeBubble>
-                  <OfficeBubble>Done</OfficeBubble>
-                  <PatientBubble text="Thanks! So is the new dose 7.5 mg or 10 mg?" />
-                  <PatientBubble text="Ive been on 5mg the last few months" />
-                  <OfficeBubble>We sent 7.5</OfficeBubble>
-                  <PatientBubble text="Thanks!" />
-                </Screen>
-                <div>
-                  <p className={eyebrow}>What didn&apos;t happen</p>
-                  <Dots items={MISSING} />
-                  <p className="mt-6 text-[17px] leading-[1.5] text-muted">
-                    This is a patient who advocates for himself. The drug changes a body in under a year. The care around it is a ten-minute visit, a pamphlet, and whatever the patient thinks to ask.
-                  </p>
-                </div>
-              </div>
-            </Block>
+            {/* The exchange */}
+            {t === "clinical" ? (
+              <>
+                <Block label="WHAT GLP-1 CARE LOOKS LIKE BETWEEN VISITS">
+                  <h2 className="display-section mt-4 max-w-[800px]">A real exchange. A good practice. Read what else happened.</h2>
+                  <p className={lead}>October 2026, between a GLP-1 patient and the specialty practice that prescribes him. The practice did exactly what was asked, promptly.</p>
+                  <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
+                    <Screen header="The practice" sub="Text message · SMS · Tuesday">
+                      <OfficeBubble>Thank you for calling! Sorry we missed your call. Please text us at this number or leave a voicemail and we will contact you as soon as we can! Reply STOP to unsubscribe.</OfficeBubble>
+                      <PatientBubble text="Calling to increase my zepbound dose and refill prescription" />
+                      <OfficeBubble>Ok we will create an encounter today and the dr will work on it.</OfficeBubble>
+                      <OfficeBubble>Done</OfficeBubble>
+                      <PatientBubble text="Thanks! So is the new dose 7.5 mg or 10 mg?" />
+                      <PatientBubble text="Ive been on 5mg the last few months" />
+                      <OfficeBubble>We sent 7.5</OfficeBubble>
+                      <PatientBubble text="Thanks!" />
+                    </Screen>
+                    <div>
+                      <p className={eyebrow}>What didn&apos;t happen</p>
+                      <Dots items={MISSING.clinical} />
+                      <p className="mt-6 text-[17px] leading-[1.5] text-muted">
+                        This is a patient who advocates for himself. The drug changes a body in under a year. The care around it is a ten-minute visit, a pamphlet, and whatever the patient thinks to ask.
+                      </p>
+                    </div>
+                  </div>
+                </Block>
 
-            {/* The same week, with Jurni GLP */}
-            <Block label="THE SAME WEEK, WITH YOUR PROTOCOL RUNNING ON JURNI GLP">
-              <h2 className="display-section mt-4 max-w-[800px]">Same patient. Same practice. Same dose change. Nobody added to your workload.</h2>
-              <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
-                <Screen header="Jurni GLP" sub="For patients of your practice">
-                  <StakBubble>Week 12 on 5 mg. Your practice&apos;s protocol has a dose check at this point: if the side effects have been manageable, they consider a step to 7.5. Want me to send the request to their office, with your last four weeks of notes?</StakBubble>
-                  <UserBubble text="yes. nausea was only bad the first two weeks" />
-                  <StakBubble>Sent. I&apos;ll let you know when they answer.</StakBubble>
-                  <StakBubble>Your office approved 7.5 and sent the prescription. Two things from their protocol before you start: they want bloodwork at this step, so the lab order is on your Page with the number to book. And the first 7.5 dose is usually the rough one. Smaller dinners for three days, water all day. I&apos;ll check in the morning after.</StakBubble>
-                  <UserBubble text="ok. thanks" />
-                  <StakBubble>One more: your next dose check is week 8 on 7.5. I&apos;ll bring it up then. You don&apos;t have to remember.</StakBubble>
-                </Screen>
-                <div>
-                  <p className={eyebrow}>What changed</p>
-                  <Dots items={CHANGED} />
-                </div>
-              </div>
-            </Block>
+                <Block label="THE SAME WEEK, WITH YOUR PROTOCOL RUNNING ON JURNI GLP">
+                  <h2 className="display-section mt-4 max-w-[800px]">Same patient. Same practice. Same dose change. Nobody added to your workload.</h2>
+                  <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
+                    <Screen header="Jurni GLP" sub="For patients of your practice">
+                      <StakBubble>Week 12 on 5 mg. Your practice&apos;s protocol has a dose check at this point: if the side effects have been manageable, they consider a step to 7.5. I&apos;ve written up your last four weeks so you can send it to them. Want to see it?</StakBubble>
+                      <UserBubble text="yes. nausea was only bad the first two weeks" />
+                      <StakBubble>Here it is: dose days all on time, nausea weeks 1 and 2 then clear, protein on target 22 of 28 days, down 6 lb. Their office is (555) 014-2200, or text that number. Let me know what they say.</StakBubble>
+                      <UserBubble text="they approved 7.5. sent it to the pharmacy" />
+                      <StakBubble>Good. Two things from their protocol before you start: they want bloodwork at this step, so it&apos;s on your Page with the number to book. And the first 7.5 dose is usually the rough one. Smaller dinners for three days, water all day. I&apos;ll check in the morning after.</StakBubble>
+                      <StakBubble>Your next dose check is week 8 on 7.5. I&apos;ll bring it up then. You don&apos;t have to remember.</StakBubble>
+                    </Screen>
+                    <div>
+                      <p className={eyebrow}>What changed</p>
+                      <Dots items={CHANGED.clinical} />
+                    </div>
+                  </div>
+                </Block>
+              </>
+            ) : (
+              <>
+                <Block label="WHAT A GLP-1 PATIENT LOOKS LIKE FROM YOUR CHAIR">
+                  <h2 className="display-section mt-4 max-w-[800px]">She mentioned it at a Botox visit. Then nothing, for a year.</h2>
+                  <p className={lead}>An illustrative story, built from what aesthetic practices tell us. A telehealth service prescribed the GLP-1. She told your injector about it in passing. You never heard about it again.</p>
+                  <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
+                    <Screen header="Your practice" sub="Front desk · over the following months">
+                      <PatientBubble text="Just so you know I started Zepbound in August, from one of those online places" />
+                      <OfficeBubble>Oh nice! Good luck with it. See you in three months for your next Botox.</OfficeBubble>
+                      <OfficeBubble>Hi! Just confirming your appointment Thursday at 2.</OfficeBubble>
+                      <PatientBubble text="So sorry, need to reschedule. Will call" />
+                      <OfficeBubble>No problem, let us know!</OfficeBubble>
+                    </Screen>
+                    <div>
+                      <p className={eyebrow}>What didn&apos;t happen</p>
+                      <Dots items={MISSING.aesthetic} />
+                      <p className="mt-6 text-[17px] leading-[1.5] text-muted">
+                        She&apos;s still your patient. The drug is changing her face, her skin, and her body in under a year, and the only practice that could help with any of it heard about the medication once, in passing.
+                      </p>
+                    </div>
+                  </div>
+                </Block>
+
+                <Block label="THE SAME YEAR, WITH JURNI GLP CARRYING YOUR NAME">
+                  <h2 className="display-section mt-4 max-w-[800px]">Same patient. Same practice. Same prescription from somewhere else. Nobody added to your workload.</h2>
+                  <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1fr] md:items-start">
+                    <Screen header="Jurni GLP" sub="For patients of your practice">
+                      <UserBubble text="is it normal that my face looks kind of hollow now? im down 22 lb" />
+                      <StakBubble>I can&apos;t assess your face, and I won&apos;t guess. What I can tell you: changes in the face with fast weight loss are common, and your practice covers exactly this in a consultation. That&apos;s what they&apos;re for. Here&apos;s their booking link.</StakBubble>
+                      <UserBubble text="ok. booked for tuesday" />
+                      <StakBubble>Good. One more thing: 22 pounds passed your second milestone. Your practice set a credit aside for it, and it&apos;s on your Page now. Mention it Tuesday. Your dose and your prescription stay with the people who wrote it; I only help you show up to your own program.</StakBubble>
+                    </Screen>
+                    <div>
+                      <p className={eyebrow}>What changed</p>
+                      <Dots items={CHANGED.aesthetic} />
+                    </div>
+                  </div>
+                </Block>
+              </>
+            )}
 
             {/* Numbers */}
             <Block label="WHY IT MATTERS">
@@ -468,18 +536,25 @@ export function PracticesContent() {
             <Block label="WHAT YOUR PATIENT GETS">
               <h2 className="display-section mt-4 max-w-[760px]">The program the trials wrapped around the drug, on the phone they already have.</h2>
               <p className={lead}>Built from your protocol and the manufacturer&apos;s titration guidance, then personalized to the patient: what they eat, how they move, what their week looks like, what language they think in. No app. No account. Nothing to fill in.</p>
-              <Cards items={PATIENT_GETS} />
+              <Cards items={[...PATIENT_GETS.slice(0, 5), PATIENT_GETS_TRACK[t], ...PATIENT_GETS.slice(5)]} />
             </Block>
 
             {/* How it works */}
             <Block label="HOW IT WORKS IN YOUR PRACTICE">
               <h2 className="display-section mt-4 max-w-[760px]">One sentence in the exam room. That&apos;s the whole workflow.</h2>
               <div className="mt-8 grid gap-4 md:grid-cols-3">
-                {[
-                  ["1", "The prescription.", "You're already having the GLP-1 conversation. At the end of it, you say one sentence."],
-                  ["2", "The speakerphone moment.", "The patient texts or calls Jurni GLP from their own phone before they leave. It greets them by your practice's name. Thirty seconds."],
-                  ["3", "Set up before the parking lot.", "Their Page exists before they reach the car: your protocol, their dose schedule, their first week."],
-                ].map(([n, h, b]) => (
+                {(t === "aesthetic"
+                  ? [
+                      ["1", "Any visit.", "A patient mentions they're on a GLP-1, or you ask. Whoever prescribed it, you say one sentence."],
+                      ["2", "The speakerphone moment.", "The patient texts or calls Jurni GLP from their own phone before they leave. It greets them by your practice's name. Thirty seconds."],
+                      ["3", "Set up before the parking lot.", "Their Page exists before they reach the car: your guidance, their first week, your first milestone."],
+                    ]
+                  : [
+                      ["1", "The prescription.", "You're already having the GLP-1 conversation. At the end of it, you say one sentence."],
+                      ["2", "The speakerphone moment.", "The patient texts or calls Jurni GLP from their own phone before they leave. It greets them by your practice's name. Thirty seconds."],
+                      ["3", "Set up before the parking lot.", "Their Page exists before they reach the car: your protocol, their dose schedule, their first week."],
+                    ]
+                ).map(([n, h, b]) => (
                   <WhiteCard key={n}>
                     <div>
                       <p className="font-display text-[40px] font-extrabold leading-none text-[var(--stak-amber-deep)]">{n}</p>
@@ -493,7 +568,9 @@ export function PracticesContent() {
                 <div>
                   <p className="text-[13px] font-semibold uppercase tracking-[.08em]" style={{ color: "var(--stak-amber)" }}>The sentence</p>
                   <p className="font-display mt-3 text-[26px] font-extrabold leading-[1.15] md:text-[30px]">
-                    &ldquo;Before you go, text this number. It&apos;s our GLP-1 support line. It has our plan for you, it answers questions any hour, and it&apos;ll tell you when to call us. It&apos;ll be ready by the time you&apos;re in the car.&rdquo;
+                    {t === "aesthetic"
+                      ? "\u201cBefore you go, text this number. It\u2019s our GLP-1 support line. It has our guidance for you, it answers questions any hour, and it tells you when to come see us. It\u2019ll be ready by the time you\u2019re in the car.\u201d"
+                      : "\u201cBefore you go, text this number. It\u2019s our GLP-1 support line. It has our plan for you, it answers questions any hour, and it\u2019ll tell you when to call us. It\u2019ll be ready by the time you\u2019re in the car.\u201d"}
                   </p>
                 </div>
               </NightCard>
@@ -501,7 +578,7 @@ export function PracticesContent() {
 
             {/* What the practice gets */}
             <Block label="WHAT YOUR PRACTICE GETS">
-              <Cards items={[...PRACTICE_GETS[t], ...PRACTICE_GETS_SHARED]} />
+              <Cards items={[...PRACTICE_GETS[t], PROTOCOL_CARD[t], ...PRACTICE_GETS_SHARED]} />
             </Block>
 
             {/* Money + commitment */}
@@ -535,7 +612,9 @@ export function PracticesContent() {
               <div>
                 <SectionLabel>WHAT IT ISN&apos;T</SectionLabel>
                 <p className="mt-3 text-[18px] leading-[1.5]">
-                  Behavioral support only. Jurni GLP doesn&apos;t diagnose, prescribe, or change a dose. Titration and treatment decisions stay with you. It surfaces your protocol and asks; it never names a dose on its own. It directs defined symptoms back to your office. No patient information leaves your practice, and nothing it does requires your EHR.
+                  {t === "aesthetic"
+                    ? "Behavioral support only. Jurni GLP doesn\u2019t diagnose, prescribe, or change a dose. Dosing decisions stay with whoever prescribed it. It carries your guidance on skin, procedures, and when to come in, and it never assesses a face or a body on its own. No patient information leaves your practice, and nothing it does requires your EHR."
+                    : "Behavioral support only. Jurni GLP doesn\u2019t diagnose, prescribe, or change a dose. Titration and treatment decisions stay with you. It surfaces your protocol and asks; it never names a dose on its own. It tells the patient when to call your office. No patient information leaves your practice, and nothing it does requires your EHR."}
                 </p>
               </div>
             </YellowCard>
@@ -552,7 +631,7 @@ export function PracticesContent() {
                 <li>Tell us roughly how many GLP-1 patients are in your active panel.</li>
                 <li>A 30-minute walkthrough for your team. We load your protocol{t === "aesthetic" ? " and set your milestones" : ""}.</li>
                 <li>Your practice link and your printable kit arrive: cards, a flyer, and the messages to send your existing GLP-1 patients.</li>
-                <li>Say the sentence at the next GLP-1 prescription.</li>
+                <li>{t === "aesthetic" ? "Say the sentence to the next patient who mentions a GLP-1." : "Say the sentence at the next GLP-1 prescription."}</li>
               </ol>
               <div className="mt-10 flex flex-col gap-3 min-[420px]:flex-row">
                 <a
@@ -572,7 +651,7 @@ export function PracticesContent() {
                 </a>
               </div>
               <p className="fine-print mt-6 text-muted">
-                Jurni GLP is a service of Jurni Health, Inc. and is not associated with, endorsed by, or sponsored by Novo Nordisk or Eli Lilly. The exchange near the top of this page is reproduced with the patient&apos;s permission; the practice is not identified.
+                Jurni GLP is a service of Jurni Health, Inc. and is not associated with, endorsed by, or sponsored by Novo Nordisk or Eli Lilly. {t === "clinical" ? "The exchange near the top of this page is reproduced with the patient\u2019s permission; the practice is not identified." : "The patient story near the top of this page is illustrative."}
               </p>
             </Block>
           </>
